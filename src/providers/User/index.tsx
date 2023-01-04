@@ -12,6 +12,7 @@ export const UserContext = createContext({} as iContext);
 
 export const UserProvider = ({ children }: iProviderProps) => {
   const [user, setUser] = useState<iUser>({});
+  const item = {};
 
   return (
     <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>
