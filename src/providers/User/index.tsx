@@ -1,0 +1,17 @@
+import { createContext, useState } from "react";
+
+interface iContext {}
+
+interface iProviderProps {
+  children: React.ReactNode;
+}
+
+interface iUser {}
+
+export const UserContext = createContext({} as iContext);
+
+export const UserProvider = ({ children }: iProviderProps) => {
+  const [user, setUser] = useState<iUser>({});
+
+  return <UserContext.Provider value={}>{children}</UserContext.Provider>;
+};
