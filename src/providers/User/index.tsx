@@ -13,7 +13,7 @@ export const UserContext = createContext({} as iContext);
 export const UserProvider = ({ children }: iProviderProps) => {
   const [user, setUser] = useState<iUser>({});
   const item = {
-    name: "produto",
+    name: "caneta",
   };
 
   return (
