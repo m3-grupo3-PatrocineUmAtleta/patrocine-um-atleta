@@ -1,1 +1,0 @@
-# patrocine-um-atleta
