@@ -12,7 +12,7 @@ export const Header = () => {
   const [openHamburguer, setOpenHamburguer] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
 
-  return (
+  return !openSearch ? (
     <StyledHeader>
       <img src={logo} alt="" />
       <div>
@@ -32,25 +32,34 @@ export const Header = () => {
       {openHamburguer && (
         <div className="dropBox">
           <nav>
-            <Link to={"/"}>Sobre</Link>
-
+            <Link to={"/"}>Sobre nós</Link>
             <Link to={"/login"}>Login</Link>
-
             <Link to={"/register"}>Cadastre-se</Link>
           </nav>
         </div>
       )}
-      {openSearch && (
-        <div className="searchInput">
-          <button
-            className="searchButton"
-            onClick={() => setOpenSearch(!openSearch)}
-          >
-            <img src={lupaInput} alt="" />
-          </button>
-          <input type="text" />
-        </div>
-      )}
+    </StyledHeader>
+  ) : (
+    <StyledHeader>
+      <img src={logo} alt="" />
+      <div className="searchInput">
+        <button
+          className="searchButton"
+          onClick={() => setOpenSearch(!openSearch)}
+        >
+          <img src={lupaInput} alt="" />
+        </button>
+        <input type="text" />
+      </div>
+      <div>
+        <button
+          className="hamburguerButton"
+          onClick={() => setOpenHamburguer(!openHamburguer)}
+        >
+          <img src={!openHamburguer ? hamburguer : hamburguerClose} alt="" />
+        </button>
+      </div>
+      {openHamburguer && <div className="dropBox"></div>}
     </StyledHeader>
   );
 };

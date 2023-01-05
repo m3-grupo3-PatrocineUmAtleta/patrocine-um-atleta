@@ -10,12 +10,14 @@ export const StyledHeader = styled.header`
   align-items: center;
   padding: 10px 16px;
   position: relative;
+  gap: 1rem;
 
   div {
-    width: 30%;
     display: flex;
     justify-content: space-between;
+    gap: 12px;
   }
+
   div button {
     display: flex;
     justify-content: space-between;
@@ -24,13 +26,11 @@ export const StyledHeader = styled.header`
     background-color: transparent;
   }
   .searchInput {
-    position: absolute;
-    top: 12px;
-    right: -39%;
-    width: 100%;
-    z-index: 22;
+    position: relative;
+    height: 50px;
+
     input {
-      width: 140px;
+      width: 120px;
       height: 46px;
       background-color: var(--color-primary-50);
       border: none;
@@ -41,8 +41,8 @@ export const StyledHeader = styled.header`
     button {
       position: absolute;
       z-index: 1;
-      right: 280px;
       top: 10px;
+      left: 10px;
     }
   }
   .dropBox {
