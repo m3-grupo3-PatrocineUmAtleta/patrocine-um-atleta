@@ -42,6 +42,18 @@ const Fonts = createGlobalStyle`
     line-height: 130%;
   }
 
+  .gray-100 {
+    color: var(--color-gray-100);
+  }
+  .gray-50 {
+    color: var(--color-gray-50);
+  }
+  .gray-20 {
+    color: var(--color-gray-20);
+  }
+  .gray-0 {
+    color: var(--color-gray-0);
+  }
   
 `;
 
