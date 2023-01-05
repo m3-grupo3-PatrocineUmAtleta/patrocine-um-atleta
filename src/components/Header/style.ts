@@ -12,6 +12,16 @@ export const StyledHeader = styled.header`
   position: relative;
   gap: 1rem;
 
+  nav {
+    width: 350px;
+    display: flex;
+    gap: 16px;
+    a {
+      color: var(--color-secundary);
+      text-decoration: none;
+    }
+  }
+
   div {
     display: flex;
     justify-content: space-between;
@@ -24,6 +34,9 @@ export const StyledHeader = styled.header`
     width: 32px;
     height: 32px;
     background-color: transparent;
+  }
+  .showDesktop {
+    display: none;
   }
   .searchInput {
     position: relative;
@@ -71,6 +84,18 @@ export const StyledHeader = styled.header`
           border-bottom: 1px solid var(--color-primary);
         }
       }
+    }
+  }
+  @media (min-width: 750px) {
+    .showMobile {
+      display: none;
+    }
+    .showDesktop {
+      display: flex;
+      width: 70%;
+    }
+    header {
+      justify-content: center;
     }
   }
 `;

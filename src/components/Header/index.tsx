@@ -15,7 +15,7 @@ export const Header = () => {
   return !openSearch ? (
     <StyledHeader>
       <img src={logo} alt="" />
-      <div>
+      <div className="showMobile">
         <button
           className="searchButton"
           onClick={() => setOpenSearch(!openSearch)}
@@ -38,6 +38,17 @@ export const Header = () => {
           </nav>
         </div>
       )}
+      <div className="showDesktop">
+        <nav>
+          <Link to={"/"}>Home</Link>
+          <Link to={"/login"}>Sobre</Link>
+          <Link to={"/register"}>Instituição</Link>
+        </nav>
+        <nav>
+          <Link to={"/login"}>Login</Link>
+          <Link to={"/register"}>Cadastre-se</Link>
+        </nav>
+      </div>
     </StyledHeader>
   ) : (
     <StyledHeader>

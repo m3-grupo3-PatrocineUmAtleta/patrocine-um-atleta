@@ -15,7 +15,6 @@ export const Login = () => {
 
   return (
     <>
-      <Header></Header>
       <h1>Login</h1>
       {!isLoading ? (
         <Button onClick={handleClick} variant="contained">
@@ -24,7 +23,6 @@ export const Login = () => {
       ) : (
         <>
           {" "}
-          <Header></Header>
           <LoadingButton onClick={handleClick} loading variant="contained">
             Submit
           </LoadingButton>
