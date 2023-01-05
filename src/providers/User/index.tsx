@@ -1,6 +1,10 @@
 import { createContext, useState } from "react";
 
-interface iContext {}
+interface iContext {
+  user: iUser;
+  isLoading: boolean;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
 interface iProviderProps {
   children: React.ReactNode;
@@ -12,11 +16,11 @@ export const UserContext = createContext({} as iContext);
 
 export const UserProvider = ({ children }: iProviderProps) => {
   const [user, setUser] = useState<iUser>({});
-  const item = {
-    name: "caneta",
-  };
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
-    <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ user, isLoading, setIsLoading }}>
+      {children}
+    </UserContext.Provider>
   );
 };

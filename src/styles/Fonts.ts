@@ -1,0 +1,48 @@
+import { createGlobalStyle } from "styled-components";
+
+const Fonts = createGlobalStyle`
+  .title-1 {
+    font-weight: 700;
+    font-size: 1.625rem;
+    line-height: 130%;
+  }
+  .title-2 {
+    font-weight: 700;
+    font-size: 1.375rem;
+    line-height: 130%;
+  }
+  .title-3 {
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 130%;
+  }
+  .title-4 {
+    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 170%;
+  }
+  .headline {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 150%;
+  }
+  .body {
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 170%;
+  }
+  .body-600 {
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 170%;
+  }
+  .caption {
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 130%;
+  }
+
+  
+`;
+
+export default Fonts;
