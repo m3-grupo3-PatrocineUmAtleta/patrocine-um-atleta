@@ -4,6 +4,7 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import SaveIcon from "@mui/icons-material/Save";
 import Stack from "@mui/material/Stack";
 import { UserContext } from "../../providers/User";
+import { Header } from "../../components/Header";
 
 export const Login = () => {
   const { isLoading, setIsLoading } = useContext(UserContext);
@@ -14,15 +15,20 @@ export const Login = () => {
 
   return (
     <>
+      <Header></Header>
       <h1>Login</h1>
       {!isLoading ? (
         <Button onClick={handleClick} variant="contained">
           add
         </Button>
       ) : (
-        <LoadingButton onClick={handleClick} loading variant="contained">
-          Submit
-        </LoadingButton>
+        <>
+          {" "}
+          <Header></Header>
+          <LoadingButton onClick={handleClick} loading variant="contained">
+            Submit
+          </LoadingButton>
+        </>
       )}
 
       {/* <Button variant="outlined">add</Button>
