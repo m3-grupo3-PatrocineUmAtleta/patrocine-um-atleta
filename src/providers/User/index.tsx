@@ -28,6 +28,8 @@ export const UserProvider = ({ children }: iProviderProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [buttonValue, setButtonValue] = useState("");
   const [allAthletes, setAllAthletes] = useState([] as iAthlete[]);
+  const [openModal, setIsOpenModal] = useState(false);
+  const [settingsModal, setSettingsModal] = useState("");
   const [address, setAddress] = useState<iResponseAddress | null>(null);
   const navigate = useNavigate();
 
@@ -44,13 +46,25 @@ export const UserProvider = ({ children }: iProviderProps) => {
   return (
     <UserContext.Provider
       value={{
+       
         user,
+       
         isLoading,
+       
         setIsLoading,
+       
         buttonValue,
+       
         setButtonValue,
+       
         allAthletes,
+       
         setAllAthletes,
+        openModal,
+        setIsOpenModal,
+        settingsModal,
+        setSettingsModal,
+     ,
         registerUser,
         setAddress,
         address,

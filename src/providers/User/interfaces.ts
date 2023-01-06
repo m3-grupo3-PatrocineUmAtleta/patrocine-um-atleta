@@ -6,6 +6,10 @@ export interface iContext {
   setButtonValue: React.Dispatch<React.SetStateAction<string>>;
   allAthletes: iAthlete[];
   setAllAthletes: React.Dispatch<React.SetStateAction<iAthlete[]>>;
+  openModal: boolean;
+  setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+  settingsModal: string;
+  setSettingsModal: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface iProviderProps {
