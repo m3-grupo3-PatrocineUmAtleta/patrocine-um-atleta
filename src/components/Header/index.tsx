@@ -9,7 +9,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { StyledContainer } from "../../styles/Container";
 
-export const Header = () => {
+interface iHeaderProps {
+  isHome: boolean;
+}
+
+export const Header = ({ isHome }: iHeaderProps) => {
   const [openHamburguer, setOpenHamburguer] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
 
@@ -17,20 +21,27 @@ export const Header = () => {
     <StyledHeader>
       <StyledContainer>
         <img src={logo} alt="" />
-        <div className="showMobile">
-          <button
-            className="searchButton"
-            onClick={() => setOpenSearch(!openSearch)}
-          >
-            <img src={lupa} alt="" />
-          </button>
-          <button
-            className="hamburguerButton"
-            onClick={() => setOpenHamburguer(!openHamburguer)}
-          >
-            <img src={!openHamburguer ? hamburguer : hamburguerClose} alt="" />
-          </button>
-        </div>
+        {isHome ? (
+          <div className="showMobile">
+            <button
+              className="searchButton"
+              onClick={() => setOpenSearch(!openSearch)}
+            >
+              <img src={lupa} alt="" />
+            </button>
+            <button
+              className="hamburguerButton"
+              onClick={() => setOpenHamburguer(!openHamburguer)}
+            >
+              <img
+                src={!openHamburguer ? hamburguer : hamburguerClose}
+                alt=""
+              />
+            </button>
+          </div>
+        ) : (
+          <></>
+        )}
         {openHamburguer && (
           <div className="dropBox">
             <nav>
@@ -60,28 +71,32 @@ export const Header = () => {
       <StyledContainer>
         {" "}
         <img src={logo} alt="" />
-        <div className="showMobile">
-          <div className="searchInput">
-            <button
-              className="searchButton"
-              onClick={() => setOpenSearch(!openSearch)}
-            >
-              <img src={lupaInput} alt="" />
-            </button>
-            <input type="text" />
+        {isHome ? (
+          <div className="showMobile">
+            <div className="searchInput">
+              <button
+                className="searchButton"
+                onClick={() => setOpenSearch(!openSearch)}
+              >
+                <img src={lupaInput} alt="" />
+              </button>
+              <input type="text" />
+            </div>
+            <div>
+              <button
+                className="hamburguerButton"
+                onClick={() => setOpenHamburguer(!openHamburguer)}
+              >
+                <img
+                  src={!openHamburguer ? hamburguer : hamburguerClose}
+                  alt=""
+                />
+              </button>
+            </div>
           </div>
-          <div>
-            <button
-              className="hamburguerButton"
-              onClick={() => setOpenHamburguer(!openHamburguer)}
-            >
-              <img
-                src={!openHamburguer ? hamburguer : hamburguerClose}
-                alt=""
-              />
-            </button>
-          </div>
-        </div>
+        ) : (
+          <></>
+        )}
         <div className="showDesktop">
           <nav>
             <Link to={"/"}>Home</Link>
