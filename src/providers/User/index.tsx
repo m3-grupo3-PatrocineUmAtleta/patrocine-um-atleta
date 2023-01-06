@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { iResponseAddress } from "../../services/getAddress";
 import { iRegisterData, UserRegister } from "../../services/userRegister";
 import { iContext, iProviderProps, iUser, iAthlete } from "./interfaces";
 
@@ -28,25 +27,17 @@ export const UserProvider = ({ children }: iProviderProps) => {
   return (
     <UserContext.Provider
       value={{
-       
         user,
-       
         isLoading,
-       
         setIsLoading,
-       
         buttonValue,
-       
         setButtonValue,
-       
         allAthletes,
-       
         setAllAthletes,
         openModal,
         setIsOpenModal,
         settingsModal,
         setSettingsModal,
-     ,
         registerUser,
       }}
     >
