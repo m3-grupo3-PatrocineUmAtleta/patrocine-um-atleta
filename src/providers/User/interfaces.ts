@@ -1,3 +1,5 @@
+import { iRegisterData } from "../../services/userRegister";
+
 export interface iContext {
   user: iUser | null;
   isLoading: boolean;
@@ -6,6 +8,7 @@ export interface iContext {
   setButtonValue: React.Dispatch<React.SetStateAction<string>>;
   allAthletes: iAthlete[];
   setAllAthletes: React.Dispatch<React.SetStateAction<iAthlete[]>>;
+  registerUser: (data: iRegisterData) => void;
 }
 
 export interface iProviderProps {

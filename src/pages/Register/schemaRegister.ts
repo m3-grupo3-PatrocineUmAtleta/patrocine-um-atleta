@@ -1,19 +1,16 @@
 import * as yup from "yup";
 
 export const SchemaRegister = yup.object().shape({
-  fullName: yup.string().required("Este campo é obrigatório!"),
+  name: yup.string().required("Este campo é obrigatório!"),
+  cpf: yup
+    .number()
+    .required("Este campo é obrigatótio!")
+    .integer("Somente números"),
   age: yup.string().required("Este campo é obrigatótio!"),
   image: yup.string(),
   bio: yup.string(),
-  cep: yup
-    .number()
-    .required("Este campo é obrigatório")
-    .integer("Somente números!"),
-  address: yup.string(),
-  addressNumber: yup.string(),
-  localy: yup.string(),
-  state: yup.string(),
-  phone: yup.mixed().required("Este campo é obrigatório!"),
+  address: yup.string().required("Este campo é obrigatório!"),
+  phoneNumber: yup.mixed().required("Este campo é obrigatório!"),
   email: yup
     .string()
     .required("Campo e-mail obrigatório")

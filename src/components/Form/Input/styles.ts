@@ -18,7 +18,7 @@ export const FieldsetInput = styled.fieldset<iInputText>`
   ${({ type }) => {
     if (type === "textarea") {
       return css`
-        height: 120px;
+        height: 135px;
       `;
     } else {
       return css`
@@ -26,7 +26,7 @@ export const FieldsetInput = styled.fieldset<iInputText>`
       `;
     }
   }}
-  position: relative;
+  // position: relative;
 
   & > textarea {
     border-radius: 4px;
@@ -56,39 +56,40 @@ export const FieldsetInput = styled.fieldset<iInputText>`
   }
 
   & > label {
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 0.8rem;
+    // position: absolute;
+    // left: 0;
+    // top: 0;
+    // padding: 0.8rem;
     pointer-events: none;
     transition: 0.5s;
 
-    color: var(--color-primary);
-  }
-
-  & > textarea:valid ~ label,
-  & > textarea:focus ~ label {
-    transform: translateX(0) translateY(-25px);
-    background: transparent;
-    padding: 5px;
     color: var(--color-gray-0);
   }
-  & > textarea:focus,
-  & > textarea:valid {
-    background: var(--color-gray-0);
-  }
 
-  & > input:valid ~ label,
-  & > input:focus ~ label {
-    transform: translateX(0) translateY(-25px);
-    background: transparent;
-    padding: 5px;
-    color: var(--color-gray-0);
-  }
-  & > input:focus,
-  & > input:valid {
-    background: var(--color-gray-0);
-  }
+  // & > textarea:valid ~ label,
+  // & > textarea:focus ~ label {
+  //   transform: translateX(0) translateY(-25px);
+  //   background: transparent;
+  //   padding: 5px;
+  //   color: var(--color-gray-0);
+  // }
+  // & > textarea:focus,
+  // & > textarea:valid {
+  //   background: var(--color-gray-0);
+  // }
+
+  // & > input:valid ~ label,
+  // & > input:focus ~ label {
+  //   transform: translateX(0) translateY(-25px);
+  //   background: transparent;
+  //   padding: 5px;
+  //   color: var(--color-gray-0);
+  // }
+  // & > input:focus,
+  // & > input:valid {
+  //   background: var(--color-gray-0);
+  // }
+
   & > p {
     color: var(--color-negative);
   }

@@ -8,27 +8,24 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../providers/User";
 import LoadingButton from "@mui/lab/LoadingButton";
-import { getAddress, iResponseAddress } from "../../services/getAddress";
 import { iRegisterData } from "../../services/userRegister";
 
 export interface iRegisterFormData {
-  fullName: string;
+  name: string;
+  cpf: string;
+  address: string;
   age: number;
   image: string;
   bio: string;
-  cep: number;
-  address: string;
-  addressNumber: number;
-  localy: string;
-  state: string;
-  phone: string;
+  phoneNumber: string;
   email: string;
   password: string;
   confirmPassword: string;
 }
 
 export const Register = () => {
-  const { isLoading, registerUser, address } = useContext(UserContext);
+  const { isLoading, registerUser } = useContext(UserContext);
+
   const {
     register,
     handleSubmit,
@@ -47,20 +44,20 @@ export const Register = () => {
     }
 
     const dataUser: iRegisterData = {
-      fullName: data.fullName,
+      name: data.name,
+      cpf: data.cpf,
       age: data.age,
       image: data.image,
       bio: data.bio,
-      cep: data.cep,
       address: data.address,
-      addressNumber: data.addressNumber,
-      localy: data.localy,
-      state: data.state,
-      phone: data.phone,
+      contacts: {
+        phoneNumber: data.phoneNumber,
+      },
       email: data.email,
       password: data.password,
+      favourites: [],
+      sponsoredAthletes: [],
     };
-
     registerUser(dataUser);
   };
 
@@ -71,22 +68,31 @@ export const Register = () => {
           type="text"
           id="fullName"
           text="Nome completo"
-          register={register("fullName")}
+          register={register("name")}
           required
-          message={errors.fullName?.message}
+          message={errors.name?.message}
           valid={isValidating}
+        />
+        <Input
+          type="number"
+          id="cpf"
+          text="CPF"
+          message={errors.cpf?.message}
+          register={register("cpf")}
+          required
         />
         <Input
           type="date"
           id="age"
-          text="Idade"
+          text="Data de nascimento"
           register={register("age")}
           required
           message={errors.age?.message}
           valid={isValidating}
         />
+
         <Input
-          type="text"
+          type="url"
           id="image"
           text="Imagem"
           register={register("image")}
@@ -94,61 +100,29 @@ export const Register = () => {
         />
         <TextArea
           type="textarea"
-          text="Digite sua biografia"
+          id="bio"
+          text="Biografia"
           register={register("bio")}
           required
-        />
-        <Input
-          type="number"
-          id="cep"
-          text="CEP"
-          message={errors.cep?.message}
-          register={register("cep")}
-          required
-          onChange={(e) => getAddress(e.target.valueAsNumber)}
+          message={errors.bio?.message}
+          valid={isValidating}
         />
         <Input
           type="text"
           id="address"
-          text="Rua"
+          text="Endereço"
           register={register("address")}
           required
-          disabled
-          value={address?.logradouro}
+          message={errors.address?.message}
+          valid={isValidating}
         />
         <Input
           type="text"
-          id="addressNumber"
-          text="Número"
-          message={errors.addressNumber?.message}
-          register={register("addressNumber")}
-          required
-        />
-        <Input
-          type="text"
-          id="localy"
-          text="Estado"
-          register={register("localy")}
-          required
-          disabled
-          value={address?.localidade}
-        />
-        <Input
-          type="text"
-          id="state"
-          text="UF"
-          register={register("state")}
-          required
-          disabled
-          value={address?.uf}
-        />
-        <Input
-          type="text"
-          id="phone"
+          id="phoneNumber"
           text="Telefone"
-          register={register("phone")}
+          register={register("phoneNumber")}
           required
-          message={errors.phone?.message}
+          message={errors.phoneNumber?.message}
           valid={isValidating}
         />
         <Input

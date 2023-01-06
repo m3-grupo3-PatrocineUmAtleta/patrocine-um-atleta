@@ -1,19 +1,21 @@
 import { AxiosError } from "axios";
+import { iAthlete } from "../providers/User/interfaces";
 import { api } from "./api";
 
 export interface iRegisterData {
-  fullName: string;
+  name: string;
+  cpf: string;
+  address: string;
   age: number;
   image: string;
   bio: string;
-  cep: number;
-  address: string;
-  addressNumber: number;
-  localy: string;
-  state: string;
-  phone: string;
+  contacts: {
+    phoneNumber: string;
+  };
   email: string;
   password: string;
+  favourites?: iAthlete[];
+  sponsoredAthletes?: iAthlete[];
 }
 
 export interface iResponse {

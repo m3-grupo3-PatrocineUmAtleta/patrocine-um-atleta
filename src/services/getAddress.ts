@@ -18,6 +18,7 @@ export interface iResponseAddress {
   siafi: string;
   message?: string;
 }
+
 export const getAddress = async (cep: number): Promise<iResponseAddress> => {
   try {
     const response = await apiCEP.get(cep + "/json", {

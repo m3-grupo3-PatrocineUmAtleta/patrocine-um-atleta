@@ -10,6 +10,7 @@ interface iInputTextProps extends InputHTMLAttributes<HTMLInputElement> {
   register: UseFormRegisterReturn;
   message?: string;
   valid?: boolean;
+  placeholder?: string;
 }
 
 interface iInputTextareaProps
@@ -19,6 +20,7 @@ interface iInputTextareaProps
   register: UseFormRegisterReturn;
   message?: string;
   valid?: boolean;
+  placeholder?: string;
 }
 
 export const Input = ({
@@ -28,6 +30,7 @@ export const Input = ({
   register,
   message,
   valid,
+  placeholder,
   ...rest
 }: iInputTextProps) => {
   return (
@@ -37,6 +40,9 @@ export const Input = ({
         validColor={!message ? "--color-sucess" : "--color-negative"}
         type={type}
       >
+        <label htmlFor={id} className="caption">
+          {text}
+        </label>
         <input
           id={id}
           type={type}
@@ -44,11 +50,9 @@ export const Input = ({
           {...rest}
           className="headline"
           autoComplete="off"
+          placeholder={placeholder}
         />
 
-        <label htmlFor={id} className="caption">
-          {text}
-        </label>
         {message ? <p className="body-600">{message}</p> : null}
       </FieldsetInput>
     </>
@@ -61,6 +65,7 @@ export const TextArea = ({
   register,
   message,
   valid,
+  placeholder,
   ...rest
 }: iInputTextareaProps) => {
   return (
@@ -70,6 +75,9 @@ export const TextArea = ({
         validColor={!message ? "--color-sucess" : "--color-negative"}
         type={type}
       >
+        <label htmlFor="bio" className="caption">
+          {text}
+        </label>
         <textarea
           rows={5}
           cols={31}
@@ -77,11 +85,8 @@ export const TextArea = ({
           {...register}
           {...rest}
           className="headline"
+          placeholder={placeholder}
         />
-
-        <label htmlFor="bio" className="caption">
-          {text}
-        </label>
       </FieldsetInput>
     </>
   );
