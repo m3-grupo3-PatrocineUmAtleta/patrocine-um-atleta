@@ -12,7 +12,7 @@ export interface iContext {
   setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   settingsModal: string;
   setSettingsModal: React.Dispatch<React.SetStateAction<string>>;
-  registerUser: (data: iRegisterData) => void;
+  registerUser:(data: iRegisterData) => Promise<void>;
 }
 
 export interface iProviderProps {
