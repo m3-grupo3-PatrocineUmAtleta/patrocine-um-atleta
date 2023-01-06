@@ -8,7 +8,7 @@ export const Home = () => {
   return (
     <>
       {openModal && <ModalWrapper typeModal="userLogoff" />}
-      <Header></Header>
+      <Header></Header>      
     </>
   );
 };
