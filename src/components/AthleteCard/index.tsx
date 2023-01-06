@@ -1,28 +1,51 @@
-import { StyledAthleteCard } from "./style"
-
+import { StyledAthleteCard } from "./style";
+import { GoLocation } from "react-icons/go";
+import { FaEye } from "react-icons/fa";
+import { BiTrash } from "react-icons/bi";
+import { FiEdit } from "react-icons/fi";
 
 interface iCardProps {
-    athlete_id: string,
-    img: string | undefined;
-    name: string,
-    age: number,
-    city: string,
+  athlete_id: string;
+  img: string | undefined;
+  name: string;
+  age: number;
+  city: string;
+  isAdmin?: boolean;
 }
 
-export const AthleteCard = ({athlete_id, img, name, age, city}: iCardProps) => {
-      
-    return (
+export const AthleteCard = ({
+  athlete_id,
+  img,
+  name,
+  age,
+  city,
+  isAdmin,
+}: iCardProps) => {
+  return (
+    <StyledAthleteCard id={athlete_id}>
+      <div className="div-img">
+        <img src={img} alt="" />
+      </div>
+      <div className="div-inf">
+        <h3 className="title-3">{name}</h3>
+        <h4 className="title-4">{age} anos</h4>
+        <div className="div-local">
+          <GoLocation className="local-icon" />
+          <span className="headline">{city}</span>
+        </div>
 
-        <StyledAthleteCard id={athlete_id}>
-            <div className="div-img" >
-                <img src={img} alt="" />
-            </div>
-            <div className="div-inf" >
-                <h3 className="title-3">{name}, {age} anos.</h3>
-                <div className="div-local">
-                    <span className="headline">{city}</span>
-                </div>
-            </div>
-        </StyledAthleteCard>
-    )
-}
+        {isAdmin ? (
+          <div className="div-icons">
+            <FaEye className="eye-icon icon" />
+            <BiTrash className="trash-icon icon" />
+            <FiEdit className="edit-icon icon" />
+          </div>
+        ) : (
+          <div className="div-icons">
+            <FaEye className="eye-icon icon" />
+          </div>
+        )}
+      </div>
+    </StyledAthleteCard>
+  );
+};

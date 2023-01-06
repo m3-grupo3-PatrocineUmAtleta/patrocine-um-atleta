@@ -1,3 +1,5 @@
+import { iRegisterData } from "../../services/userRegister";
+
 export interface iContext {
   user: iUser | null;
   isLoading: boolean;
@@ -10,6 +12,7 @@ export interface iContext {
   setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   settingsModal: string;
   setSettingsModal: React.Dispatch<React.SetStateAction<string>>;
+  registerUser: (data: iRegisterData) => void;
 }
 
 export interface iProviderProps {
