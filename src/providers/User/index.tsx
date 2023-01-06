@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { iResponseAddress } from "../../services/getAddress";
 import { iRegisterData, UserRegister } from "../../services/userRegister";
+import { iContext, iProviderProps, iUser, iAthlete } from "./interfaces";
 
 interface iContext {
   user: iUser | null;
@@ -26,6 +27,7 @@ export const UserProvider = ({ children }: iProviderProps) => {
   const [user, setUser] = useState<iUser | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [buttonValue, setButtonValue] = useState("");
+  const [allAthletes, setAllAthletes] = useState([] as iAthlete[]);
   const [address, setAddress] = useState<iResponseAddress | null>(null);
   const navigate = useNavigate();
 
@@ -47,6 +49,8 @@ export const UserProvider = ({ children }: iProviderProps) => {
         setIsLoading,
         buttonValue,
         setButtonValue,
+        allAthletes,
+        setAllAthletes,
         registerUser,
         setAddress,
         address,

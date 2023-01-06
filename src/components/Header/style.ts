@@ -9,11 +9,13 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 10px 16px;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   gap: 1rem;
 
   nav {
-    width: 350px;
+    width: max-content;
     display: flex;
     gap: 16px;
     a {
@@ -58,6 +60,9 @@ export const StyledHeader = styled.header`
       left: 10px;
     }
   }
+  .showMobile {
+    align-items: center;
+  }
   .dropBox {
     width: 175px;
     height: 165px;
@@ -92,7 +97,6 @@ export const StyledHeader = styled.header`
     }
     .showDesktop {
       display: flex;
-      width: 70%;
     }
     header {
       justify-content: center;
