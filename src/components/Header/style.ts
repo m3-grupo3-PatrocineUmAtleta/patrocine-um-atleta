@@ -92,7 +92,6 @@ export const StyledHeader = styled.header`
     }
     .showDesktop {
       display: flex;
-      width: 70%;
     }
     header {
       justify-content: center;

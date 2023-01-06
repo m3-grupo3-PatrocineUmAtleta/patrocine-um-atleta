@@ -44,6 +44,8 @@ export const Header = () => {
           <Link to={"/login"}>Sobre</Link>
           <Link to={"/register"}>Instituição</Link>
         </nav>
+      </div>
+      <div className="showDesktop">
         <nav>
           <Link to={"/login"}>Login</Link>
           <Link to={"/register"}>Cadastre-se</Link>
