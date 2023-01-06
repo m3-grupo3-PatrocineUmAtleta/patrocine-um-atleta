@@ -1,16 +1,15 @@
-export const Depositions = () => (
+import { iDeposition } from "../../../providers/User/interfaces";
+
+interface iDepositionsProp {
+  depositionList: iDeposition[];
+}
+
+export const Depositions = ({ depositionList }: iDepositionsProp) => (
   <>
     <div className="divNameAndButton">
-      <div>
-        <img src="" alt="Foto de perfil do atleta" />
-        <h2>Comentários sobre o atleta</h2>
-      </div>
-      <button>Comentar</button>
+      <h2>Comentários sobre o atleta</h2>
+      <button>Comentar</button> {/* onClick={toggleCreateDepositionModal} */}
     </div>
-    <ul>
-      {/* li */}
-      {/* li */}
-      {/* li */}
-    </ul>
+    <ul>{/* depositionList.map() */}</ul>
   </>
 );
