@@ -8,7 +8,7 @@ export const Home = () => {
   return (
     <>
       {openModal && <ModalWrapper typeModal={settingsModal} />}
-      <Header></Header>
+      <Header isHome={true}></Header>
     </>
   );
 };

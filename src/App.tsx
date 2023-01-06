@@ -5,6 +5,7 @@ import { Dashboard } from "./pages/Dashboard";
 import { Home } from "./pages/Home";
 import { Register } from "./pages/Register";
 import { AthletePage } from "./pages/AthletePage";
+import { AdmDash } from "./pages/AdmDash";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="home" element={<Home />} />
+        <Route path="admDash" element={<AdmDash />} />
 
         <Route element={<ProtectedRoutes />}>
           <Route path="dashboard" element={<Dashboard />} />
