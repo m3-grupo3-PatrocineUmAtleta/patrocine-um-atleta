@@ -11,6 +11,8 @@ export const UserProvider = ({ children }: iProviderProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [buttonValue, setButtonValue] = useState("");
   const [allAthletes, setAllAthletes] = useState([] as iAthlete[]);
+  const [openModal, setIsOpenModal] = useState(false);
+  const [settingsModal, setSettingsModal] = useState("");
   const navigate = useNavigate();
 
   const registerUser = async (data: iRegisterData) => {
@@ -26,13 +28,25 @@ export const UserProvider = ({ children }: iProviderProps) => {
   return (
     <UserContext.Provider
       value={{
+       
         user,
+       
         isLoading,
+       
         setIsLoading,
+       
         buttonValue,
+       
         setButtonValue,
+       
         allAthletes,
+       
         setAllAthletes,
+        openModal,
+        setIsOpenModal,
+        settingsModal,
+        setSettingsModal,
+     ,
         registerUser,
       }}
     >

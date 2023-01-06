@@ -16,6 +16,7 @@
     "@mui/icons-material": "^5.11.0",
     "@mui/lab": "^5.0.0-alpha.114",
     "@mui/material": "^5.11.3",
+    "@types/react-icons": "^3.0.0",
     "axios": "^1.2.2",
     "framer-motion": "^8.1.7",
     "react": "^18.2.0",
