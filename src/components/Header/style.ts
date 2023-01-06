@@ -13,7 +13,7 @@ export const StyledHeader = styled.header`
   gap: 1rem;
 
   nav {
-    width: 350px;
+    width: max-content;
     display: flex;
     gap: 16px;
     a {
