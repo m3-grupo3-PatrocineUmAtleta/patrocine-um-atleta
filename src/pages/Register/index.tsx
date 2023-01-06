@@ -57,7 +57,9 @@ export const Register = () => {
       password: data.password,
       favourites: [],
       sponsoredAthletes: [],
+      isAdmin: false,
     };
+
     registerUser(dataUser);
   };
 
@@ -152,16 +154,9 @@ export const Register = () => {
           message={errors.confirmPassword?.message}
           valid={isValidating}
         />
-        {!isLoading ? (
-          <button type="submit" className="headline">
-            Cadastrar
-          </button>
-        ) : (
-          <LoadingButton loading variant="contained">
-            Submit
-          </LoadingButton>
-        )}
-
+        <button type="submit" className="headline">
+          Cadastrar
+        </button>
         <section className="buttons">
           <Link to={"/home"} className="home" />
           <Link to={"/"} className="login" />

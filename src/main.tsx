@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <GlobalStyles />
       <Fonts />
       <Providers>
-        <ToastContainer />
+        <ToastContainer autoClose={2000} />
         <App />
       </Providers>
     </BrowserRouter>
