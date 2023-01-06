@@ -1,8 +1,7 @@
-export const Favourites = () => (
+import { iUser } from "../../../providers/User/interfaces";
+
+export const Favourites = ({favourites}: iUser) => (
   <ul>
-    {/* card */}
-    {/* card */}
-    {/* card */}
-    {/* card */}
+    {/* favourites.map() */}
   </ul>
 )

@@ -1,4 +1,9 @@
-export const Bio = () => (
+interface iBioProps {
+  hometown: string;
+  bio: string;
+}
+
+export const Bio = ({hometown, bio}: iBioProps) => (
   <>
     <div className="divImageAndTitle">
       <img src="" alt="Foto de perfil do atleta" />
@@ -7,10 +12,10 @@ export const Bio = () => (
     <div>
       <div className="divLocation">
         <img src="" alt="Ícone localização" />
-        <p>Cidade - Estado</p>
+        <p>{hometown}</p>
       </div>
       <h2>Sobre:</h2>
-      <p>Texto</p>
+      <p>{bio}</p>
     </div>
   </>
 );
