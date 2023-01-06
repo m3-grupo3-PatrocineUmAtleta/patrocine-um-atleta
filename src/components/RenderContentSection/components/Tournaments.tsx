@@ -1,13 +1,12 @@
-export const Tournaments = () => (
+import { iTournament } from "../../../providers/User/interfaces";
+
+interface iAthleteTournaments {
+  tournamentsList: iTournament[];
+}
+
+export const Tournaments = ({ tournamentsList }: iAthleteTournaments) => (
   <>
-    <div>
-      <img src="" alt="Foto de perfil do atleta" />
-      <h2>Torneios em que o atleta participou:</h2>
-    </div>
-    <ul>
-      {/* li */}
-      {/* li */}
-      {/* li */}
-    </ul>
+    <h2>Torneios em que o atleta participou:</h2>
+    <ul>{/* tournamentsList.map() */}</ul>
   </>
 );

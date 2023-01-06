@@ -1,19 +1,21 @@
-export const Institution = () => (
+import { iInstitution } from "../../../providers/User/interfaces";
+
+export const Institution = ({name, image, tournamentsInfo, location, aboutUs}: iInstitution) => (
   <>
     <div className="divNameAndParticipations">
       <div>
-        <img src="" alt="Foto de perfil da instituição" />
-        <h2>Nome da instituição</h2>
+        <img src={image} alt="Foto de perfil da instituição" />
+        <h2>{name}</h2>
       </div>
-      <h2>Participações: X torneios</h2>
+      <h2>{`Participações: ${tournamentsInfo.totalPlayed} torneios`}</h2>
     </div>
     <div>
       <div className="divLocation">
         <img src="" alt="Ícone localização" />
-        <p>Cidade - Estado</p>
+        <p>{location}</p>
       </div>
       <h2>Sobre nós:</h2>
-      <p>Texto</p>
+      <p>{aboutUs}</p>
     </div>
   </>
 );

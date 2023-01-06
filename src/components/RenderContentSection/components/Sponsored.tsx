@@ -1,8 +1,7 @@
-export const Sponsored = () => (
+import { iUser } from "../../../providers/User/interfaces";
+
+export const Sponsored = ({sponsoredAthletes}: iUser) => (
   <ul>
-    {/* card */}
-    {/* card */}
-    {/* card */}
-    {/* card */}
+    {/* sponsoredAthlets.map() */}
   </ul>
 )

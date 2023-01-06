@@ -1,4 +1,5 @@
 export const AddTournament = () => (
+  // pegar o id da instituicao pelo useParams ?
   <>
     <div className="divTitleAndButton">
       <h2>Torneios</h2>
