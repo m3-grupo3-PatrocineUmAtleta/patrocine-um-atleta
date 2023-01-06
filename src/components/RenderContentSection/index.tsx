@@ -17,45 +17,100 @@ import { Tournaments } from "./components/Tournaments";
 export const RenderContentSection = () => {
   const { buttonValue } = useContext(UserContext);
 
-  if (buttonValue === "Perfil") (
-    <Profile />
-  )
-  if (buttonValue === "Todos atletas") (
-    <AllAthletes />
-  )
-  if (buttonValue === "Favoritos") (
-    <Favourites />
-  )
-  if (buttonValue === "Patrocinados") (
-    <Sponsored />
-  )
-  if (buttonValue === "Informações") (
-    <Infos />
-  )
-  if (buttonValue === "Torneios") (
-    <Tournaments />
-  )
-  if (buttonValue === "Atletas") (
-    <Athletes />
-  )
-  if (buttonValue === "Registrar") (
-    <AthleteRegister />
-  )
-  if (buttonValue === "Instituição") (
-    <Institution />
-  )
-  if (buttonValue === "Mídias") (
-    <Medias />
-  )
-  if (buttonValue === "Bio") (
-    <Bio />
-  )
-  if (buttonValue === "Depoimentos") (
-    <Depositions />
-  )
-  if (buttonValue === "Doação") (
-    <Donations />
-  )
+  if (buttonValue === "Perfil") {
+    return (
+      <Profile
+        name=""
+        adress=""
+        bio=""
+        contacts={{}}
+        favourites={[]}
+        sponsoredAthletes={[]}
+      />
+    );
+  }
+
+  if (buttonValue === "Todos atletas") {
+    return <AllAthletes />;
+  }
+
+  if (buttonValue === "Favoritos") {
+    return (
+      <Favourites
+        adress=""
+        name=""
+        bio=""
+        contacts={{}}
+        favourites={[]}
+        sponsoredAthletes={[]}
+      />
+    );
+  }
+
+  if (buttonValue === "Patrocinados") {
+    return (
+      <Sponsored
+        adress=""
+        name=""
+        bio=""
+        contacts={{}}
+        favourites={[]}
+        sponsoredAthletes={[]}
+      />
+    );
+  }
+
+  if (buttonValue === "Informações") {
+    return <Infos />;
+  }
+
+  if (buttonValue === "Torneios") {
+    return <Tournaments tournamentsList={[]} />;
+  }
+
+  if (buttonValue === "Atletas") {
+    return (
+      <Athletes
+        aboutUs=""
+        image=""
+        institutionAthletes={[]}
+        location=""
+        name=""
+      />
+    );
+  }
+
+  if (buttonValue === "Registrar") {
+    return <AthleteRegister />;
+  }
+
+  if (buttonValue === "Instituição") {
+    return (
+      <Institution
+        aboutUs=""
+        image=""
+        institutionAthletes={[]}
+        location=""
+        name=""
+      />
+    );
+  }
+
+  if (buttonValue === "Mídias") {
+    return <Medias />;
+  }
+
+  if (buttonValue === "Bio") {
+    return <Bio bio="" hometown="" />;
+  }
+  
+  if (buttonValue === "Depoimentos") {
+    return <Depositions depositionList={[]} />;
+  }
+  
+  if (buttonValue === "Doação") {
+    return <Donations />;
+  }
 
   return <section></section>;
 };
