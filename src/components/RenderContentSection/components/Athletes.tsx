@@ -1,8 +1,7 @@
-export const Athletes = () => (
+import { iInstitution } from "../../../providers/User/interfaces";
+
+export const Athletes = ({institutionAthletes}: iInstitution) => (
   <ul>
-    {/* Card */}
-    {/* Card */}
-    {/* Card */}
-    {/* Card */}
+    {/* institutionAthlets.map() */}
   </ul>
 )

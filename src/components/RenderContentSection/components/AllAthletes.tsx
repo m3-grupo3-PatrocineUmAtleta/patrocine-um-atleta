@@ -1,8 +1,12 @@
-export const AllAthletes = () => (
-  <ul>
-    {/* card */}
-    {/* card */}
-    {/* card */}
-    {/* card */}
-  </ul>
-)
+import { useContext } from "react";
+import { UserContext } from "../../../providers/User";
+
+export const AllAthletes = () => {
+  const {allAthletes} = useContext(UserContext);
+
+  return (
+    <ul>
+      {/* allAthletes.map() */}
+    </ul>
+  );
+};
