@@ -15,7 +15,49 @@ import { Sponsored } from "./components/Sponsored";
 import { Tournaments } from "./components/Tournaments";
 
 export const RenderContentSection = () => {
-  const { buttonValue } = useContext(UserContext);
+  const { buttonValue, user } = useContext(UserContext);
+
+  if(user) {
+    if (buttonValue === "Perfil") {
+      return (
+        <Profile
+          name=""
+          adress=""
+          bio=""
+          contacts={{}}
+          favourites={[]}
+          sponsoredAthletes={[]}
+        />
+      );
+    }
+    if (buttonValue === "Todos atletas") {
+      return <AllAthletes />;
+    }
+    if (buttonValue === "Favoritos") {
+      return (
+        <Favourites
+          adress=""
+          name=""
+          bio=""
+          contacts={{}}
+          favourites={[]}
+          sponsoredAthletes={[]}
+        />
+      );
+    }
+    if (buttonValue === "Patrocinados") {
+      return (
+        <Sponsored
+          adress=""
+          name=""
+          bio=""
+          contacts={{}}
+          favourites={[]}
+          sponsoredAthletes={[]}
+        />
+      );
+    }
+  }
 
   if (buttonValue === "Perfil") {
     return (
@@ -29,45 +71,12 @@ export const RenderContentSection = () => {
       />
     );
   }
-
-  if (buttonValue === "Todos atletas") {
-    return <AllAthletes />;
-  }
-
-  if (buttonValue === "Favoritos") {
-    return (
-      <Favourites
-        adress=""
-        name=""
-        bio=""
-        contacts={{}}
-        favourites={[]}
-        sponsoredAthletes={[]}
-      />
-    );
-  }
-
-  if (buttonValue === "Patrocinados") {
-    return (
-      <Sponsored
-        adress=""
-        name=""
-        bio=""
-        contacts={{}}
-        favourites={[]}
-        sponsoredAthletes={[]}
-      />
-    );
-  }
-
   if (buttonValue === "Informações") {
     return <Infos />;
   }
-
   if (buttonValue === "Torneios") {
     return <Tournaments tournamentsList={[]} />;
   }
-
   if (buttonValue === "Atletas") {
     return (
       <Athletes
@@ -79,11 +88,9 @@ export const RenderContentSection = () => {
       />
     );
   }
-
   if (buttonValue === "Registrar") {
     return <AthleteRegister />;
   }
-
   if (buttonValue === "Instituição") {
     return (
       <Institution
@@ -95,19 +102,15 @@ export const RenderContentSection = () => {
       />
     );
   }
-
   if (buttonValue === "Mídias") {
     return <Medias />;
   }
-
   if (buttonValue === "Bio") {
     return <Bio bio="" hometown="" />;
   }
-  
   if (buttonValue === "Depoimentos") {
     return <Depositions depositionList={[]} />;
   }
-  
   if (buttonValue === "Doação") {
     return <Donations />;
   }
