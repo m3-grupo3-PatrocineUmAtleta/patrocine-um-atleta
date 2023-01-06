@@ -13,6 +13,26 @@ export const StyledHeader = styled.header`
   top: 0;
   left: 0;
   gap: 1rem;
+  .dropBoxUser {
+    width: max-content;
+    height: max-content;
+    background-color: var(--color-primary);
+    position: absolute;
+    top: 65px;
+    right: 10px;
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+  .dropBoxUserDesktop {
+    display: none;
+    align-items: center;
+  }
+  .divAdminOptions {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: max-content;
+  }
 
   nav {
     width: max-content;
@@ -34,7 +54,7 @@ export const StyledHeader = styled.header`
     display: flex;
     justify-content: space-between;
     width: 32px;
-    height: 32px;
+
     background-color: transparent;
   }
   .showDesktop {
@@ -61,16 +81,18 @@ export const StyledHeader = styled.header`
     }
   }
   .showMobile {
+    display: flex;
     align-items: center;
   }
   .dropBox {
     width: 175px;
-    height: 165px;
+    height: max-content;
     background-color: var(--color-secundary);
     position: absolute;
     top: 65px;
     right: 10px;
     border-radius: 8px;
+
     nav {
       display: flex;
       flex-direction: column;
@@ -100,6 +122,15 @@ export const StyledHeader = styled.header`
     }
     header {
       justify-content: center;
+    }
+    .dropBoxUser {
+      display: none;
+    }
+    .dropBoxUserDesktop {
+      display: flex;
+    }
+    .divAdminOptions .searchInput input {
+      width: 200px;
     }
   }
 `;
