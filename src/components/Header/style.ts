@@ -9,7 +9,9 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 10px 16px;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   gap: 1rem;
 
   nav {
