@@ -55,22 +55,37 @@ export const Header = () => {
   ) : (
     <StyledHeader>
       <img src={logo} alt="" />
-      <div className="searchInput">
-        <button
-          className="searchButton"
-          onClick={() => setOpenSearch(!openSearch)}
-        >
-          <img src={lupaInput} alt="" />
-        </button>
-        <input type="text" />
+      <div className="showMobile">
+        <div className="searchInput">
+          <button
+            className="searchButton"
+            onClick={() => setOpenSearch(!openSearch)}
+          >
+            <img src={lupaInput} alt="" />
+          </button>
+          <input type="text" />
+        </div>
+        <div>
+          <button
+            className="hamburguerButton"
+            onClick={() => setOpenHamburguer(!openHamburguer)}
+          >
+            <img src={!openHamburguer ? hamburguer : hamburguerClose} alt="" />
+          </button>
+        </div>
       </div>
-      <div>
-        <button
-          className="hamburguerButton"
-          onClick={() => setOpenHamburguer(!openHamburguer)}
-        >
-          <img src={!openHamburguer ? hamburguer : hamburguerClose} alt="" />
-        </button>
+      <div className="showDesktop">
+        <nav>
+          <Link to={"/"}>Home</Link>
+          <Link to={"/login"}>Sobre</Link>
+          <Link to={"/register"}>Instituição</Link>
+        </nav>
+      </div>
+      <div className="showDesktop">
+        <nav>
+          <Link to={"/login"}>Login</Link>
+          <Link to={"/register"}>Cadastre-se</Link>
+        </nav>
       </div>
       {openHamburguer && <div className="dropBox"></div>}
     </StyledHeader>

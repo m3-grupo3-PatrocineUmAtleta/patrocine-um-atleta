@@ -58,6 +58,9 @@ export const StyledHeader = styled.header`
       left: 10px;
     }
   }
+  .showMobile {
+    align-items: center;
+  }
   .dropBox {
     width: 175px;
     height: 165px;
