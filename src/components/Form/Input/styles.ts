@@ -7,9 +7,9 @@ interface iInputText {
 }
 
 export const FieldsetInput = styled.fieldset<iInputText>`
-  min-width: 277.26px;
-  max-width: 287px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 
   background: transparent;
   border-radius: 4px;
@@ -26,13 +26,15 @@ export const FieldsetInput = styled.fieldset<iInputText>`
       `;
     }
   }}
-  // position: relative;
 
   & > textarea {
+    max-width: 276px;
+    width: 100%;
     border-radius: 4px;
   }
 
   & > input {
+    max-width: 276px;
     width: 100%;
     height: 43.86px;
     padding: 1.125rem;
@@ -56,41 +58,17 @@ export const FieldsetInput = styled.fieldset<iInputText>`
   }
 
   & > label {
-    // position: absolute;
-    // left: 0;
-    // top: 0;
-    // padding: 0.8rem;
     pointer-events: none;
     transition: 0.5s;
 
     color: var(--color-gray-0);
   }
 
-  // & > textarea:valid ~ label,
-  // & > textarea:focus ~ label {
-  //   transform: translateX(0) translateY(-25px);
-  //   background: transparent;
-  //   padding: 5px;
-  //   color: var(--color-gray-0);
-  // }
-  // & > textarea:focus,
-  // & > textarea:valid {
-  //   background: var(--color-gray-0);
-  // }
-
-  // & > input:valid ~ label,
-  // & > input:focus ~ label {
-  //   transform: translateX(0) translateY(-25px);
-  //   background: transparent;
-  //   padding: 5px;
-  //   color: var(--color-gray-0);
-  // }
-  // & > input:focus,
-  // & > input:valid {
-  //   background: var(--color-gray-0);
-  // }
-
   & > p {
     color: var(--color-negative);
+  }
+
+  @media (min-width: 750px) {
+    max-width: 230px;
   }
 `;

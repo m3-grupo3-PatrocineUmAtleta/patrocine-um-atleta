@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { iUserLogin, UserLogin } from "../../services/userLogin";
 import { iRegisterData, UserRegister } from "../../services/userRegister";
 import { iContext, iProviderProps, iUser, iAthlete } from "./interfaces";
 
@@ -16,10 +17,22 @@ export const UserProvider = ({ children }: iProviderProps) => {
 
   const registerUser = async (data: iRegisterData) => {
     const response = await UserRegister(data);
-
+    setUser;
     if (response === 201) {
       setTimeout(() => {
         navigate("/");
+      }, 2000);
+    }
+  };
+
+  const loginUser = async (data: iUserLogin) => {
+    const response = await UserLogin(data);
+
+    if (response !== undefined) {
+      setUser(response);
+      console.log(user);
+      setTimeout(() => {
+        navigate("/dashboard");
       }, 2000);
     }
   };
@@ -39,6 +52,7 @@ export const UserProvider = ({ children }: iProviderProps) => {
         settingsModal,
         setSettingsModal,
         registerUser,
+        loginUser,
       }}
     >
       {children}

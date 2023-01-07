@@ -1,3 +1,4 @@
+import { iUserLogin } from "../../services/userLogin";
 import { iRegisterData } from "../../services/userRegister";
 
 export interface iContext {
@@ -12,7 +13,8 @@ export interface iContext {
   setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   settingsModal: string;
   setSettingsModal: React.Dispatch<React.SetStateAction<string>>;
-  registerUser:(data: iRegisterData) => Promise<void>;
+  registerUser: (data: iRegisterData) => Promise<void>;
+  loginUser: (data: iUserLogin) => void;
 }
 
 export interface iProviderProps {
@@ -20,16 +22,18 @@ export interface iProviderProps {
 }
 
 export interface iUser {
+  email: string;
   name: string;
-  site?: string;
-  bio?: string;
-  adress: string;
-  contacts?: {
-    phoneNumber?: string;
-    email?: string;
-  };
+  cpf: number;
+  age: string;
+  image: string;
+  bio: string;
+  address: string;
+  contacts: { phoneNumber: string };
   favourites?: iAthlete[];
   sponsoredAthletes?: iAthlete[];
+  isAdmin: boolean;
+  id: number;
 }
 
 export interface iTournament {
