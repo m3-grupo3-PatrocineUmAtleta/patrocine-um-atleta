@@ -16,7 +16,7 @@ export const StyledHeader = styled.header`
   .dropBoxUser {
     width: max-content;
     height: max-content;
-    background-color: var(--color-primary);
+    background-color: var(--color-primary-100);
     position: absolute;
     top: 65px;
     right: 10px;

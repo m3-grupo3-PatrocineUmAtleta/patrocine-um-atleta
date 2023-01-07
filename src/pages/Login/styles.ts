@@ -17,7 +17,7 @@ export const MainLogin = styled.main`
   align-items: center;
 
   & > section.second {
-    background: var(--color-primary);
+    background: var(--color-primary-100);
     mix-blend-mode: normal;
     opacity: 0.85;
 
