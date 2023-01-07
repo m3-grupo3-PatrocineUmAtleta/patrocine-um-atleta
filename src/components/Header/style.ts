@@ -1,17 +1,17 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-100);
   width: 100%;
   height: 70px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 16px;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
+  z-index: 2;
   gap: 1rem;
   .dropBoxUser {
     width: max-content;
@@ -39,7 +39,7 @@ export const StyledHeader = styled.header`
     display: flex;
     gap: 16px;
     a {
-      color: var(--color-secundary);
+      color: var(--color-secundary-100);
       text-decoration: none;
     }
   }
@@ -87,7 +87,7 @@ export const StyledHeader = styled.header`
   .dropBox {
     width: 175px;
     height: max-content;
-    background-color: var(--color-secundary);
+    background-color: var(--color-secundary-100);
     position: absolute;
     top: 65px;
     right: 10px;
@@ -106,9 +106,9 @@ export const StyledHeader = styled.header`
         width: 100%;
         color: var(--color-primary-0);
         &:hover {
-          color: var(--color-primary);
+          color: var(--color-primary-100);
           background-color: var(--color-secundary-50);
-          border-bottom: 1px solid var(--color-primary);
+          border-bottom: 1px solid var(--color-primary-100);
         }
       }
     }

@@ -22,7 +22,7 @@ export const Header = ({ isHome }: iHeaderProps) => {
 
   return !openSearch ? (
     <StyledHeader>
-      <StyledContainer>
+      <StyledContainer flex>
         <img src={logo} alt="" />
         {isHome ? (
           <>
@@ -103,7 +103,7 @@ export const Header = ({ isHome }: iHeaderProps) => {
     </StyledHeader>
   ) : (
     <StyledHeader>
-      <StyledContainer>
+      <StyledContainer flex>
         {" "}
         <img src={logo} alt="" />
         {isHome ? (

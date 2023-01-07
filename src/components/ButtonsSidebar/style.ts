@@ -24,7 +24,7 @@ export const StyledButtonsSidebar = styled(ButtonsSidebar)`
     background: var(--color-gray-0);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px 10px 0px 10px;
-    border-bottom: 5px solid var(--color-secundary);
+    border-bottom: 5px solid var(--color-secundary-100);
 
     img {
       opacity: 1;
@@ -33,4 +33,4 @@ export const StyledButtonsSidebar = styled(ButtonsSidebar)`
       color: rgba(0, 0, 0, 1);
     }
   }
-`
+`;

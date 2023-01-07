@@ -42,6 +42,24 @@ const Fonts = createGlobalStyle`
     line-height: 130%;
   }
 
+  .title-home {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 130%;
+  }
+
+  .title-home-2 {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 130%;
+  }
+
+  .text-body {
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 150%;
+  }
+
   .gray-100 {
     color: var(--color-gray-100);
   }

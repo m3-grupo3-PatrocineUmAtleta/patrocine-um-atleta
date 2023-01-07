@@ -1,10 +1,24 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const StyledContainer = styled.div`
-  width: 100%;
-  max-width: 1285px;
-  height: 100vh;
-  display: flex;
-  align-items: center;
+interface iContainerProps {
+  flex?: boolean;
+}
+
+export const StyledContainer = styled.div<iContainerProps>`
+  width: 95%;
   margin: 0 auto;
+
+  ${({ flex }) =>
+    flex &&
+    css`
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    `}
+
+  @media (min-width: 750px) {
+    width: 100%;
+    max-width: 1285px;
+    height: 100vh;
+  }
 `;
