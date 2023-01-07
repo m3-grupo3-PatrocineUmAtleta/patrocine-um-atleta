@@ -21,7 +21,7 @@ export const MainLogin = styled.main`
   }
 
   & > div > section.second {
-    background: var(--color-primary);
+    background: var(--color-primary-100);
     mix-blend-mode: normal;
     opacity: 0.85;
 
