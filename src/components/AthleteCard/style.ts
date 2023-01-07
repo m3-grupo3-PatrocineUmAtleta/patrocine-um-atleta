@@ -6,7 +6,7 @@ export const StyledAthleteCard = styled.li`
   align-items: center;
   justify-content: center;
 
-  border: 2px solid var(--color-primary);
+  border: 2px solid var(--color-primary-100);
   border-radius: 8px;
 
   width: 240px;
@@ -14,7 +14,7 @@ export const StyledAthleteCard = styled.li`
 
   :hover {
     transition: 0.3s;
-    border: 2px solid var(--color-secundary);
+    border: 2px solid var(--color-secundary-100);
 
     box-shadow: rgba(242, 68, 5, 0.25) 0px 54px 55px,
       rgba(242, 68, 5, 0.12) 0px -12px 30px, rgba(242, 68, 5, 0.12) 0px 4px 6px,
@@ -23,7 +23,7 @@ export const StyledAthleteCard = styled.li`
 
     & > .div-inf {
       transition: 0.2s;
-      background-color: var(--color-secundary);
+      background-color: var(--color-secundary-100);
     }
 
     & > .div-img > img {
@@ -59,7 +59,7 @@ export const StyledAthleteCard = styled.li`
 
     padding: 16px;
 
-    background-color: var(--color-primary);
+    background-color: var(--color-primary-100);
 
     border-radius: 0 0 6px 6px;
 
@@ -103,7 +103,7 @@ export const StyledAthleteCard = styled.li`
 
       :hover {
         transition: 0.2s;
-        color: var(--color-primary);
+        color: var(--color-primary-100);
         scale: 1.5;
       }
     }

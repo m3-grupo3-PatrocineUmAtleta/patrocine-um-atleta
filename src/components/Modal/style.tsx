@@ -33,7 +33,7 @@ export const ModalBackground = styled.div`
       gap: 21px;
 
       & > div {
-        background-color: var(--color-secundary);
+        background-color: var(--color-secundary-100);
         border-radius: 100%;
         height: 42px;
         width: 42px;
