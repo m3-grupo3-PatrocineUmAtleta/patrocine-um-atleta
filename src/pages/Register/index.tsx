@@ -32,7 +32,7 @@ export const Register = () => {
     formState: { errors, isValidating },
   } = useForm<iRegisterFormData>({
     resolver: yupResolver(SchemaRegister),
-    mode: "onChange",
+    mode: "onBlur",
   });
 
   const registerU = async (data: iRegisterFormData) => {

@@ -1,12 +1,8 @@
-import { UserContext } from "../../providers/User"
+import { useContext } from "react";
+import { UserContext } from "../../providers/User";
 
 export const Dashboard = () => {
-  const user = {isAdmin: true} // apagar
+  const { user } = useContext(UserContext);
 
-  return user.isAdmin ? 
-  (
-    <>admDash</>
-  ) : (
-    <>userDash</>
-  )
-}
+  return user?.isAdmin ? <>admDash</> : <>userDash</>;
+};

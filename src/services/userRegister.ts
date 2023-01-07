@@ -1,6 +1,6 @@
 import { AxiosError } from "axios";
 import { ToastError, ToastSucess } from "../components/Toast";
-import { iAthlete } from "../providers/User/interfaces";
+import { iAthlete, iUser } from "../providers/User/interfaces";
 import { api } from "./api";
 
 export interface iRegisterData {
@@ -22,22 +22,7 @@ export interface iRegisterData {
 
 export interface iResponse {
   accessToken: string;
-  user: User;
-}
-
-export interface User {
-  email: string;
-  address: string;
-  addressNumber: string;
-  age: string;
-  bio: string;
-  cep: number;
-  fullName: string;
-  image: string;
-  localy: string;
-  phone: string;
-  state: string;
-  id: number;
+  user: iUser;
 }
 
 export const UserRegister = async (

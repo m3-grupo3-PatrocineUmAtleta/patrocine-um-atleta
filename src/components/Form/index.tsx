@@ -2,13 +2,19 @@ import { SectionForm } from "./styles";
 
 interface iFormProps {
   children: React.ReactNode;
-  eventClick: () => void;
+  eventClick?: () => void;
   title: string;
+  nameClass?: string;
 }
 
-export const Form = ({ children, eventClick, title }: iFormProps) => {
+export const Form = ({
+  children,
+  eventClick,
+  title,
+  nameClass,
+}: iFormProps) => {
   return (
-    <SectionForm>
+    <SectionForm className={nameClass}>
       <h1 className="title-2">{title}</h1>
       <form onSubmit={eventClick} noValidate>
         {children}

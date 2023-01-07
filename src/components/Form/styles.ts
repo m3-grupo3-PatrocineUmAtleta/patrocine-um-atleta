@@ -6,13 +6,13 @@ export const SectionForm = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
 
-  // min-width: 370px;
+  min-width: 290px;
+  max-width: 400px;
   width: 100%;
-  max-width: 383px;
-  margin: 20px auto;
-  padding-bottom: 62px;
+
+  margin: 20px 10px;
+  padding-bottom: 16px;
 
   background: var(--color-primary);
   mix-blend-mode: normal;
@@ -31,8 +31,10 @@ export const SectionForm = styled.section`
     flex-direction: column;
     gap: 20px;
 
+    padding: 0 12px;
+
     & > button {
-      width: 277.26px;
+      width: 100%;
       height: 44.93px;
       background: var(--color-secundary);
 
@@ -60,6 +62,23 @@ export const SectionForm = styled.section`
         height: 42.79px;
         cursor: pointer;
         background-image: url(${imgButtonLogin});
+      }
+    }
+  }
+
+  @media (min-width: 403px) {
+    margin: 20px auto;
+  }
+
+  @media (min-width: 750px) {
+    max-width: 506px;
+
+    & > form {
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      & > .buttons {
+        margin: 0 auto;
       }
     }
   }

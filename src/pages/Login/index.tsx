@@ -4,19 +4,82 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import SaveIcon from "@mui/icons-material/Save";
 import Stack from "@mui/material/Stack";
 import { UserContext } from "../../providers/User";
-import { Header } from "../../components/Header";
+import { MainRegister } from "../Register/style";
+import { Form } from "../../components/Form";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { SchemaLogin } from "./schemaLogin";
+import { iUserLogin } from "../../services/userLogin";
+import { Input } from "../../components/Form/Input";
+import { Link } from "react-router-dom";
+import { MainLogin } from "./styles";
 
 export const Login = () => {
-  const { isLoading, setIsLoading } = useContext(UserContext);
+  const { isLoading, setIsLoading, loginUser } = useContext(UserContext);
 
   const handleClick = () => {
     setIsLoading(!isLoading);
   };
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValidating },
+  } = useForm<iUserLogin>({
+    resolver: yupResolver(SchemaLogin),
+    mode: "onBlur",
+  });
+
+  const login = (data: iUserLogin) => {
+    loginUser(data);
+  };
+
   return (
-    <>
-      <h1>Login</h1>
-      {!isLoading ? (
+    <MainLogin>
+      <Form title="Login" eventClick={handleSubmit(login)} nameClass="first">
+        <Input
+          type="text"
+          id="email"
+          text="E-mail"
+          register={register("email")}
+          required
+          message={errors.email?.message}
+          valid={isValidating}
+        />
+        <Input
+          type="password"
+          id="password"
+          text="Senha"
+          register={register("password")}
+          required
+          message={errors.password?.message}
+          valid={isValidating}
+        />
+        <button type="submit" className="headline">
+          Entrar
+        </button>
+        <section className="buttons">
+          <Link to={"/home"} className="home" />
+        </section>
+      </Form>
+
+      <section className="second">
+        <figure className="logo" />
+        <p className="headline">
+          Faça parte das conquistas de uma futura estrela do esporte.
+        </p>
+        <div>
+          <p className="headline">Ainda não possui conta?</p>
+          <Link to={"/register"} className="headline">
+            Cadastre-se
+          </Link>
+        </div>
+      </section>
+    </MainLogin>
+  );
+};
+{
+  /* {!isLoading ? (
         <Button onClick={handleClick} variant="contained">
           add
         </Button>
@@ -27,9 +90,11 @@ export const Login = () => {
             Submit
           </LoadingButton>
         </>
-      )}
+      )} */
+}
 
-      {/* <Button variant="outlined">add</Button>
+{
+  /* <Button variant="outlined">add</Button>
       <Button variant="text">add</Button>
 
       <Stack direction="row" spacing={4}>
@@ -47,7 +112,5 @@ export const Login = () => {
         >
           Save
         </LoadingButton>
-      </Stack> */}
-    </>
-  );
-};
+      </Stack> */
+}
