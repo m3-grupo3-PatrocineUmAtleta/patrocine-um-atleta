@@ -51,7 +51,7 @@ export const MainLogin = styled.main`
     & > p.headline {
       width: 259.7px;
       height: 71.86px;
-      color: var(--color-secundary);
+      color: var(--color-secundary-100);
     }
 
     & > div {
@@ -67,7 +67,7 @@ export const MainLogin = styled.main`
       }
 
       & > a {
-        color: var(--color-secundary);
+        color: var(--color-secundary-100);
       }
     }
   }
