@@ -22,7 +22,7 @@ export const Home = () => {
   return (
     <StyledHome>
       {openModal && <ModalWrapper typeModal="userLogoff" />}
-      <Header />
+      <Header isHome />
       <main>
         <section className="sectionSponsorship">
           <div className="register">

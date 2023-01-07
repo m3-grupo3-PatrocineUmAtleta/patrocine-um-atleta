@@ -14,7 +14,7 @@ export const SectionForm = styled.section`
   margin: 20px 10px;
   padding-bottom: 16px;
 
-  background: var(--color-primary);
+  background: var(--color-primary-100);
   mix-blend-mode: normal;
   opacity: 0.85;
   border-radius: 8px;
