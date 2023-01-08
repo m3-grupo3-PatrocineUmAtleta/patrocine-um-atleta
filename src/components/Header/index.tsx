@@ -7,15 +7,18 @@ import lupaInput from "../../assets/img/lupaInput.png";
 import profileImage from "../../assets/img/ProfileUserImg.png";
 import logoutButton from "../../assets/img/LogoutButton.png";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { StyledContainer } from "../../styles/Container";
+import { UserContext } from "../../providers/User";
 
 interface iHeaderProps {
   isHome: boolean;
 }
 
 export const Header = ({ isHome }: iHeaderProps) => {
+  const { user } = useContext(UserContext);
+  console.log(user);
   const [openHamburguer, setOpenHamburguer] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
   const [openLogout, setOpenLogout] = useState(false);
@@ -46,8 +49,8 @@ export const Header = ({ isHome }: iHeaderProps) => {
             <div className="showDesktop">
               <nav>
                 <Link to={"/"}>Home</Link>
-                <Link to={"/login"}>Sobre</Link>
-                <Link to={"/register"}>Instituição</Link>
+                <Link to={"/"}>Sobre</Link>
+                <Link to={"/"}>Instituição</Link>
               </nav>
             </div>
             <div className="showDesktop">
@@ -93,7 +96,7 @@ export const Header = ({ isHome }: iHeaderProps) => {
         )}
         {openLogout && (
           <div className="dropBoxUser">
-            <h2 className="title-2 gray-0">Admin</h2>
+            <h2 className="title-2 gray-0">{user?.name}</h2>
             <button>
               <img src={logoutButton}></img>
             </button>
