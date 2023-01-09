@@ -18,10 +18,15 @@ interface iHeaderProps {
 
 export const Header = ({ isHome }: iHeaderProps) => {
   const { user } = useContext(UserContext);
-  console.log(user);
+
   const [openHamburguer, setOpenHamburguer] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
   const [openLogout, setOpenLogout] = useState(false);
+
+  const logoutHandle = () => {
+    window.localStorage.removeItem("@UserId");
+    window.localStorage.removeItem("@Token");
+  };
 
   return !openSearch ? (
     <StyledHeader>
@@ -78,8 +83,8 @@ export const Header = ({ isHome }: iHeaderProps) => {
               <img src={profileImage} alt="" />
             </button>
             <div className="dropBoxUserDesktop">
-              <h2 className="title-2 gray-0">Admin</h2>
-              <button>
+              <h2 className="title-2 gray-0">{user?.name}</h2>
+              <button onClick={() => logoutHandle}>
                 <img src={logoutButton}></img>
               </button>
             </div>
@@ -97,7 +102,7 @@ export const Header = ({ isHome }: iHeaderProps) => {
         {openLogout && (
           <div className="dropBoxUser">
             <h2 className="title-2 gray-0">{user?.name}</h2>
-            <button>
+            <button onClick={() => logoutHandle()}>
               <img src={logoutButton}></img>
             </button>
           </div>
