@@ -18,10 +18,18 @@ import phoneIcon from "../../assets/img/phoneIcon.svg";
 import locationIcon from "../../assets/img/locationIcon.svg";
 
 export const Home = () => {
-  const { openModal, settingsModal } = useContext(UserContext);
+  const {
+    openModal,
+    settingsModal,
+    allAthletes,
+    setAllAthletes,
+    selectedAtlhete,
+  } = useContext(UserContext);
   return (
     <StyledHome>
-      {openModal && <ModalWrapper typeModal="userLogoff" />}
+      {openModal && (
+        <ModalWrapper typeModal="userLogoff" select={selectedAtlhete} />
+      )}
       <Header isHome />
       <main>
         <section className="sectionSponsorship">

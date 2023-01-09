@@ -13,6 +13,7 @@ export const UserProvider = ({ children }: iProviderProps) => {
   const [allAthletes, setAllAthletes] = useState([] as iAthlete[]);
   const [openModal, setIsOpenModal] = useState(false);
   const [settingsModal, setSettingsModal] = useState("");
+  const [selectedAtlhete, setSelectedAtlhete] = useState<number | null>(null);
   const navigate = useNavigate();
 
   const registerUser = async (data: iRegisterData) => {
