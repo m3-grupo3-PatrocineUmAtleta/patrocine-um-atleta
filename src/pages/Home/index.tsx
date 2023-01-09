@@ -20,17 +20,12 @@ import { getAllAthletes } from "../../services/getAllAthletes";
 import { AthleteCard } from "../../components/AthleteCard";
 
 export const Home = () => {
-  const {
-    openModal,
-    settingsModal,
-    allAthletes,
-    setAllAthletes,
-    selectedAtlhete,
-  } = useContext(UserContext);
+  const { openModal, athletes, setAthletes, selectedAtlhete } =
+    useContext(UserContext);
 
   const getAthletes = async () => {
-    const athletes = await getAllAthletes();
-    setAllAthletes(athletes);
+    const athleteS = await getAllAthletes();
+    setAthletes(athleteS);
   };
 
   useEffect(() => {
@@ -64,9 +59,9 @@ export const Home = () => {
                 Alguns de nossos atletas cadastrados
               </h2>
               <ul>
-                {allAthletes.map((athelte) => (
+                {athletes.map((athelte) => (
                   <AthleteCard
-                    athlete_id={athelte.id.toString()}
+                    athlete_id={athelte.id}
                     img={athelte.imgUrl}
                     name={athelte.name}
                     age={athelte.age}
