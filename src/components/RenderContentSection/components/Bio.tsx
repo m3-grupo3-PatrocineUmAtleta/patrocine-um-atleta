@@ -1,18 +1,12 @@
-interface iBioProps {
-  hometown: string;
-  bio: string;
-}
+import { iAthlete } from "../../../providers/User/interfaces";
 
-export const Bio = ({hometown, bio}: iBioProps) => (
+export const Bio = ({ city, bio }: iAthlete) => (
   <>
-    <div className="divImageAndTitle">
-      <img src="" alt="Foto de perfil do atleta" />
-      <h2>Biografia do atleta</h2>
-    </div>
+    <h2>Biografia do atleta</h2>
     <div>
       <div className="divLocation">
         <img src="" alt="Ícone localização" />
-        <p>{hometown}</p>
+        <p>{city}</p>
       </div>
       <h2>Sobre:</h2>
       <p>{bio}</p>

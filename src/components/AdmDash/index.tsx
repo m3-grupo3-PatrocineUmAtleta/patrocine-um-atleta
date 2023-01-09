@@ -26,6 +26,9 @@ export const AdmDash = () => {
       </StyledAdmDash>
       <StyledContainer>
         <div>
+          <StyledSectionRender>
+            <RenderContentSection></RenderContentSection>
+          </StyledSectionRender>
           <StyledAsideButtons>
             <ButtonsSidebar text="Perfil" img={perfilImg}></ButtonsSidebar>
             <ButtonsSidebar text="Informações" img={infoImg}></ButtonsSidebar>
@@ -36,9 +39,6 @@ export const AdmDash = () => {
             <ButtonsSidebar text="Atletas" img={athletesImg}></ButtonsSidebar>
             <ButtonsSidebar text="Registrar" img={registerImg}></ButtonsSidebar>
           </StyledAsideButtons>
-          <StyledSectionRender>
-            <RenderContentSection></RenderContentSection>
-          </StyledSectionRender>
         </div>
       </StyledContainer>
     </>

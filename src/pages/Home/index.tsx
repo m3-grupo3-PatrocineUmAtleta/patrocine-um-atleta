@@ -20,8 +20,13 @@ import { getAllAthletes } from "../../services/getAllAthletes";
 import { AthleteCard } from "../../components/AthleteCard";
 
 export const Home = () => {
-  const { openModal, settingsModal, setAllAthletes, allAthletes } =
-    useContext(UserContext);
+  const {
+    openModal,
+    settingsModal,
+    allAthletes,
+    setAllAthletes,
+    selectedAtlhete,
+  } = useContext(UserContext);
 
   const getAthletes = async () => {
     const athletes = await getAllAthletes();
@@ -33,7 +38,9 @@ export const Home = () => {
   }, []);
   return (
     <StyledHome>
-      {openModal && <ModalWrapper typeModal="userLogoff" />}
+      {openModal && (
+        <ModalWrapper typeModal="userLogoff" select={selectedAtlhete} />
+      )}
       <Header isHome />
       <main>
         <section className="sectionSponsorship">

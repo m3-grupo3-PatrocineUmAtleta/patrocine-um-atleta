@@ -21,6 +21,7 @@ export const StyledContainer = styled.div<iContainerProps>`
     max-width: 1285px;
     div {
       display: flex;
+      flex-direction: row-reverse;
     }
   }
 `;

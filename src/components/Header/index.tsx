@@ -17,7 +17,7 @@ interface iHeaderProps {
 }
 
 export const Header = ({ isHome }: iHeaderProps) => {
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   const [openHamburguer, setOpenHamburguer] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
@@ -26,6 +26,7 @@ export const Header = ({ isHome }: iHeaderProps) => {
   const logoutHandle = () => {
     window.localStorage.removeItem("@UserId");
     window.localStorage.removeItem("@Token");
+    setUser(null);
   };
 
   return !openSearch ? (
@@ -84,7 +85,7 @@ export const Header = ({ isHome }: iHeaderProps) => {
             </button>
             <div className="dropBoxUserDesktop">
               <h2 className="title-2 gray-0">{user?.name}</h2>
-              <button onClick={() => logoutHandle}>
+              <button onClick={() => logoutHandle()}>
                 <img src={logoutButton}></img>
               </button>
             </div>

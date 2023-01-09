@@ -10,7 +10,7 @@ export const UserProvider = ({ children }: iProviderProps) => {
   const [user, setUser] = useState<iUser | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [buttonValue, setButtonValue] = useState("");
-  const [allAthletes, setAllAthletes] = useState([] as iAthlete[]);
+  const [athletes, setAthletes] = useState([] as iAthlete[]);
   const [openModal, setIsOpenModal] = useState(false);
   const [settingsModal, setSettingsModal] = useState("");
   const [selectedAtlhete, setSelectedAtlhete] = useState<number | null>(null);
@@ -41,12 +41,13 @@ export const UserProvider = ({ children }: iProviderProps) => {
     <UserContext.Provider
       value={{
         user,
+        setUser,
         isLoading,
         setIsLoading,
         buttonValue,
         setButtonValue,
-        allAthletes,
-        setAllAthletes,
+        athletes,
+        setAthletes,
         openModal,
         setIsOpenModal,
         settingsModal,
