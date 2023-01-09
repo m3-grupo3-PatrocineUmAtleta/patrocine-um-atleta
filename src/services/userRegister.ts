@@ -6,8 +6,10 @@ import { api } from "./api";
 export interface iRegisterData {
   name: string;
   cpf: string;
-  address: string;
   age: number;
+  street: string;
+  address: string;
+  cep: number;
   image: string;
   bio: string;
   contacts: {

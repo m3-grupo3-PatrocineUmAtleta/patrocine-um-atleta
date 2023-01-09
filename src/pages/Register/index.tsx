@@ -13,7 +13,9 @@ import { iRegisterData } from "../../services/userRegister";
 export interface iRegisterFormData {
   name: string;
   cpf: string;
+  street: string;
   address: string;
+  cep: number;
   age: number;
   image: string;
   bio: string;
@@ -47,9 +49,11 @@ export const Register = () => {
       name: data.name,
       cpf: data.cpf,
       age: data.age,
+      street: data.street,
+      address: data.address,
+      cep: data.cep,
       image: data.image,
       bio: data.bio,
-      address: data.address,
       contacts: {
         phoneNumber: data.phoneNumber,
       },
@@ -74,6 +78,7 @@ export const Register = () => {
           required
           message={errors.name?.message}
           valid={isValidating}
+          placeholder="Insira seu nome completo"
         />
         <Input
           type="number"
@@ -82,6 +87,7 @@ export const Register = () => {
           message={errors.cpf?.message}
           register={register("cpf")}
           required
+          placeholder="Insira seu CPF, somente os números"
         />
         <Input
           type="date"
@@ -92,13 +98,35 @@ export const Register = () => {
           message={errors.age?.message}
           valid={isValidating}
         />
+        <Input
+          type="text"
+          id="street"
+          text="Rua"
+          register={register("street")}
+          required
+          message={errors.street?.message}
+          valid={isValidating}
+          placeholder="Sua rua, seu número"
+        />
 
         <Input
-          type="url"
-          id="image"
-          text="Imagem"
-          register={register("image")}
+          type="text"
+          id="address"
+          text="Cidade, Estado - UF"
+          register={register("address")}
           required
+          message={errors.address?.message}
+          valid={isValidating}
+          placeholder="Cidade, Estado - UF"
+        />
+        <Input
+          type="number"
+          id="cep"
+          text="CEP"
+          message={errors.cep?.message}
+          register={register("cep")}
+          required
+          placeholder="Insira seu CEP, somente os números"
         />
         <TextArea
           type="textarea"
@@ -108,15 +136,15 @@ export const Register = () => {
           required
           message={errors.bio?.message}
           valid={isValidating}
+          placeholder="Escreva a sua biografia aqui..."
         />
         <Input
-          type="text"
-          id="address"
-          text="Endereço"
-          register={register("address")}
+          type="url"
+          id="image"
+          text="Imagem"
+          register={register("image")}
           required
-          message={errors.address?.message}
-          valid={isValidating}
+          placeholder="Insira o link da imagem"
         />
         <Input
           type="text"
@@ -126,6 +154,7 @@ export const Register = () => {
           required
           message={errors.phoneNumber?.message}
           valid={isValidating}
+          placeholder="(00) 0 0000 0000"
         />
         <Input
           type="text"
@@ -135,6 +164,7 @@ export const Register = () => {
           required
           message={errors.email?.message}
           valid={isValidating}
+          placeholder="seuemail@email.com"
         />
         <Input
           type="password"
@@ -144,6 +174,7 @@ export const Register = () => {
           required
           message={errors.password?.message}
           valid={isValidating}
+          placeholder="Sua senha.."
         />
         <Input
           type="password"
@@ -153,6 +184,7 @@ export const Register = () => {
           required
           message={errors.confirmPassword?.message}
           valid={isValidating}
+          placeholder="Repita sua senha.."
         />
         <button type="submit" className="headline">
           Cadastrar
