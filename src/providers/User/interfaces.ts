@@ -86,8 +86,8 @@ export interface iDeposition {
 export interface iAthlete {
   name: string;
   age: number;
-  athlete_id: number;
-  img: string;
+  id: number;
+  imgUrl: string;
   institution: iInstitution;
   medias?: iMedias;
   bio: string;

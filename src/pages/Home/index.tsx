@@ -19,7 +19,7 @@ import locationIcon from "../../assets/img/locationIcon.svg";
 import { getAllAthletes } from "../../services/getAllAthletes";
 import { AthleteCard } from "../../components/AthleteCard";
 
-export const Home = () => {
+
   const { openModal, settingsModal, athletes, setAthletes, selectedAtlhete } =
     useContext(UserContext);
 
@@ -59,14 +59,14 @@ export const Home = () => {
                 Alguns de nossos atletas cadastrados
               </h2>
               <ul>
-                {allAthletes.map((athlete) => (
+                {athletes.map((athelte) => (
                   <AthleteCard
-                    athlete_id={athlete.id.toString()}
-                    img={athlete.imgUrl}
-                    name={athlete.name}
-                    age={athlete.age}
-                    city={athlete.city}
-                    bio={athlete.bio}
+                    athlete_id={athelte.id}
+                    img={athelte.imgUrl}
+                    name={athelte.name}
+                    age={athelte.age}
+                    city={athelte.city}
+                    bio={athelte.bio}
                     isAdmin={false}
                     key={athlete.id}
                   />
