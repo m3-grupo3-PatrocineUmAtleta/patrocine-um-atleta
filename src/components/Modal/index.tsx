@@ -2,13 +2,15 @@ import { ModalBackground } from "./style";
 import closeModal from "../../assets/img/closeModal.svg";
 import { useContext } from "react";
 import { UserContext } from "../../providers/User";
+import { UserLogoff } from "./Modais/userLogOff/userLogoff";
 
 interface iModalProps {
   typeModal: string;
+  select?: number | null;
 }
 
-export const ModalWrapper = ({ typeModal }: iModalProps) => {
-  const { setIsOpenModal } = useContext(UserContext);
+export const ModalWrapper = ({ typeModal, select }: iModalProps) => {
+  const { setIsOpenModal, selectedAtlhete } = useContext(UserContext);
 
   const handleClick = () => {
     setIsOpenModal(false);
@@ -25,8 +27,8 @@ export const ModalWrapper = ({ typeModal }: iModalProps) => {
             <button onClick={handleClick}>
               <img src={closeModal} />
             </button>
+            <UserLogoff idAthlete={selectedAtlhete} />
           </div>
-          //   <ChildrenComponent/>
         );
       case "athleteStatement":
         return (

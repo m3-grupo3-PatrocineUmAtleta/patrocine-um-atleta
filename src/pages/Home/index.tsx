@@ -23,8 +23,6 @@ export const Home = () => {
   const {
     openModal,
     settingsModal,
-    setAllAthletes,
-    allAthletes,
     allAthletes,
     setAllAthletes,
     selectedAtlhete,
