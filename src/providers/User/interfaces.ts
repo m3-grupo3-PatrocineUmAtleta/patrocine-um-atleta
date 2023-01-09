@@ -4,6 +4,7 @@ import { iRegisterData } from "../../services/userRegister";
 
 export interface iContext {
   user: iUser | null;
+  setUser: React.Dispatch<React.SetStateAction<iUser | null>>;
   isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
   buttonValue: string;

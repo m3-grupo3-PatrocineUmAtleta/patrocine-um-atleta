@@ -32,7 +32,7 @@ export const ModalBackground = styled.div`
       display: flex;
       gap: 21px;
 
-      & > div {
+      & > div.ball {
         background-color: var(--color-secundary-100);
         border-radius: 100%;
         height: 42px;
