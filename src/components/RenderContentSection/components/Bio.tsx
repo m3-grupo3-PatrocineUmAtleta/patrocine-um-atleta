@@ -1,6 +1,9 @@
-import { iAthlete } from "../../../providers/User/interfaces";
+interface iBioProps {
+  city: string;
+  bio: string;
+}
 
-export const Bio = ({ city, bio }: iAthlete) => (
+export const Bio = ({ city, bio }: iBioProps) => (
   <>
     <h2>Biografia do atleta</h2>
     <div>

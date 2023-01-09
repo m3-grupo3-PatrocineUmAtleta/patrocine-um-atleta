@@ -1,7 +1,6 @@
-import { iAthlete } from "../../../providers/User/interfaces";
+import { iUser } from "../../../providers/User/interfaces";
 
-export const Favourites = (favourites: iAthlete[]) => (
-  <ul>
-    {/* favourites.map() */}
-  </ul>
-)
+// tipar favourites
+export const Favourites = ({ favourites }: any) => (
+  <ul>{/* favourites.map() */}</ul>
+);

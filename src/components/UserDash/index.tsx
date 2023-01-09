@@ -30,7 +30,7 @@ export const UserDash = () => {
           </ul>
           <ul className="ul-desktop">
             <AthleteCard
-              athlete_id="1"
+              athlete_id={1}
               img={
                 "https://www.algosobre.com.br/images/stories/assuntos/biografias/Zico.jpg"
               }
@@ -39,14 +39,14 @@ export const UserDash = () => {
               city="Santos"
             />
             <AthleteCard
-              athlete_id="1"
+              athlete_id={1}
               img="undefined"
               name="Pelé"
               age={18}
               city="Santos"
             />
             <AthleteCard
-              athlete_id="1"
+              athlete_id={1}
               img="undefined"
               name="Pelé"
               age={18}

@@ -1,13 +1,23 @@
+import { iAthlete, iTournament } from "../../../providers/User/interfaces";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../../providers/User";
-import { iAthlete, iInstitution } from "../../../providers/User/interfaces";
 import { api } from "../../../services/api";
+
+interface iInfosProps {
+  tournamentsInfo?: {
+    tournaments: iTournament[];
+    totalPlayed: number;
+    wins: number;
+  };
+  institutionAthletes?: iAthlete[];
+  raisings?: string;
+}
 
 export const Infos = ({
   institutionAthletes,
   tournamentsInfo,
   raisings,
-}: iInstitution) => {
+}: iInfosProps) => {
   const [mostPopular, setMostPopular] = useState({} as iAthlete);
 
   const { user, buttonValue } = useContext(UserContext);
