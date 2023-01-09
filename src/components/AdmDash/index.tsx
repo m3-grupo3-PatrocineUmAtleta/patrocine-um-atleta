@@ -22,18 +22,25 @@ export const AdmDash = () => {
   return (
     <>
       <StyledAdmDash>
-        <Header isHome={false}></Header>;<StyledContainer></StyledContainer>
+        <Header isHome={false}></Header>
       </StyledAdmDash>
-      <StyledSectionRender>
-        <RenderContentSection></RenderContentSection>
-      </StyledSectionRender>
-      <StyledAsideButtons>
-        <ButtonsSidebar text="Perfil" img={perfilImg}></ButtonsSidebar>
-        <ButtonsSidebar text="Informações" img={infoImg}></ButtonsSidebar>
-        <ButtonsSidebar text="Torneios" img={tournamentImg}></ButtonsSidebar>
-        <ButtonsSidebar text="Atletas" img={athletesImg}></ButtonsSidebar>
-        <ButtonsSidebar text="Registrar" img={registerImg}></ButtonsSidebar>
-      </StyledAsideButtons>
+      <StyledContainer>
+        <div>
+          <StyledAsideButtons>
+            <ButtonsSidebar text="Perfil" img={perfilImg}></ButtonsSidebar>
+            <ButtonsSidebar text="Informações" img={infoImg}></ButtonsSidebar>
+            <ButtonsSidebar
+              text="Torneios"
+              img={tournamentImg}
+            ></ButtonsSidebar>
+            <ButtonsSidebar text="Atletas" img={athletesImg}></ButtonsSidebar>
+            <ButtonsSidebar text="Registrar" img={registerImg}></ButtonsSidebar>
+          </StyledAsideButtons>
+          <StyledSectionRender>
+            <RenderContentSection></RenderContentSection>
+          </StyledSectionRender>
+        </div>
+      </StyledContainer>
     </>
   );
 };
