@@ -1,4 +1,3 @@
-import { AxiosError } from "axios";
 import { apiCEP } from "./api";
 
 export interface iGetAddressProp {
@@ -16,16 +15,15 @@ export interface iResponseAddress {
   gia: string;
   ddd: string;
   siafi: string;
-  message?: string;
 }
 export const getAddress = async (cep: number): Promise<iResponseAddress> => {
   try {
-    const response = await apiCEP.get(cep + "/json", {
+    const { data } = await apiCEP.get(cep + "/json", {
       headers: {
         "Content-Type": "application/json",
       },
     });
-    return response.data;
+    return data;
   } finally {
   }
 };

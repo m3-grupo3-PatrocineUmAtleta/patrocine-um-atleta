@@ -20,7 +20,7 @@ export const UserProvider = ({ children }: iProviderProps) => {
     setUser;
     if (response === 201) {
       setTimeout(() => {
-        navigate("/");
+        navigate("/login");
       }, 2000);
     }
   };
@@ -30,7 +30,6 @@ export const UserProvider = ({ children }: iProviderProps) => {
 
     if (response !== undefined) {
       setUser(response);
-      console.log(user);
       setTimeout(() => {
         navigate("/dashboard");
       }, 2000);

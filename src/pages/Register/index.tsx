@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../../providers/User";
 import LoadingButton from "@mui/lab/LoadingButton";
 import { iRegisterData } from "../../services/userRegister";
+import { getAddress, iResponseAddress } from "../../services/getAddress";
 
 export interface iRegisterFormData {
   name: string;
@@ -27,6 +28,7 @@ export interface iRegisterFormData {
 
 export const Register = () => {
   const { isLoading, registerUser } = useContext(UserContext);
+  const [address, setAddress] = useState<iResponseAddress>();
 
   const {
     register,
@@ -67,6 +69,10 @@ export const Register = () => {
     registerUser(dataUser);
   };
 
+  const getCepAddress = async (cep: number) => {
+    const addressCep = await getAddress(cep);
+    setAddress(addressCep);
+  };
   return (
     <MainRegister>
       <Form eventClick={handleSubmit(registerU)} title="Cadastro">
@@ -99,6 +105,16 @@ export const Register = () => {
           valid={isValidating}
         />
         <Input
+          onBlur={(e) => getCepAddress(Number(e.target.value))}
+          type="number"
+          id="cep"
+          text="CEP"
+          message={errors.cep?.message}
+          register={register("cep")}
+          required
+          placeholder="Insira seu CEP, somente os números"
+        />
+        <Input
           type="text"
           id="street"
           text="Rua"
@@ -107,6 +123,7 @@ export const Register = () => {
           message={errors.street?.message}
           valid={isValidating}
           placeholder="Sua rua, seu número"
+          value={address ? address?.logradouro : ""}
         />
 
         <Input
@@ -118,15 +135,11 @@ export const Register = () => {
           message={errors.address?.message}
           valid={isValidating}
           placeholder="Cidade, Estado - UF"
-        />
-        <Input
-          type="number"
-          id="cep"
-          text="CEP"
-          message={errors.cep?.message}
-          register={register("cep")}
-          required
-          placeholder="Insira seu CEP, somente os números"
+          value={
+            address
+              ? `${address?.bairro}, ${address?.localidade} - ${address?.uf}`
+              : ""
+          }
         />
         <TextArea
           type="textarea"
