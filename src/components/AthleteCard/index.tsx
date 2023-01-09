@@ -13,7 +13,7 @@ interface iCardProps {
   name: string;
   age: number;
   city: string;
-  bio: string;
+  bio?: string;
   isAdmin?: boolean;
 }
 

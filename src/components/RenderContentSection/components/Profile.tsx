@@ -1,6 +1,6 @@
 import { iUser } from "../../../providers/User/interfaces";
 
-export const Profile = ({name, site, bio, adress, contacts}: iUser ) => (
+export const Profile = ({ name, site, bio, address, contacts }: iUser) => (
   <>
     <div className="divDataAndButton">
       <h3>Dados</h3>
@@ -14,7 +14,7 @@ export const Profile = ({name, site, bio, adress, contacts}: iUser ) => (
       <h4>Nome: {name}</h4>
       <h4>Site: {site ? site : ""}</h4>
       <h4>Bio: {bio ? bio : ""}</h4>
-      <h4>Endereço: {adress}</h4>
+      <h4>Endereço: {address}</h4>
       <div className="divContacts">
         <h4>Contatos:</h4>
         <div>

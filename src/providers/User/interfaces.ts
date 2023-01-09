@@ -23,18 +23,18 @@ export interface iProviderProps {
 }
 
 export interface iUser {
-  email: string;
+  site?: string;
   name: string;
-  cpf: number;
-  age: string;
-  image: string;
+  cpf?: number;
+  age?: string;
+  image?: string;
   bio: string;
   address: string;
-  contacts: { phoneNumber: string };
+  contacts: { phoneNumber?: string; email?: string };
   favourites?: iAthlete[];
   sponsoredAthletes?: iAthlete[];
-  isAdmin: boolean;
-  id: number;
+  isAdmin?: boolean;
+  id?: number;
 }
 
 export interface iTournament {
