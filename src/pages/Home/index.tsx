@@ -20,17 +20,12 @@ import { getAllAthletes } from "../../services/getAllAthletes";
 import { AthleteCard } from "../../components/AthleteCard";
 
 export const Home = () => {
-  const {
-    openModal,
-    settingsModal,
-    allAthletes,
-    setAllAthletes,
-    selectedAtlhete,
-  } = useContext(UserContext);
+  const { openModal, settingsModal, athletes, setAthletes, selectedAtlhete } =
+    useContext(UserContext);
 
   const getAthletes = async () => {
     const athletes = await getAllAthletes();
-    setAllAthletes(athletes);
+    setAthletes(athletes);
   };
 
   useEffect(() => {
