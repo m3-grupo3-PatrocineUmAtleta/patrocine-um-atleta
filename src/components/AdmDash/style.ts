@@ -9,10 +9,12 @@ export const StyledAsideButtons = styled.aside`
   position: sticky;
   bottom: 0;
   width: 100vw;
-  overflow-x: scroll;
+  max-width: 760px;
+  overflow-x: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 0 auto;
 
   button {
     border-radius: 10px;
@@ -42,6 +44,10 @@ export const StyledAsideButtons = styled.aside`
     width: 40px;
     opacity: 0.5;
   }
+  @media (min-width: 750px) {
+    max-width: 235px;
+    flex-wrap: wrap;
+  }
 `;
 export const StyledSectionRender = styled.section`
   min-height: 320px;
@@ -49,6 +55,7 @@ export const StyledSectionRender = styled.section`
   overflow-y: scroll;
   padding: 16px;
   width: 95%;
+  max-width: 760px;
   margin: 0 auto;
   position: relative;
   top: -30px;
