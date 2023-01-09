@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "../../providers/User";
+import { iUser } from "../../providers/User/interfaces";
 import { AllAthletes } from "./components/AllAthletes";
 import { AthleteRegister } from "./components/AthleteRegister";
 import { Athletes } from "./components/Athletes";
@@ -17,12 +18,12 @@ import { Tournaments } from "./components/Tournaments";
 export const RenderContentSection = () => {
   const { buttonValue, user } = useContext(UserContext);
 
-  if(user) {
+  if (user) {
     if (buttonValue === "Perfil") {
       return (
         <Profile
           name=""
-          adress=""
+          address=""
           bio=""
           contacts={{}}
           favourites={[]}
@@ -36,7 +37,7 @@ export const RenderContentSection = () => {
     if (buttonValue === "Favoritos") {
       return (
         <Favourites
-          adress=""
+          address=""
           name=""
           bio=""
           contacts={{}}
@@ -48,7 +49,7 @@ export const RenderContentSection = () => {
     if (buttonValue === "Patrocinados") {
       return (
         <Sponsored
-          adress=""
+          address=""
           name=""
           bio=""
           contacts={{}}
@@ -63,7 +64,7 @@ export const RenderContentSection = () => {
     return (
       <Profile
         name=""
-        adress=""
+        address=""
         bio=""
         contacts={{}}
         favourites={[]}

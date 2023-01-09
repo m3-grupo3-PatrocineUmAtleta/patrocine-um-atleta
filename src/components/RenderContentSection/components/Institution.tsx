@@ -13,7 +13,7 @@ export const Institution = ({
         <img src={image} alt="Foto de perfil da instituição" />
         <h2>{name}</h2>
       </div>
-      <h2>0</h2>
+      <h2>{`Participações: ${tournamentsInfo?.totalPlayed} torneios`}</h2>
     </div>
     <div>
       <div className="divLocation">
