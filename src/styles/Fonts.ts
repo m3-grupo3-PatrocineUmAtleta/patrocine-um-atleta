@@ -26,6 +26,11 @@ const Fonts = createGlobalStyle`
     font-size: 1rem;
     line-height: 150%;
   }
+  .headline-600 {
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 150%;
+  }
   .body {
     font-weight: 400;
     font-size: 0.875rem;

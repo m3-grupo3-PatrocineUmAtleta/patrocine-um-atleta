@@ -57,16 +57,16 @@ export const Home = () => {
                 Alguns de nossos atletas cadastrados
               </h2>
               <ul>
-                {allAthletes.map((athelte) => (
+                {allAthletes.map((athlete) => (
                   <AthleteCard
-                    athlete_id={athelte.id.toString()}
-                    img={athelte.imgUrl}
-                    name={athelte.name}
-                    age={athelte.age}
-                    city={athelte.city}
-                    bio={athelte.bio}
+                    athlete_id={athlete.id.toString()}
+                    img={athlete.imgUrl}
+                    name={athlete.name}
+                    age={athlete.age}
+                    city={athlete.city}
+                    bio={athlete.bio}
                     isAdmin={false}
-                    key={athelte.id}
+                    key={athlete.id}
                   />
                 ))}
               </ul>
@@ -121,22 +121,47 @@ export const Home = () => {
       </main>
       <footer>
         <StyledContainer>
-          <img src={bgPatrocineUmAtletaLogo} alt="logo" />
           <div>
-            <h3 className="title-3 gray-0">Redes</h3>
+            <img src={bgPatrocineUmAtletaLogo} alt="logo" />
             <div>
-              <img src={linkedinIcon} alt="logo" />
-              <img src={instagramIcon} alt="logo" />
-              <img src={facebookIcon} alt="logo" />
+              <h3 className="title-3 gray-0">Redes</h3>
+              <h3 className="title-3 gray-0">Acompanhe nossas redes:</h3>
+              <div>
+                <img src={linkedinIcon} alt="logo" />
+                <img src={instagramIcon} alt="logo" />
+                <img src={facebookIcon} alt="logo" />
+              </div>
+            </div>
+            <div>
+              <h3 className="title-3 gray-0">Contatos</h3>
+              <div>
+                <div>
+                  <img src={whatsappIcon} alt="logo" />
+                  <div className="headline-600 gray-0">
+                    Telefone: (21) 2525-2525
+                  </div>
+                </div>
+                <div>
+                  <img src={phoneIcon} alt="logo" />
+                  <div className="headline-600 gray-0">
+                    WhatsApp: (21) 98492-3934
+                  </div>
+                </div>
+                <div>
+                  <img src={locationIcon} alt="logo" />
+                  <div className="headline-600 gray-0">
+                    Rua dos Bobos, 0<br />
+                    Brasília, Destrito Federal – DF
+                    <br />
+                    CEP: 22281-060 <br />
+                    CNPJ: 54.070.554/0001-94
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div>
-            <h3 className="title-3 gray-0">Contatos</h3>
-            <div>
-              <img src={whatsappIcon} alt="logo" />
-              <img src={phoneIcon} alt="logo" />
-              <img src={locationIcon} alt="logo" />
-            </div>
+          <div className="headline-600 gray-0">
+            ©2023 Patrocine um atleta. Todos os direitos reservados.
           </div>
         </StyledContainer>
       </footer>
