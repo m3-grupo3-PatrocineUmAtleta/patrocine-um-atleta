@@ -2,12 +2,6 @@ import styled from "styled-components";
 
 export const StyledUserDash = styled.main`
 
-    header{
-        width: 100%;
-        height: 50px;
-        background-color: grey;
-    }
-
     .bg-blue{
         width: 100%;
         height: 60vh;
@@ -92,17 +86,51 @@ export const StyledUserDash = styled.main`
 
         & > ul {
             width: 100%;
-            overflow-x: hidden;
+            overflow-x: scroll;
 
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 16px;
 
             background-color: var(--color-gray-0);
 
             & > li{
-               scale: 0.7;
+               scale: 0.8;
+
+               & > button {
+                border-radius: 10px;
+                width: 100px;
+                height: 100px;
+                background-color: var(--color-primary-0);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    height: 40px;
+                    width: 40px;
+                    opacity: 0.5;
+                }
+                h4 {
+                    color: rgba(0, 0, 0, 0.5);
+                }
+
+                &:focus {
+                    background: var(--color-gray-0);
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    border-radius: 10px 10px 0px 10px;
+                    border-bottom: 5px solid var(--color-secundary-100);
+
+                    img {
+                    opacity: 1;
+                    }
+                    h4 {
+                    color: rgba(0, 0, 0, 1);
+                    }
+                }
+               }
             }
         }
     }
@@ -149,15 +177,19 @@ export const StyledUserDash = styled.main`
 
     .sidebar{
         position: absolute;
-        right: 450px;
-        bottom: 150px;
+        right: 475px;
+        bottom: 50px;        
 
         & > ul {
-            width: 170px;
+            width: 200px;
             height: fit-content;
-            flex-wrap: wrap;
-            justify-content: center;
+            overflow-x: hidden;
+            /* flex-wrap: wrap;
+            justify-content: center; */
             background-color: white;
+
+            display: grid;
+            grid-template-columns: auto auto;
 
             & > li {
                 min-width: 50px;
