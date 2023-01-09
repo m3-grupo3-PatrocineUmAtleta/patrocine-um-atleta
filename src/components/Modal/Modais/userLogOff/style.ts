@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-export const divUserLogOff = styled.div`
+export const DivUserLogOff = styled.div`
   & > div.modalBody {
     margin-top: 15px;
     display: flex;
     flex-direction: column;
+    gap: 12px;
 
     & > div.divLocal {
       display: flex;
@@ -20,22 +21,21 @@ export const divUserLogOff = styled.div`
       & > span.blur {
         filter: blur(3px);
       }
+    }
+    & > a {
+      display: block;
+      margin-top: 10px;
+      padding-top: 10px;
 
-      & > a {
-        display: block;
-        margin-top: 10px;
-        padding-top: 10px;
+      width: 139px;
+      height: 37px;
 
-        width: 139px;
-        height: 37px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--color-gray-0);
 
-        text-align: center;
-        text-decoration: none;
-        color: var(--color-gray-0);
-
-        background: var(--color-secundary-100);
-        border-radius: 5px;
-      }
+      background: var(--color-secundary-100);
+      border-radius: 5px;
     }
   }
 `;

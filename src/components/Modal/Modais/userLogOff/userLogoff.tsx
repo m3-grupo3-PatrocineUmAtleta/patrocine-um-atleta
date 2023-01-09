@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { GoLocation } from "react-icons/go";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../../../providers/User";
-import { divUserLogOff } from "./style";
+import { DivUserLogOff } from "./style";
 
 interface iUserLogoff {
   idAthlete: number | null;
@@ -11,7 +11,7 @@ interface iUserLogoff {
 export const UserLogoff = ({ idAthlete }: iUserLogoff) => {
   const { allAthletes } = useContext(UserContext);
   return (
-    <divUserLogOff>
+    <DivUserLogOff>
       <div className="modalBody">
         <div className="divLocal">
           <GoLocation className="localIcon" />
@@ -25,17 +25,16 @@ export const UserLogoff = ({ idAthlete }: iUserLogoff) => {
           <p>
             {allAthletes
               .find((athlete) => athlete.id === idAthlete)
-              ?.bio.slice(0, 50)}
+              ?.bio.slice(0, 70)}
           </p>
           <span className="blur body">
             {allAthletes
               .find((athlete) => athlete.id === idAthlete)
-              ?.bio.slice(50, -1)}
+              ?.bio.slice(70, -1)}
           </span>
-
-          <Link to={"/"}>Ver mais...</Link>
         </div>
+        <Link to={"/login"}>Ver mais...</Link>
       </div>
-    </divUserLogOff>
+    </DivUserLogOff>
   );
 };

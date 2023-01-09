@@ -21,7 +21,7 @@ export const ModalWrapper = ({ typeModal, select }: iModalProps) => {
         return (
           <div>
             <div>
-              <div />
+              <div className="ball" />
               <h3 className="title-2">Biografia do atleta</h3>
             </div>
             <button onClick={handleClick}>
