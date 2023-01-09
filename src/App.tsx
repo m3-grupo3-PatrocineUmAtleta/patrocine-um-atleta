@@ -6,6 +6,7 @@ import { Home } from "./pages/Home";
 import { Register } from "./pages/Register";
 import { AthletePage } from "./pages/AthletePage";
 
+
 function App() {
   return (
     <div className="App">
