@@ -1,4 +1,7 @@
 import { iMedias } from "../../../providers/User/interfaces";
+import facebookIcon from "../../../assets/img/facebookIcon.svg"
+import instagramIcon from "../../../assets/img/instagramIcon.svg"
+import twitterIcon from "../../../assets/img/twitterIcon.svg"
 
 export const Medias = ({ facebook, instagram, twitter }: iMedias) => (
   <>
@@ -11,13 +14,13 @@ export const Medias = ({ facebook, instagram, twitter }: iMedias) => (
       </h3>
       <div className="divIcons">
         <a href={facebook}>
-          <img /* src */ alt="Ícone Facebook" />
+          <img src={facebookIcon} alt="Ícone Facebook" />
         </a>
         <a href={instagram}>
-          <img /* src */ alt="Ícone Instagram" />
+          <img src={instagramIcon} alt="Ícone Instagram" />
         </a>
         <a href={twitter}>
-          <img /* src */ alt="Ícone Twitter" />
+          <img src={twitterIcon} alt="Ícone Twitter" />
         </a>
       </div>
     </div>
