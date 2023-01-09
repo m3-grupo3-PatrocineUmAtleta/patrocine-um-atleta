@@ -62,8 +62,8 @@ export interface iInstitution {
     totalPlayed: number;
     wins: number;
   };
-  institutionAthletes: iAthlete[];
-  raisings: string;
+  institutionAthletes?: iAthlete[];
+  raisings?: string;
 }
 
 export interface iMedias {

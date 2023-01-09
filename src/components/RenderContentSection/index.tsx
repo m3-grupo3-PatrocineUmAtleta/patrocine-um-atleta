@@ -20,39 +20,20 @@ export const RenderContentSection = () => {
 
   if (user) {
     if (buttonValue === "Perfil") {
-      return (
-        <Profile
-          name=""
-          address=""
-          bio=""
-          contacts={{}}
-          favourites={[]}
-          sponsoredAthletes={[]}
-        />
-      );
+      return <Profile name="" bio="" phoneNumber="" email="" />;
     }
     if (buttonValue === "Todos atletas") {
       return <AllAthletes />;
     }
     if (buttonValue === "Favoritos") {
-      return (
-        <Favourites
-          address=""
-          name=""
-          bio=""
-          contacts={{}}
-          favourites={[]}
-          sponsoredAthletes={[]}
-        />
-      );
+      return <Favourites favourites={[]} />;
     }
     if (buttonValue === "Patrocinados") {
       return (
         <Sponsored
-          address=""
           name=""
+          email=""
           bio=""
-          contacts={{}}
           favourites={[]}
           sponsoredAthletes={[]}
         />
@@ -62,14 +43,7 @@ export const RenderContentSection = () => {
 
   if (buttonValue === "Perfil") {
     return (
-      <Profile
-        name=""
-        address=""
-        bio=""
-        contacts={{}}
-        favourites={[]}
-        sponsoredAthletes={[]}
-      />
+      <Profile name="" email="" bio="" favourites={[]} sponsoredAthletes={[]} />
     );
   }
   if (buttonValue === "Informações") {
@@ -79,15 +53,7 @@ export const RenderContentSection = () => {
     return <Tournaments tournamentsList={[]} />;
   }
   if (buttonValue === "Atletas") {
-    return (
-      <Athletes
-        aboutUs=""
-        image=""
-        institutionAthletes={[]}
-        location=""
-        name=""
-      />
-    );
+    return <Athletes athleteList={[]} />;
   }
   if (buttonValue === "Registrar") {
     return <AthleteRegister />;
@@ -107,7 +73,7 @@ export const RenderContentSection = () => {
     return <Medias />;
   }
   if (buttonValue === "Bio") {
-    return <Bio bio="" hometown="" />;
+    return <Bio bio="" city="" />;
   }
   if (buttonValue === "Depoimentos") {
     return <Depositions depositionList={[]} />;

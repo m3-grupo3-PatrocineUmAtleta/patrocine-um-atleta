@@ -1,11 +1,21 @@
 import { useEffect, useState } from "react";
-import { iAthlete, iInstitution } from "../../../providers/User/interfaces";
+import { iAthlete, iTournament } from "../../../providers/User/interfaces";
+
+interface iInfosProps {
+  tournamentsInfo?: {
+    tournaments: iTournament[];
+    totalPlayed: number;
+    wins: number;
+  };
+  institutionAthletes?: iAthlete[];
+  raisings?: string;
+}
 
 export const Infos = ({
   institutionAthletes,
   tournamentsInfo,
   raisings,
-}: iInstitution) => {
+}: iInfosProps) => {
   const [mostPopular, setMostPopular] = useState({} as iAthlete);
 
   const findMostPopular = () => {
