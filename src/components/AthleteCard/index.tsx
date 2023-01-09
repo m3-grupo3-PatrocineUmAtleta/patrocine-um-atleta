@@ -3,6 +3,9 @@ import { GoLocation } from "react-icons/go";
 import { FaEye } from "react-icons/fa";
 import { BiTrash } from "react-icons/bi";
 import { FiEdit } from "react-icons/fi";
+import { useContext } from "react";
+import { UserContext } from "../../providers/User";
+import { ModalWrapper } from "../Modal";
 
 interface iCardProps {
   athlete_id: string;
@@ -10,6 +13,7 @@ interface iCardProps {
   name: string;
   age: number;
   city: string;
+  bio: string;
   isAdmin?: boolean;
 }
 
@@ -21,6 +25,13 @@ export const AthleteCard = ({
   city,
   isAdmin,
 }: iCardProps) => {
+  const { setIsOpenModal, setSelectedAtlhete } = useContext(UserContext);
+
+  const modalOpen = () => {
+    setIsOpenModal(true);
+    setSelectedAtlhete(Number(athlete_id));
+    return <ModalWrapper typeModal="userLogoff" />;
+  };
   return (
     <StyledAthleteCard id={athlete_id}>
       <div className="div-img">
@@ -42,7 +53,7 @@ export const AthleteCard = ({
           </div>
         ) : (
           <div className="div-icons">
-            <FaEye className="eye-icon icon" />
+            <FaEye className="eye-icon icon" onClick={() => modalOpen()} />
           </div>
         )}
       </div>
