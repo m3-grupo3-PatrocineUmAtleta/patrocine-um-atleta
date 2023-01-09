@@ -25,7 +25,7 @@ export const AdmDash = () => {
         <Header isHome={false}></Header>
       </StyledAdmDash>
       <StyledContainer>
-        <div>
+        <div className="rowReverse">
           <StyledSectionRender>
             <RenderContentSection></RenderContentSection>
           </StyledSectionRender>
