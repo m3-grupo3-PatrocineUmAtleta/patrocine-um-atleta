@@ -36,45 +36,49 @@ export const Login = () => {
 
   return (
     <MainLogin>
-      <Form title="Login" eventClick={handleSubmit(login)} nameClass="first">
-        <Input
-          type="text"
-          id="email"
-          text="E-mail"
-          register={register("email")}
-          required
-          message={errors.email?.message}
-          valid={isValidating}
-        />
-        <Input
-          type="password"
-          id="password"
-          text="Senha"
-          register={register("password")}
-          required
-          message={errors.password?.message}
-          valid={isValidating}
-        />
-        <button type="submit" className="headline">
-          Entrar
-        </button>
-        <section className="buttons">
-          <Link to={"/home"} className="home" />
-        </section>
-      </Form>
+      <div>
+        <Form title="Login" eventClick={handleSubmit(login)} nameClass="first">
+          <Input
+            type="text"
+            id="email"
+            text="E-mail"
+            register={register("email")}
+            required
+            message={errors.email?.message}
+            valid={isValidating}
+            placeholder="usuario@email.com"
+          />
+          <Input
+            type="password"
+            id="password"
+            text="Senha"
+            register={register("password")}
+            required
+            message={errors.password?.message}
+            valid={isValidating}
+            placeholder="Insira a sua senha"
+          />
+          <button type="submit" className="headline">
+            Entrar
+          </button>
+          <section className="buttons">
+            <Link to={"/home"} className="home" />
+          </section>
+        </Form>
 
-      <section className="second">
-        <figure className="logo" />
-        <p className="headline">
-          Faça parte das conquistas de uma futura estrela do esporte.
-        </p>
-        <div>
-          <p className="headline">Ainda não possui conta?</p>
-          <Link to={"/register"} className="headline">
-            Cadastre-se
-          </Link>
-        </div>
-      </section>
+        <section className="second">
+          <figure className="logo" />
+          <p className="headline">
+            Faça parte das conquistas de uma futura estrela do esporte.
+          </p>
+          <div>
+            <p className="headline">Ainda não possui conta?</p>
+            <Link to={"/register"} className="headline">
+              Cadastre-se
+            </Link>
+          </div>
+        </section>
+      </div>
     </MainLogin>
   );
 };
