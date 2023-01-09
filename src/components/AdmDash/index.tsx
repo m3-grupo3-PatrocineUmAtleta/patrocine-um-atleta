@@ -18,9 +18,7 @@ import { RenderContentSection } from "../RenderContentSection";
 export const AdmDash = () => {
   const { user, buttonValue } = useContext(UserContext);
 
-  useEffect(() => {
-    console.log(buttonValue);
-  }, [buttonValue]);
+  useEffect(() => {}, [buttonValue]);
   return (
     <>
       <StyledAdmDash>

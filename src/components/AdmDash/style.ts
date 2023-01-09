@@ -6,7 +6,7 @@ export const StyledAdmDash = styled.div`
   height: 450px;
 `;
 export const StyledAsideButtons = styled.aside`
-  position: fixed;
+  position: sticky;
   bottom: 0;
   width: 100vw;
   overflow-x: scroll;
@@ -50,9 +50,9 @@ export const StyledSectionRender = styled.section`
   padding: 16px;
   width: 95%;
   margin: 0 auto;
-  position: absolute;
-  bottom: 110px;
-  left: 8px;
+  position: relative;
+  top: -30px;
+
   background-color: var(--color-gray-0);
   border-radius: 16px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
