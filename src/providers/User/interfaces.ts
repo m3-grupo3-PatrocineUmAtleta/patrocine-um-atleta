@@ -18,7 +18,6 @@ export interface iContext {
   selectedAtlhete: number | null;
   setSelectedAtlhete: React.Dispatch<React.SetStateAction<number | null>>;
 }
-
 export interface iProviderProps {
   children: React.ReactNode;
 }
@@ -78,11 +77,15 @@ export interface iDeposition {
 }
 
 export interface iAthlete {
-  institution: iInstitution;
-  medias?: iMedias;
+  id: number;
+  name: string;
+  nickname: string;
+  imgUrl: string;
+  age: number;
   bio: string;
-  hometown: string;
+  city: string;
   depositions?: iDeposition[];
   tournaments?: iTournament[];
   donations: iDonation[];
+  medias?: iMedias;
 }

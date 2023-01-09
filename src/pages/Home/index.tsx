@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { ModalWrapper } from "../../components/Modal";
@@ -16,15 +16,28 @@ import facebookIcon from "../../assets/img/facebookIcon.svg";
 import whatsappIcon from "../../assets/img/whatsappIcon.svg";
 import phoneIcon from "../../assets/img/phoneIcon.svg";
 import locationIcon from "../../assets/img/locationIcon.svg";
+import { getAllAthletes } from "../../services/getAllAthletes";
+import { AthleteCard } from "../../components/AthleteCard";
 
 export const Home = () => {
   const {
     openModal,
     settingsModal,
+    setAllAthletes,
+    allAthletes,
     allAthletes,
     setAllAthletes,
     selectedAtlhete,
   } = useContext(UserContext);
+
+  const getAthletes = async () => {
+    const athletes = await getAllAthletes();
+    setAllAthletes(athletes);
+  };
+
+  useEffect(() => {
+    getAthletes();
+  }, []);
   return (
     <StyledHome>
       {openModal && (
@@ -52,7 +65,20 @@ export const Home = () => {
               <h2 className="title-home-2 gray-0">
                 Alguns de nossos atletas cadastrados
               </h2>
-              <ul>{/* li cards */}</ul>
+              <ul>
+                {allAthletes.map((athelte) => (
+                  <AthleteCard
+                    athlete_id={athelte.id.toString()}
+                    img={athelte.imgUrl}
+                    name={athelte.name}
+                    age={athelte.age}
+                    city={athelte.city}
+                    bio={athelte.bio}
+                    isAdmin={false}
+                    key={athelte.id}
+                  />
+                ))}
+              </ul>
             </StyledContainer>
           </div>
         </section>

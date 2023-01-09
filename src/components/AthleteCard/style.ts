@@ -9,6 +9,7 @@ export const StyledAthleteCard = styled.li`
   border: 2px solid var(--color-primary-100);
   border-radius: 8px;
 
+  min-width: 236.91px;
   width: 240px;
   height: 300px;
 

@@ -7,6 +7,7 @@ interface iContainerProps {
 export const StyledContainer = styled.div<iContainerProps>`
   width: 95%;
   margin: 0 auto;
+  justify-content: center;
 
   ${({ flex }) =>
     flex &&
@@ -19,5 +20,8 @@ export const StyledContainer = styled.div<iContainerProps>`
   @media (min-width: 750px) {
     width: 100%;
     max-width: 1285px;
+    div {
+      display: flex;
+    }
   }
 `;

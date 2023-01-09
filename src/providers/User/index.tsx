@@ -53,6 +53,8 @@ export const UserProvider = ({ children }: iProviderProps) => {
         setSettingsModal,
         registerUser,
         loginUser,
+        selectedAtlhete,
+        setSelectedAtlhete,
       }}
     >
       {children}
