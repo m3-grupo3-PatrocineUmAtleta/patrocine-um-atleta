@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "../../../providers/User";
 import { iAthlete, iInstitution } from "../../../providers/User/interfaces";
+import { api } from "../../../services/api";
 
 export const Infos = ({
   institutionAthletes,
@@ -7,6 +9,29 @@ export const Infos = ({
   raisings,
 }: iInstitution) => {
   const [mostPopular, setMostPopular] = useState({} as iAthlete);
+
+  const { user, buttonValue } = useContext(UserContext);
+
+  const [all, setAll] = useState<iAthlete[]>([] as iAthlete[]);
+
+  const getAllathletesInInstitute = () => {
+    async function getApi() {
+      try {
+        const res = await api.get("/athlete");
+        console.log(res.data);
+        const filterAthletes = res.data.filter((athlete: iAthlete) => {
+          console.log(athlete);
+          return String(athlete.userId) === String(user?.id);
+        });
+
+        setAll(filterAthletes);
+      } catch (error) {
+        console.error(error);
+      } finally {
+      }
+    }
+    getApi();
+  };
 
   const findMostPopular = () => {
     institutionAthletes?.forEach((athlete) => {
@@ -33,6 +58,9 @@ export const Infos = ({
   useEffect(() => {
     findMostPopular();
   }, []);
+  useEffect(() => {
+    getAllathletesInInstitute();
+  }, []);
 
   return (
     <>
@@ -40,9 +68,7 @@ export const Infos = ({
       <div>
         <div>
           <h3>Total de atletas:</h3>
-          <p>
-            Sua instituição tem atualmente {institutionAthletes?.length} atletas
-          </p>
+          <p>Sua instituição tem atualmente {all?.length} atletas</p>
         </div>
         <div>
           <h3>Total de torneios:</h3>
