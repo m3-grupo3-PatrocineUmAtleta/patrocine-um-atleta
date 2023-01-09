@@ -6,13 +6,13 @@ export const SchemaRegister = yup.object().shape({
     .number()
     .required("Este campo é obrigatótio!")
     .integer("Somente números"),
-  age: yup.string().required("Este campo é obrigatótio!"),
+  dateOfBirth: yup.string().required("Este campo é obrigatótio!"),
   street: yup.string().required("Este campo é obrigatótio!"),
-  address: yup.string().required("Este campo é obrigatório!"),
+  city: yup.string().required("Este campo é obrigatório!"),
   cep: yup.number().required("Este campo é obrigatório!"),
-  image: yup.string(),
+  imgUrl: yup.string(),
   bio: yup.string(),
-  phoneNumber: yup.mixed().required("Este campo é obrigatório!"),
+  phone: yup.mixed().required("Este campo é obrigatório!"),
   email: yup
     .string()
     .required("Campo e-mail obrigatório")

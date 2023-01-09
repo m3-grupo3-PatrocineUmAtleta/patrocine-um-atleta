@@ -12,7 +12,7 @@ export const ModalBackground = styled.div`
 
   position: fixed;
 
-  z-index: 0;
+  z-index: 2;
 
   & > div {
     background-color: var(--color-gray-0);
@@ -26,7 +26,7 @@ export const ModalBackground = styled.div`
     border-radius: 17px;
 
     position: relative;
-    z-index: 1;
+    z-index: 3;
 
     & > div {
       display: flex;

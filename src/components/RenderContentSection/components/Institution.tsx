@@ -1,6 +1,12 @@
 import { iInstitution } from "../../../providers/User/interfaces";
 
-export const Institution = ({name, image, tournamentsInfo, location, aboutUs}: iInstitution) => (
+export const Institution = ({
+  name,
+  image,
+  tournamentsInfo,
+  location,
+  aboutUs,
+}: iInstitution) => (
   <>
     <div className="divNameAndParticipations">
       <div>

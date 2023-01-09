@@ -16,8 +16,9 @@ export interface iContext {
   setSettingsModal: React.Dispatch<React.SetStateAction<string>>;
   registerUser: (data: iRegisterData) => Promise<void>;
   loginUser: (data: iUserLogin) => void;
+  selectedAtlhete: number | null;
+  setSelectedAtlhete: React.Dispatch<React.SetStateAction<number | null>>;
 }
-
 export interface iProviderProps {
   children: React.ReactNode;
 }
