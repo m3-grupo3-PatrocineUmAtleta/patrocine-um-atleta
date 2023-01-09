@@ -11,7 +11,7 @@ export const StyledHeader = styled.header`
   position: sticky;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 1;
   gap: 1rem;
   .dropBoxUser {
     width: max-content;

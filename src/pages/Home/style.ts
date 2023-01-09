@@ -50,7 +50,8 @@ export const StyledHome = styled.div`
   }
 
   main .sectionSponsorship .athlete {
-    height: 250px;
+    max-height: 648px;
+    min-height: 320px;
     background-color: var(--color-gray-0);
 
     > div {
@@ -62,11 +63,23 @@ export const StyledHome = styled.div`
 
       ul {
         background-color: white;
-        height: 260px;
-        width: 90%;
+        height: 344px;
+        max-width: 827px;
+        min-width: 344px;
+
         margin: 0 auto;
+        padding: 12px;
         border-radius: 15px;
         margin-top: 10px;
+
+        display: flex;
+        gap: 36px;
+        overflow-x: auto;
+
+        @media (min-width: 750px) {
+          flex-wrap: wrap;
+          height: fit-content;
+        }
       }
     }
   }
