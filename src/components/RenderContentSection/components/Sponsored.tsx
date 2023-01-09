@@ -3,13 +3,13 @@ import { AthleteCard } from "../../AthleteCard";
 
 export const Sponsored = ({ sponsoredAthletes }: iUser) => (
   <ul>
-    {sponsoredAthletes?.map(({ age, athlete_id, img, name, city }) => (
+    {sponsoredAthletes?.map(({ age, id, imgUrl, name, city }) => (
       <AthleteCard
-        athlete_id={athlete_id.toString()}
+        athlete_id={id}
         name={name}
         age={age}
         city={city}
-        img={img}
+        img={imgUrl}
       />
     ))}
   </ul>

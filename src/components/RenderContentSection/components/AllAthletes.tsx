@@ -8,25 +8,17 @@ export const AllAthletes = () => {
   return (
     <ul>
       {athletes.length > 0 &&
-        athletes.map(
-          ({
-            name,
-            age,
-            athlete_id,
-            img,
-            city,
-          }) => {
-            return (
-              <AthleteCard
-                age={age}
-                athlete_id={athlete_id.toString()}
-                city={city}
-                img={img}
-                name={name}
-              />
-            );
-          }
-        )}
+        athletes.map(({ name, age, id, imgUrl, city }) => {
+          return (
+            <AthleteCard
+              age={age}
+              athlete_id={id}
+              city={city}
+              img={imgUrl}
+              name={name}
+            />
+          );
+        })}
     </ul>
   );
 };
