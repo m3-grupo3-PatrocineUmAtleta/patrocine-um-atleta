@@ -41,6 +41,7 @@ export const UserProvider = ({ children }: iProviderProps) => {
     <UserContext.Provider
       value={{
         user,
+        setUser,
         isLoading,
         setIsLoading,
         buttonValue,
