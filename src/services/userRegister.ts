@@ -6,15 +6,13 @@ import { api } from "./api";
 export interface iRegisterData {
   name: string;
   cpf: string;
-  age: number;
+  dateOfBirth: number;
   street: string;
-  address: string;
+  city: string;
   cep: number;
-  image: string;
+  imgUrl: string;
   bio: string;
-  contacts: {
-    phoneNumber: string;
-  };
+  phone: string;
   email: string;
   password: string;
   favourites?: iAthlete[];

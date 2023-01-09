@@ -15,25 +15,26 @@ export interface iContext {
   setSettingsModal: React.Dispatch<React.SetStateAction<string>>;
   registerUser: (data: iRegisterData) => Promise<void>;
   loginUser: (data: iUserLogin) => void;
+  selectedAtlhete: number | null;
+  setSelectedAtlhete: React.Dispatch<React.SetStateAction<number | null>>;
 }
-
 export interface iProviderProps {
   children: React.ReactNode;
 }
 
 export interface iUser {
-  email: string;
+  site?: string;
   name: string;
-  cpf: number;
-  age: string;
-  image: string;
+  cpf?: number;
+  age?: string;
+  image?: string;
   bio: string;
   address: string;
-  contacts: { phoneNumber: string };
+  contacts: { phoneNumber?: string; email?: string };
   favourites?: iAthlete[];
   sponsoredAthletes?: iAthlete[];
-  isAdmin: boolean;
-  id: number;
+  isAdmin?: boolean;
+  id?: number;
 }
 
 export interface iTournament {
@@ -76,11 +77,15 @@ export interface iDeposition {
 }
 
 export interface iAthlete {
-  institution: iInstitution;
-  medias?: iMedias;
+  id: number;
+  name: string;
+  nickname: string;
+  imgUrl: string;
+  age: number;
   bio: string;
-  hometown: string;
+  city: string;
   depositions?: iDeposition[];
   tournaments?: iTournament[];
   donations: iDonation[];
+  medias?: iMedias;
 }

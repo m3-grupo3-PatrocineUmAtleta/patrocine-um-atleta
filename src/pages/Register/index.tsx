@@ -9,17 +9,18 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../../providers/User";
 import LoadingButton from "@mui/lab/LoadingButton";
 import { iRegisterData } from "../../services/userRegister";
+import { getAddress, iResponseAddress } from "../../services/getAddress";
 
 export interface iRegisterFormData {
   name: string;
   cpf: string;
   street: string;
-  address: string;
+  city: string;
   cep: number;
-  age: number;
-  image: string;
+  dateOfBirth: number;
+  imgUrl: string;
   bio: string;
-  phoneNumber: string;
+  phone: string;
   email: string;
   password: string;
   confirmPassword: string;
@@ -27,6 +28,7 @@ export interface iRegisterFormData {
 
 export const Register = () => {
   const { isLoading, registerUser } = useContext(UserContext);
+  const [address, setAddress] = useState<iResponseAddress>();
 
   const {
     register,
@@ -38,8 +40,8 @@ export const Register = () => {
   });
 
   const registerU = async (data: iRegisterFormData) => {
-    if (data.image == "") {
-      data.image = "https://www.flaticon.com/free-icons/user";
+    if (data.imgUrl == "") {
+      data.imgUrl = "https://www.flaticon.com/free-icons/user";
     }
     if (data.bio == "") {
       data.bio = "Ainda pensando …";
@@ -48,15 +50,13 @@ export const Register = () => {
     const dataUser: iRegisterData = {
       name: data.name,
       cpf: data.cpf,
-      age: data.age,
+      dateOfBirth: data.dateOfBirth,
       street: data.street,
-      address: data.address,
+      city: data.city,
       cep: data.cep,
-      image: data.image,
+      imgUrl: data.imgUrl,
       bio: data.bio,
-      contacts: {
-        phoneNumber: data.phoneNumber,
-      },
+      phone: data.phone,
       email: data.email,
       password: data.password,
       favourites: [],
@@ -67,6 +67,10 @@ export const Register = () => {
     registerUser(dataUser);
   };
 
+  const getCepAddress = async (cep: number) => {
+    const addressCep = await getAddress(cep);
+    setAddress(addressCep);
+  };
   return (
     <MainRegister>
       <Form eventClick={handleSubmit(registerU)} title="Cadastro">
@@ -93,10 +97,20 @@ export const Register = () => {
           type="date"
           id="age"
           text="Data de nascimento"
-          register={register("age")}
+          register={register("dateOfBirth")}
           required
-          message={errors.age?.message}
+          message={errors.dateOfBirth?.message}
           valid={isValidating}
+        />
+        <Input
+          onBlur={(e) => getCepAddress(Number(e.target.value))}
+          type="number"
+          id="cep"
+          text="CEP"
+          message={errors.cep?.message}
+          register={register("cep")}
+          required
+          placeholder="Insira seu CEP, somente os números"
         />
         <Input
           type="text"
@@ -107,26 +121,23 @@ export const Register = () => {
           message={errors.street?.message}
           valid={isValidating}
           placeholder="Sua rua, seu número"
+          value={address ? address?.logradouro : ""}
         />
 
         <Input
           type="text"
           id="address"
           text="Cidade, Estado - UF"
-          register={register("address")}
+          register={register("city")}
           required
-          message={errors.address?.message}
+          message={errors.city?.message}
           valid={isValidating}
           placeholder="Cidade, Estado - UF"
-        />
-        <Input
-          type="number"
-          id="cep"
-          text="CEP"
-          message={errors.cep?.message}
-          register={register("cep")}
-          required
-          placeholder="Insira seu CEP, somente os números"
+          value={
+            address
+              ? `${address?.bairro}, ${address?.localidade} - ${address?.uf}`
+              : ""
+          }
         />
         <TextArea
           type="textarea"
@@ -142,7 +153,7 @@ export const Register = () => {
           type="url"
           id="image"
           text="Imagem"
-          register={register("image")}
+          register={register("imgUrl")}
           required
           placeholder="Insira o link da imagem"
         />
@@ -150,9 +161,9 @@ export const Register = () => {
           type="text"
           id="phoneNumber"
           text="Telefone"
-          register={register("phoneNumber")}
+          register={register("phone")}
           required
-          message={errors.phoneNumber?.message}
+          message={errors.phone?.message}
           valid={isValidating}
           placeholder="(00) 0 0000 0000"
         />
