@@ -59,7 +59,7 @@ export const Home = () => {
                 Alguns de nossos atletas cadastrados
               </h2>
               <ul>
-                {allAthletes.map((athlete) => (
+                {athletes.map((athlete) => (
                   <AthleteCard
                     athlete_id={athlete.id.toString()}
                     img={athlete.imgUrl}
