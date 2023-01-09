@@ -10,13 +10,17 @@ export const MainLogin = styled.main`
   background-attachment: fixed;
 
   width: 100vw;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  height: 100vh;
 
-  & > section.second {
+  & > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+  }
+
+  & > div > section.second {
     background: var(--color-primary-100);
     mix-blend-mode: normal;
     opacity: 0.85;
@@ -47,7 +51,7 @@ export const MainLogin = styled.main`
     & > p.headline {
       width: 259.7px;
       height: 71.86px;
-      color: var(--color-secundary);
+      color: var(--color-secundary-100);
     }
 
     & > div {
@@ -63,18 +67,29 @@ export const MainLogin = styled.main`
       }
 
       & > a {
-        color: var(--color-secundary);
+        color: var(--color-secundary-100);
       }
     }
   }
 
   @media (min-width: 750px) {
     height: 100vh;
-    flex-direction: row-reverse;
-    justify-content: center;
-    gap: 60px;
 
-    & > section.first {
+    & > div {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+
+      height: 100%;
+      width: 706px;
+
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    & > div > section.first {
       width: 320px;
       height: 390px;
 
@@ -89,9 +104,11 @@ export const MainLogin = styled.main`
       }
     }
 
-    & > section.second {
+    & > div > section.second {
       width: 320px;
       height: 390px;
+
+      gap: 20px;
     }
   }
 `;
