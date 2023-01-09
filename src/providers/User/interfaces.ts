@@ -1,3 +1,4 @@
+import React from "react";
 import { StringSchema } from "yup";
 import { iUserLogin } from "../../services/userLogin";
 import { iRegisterData } from "../../services/userRegister";
@@ -62,8 +63,9 @@ export interface iInstitution {
     totalPlayed: number;
     wins: number;
   };
-  institutionAthletes?: iAthlete[];
-  raisings?: string;
+  institutionAthletes: iAthlete[];
+  setInstitutionAthletes: (institutionAthletes: iAthlete) => iAthlete[];
+  raisings: string;
 }
 
 export interface iMedias {
@@ -95,4 +97,5 @@ export interface iAthlete {
   depositions?: iDeposition[];
   tournaments?: iTournament[];
   donations: iDonation[];
+  userId: string | number;
 }
