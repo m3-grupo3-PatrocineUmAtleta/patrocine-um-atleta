@@ -7,13 +7,13 @@ interface iAthletesProp {
 
 export const Athletes = ({ athleteList }: iAthletesProp) => (
   <ul>
-    {athleteList?.map(({ name, age, athlete_id, img, city }) => {
+    {athleteList?.map(({ name, age, id, imgUrl, city }) => {
       return (
         <AthleteCard
           age={age}
-          athlete_id={athlete_id.toString()}
+          athlete_id={id}
           city={city}
-          img={img}
+          img={imgUrl}
           name={name}
         />
       );
