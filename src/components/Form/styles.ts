@@ -36,9 +36,9 @@ export const SectionForm = styled.section`
     & > button {
       width: 100%;
       height: 44.93px;
-      background: var(--color-secundary);
+      background: var(--color-secundary-100);
 
-      border: 2px solid var(--color-secundary);
+      border: 2px solid var(--color-secundary-100);
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       border-radius: 8px;
 
