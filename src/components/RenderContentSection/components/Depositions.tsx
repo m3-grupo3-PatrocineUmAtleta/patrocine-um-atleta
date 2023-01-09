@@ -10,6 +10,15 @@ export const Depositions = ({ depositionList }: iDepositionsProp) => (
       <h2>Comentários sobre o atleta</h2>
       <button>Comentar</button> {/* onClick={toggleCreateDepositionModal} */}
     </div>
-    <ul>{/* depositionList.map() */}</ul>
+    <ul>
+      {
+        depositionList.map(deposition => (
+          <div>
+            <h3 className="title-3">{deposition.author.name}</h3>
+            <p>{deposition.content}</p>
+          </div>
+        ))
+      }
+    </ul>
   </>
 );

@@ -1,7 +1,22 @@
-import { iInstitution } from "../../../providers/User/interfaces";
+import { iAthlete } from "../../../providers/User/interfaces";
+import { AthleteCard } from "../../AthleteCard";
 
-export const Athletes = ({institutionAthletes}: iInstitution) => (
+interface iAthletesProp {
+  athleteList: iAthlete[];
+}
+
+export const Athletes = ({ athleteList }: iAthletesProp) => (
   <ul>
-    {/* institutionAthlets.map() */}
+    {athleteList?.map(({ name, age, athlete_id, img, city }) => {
+      return (
+        <AthleteCard
+          age={age}
+          athlete_id={athlete_id.toString()}
+          city={city}
+          img={img}
+          name={name}
+        />
+      );
+    })}
   </ul>
-)
+);

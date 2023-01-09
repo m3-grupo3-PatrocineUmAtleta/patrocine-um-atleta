@@ -1,3 +1,4 @@
+import { StringSchema } from "yup";
 import { iUserLogin } from "../../services/userLogin";
 import { iRegisterData } from "../../services/userRegister";
 
@@ -7,8 +8,8 @@ export interface iContext {
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
   buttonValue: string;
   setButtonValue: React.Dispatch<React.SetStateAction<string>>;
-  allAthletes: iAthlete[];
-  setAllAthletes: React.Dispatch<React.SetStateAction<iAthlete[]>>;
+  athletes: iAthlete[];
+  setAthletes: React.Dispatch<React.SetStateAction<iAthlete[]>>;
   openModal: boolean;
   setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   settingsModal: string;
@@ -24,26 +25,29 @@ export interface iProviderProps {
 export interface iUser {
   email: string;
   name: string;
-  cpf: number;
-  age: string;
-  image: string;
-  bio: string;
-  address: string;
-  contacts: { phoneNumber: string };
+  cpf?: number;
+  dateOfBirth?: string;
+  street?: string;
+  city?: string;
+  cep?: string;
+  bio?: string;
+  imgUrl?: string;
+  phoneNumber?: string;
   favourites?: iAthlete[];
   sponsoredAthletes?: iAthlete[];
-  isAdmin: boolean;
-  id: number;
+  isAdmin?: boolean;
+  id?: number;
+  site?: string;
 }
 
 export interface iTournament {
   name: string;
   location: string;
   date: string;
-  status: "Vitória" | "Derrota" | "Empate";
+  status: "Vitória" | "Participando";
   participants: iAthlete[];
   rewards: string;
-  image?: string;
+  place: string;
 }
 
 export interface iInstitution {
@@ -54,8 +58,10 @@ export interface iInstitution {
   tournamentsInfo?: {
     tournaments: iTournament[];
     totalPlayed: number;
+    wins: number;
   };
   institutionAthletes: iAthlete[];
+  raisings: string;
 }
 
 export interface iMedias {
@@ -76,10 +82,14 @@ export interface iDeposition {
 }
 
 export interface iAthlete {
+  name: string;
+  age: number;
+  athlete_id: number;
+  img: string;
   institution: iInstitution;
   medias?: iMedias;
   bio: string;
-  hometown: string;
+  city: string;
   depositions?: iDeposition[];
   tournaments?: iTournament[];
   donations: iDonation[];
