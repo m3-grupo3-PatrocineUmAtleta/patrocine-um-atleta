@@ -76,6 +76,7 @@ export const StyledHome = styled.div`
         background-color: white;
         height: 344px;
         max-width: 827px;
+
         min-width: 300px;
 
         margin: 0 auto;

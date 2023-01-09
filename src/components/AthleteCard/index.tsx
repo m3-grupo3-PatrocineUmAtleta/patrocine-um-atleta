@@ -8,7 +8,7 @@ import { UserContext } from "../../providers/User";
 import { ModalWrapper } from "../Modal";
 
 interface iCardProps {
-  athlete_id: string;
+  athlete_id: number;
   img: string | undefined;
   name: string;
   age: number;
@@ -33,7 +33,7 @@ export const AthleteCard = ({
     return <ModalWrapper typeModal="userLogoff" />;
   };
   return (
-    <StyledAthleteCard id={athlete_id}>
+    <StyledAthleteCard id={athlete_id.toString()}>
       <div className="div-img">
         <img src={img} alt="" />
       </div>

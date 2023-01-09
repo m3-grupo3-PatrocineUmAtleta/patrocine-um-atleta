@@ -61,7 +61,7 @@ export const Home = () => {
               <ul>
                 {athletes.map((athlete) => (
                   <AthleteCard
-                    athlete_id={athlete.id.toString()}
+                    athlete_id={athlete.id}
                     img={athlete.imgUrl}
                     name={athlete.name}
                     age={athlete.age}

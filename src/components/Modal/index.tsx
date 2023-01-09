@@ -15,6 +15,7 @@ export const ModalWrapper = ({ typeModal, select }: iModalProps) => {
   const handleClick = () => {
     setIsOpenModal(false);
   };
+
   const switchModal = () => {
     switch (typeModal) {
       case "userLogoff":

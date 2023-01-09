@@ -22,6 +22,7 @@ export const ModalBackground = styled.div`
     max-width: 761px;
 
     padding: 24px;
+    margin: 0 10px;
 
     border-radius: 17px;
 
