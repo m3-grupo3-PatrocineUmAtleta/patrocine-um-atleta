@@ -20,7 +20,7 @@ export const StyledContainer = styled.div<iContainerProps>`
   @media (min-width: 750px) {
     width: 100%;
     max-width: 1285px;
-    div {
+    .rowReverse {
       display: flex;
       flex-direction: row-reverse;
     }

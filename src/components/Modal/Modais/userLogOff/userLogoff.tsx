@@ -25,12 +25,12 @@ export const UserLogoff = ({ idAthlete }: iUserLogoff) => {
           <p>
             {allAthletes
               .find((athlete) => athlete.id === idAthlete)
-              ?.bio.slice(0, 70)}
+              ?.bio?.slice(0, 70)}
           </p>
           <span className="blur body">
             {allAthletes
               .find((athlete) => athlete.id === idAthlete)
-              ?.bio.slice(70, -1)}
+              ?.bio?.slice(70, -1)}
           </span>
         </div>
         <Link to={"/login"}>Ver mais...</Link>
