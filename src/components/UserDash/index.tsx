@@ -54,12 +54,13 @@ export const UserDash = () => {
             />
           </ul>
         </section>
+
         <section className="render-buttons"></section>
 
         <section className="sidebar">
           <ul>
             <li>
-              <ButtonsSidebar text={"Profile"} img={perfilIcon} />
+              <ButtonsSidebar text={"Perfil"} img={perfilIcon} />
             </li>
             <li>
               <ButtonsSidebar text={"Todos atletas"} img={todosAtletasIcon} />
