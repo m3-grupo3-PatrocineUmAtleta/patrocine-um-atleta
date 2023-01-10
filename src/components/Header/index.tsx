@@ -17,16 +17,33 @@ interface iHeaderProps {
 }
 
 export const Header = ({ isHome }: iHeaderProps) => {
-  const { user, setUser } = useContext(UserContext);
+  const {
+    user,
+    setUser,
+    setButtonValue,
+    athletes,
+    filterAthletes,
+    setFilterAthletes,
+  } = useContext(UserContext);
 
   const [openHamburguer, setOpenHamburguer] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
   const [openLogout, setOpenLogout] = useState(false);
+  const [valueSearch, setValueSearch] = useState("");
 
   const logoutHandle = () => {
     window.localStorage.removeItem("@UserId");
     window.localStorage.removeItem("@Token");
     setUser(null);
+  };
+  const searchInputAthletes = (value: string) => {
+    setButtonValue("Todos atletas");
+    setValueSearch(value);
+    const filter = athletes.filter((athlete) => {
+      return athlete.name.includes(value);
+    });
+    console.log(filter);
+    setFilterAthletes(filter);
   };
 
   return !openSearch ? (
@@ -75,7 +92,10 @@ export const Header = ({ isHome }: iHeaderProps) => {
               >
                 <img src={lupaInput} alt="" />
               </button>
-              <input type="text" />
+              <input
+                type="text"
+                onChange={(e) => searchInputAthletes(e.target.value)}
+              />
             </div>
             <button
               className="hamburguerButton"
