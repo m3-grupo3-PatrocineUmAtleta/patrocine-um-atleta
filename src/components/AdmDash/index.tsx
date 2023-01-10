@@ -5,7 +5,8 @@ import { Header } from "../Header";
 import {
   StyledAdmDash,
   StyledAsideButtons,
-  StyledTournamentHistory,
+  StyledHistory,
+  StyledInfoHistory,
 } from "./style";
 import perfilImg from "../../assets/img/admDash/asideButtonPerfil.png";
 import infoImg from "../../assets/img/admDash/asideButtonInfo.png";
@@ -31,7 +32,31 @@ export const AdmDash = () => {
       <Header isHome={false}></Header>
 
       <StyledAdmDash>
-        <StyledTournamentHistory></StyledTournamentHistory>
+        <StyledHistory>
+          <div className="divTournaments">
+            <div>
+              <h3>Torneios</h3>
+            </div>
+            <ul>
+              {user?.tournaments?.map((tournament) => {
+                return (
+                  <>
+                    <StyledInfoHistory>
+                      <img src={tournament.imgUrl} alt={tournament.name} />
+                      {tournament.name}
+                    </StyledInfoHistory>
+                  </>
+                );
+              })}
+              <li></li>
+            </ul>
+          </div>
+          <div className="divDonations">
+            <div>
+              <h3>Histórico de doações</h3>
+            </div>
+          </div>
+        </StyledHistory>
       </StyledAdmDash>
 
       <StyledContainer>
