@@ -41,6 +41,7 @@ export interface iUser {
   isAdmin?: boolean;
   id?: number;
   site?: string;
+  tournaments: iTournament[];
 }
 
 export interface iTournament {

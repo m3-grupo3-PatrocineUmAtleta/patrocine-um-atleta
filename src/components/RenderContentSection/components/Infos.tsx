@@ -77,8 +77,7 @@ export const Infos = ({
         <div>
           <h3>Total de torneios:</h3>
           <p>
-            Sua instituição participou de {tournamentsInfo?.totalPlayed}{" "}
-            torneios
+            Sua instituição participou de {user?.tournaments.length} torneios
           </p>
         </div>
         <div>
