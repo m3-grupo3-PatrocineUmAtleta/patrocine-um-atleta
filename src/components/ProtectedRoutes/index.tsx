@@ -17,7 +17,6 @@ export const ProtectedRoutes = () => {
           authorization: `Bearer ${token}`,
         },
       });
-      console.log(res);
 
       setUser(res.data);
     } catch (error) {

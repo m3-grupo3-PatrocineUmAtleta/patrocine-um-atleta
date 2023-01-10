@@ -2,7 +2,12 @@ import { useContext, useEffect } from "react";
 import { UserContext } from "../../providers/User";
 import { ButtonsSidebar } from "../ButtonsSidebar";
 import { Header } from "../Header";
-import { StyledAdmDash, StyledAsideButtons } from "./style";
+import {
+  StyledAdmDash,
+  StyledAsideButtons,
+  StyledHistory,
+  StyledInfoHistory,
+} from "./style";
 import perfilImg from "../../assets/img/admDash/asideButtonPerfil.png";
 import infoImg from "../../assets/img/admDash/asideButtonInfo.png";
 import tournamentImg from "../../assets/img/admDash/asideButtonTournament.png";
@@ -24,9 +29,36 @@ export const AdmDash = () => {
       {openModal && (
         <ModalWrapper typeModal={settingsModal} select={selectedAtlhete} />
       )}
+      <Header isHome={false}></Header>
+
       <StyledAdmDash>
-        <Header isHome={false}></Header>
+        <StyledHistory>
+          <div className="divTournaments">
+            <div>
+              <h3>Torneios</h3>
+            </div>
+            <ul>
+              {user?.tournaments?.map((tournament) => {
+                return (
+                  <>
+                    <StyledInfoHistory>
+                      <img src={tournament.imgUrl} alt={tournament.name} />
+                      {tournament.name}
+                    </StyledInfoHistory>
+                  </>
+                );
+              })}
+              <li></li>
+            </ul>
+          </div>
+          <div className="divDonations">
+            <div>
+              <h3>Histórico de doações</h3>
+            </div>
+          </div>
+        </StyledHistory>
       </StyledAdmDash>
+
       <StyledContainer>
         <div className="rowReverse">
           <RenderContainerSection size="810px">

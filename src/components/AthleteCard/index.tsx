@@ -9,7 +9,7 @@ import { ModalWrapper } from "../Modal";
 import { useNavigate } from "react-router-dom";
 
 interface iCardProps {
-  athlete_id: number;
+  athlete_id: number | string;
   img: string | undefined;
   name: string;
   age: number;

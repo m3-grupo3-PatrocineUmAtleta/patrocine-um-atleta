@@ -4,6 +4,9 @@ export const StyledAdmDash = styled.div`
   background-color: var(--color-primary-100);
   position: relative;
   height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 export const StyledAsideButtons = styled.aside`
   position: sticky;
@@ -64,5 +67,56 @@ export const StyledSectionRender = styled.section`
   border-radius: 16px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   div {
+  }
+`;
+export const StyledHistory = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 1285px;
+  div {
+    width: 230px;
+    height: max-content;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--color-gray-0);
+    color: var(--color-gray-0);
+  }
+  .divTournaments div,
+  .divDonations div {
+    color: var(--color-gray-0);
+
+    height: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .divTournaments ul,
+  .divDonations ul {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 10px 0;
+  }
+`;
+export const StyledInfoHistory = styled.span`
+  height: 40px;
+  width: 180px;
+  background-color: var(--color-secundary-100);
+  border-radius: 32px;
+  padding: 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  object-fit: contain;
+  border: 2px solid var(--color-gray-0);
+  img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
   }
 `;

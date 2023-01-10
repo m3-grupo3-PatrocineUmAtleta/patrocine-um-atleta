@@ -32,12 +32,12 @@ export const Profile = () => {
             </div>
             <div className="site">
               <p className="body">
-                <strong>Site</strong>: {user?.site}
+                <strong>Site</strong>: {user?.site ? user.site : "sem site"}
               </p>
             </div>
             <div className="bio">
               <p className="body">
-                <strong>Bio</strong>:{" "}
+                <strong>Bio</strong>:
                 {user?.bio ? user?.bio : "Biografia não informada"}
               </p>
             </div>
@@ -47,10 +47,10 @@ export const Profile = () => {
             <div className="address body">
               <p>
                 <strong>Endereço</strong>:
-              </p>{" "}
+              </p>
               <p>{user?.street}</p>
-              <p>{user?.city}</p>
-              <p>CEP: {user?.cep}</p>
+              <p>{user?.city ? user.city : "não inforamdo"}</p>
+              <p>CEP: {user?.cep ? user.cep : "não informado"}</p>
               <p>CNPJ: {user?.cnpj}</p>
             </div>
 
@@ -60,13 +60,11 @@ export const Profile = () => {
               </p>
               <div className="phone">
                 <img src={phoneImg} alt="Ícone telefone tocando" />
-                {user?.phone ? <p>{user?.phone}</p> : <p>Não informado</p>}
+                {user?.phone ? user?.phone : "Não informado"}
               </div>
               <div className="email">
                 <img src={emailImg} alt="Ícone envelope de email" />
-                <p>
-                  {user?.email ? <p>{user?.email}</p> : <p>Não informado</p>}
-                </p>
+                <p>{user?.email ? user?.email : "Não informado"}</p>
               </div>
             </div>
           </div>
