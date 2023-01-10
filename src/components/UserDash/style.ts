@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 export const StyledUserDash = styled.main`
 
+    header{
+        position: fixed;
+        z-index: 99;
+    }
+
     .bg-blue{
         width: 100%;
         height: 60vh;
@@ -158,8 +163,7 @@ export const StyledUserDash = styled.main`
         .ul-desktop{
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 16px;
+            justify-content: space-around;
 
             height: 280px;
 

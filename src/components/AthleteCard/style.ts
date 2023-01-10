@@ -105,7 +105,7 @@ export const StyledAthleteCard = styled.li`
       :hover {
         transition: 0.2s;
         color: var(--color-primary-100);
-        scale: 1.5;
+        scale: 2;
       }
     }
   }

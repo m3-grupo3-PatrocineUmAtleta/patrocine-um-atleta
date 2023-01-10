@@ -1,11 +1,12 @@
 import { StyledAthleteCard } from "./style";
 import { GoLocation } from "react-icons/go";
 import { FaEye } from "react-icons/fa";
-import { BiTrash } from "react-icons/bi";
+import { BiTrash, BiWindowOpen } from "react-icons/bi";
 import { FiEdit } from "react-icons/fi";
 import { useContext } from "react";
 import { UserContext } from "../../providers/User";
 import { ModalWrapper } from "../Modal";
+
 
 interface iCardProps {
   athlete_id: string;
@@ -15,6 +16,7 @@ interface iCardProps {
   city: string;
   bio?: string;
   isAdmin?: boolean;
+  isUserDash?: boolean
 }
 
 export const AthleteCard = ({
@@ -24,14 +26,17 @@ export const AthleteCard = ({
   age,
   city,
   isAdmin,
+  isUserDash,
 }: iCardProps) => {
-  const { setIsOpenModal, setSelectedAtlhete } = useContext(UserContext);
-
+  
+  const { setIsOpenModal, setSelectedAtlhete, gotoAthletePage } = useContext(UserContext);
+  
   const modalOpen = () => {
     setIsOpenModal(true);
     setSelectedAtlhete(Number(athlete_id));
     return <ModalWrapper typeModal="userLogoff" />;
   };
+
   return (
     <StyledAthleteCard id={athlete_id}>
       <div className="div-img">
@@ -51,9 +56,13 @@ export const AthleteCard = ({
             <BiTrash className="trash-icon icon" />
             <FiEdit className="edit-icon icon" />
           </div>
-        ) : (
+        ) : (          
           <div className="div-icons">
-            <FaEye className="eye-icon icon" onClick={() => modalOpen()} />
+            {isUserDash ? (
+              <BiWindowOpen id={athlete_id} className="togo-icon icon" onClick={gotoAthletePage} /> 
+            ) : (
+             <FaEye className="eye-icon icon" onClick={() => modalOpen()} />
+            )}
           </div>
         )}
       </div>

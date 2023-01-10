@@ -23,9 +23,10 @@ export const StyledHistoryCard = styled.li`
 
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
 
-        width: fit-content;
+        width: 50%;
+        overflow: hidden;
         gap: 16px;
 
         & > img {
@@ -45,4 +46,15 @@ export const StyledHistoryCard = styled.li`
         color: var(--color-gray-0);
     }
     
+    & > .icon {
+      scale: 1.3;
+      color: var(--color-primary-0);
+      cursor: pointer;
+
+      :hover {
+        transition: 0.2s;
+        color: var(--color-primary-100);
+        scale: 2;
+      }
+    }
 `

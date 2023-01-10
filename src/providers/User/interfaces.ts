@@ -17,6 +17,9 @@ export interface iContext {
   loginUser: (data: iUserLogin) => void;
   selectedAtlhete: number | null;
   setSelectedAtlhete: React.Dispatch<React.SetStateAction<number | null>>;
+  sponsored: iSponsored [];
+  setSponsored: React.Dispatch<React.SetStateAction<iSponsored []>>;
+  gotoAthletePage: (event:any) => void;
 }
 export interface iProviderProps {
   children: React.ReactNode;
@@ -88,4 +91,28 @@ export interface iAthlete {
   tournaments?: iTournament[];
   donations: iDonation[];
   medias?: iMedias;
+}
+
+export interface iAthleteSponsored {
+  id: number | string;
+  userId?: string;
+  name?: string;
+  nickname: string;
+  imgUrl: string;
+  age: number;
+  bio?: string;
+  city: string;
+  tournaments?: iTournament[];
+  donates?: iDonates[];
+  midias?: iMedias;
+}
+
+interface iDonates {
+  user_id: string;
+  value: number;
+}
+
+export interface iSponsored {
+  athlete: iAthleteSponsored;
+  value: number;
 }
