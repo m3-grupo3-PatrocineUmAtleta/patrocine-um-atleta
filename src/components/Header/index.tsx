@@ -22,7 +22,7 @@ export const Header = ({ isHome }: iHeaderProps) => {
     setUser,
     setButtonValue,
     athletes,
-    filterAthletes,
+
     setFilterAthletes,
   } = useContext(UserContext);
 
@@ -40,10 +40,16 @@ export const Header = ({ isHome }: iHeaderProps) => {
     setButtonValue("Todos atletas");
     setValueSearch(value);
     const filter = athletes.filter((athlete) => {
-      return athlete.name.includes(value);
+      const valueDefault = value.toLowerCase();
+      return (
+        athlete.name.toLowerCase().includes(valueDefault) ||
+        athlete.bio.toLowerCase().includes(valueDefault) ||
+        athlete.city.toLowerCase().includes(valueDefault)
+      );
     });
     console.log(filter);
     setFilterAthletes(filter);
+    value === "" && setFilterAthletes([]);
   };
 
   return !openSearch ? (
