@@ -11,20 +11,34 @@ export const DivProfile = styled.div`
     }
   }
 
-  & > div > div.bodyProfile > div {
-    & > div.bio {
-      width: 216px;
-      height: 152px;
+  & > div.profileControler > div.bodyProfile {
+    @media (min-width: 750px) {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
     }
-  }
 
-  & > div > div.bodyProfile {
-    & > div > div.divContacts {
-      & > div.phone,
-      & > div.email {
-        display: flex;
-        gap: 6px;
-        align-items: center;
+    & > div.dados1 {
+      max-width: 390px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    & > div.dados2 {
+      width: 390px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      & > div.divContacts {
+        & > div.phone,
+        & > div.email {
+          display: flex;
+          gap: 6px;
+          align-items: center;
+        }
       }
     }
   }

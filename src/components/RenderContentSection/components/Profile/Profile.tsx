@@ -22,9 +22,9 @@ export const Profile = () => {
           <img src={editProfileImg} alt="Botão de edição" />
         </button>
       </div>
-      <div>
+      <div className="profileControler">
         <div className="bodyProfile">
-          <div>
+          <div className="dados1">
             <div className="name">
               <p className="body">
                 <strong>Nome</strong>: {user?.name}
@@ -43,7 +43,7 @@ export const Profile = () => {
             </div>
           </div>
 
-          <div>
+          <div className="dados2">
             <div className="address body">
               <p>
                 <strong>Endereço</strong>:
@@ -54,8 +54,10 @@ export const Profile = () => {
               <p>CNPJ: {user?.cnpj}</p>
             </div>
 
-            <div className="divContacts">
-              <h4>Contatos:</h4>
+            <div className="divContacts body">
+              <p>
+                <strong>Contatos</strong>:
+              </p>
               <div className="phone">
                 <img src={phoneImg} alt="Ícone telefone tocando" />
                 {user?.phone ? <p>{user?.phone}</p> : <p>Não informado</p>}
