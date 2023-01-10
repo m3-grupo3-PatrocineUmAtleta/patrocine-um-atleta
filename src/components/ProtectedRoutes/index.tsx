@@ -31,7 +31,7 @@ export const ProtectedRoutes = () => {
   }, []);
 
   if (loading) {
-    return false;
+    return null;
   } else {
     return !user ? <Navigate to={"/home"} /> : <Outlet />;
   }

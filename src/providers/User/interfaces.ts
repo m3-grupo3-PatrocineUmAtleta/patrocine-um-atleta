@@ -64,6 +64,7 @@ export interface iInstitution {
 }
 
 export interface iMedias {
+  image?: string;
   facebook?: string;
   instagram?: string;
   twitter?: string;
