@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { UserContext } from "../../providers/User";
 import { iUser } from "../../providers/User/interfaces";
-import { AllAthletes } from "./components/AllAthletes";
-import { AthleteRegister } from "./components/AthleteRegister";
-import { Athletes } from "./components/Athletes";
+import { AllAthletes } from "./components/AllAthletes/AllAthletes";
+import { AthleteRegister } from "./components/AthleteRegister/AthleteRegister";
+import { Athletes } from "./components/Athletes/Athletes";
 import { Bio } from "./components/Bio";
 import { Depositions } from "./components/Depositions";
 import { Donations } from "./components/Donations";
@@ -11,7 +11,7 @@ import { Favourites } from "./components/Favourites";
 import { Infos } from "./components/Infos";
 import { Institution } from "./components/Institution";
 import { Medias } from "./components/Medias";
-import { Profile } from "./components/Profile";
+import { Profile } from "./components/Profile/Profile";
 import { Sponsored } from "./components/Sponsored";
 import { Tournaments } from "./components/Tournaments";
 
@@ -20,57 +20,21 @@ export const RenderContentSection = () => {
 
   if (user) {
     if (buttonValue === "Perfil") {
-      return (
-        <Profile
-          name=""
-          address=""
-          bio=""
-          contacts={{}}
-          favourites={[]}
-          sponsoredAthletes={[]}
-        />
-      );
+      return <Profile />;
     }
     if (buttonValue === "Todos atletas") {
       return <AllAthletes />;
     }
     if (buttonValue === "Favoritos") {
-      return (
-        <Favourites
-          address=""
-          name=""
-          bio=""
-          contacts={{}}
-          favourites={[]}
-          sponsoredAthletes={[]}
-        />
-      );
+      return <Favourites favourites={[]} />;
     }
     if (buttonValue === "Patrocinados") {
-      return (
-        <Sponsored
-          address=""
-          name=""
-          bio=""
-          contacts={{}}
-          favourites={[]}
-          sponsoredAthletes={[]}
-        />
-      );
+      return <Sponsored sponsoredAthletes={[]} />;
     }
   }
 
   if (buttonValue === "Perfil") {
-    return (
-      <Profile
-        name=""
-        address=""
-        bio=""
-        contacts={{}}
-        favourites={[]}
-        sponsoredAthletes={[]}
-      />
-    );
+    return <Profile />;
   }
   if (buttonValue === "Informações") {
     return <Infos />;
@@ -79,15 +43,7 @@ export const RenderContentSection = () => {
     return <Tournaments tournamentsList={[]} />;
   }
   if (buttonValue === "Atletas") {
-    return (
-      <Athletes
-        aboutUs=""
-        image=""
-        institutionAthletes={[]}
-        location=""
-        name=""
-      />
-    );
+    return <Athletes />;
   }
   if (buttonValue === "Registrar") {
     return <AthleteRegister />;
@@ -107,7 +63,7 @@ export const RenderContentSection = () => {
     return <Medias />;
   }
   if (buttonValue === "Bio") {
-    return <Bio bio="" hometown="" />;
+    return <Bio bio="" city="" />;
   }
   if (buttonValue === "Depoimentos") {
     return <Depositions depositionList={[]} />;

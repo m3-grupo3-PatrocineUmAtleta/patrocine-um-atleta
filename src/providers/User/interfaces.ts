@@ -3,12 +3,13 @@ import { iRegisterData } from "../../services/userRegister";
 
 export interface iContext {
   user: iUser | null;
+  setUser: React.Dispatch<React.SetStateAction<iUser | null>>;
   isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
   buttonValue: string;
   setButtonValue: React.Dispatch<React.SetStateAction<string>>;
-  allAthletes: iAthlete[];
-  setAllAthletes: React.Dispatch<React.SetStateAction<iAthlete[]>>;
+  athletes: iAthlete[];
+  setAthletes: React.Dispatch<React.SetStateAction<iAthlete[]>>;
   openModal: boolean;
   setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   settingsModal: string;
@@ -20,6 +21,8 @@ export interface iContext {
   sponsored: iSponsored [];
   setSponsored: React.Dispatch<React.SetStateAction<iSponsored []>>;
   gotoAthletePage: (event:any) => void;
+  filterAthletes: iAthlete[];
+  setFilterAthletes: React.Dispatch<React.SetStateAction<iAthlete[]>>;
 }
 export interface iProviderProps {
   children: React.ReactNode;
@@ -29,15 +32,20 @@ export interface iUser {
   site?: string;
   name: string;
   cpf?: number;
+  cnpj?: string;
   age?: string;
   image?: string;
   bio: string;
-  address: string;
-  contacts: { phoneNumber?: string; email?: string };
+  street: string;
+  city: string;
+  cep: number;
+  phone: string;
+  email: string;
   favourites?: iAthlete[];
   sponsoredAthletes?: iAthlete[];
   isAdmin?: boolean;
   id?: number;
+  tournaments?: iTournament[];
 }
 
 export interface iTournament {
@@ -48,6 +56,7 @@ export interface iTournament {
   participants: iAthlete[];
   rewards: string;
   image?: string;
+  place?: string;
 }
 
 export interface iInstitution {
@@ -63,6 +72,7 @@ export interface iInstitution {
 }
 
 export interface iMedias {
+  image?: string;
   facebook?: string;
   instagram?: string;
   twitter?: string;
@@ -115,4 +125,30 @@ interface iDonates {
 export interface iSponsored {
   athlete: iAthleteSponsored;
   value: number;
+}
+export interface iAthleteRegister {
+  name: string;
+  age: string;
+  nickname?: string;
+  imgUrl: string;
+  bio: string;
+  city: string;
+  medias: iMedias;
+  tournaments?: iTournament[];
+  donations?: iDonation[];
+  depositions?: iDeposition[];
+}
+
+export interface iAthleteEdit {
+  name: string;
+  age: string;
+  nickname?: string;
+  imgUrl: string;
+  bio: string;
+  city: string;
+  medias: iMedias;
+  tournaments?: iTournament[];
+  donations?: iDonation[];
+  depositions?: iDeposition[];
+  userId: string;
 }

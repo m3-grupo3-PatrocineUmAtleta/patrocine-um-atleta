@@ -2,33 +2,39 @@ import { ModalBackground } from "./style";
 import closeModal from "../../assets/img/closeModal.svg";
 import { useContext } from "react";
 import { UserContext } from "../../providers/User";
+import { UserLogoff } from "./Modais/userLogOff/userLogoff";
+import { AthleteDelete } from "./Modais/athleteDelete";
+import { AthleteEdit } from "./Modais/athleteEdit/athleteEdit";
+import { DepositionsForm } from "./Modais/DepositionsForm";
 
 interface iModalProps {
   typeModal: string;
+  select?: number | null;
 }
 
-export const ModalWrapper = ({ typeModal }: iModalProps) => {
-  const { setIsOpenModal } = useContext(UserContext);
+export const ModalWrapper = ({ typeModal, select }: iModalProps) => {
+  const { setIsOpenModal, selectedAtlhete } = useContext(UserContext);
 
   const handleClick = () => {
     setIsOpenModal(false);
   };
+
   const switchModal = () => {
     switch (typeModal) {
       case "userLogoff":
         return (
           <div>
             <div>
-              <div />
+              <div className="ball" />
               <h3 className="title-2">Biografia do atleta</h3>
             </div>
             <button onClick={handleClick}>
               <img src={closeModal} />
             </button>
+            <UserLogoff idAthlete={selectedAtlhete} />
           </div>
-          //   <ChildrenComponent/>
         );
-      case "athleteStatement":
+      case "athleteDepositions":
         return (
           <div>
             <div>
@@ -38,8 +44,8 @@ export const ModalWrapper = ({ typeModal }: iModalProps) => {
             <button onClick={handleClick}>
               <img src={closeModal} />
             </button>
+            <DepositionsForm />
           </div>
-          //   <ChildrenComponent/>
         );
       case "donateConfirm":
         return (
@@ -80,19 +86,6 @@ export const ModalWrapper = ({ typeModal }: iModalProps) => {
           </div>
           //   <ChildrenComponent/>
         );
-      case "athleteRegister":
-        return (
-          <div>
-            <div>
-              <div />
-              <h3 className="title-2">Registrar um atleta</h3>
-            </div>
-            <button onClick={handleClick}>
-              <img src={closeModal} />
-            </button>
-          </div>
-          //   <ChildrenComponent/>
-        );
       case "athleteEdit":
         return (
           <div>
@@ -103,8 +96,8 @@ export const ModalWrapper = ({ typeModal }: iModalProps) => {
             <button onClick={handleClick}>
               <img src={closeModal} />
             </button>
+            <AthleteEdit idAthlete={selectedAtlhete} />
           </div>
-          //   <ChildrenComponent/>
         );
       case "athleteDelete":
         return (
@@ -116,8 +109,8 @@ export const ModalWrapper = ({ typeModal }: iModalProps) => {
             <button onClick={handleClick}>
               <img src={closeModal} />
             </button>
+            <AthleteDelete idAthlete={selectedAtlhete} />
           </div>
-          //   <ChildrenComponent/>
         );
     }
   };

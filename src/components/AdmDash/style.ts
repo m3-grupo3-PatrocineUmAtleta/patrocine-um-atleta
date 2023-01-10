@@ -9,7 +9,7 @@ export const StyledAsideButtons = styled.aside`
   position: sticky;
   bottom: 0;
   width: 100vw;
-  max-width: 760px;
+  max-width: 780px;
   overflow-x: auto;
   display: flex;
   align-items: center;
@@ -51,16 +51,16 @@ export const StyledAsideButtons = styled.aside`
 `;
 export const StyledSectionRender = styled.section`
   min-height: 320px;
-  max-height: 320px;
+  max-height: 332px;
   overflow-y: scroll;
   padding: 16px;
   width: 95%;
-  max-width: 760px;
+  max-width: 900px;
   margin: 0 auto;
   position: relative;
-  top: -30px;
+  top: -40px;
 
-  background-color: var(--color-gray-0);
+  background-color: #ffffff;
   border-radius: 16px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   div {

@@ -11,9 +11,10 @@ export const UserContext = createContext({} as iContext);
 export const UserProvider = ({ children }: iProviderProps) => {
   const [user, setUser] = useState<iUser | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [buttonValue, setButtonValue] = useState("");
-  const [allAthletes, setAllAthletes] = useState([] as iAthlete[]);
+  const [buttonValue, setButtonValue] = useState("Todos atletas");
+  const [athletes, setAthletes] = useState([] as iAthlete[]);
   const [openModal, setIsOpenModal] = useState(false);
+  const [filterAthletes, setFilterAthletes] = useState([] as iAthlete[]);
   const [settingsModal, setSettingsModal] = useState("");
   const [selectedAtlhete, setSelectedAtlhete] = useState<number | null>(null);
   const [athlete, setAthlete] = useState<iAthleteSponsored>();
@@ -36,6 +37,7 @@ export const UserProvider = ({ children }: iProviderProps) => {
 
     if (response !== undefined) {
       setUser(response);
+
       setTimeout(() => {
         navigate("/dashboard");
       }, 2000);
@@ -55,12 +57,13 @@ export const UserProvider = ({ children }: iProviderProps) => {
     <UserContext.Provider
       value={{
         user,
+        setUser,
         isLoading,
         setIsLoading,
         buttonValue,
         setButtonValue,
-        allAthletes,
-        setAllAthletes,
+        athletes,
+        setAthletes,
         openModal,
         setIsOpenModal,
         settingsModal,
@@ -72,6 +75,8 @@ export const UserProvider = ({ children }: iProviderProps) => {
         gotoAthletePage,
         sponsored, 
         setSponsored,
+        filterAthletes,
+        setFilterAthletes,
       }}
     >
       {children}

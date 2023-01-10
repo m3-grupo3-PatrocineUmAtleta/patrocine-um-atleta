@@ -1,7 +1,6 @@
 import { iUser } from "../../../providers/User/interfaces";
 
-export const Favourites = ({favourites}: iUser) => (
-  <ul>
-    {/* favourites.map() */}
-  </ul>
-)
+// tipar favourites
+export const Favourites = ({ favourites }: any) => (
+  <ul>{/* favourites.map() */}</ul>
+);

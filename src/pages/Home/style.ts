@@ -5,7 +5,7 @@ export const StyledHome = styled.div`
     background-color: var(--color-primary-100);
     position: relative;
     height: 450px;
-    overflow-x: hidden;
+    overflow: hidden;
 
     .title-home {
       display: inline-block;
@@ -34,6 +34,18 @@ export const StyledHome = styled.div`
         right: 7px;
         transform: rotateZ(7deg) scale(1.1);
       }
+
+      @media (min-width: 750px) {
+        bottom: 97px;
+        right: 223px;
+        transform: rotateZ(5.7deg) scale(1.7);
+      }
+
+      @media (min-width: 1230px) {
+        bottom: 166px;
+        right: 279px;
+        transform: rotateZ(3deg) scale(3.2);
+      }
     }
 
     a {
@@ -44,7 +56,6 @@ export const StyledHome = styled.div`
       letter-spacing: 1.5px;
       color: var(--color-secundary-100);
       position: relative;
-      z-index: 1;
       text-shadow: 2px 2px black;
     }
   }
@@ -52,7 +63,7 @@ export const StyledHome = styled.div`
   main .sectionSponsorship .athlete {
     max-height: 648px;
     min-height: 320px;
-    background-color: var(--color-gray-0);
+    background-color: var(--color-gray-20);
 
     > div {
       transform: translateY(-90px);
@@ -65,7 +76,8 @@ export const StyledHome = styled.div`
         background-color: white;
         height: 344px;
         max-width: 827px;
-        min-width: 344px;
+
+        min-width: 300px;
 
         margin: 0 auto;
         padding: 12px;
@@ -79,6 +91,7 @@ export const StyledHome = styled.div`
         @media (min-width: 750px) {
           flex-wrap: wrap;
           height: fit-content;
+          min-height: 250px;
         }
       }
     }
@@ -92,6 +105,7 @@ export const StyledHome = styled.div`
       text-align: center;
       margin-top: 25px;
       display: inline-block;
+      width: 100%;
     }
 
     .text-body {
@@ -114,6 +128,26 @@ export const StyledHome = styled.div`
         gap: 10px;
       }
     }
+
+    @media (min-width: 750px) {
+      .text-body {
+        padding: 0 200px;
+      }
+
+      .reach-info {
+        gap: 83px;
+        padding: 30px 0;
+
+        > div {
+          max-width: 250px;
+          align-items: center;
+
+          img {
+            max-width: 130px;
+          }
+        }
+      }
+    }
   }
 
   main .sectionDonation > div:last-child {
@@ -132,6 +166,12 @@ export const StyledHome = styled.div`
       text-align: justify;
       padding: 0 5px;
     }
+
+    @media (min-width: 750px) {
+      .text-body {
+        padding: 0 200px;
+      }
+    }
   }
 
   footer {
@@ -140,27 +180,86 @@ export const StyledHome = styled.div`
     padding-bottom: 10px;
 
     > div {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      > div:first-of-type {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
 
-      > img {
-        max-width: 100px;
-      }
-
-      > div {
-        .title-3 {
-          text-align: center;
+        > img {
+          max-width: 100px;
         }
 
         > div {
-          margin-top: 10px;
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          align-items: center;
-          gap: 15px;
+          .title-3 {
+            text-align: center;
+          }
+
+          > div {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+          }
         }
+
+        > div:first-of-type {
+          > h3:last-of-type {
+            display: none;
+          }
+          > h3:first-of-type {
+            display: block;
+          }
+        }
+
+        > div:last-of-type > div > div > .headline-600 {
+          display: none;
+        }
+
+        @media (min-width: 750px) {
+          > img {
+            max-width: 210px;
+          }
+
+          > div {
+            flex-direction: column;
+            gap: 10px;
+          }
+
+          > div:first-of-type {
+            > h3:last-of-type {
+              display: block;
+            }
+            > h3:first-of-type {
+              display: none;
+            }
+          }
+
+          > div:last-of-type > div {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 25px;
+          }
+
+          > div:last-of-type > div > div {
+            gap: 15px;
+          }
+
+          > div:last-of-type > div > div:last-of-type {
+            align-items: flex-start;
+          }
+
+          > div:last-of-type > div > div > .headline-600 {
+            display: block;
+          }
+        }
+      }
+
+      > div:last-of-type {
+        display: block;
+        text-align: center;
       }
     }
   }

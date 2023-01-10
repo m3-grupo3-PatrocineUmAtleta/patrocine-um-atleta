@@ -17,15 +17,39 @@ interface iHeaderProps {
 }
 
 export const Header = ({ isHome }: iHeaderProps) => {
-  const { user } = useContext(UserContext);
+  const {
+    user,
+    setUser,
+    setButtonValue,
+    athletes,
+
+    setFilterAthletes,
+  } = useContext(UserContext);
 
   const [openHamburguer, setOpenHamburguer] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
   const [openLogout, setOpenLogout] = useState(false);
+  const [valueSearch, setValueSearch] = useState("");
 
   const logoutHandle = () => {
     window.localStorage.removeItem("@UserId");
     window.localStorage.removeItem("@Token");
+    setUser(null);
+  };
+  const searchInputAthletes = (value: string) => {
+    setButtonValue("Todos atletas");
+    setValueSearch(value);
+    const filter = athletes.filter((athlete) => {
+      const valueDefault = value.toLowerCase();
+      return (
+        athlete.name.toLowerCase().includes(valueDefault) ||
+        athlete.bio.toLowerCase().includes(valueDefault) ||
+        athlete.city.toLowerCase().includes(valueDefault)
+      );
+    });
+    console.log(filter);
+    setFilterAthletes(filter);
+    value === "" && setFilterAthletes([]);
   };
 
   return !openSearch ? (
@@ -35,12 +59,6 @@ export const Header = ({ isHome }: iHeaderProps) => {
         {isHome ? (
           <>
             <div className="showMobile">
-              <button
-                className="searchButton"
-                onClick={() => setOpenSearch(!openSearch)}
-              >
-                <img src={lupa} alt="" />
-              </button>
               <button
                 className="hamburguerButton"
                 onClick={() => setOpenHamburguer(!openHamburguer)}
@@ -74,7 +92,10 @@ export const Header = ({ isHome }: iHeaderProps) => {
               >
                 <img src={lupaInput} alt="" />
               </button>
-              <input type="text" />
+              <input
+                type="text"
+                onChange={(e) => searchInputAthletes(e.target.value)}
+              />
             </div>
             <button
               className="hamburguerButton"
@@ -84,7 +105,7 @@ export const Header = ({ isHome }: iHeaderProps) => {
             </button>
             <div className="dropBoxUserDesktop">
               <h2 className="title-2 gray-0">{user?.name}</h2>
-              <button onClick={() => logoutHandle}>
+              <button onClick={() => logoutHandle()}>
                 <img src={logoutButton}></img>
               </button>
             </div>
