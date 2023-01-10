@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { UserContext } from "../../providers/User";
 import { ModalWrapper } from "../Modal";
 import { useNavigate } from "react-router-dom";
+import { getAthletesById } from "../../services/getAthletesById";
 
 interface iCardProps {
   athlete_id: number;
@@ -26,9 +27,8 @@ export const AthleteCard = ({
   city,
   isAdmin,
 }: iCardProps) => {
-  const { setIsOpenModal, setSelectedAtlhete, setSettingsModal } =
+  const { setIsOpenModal, setSelectedAtlhete, setSettingsModal, setAthletes } =
     useContext(UserContext);
-  const navigate = useNavigate();
 
   const modalOpen = () => {
     setIsOpenModal(true);
@@ -43,7 +43,7 @@ export const AthleteCard = ({
   };
 
   const pgAthlete = () => {
-    navigate(`/athletePage/${athlete_id}`);
+    getAthletesById(athlete_id);
   };
 
   const dataAtual = new Date();

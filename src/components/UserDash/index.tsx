@@ -8,6 +8,8 @@ import favIcon from "./../../assets/img/favIcon.png";
 import patrocinadosIcon from "./../../assets/img/patrocinadosIcon.png";
 import { AthleteCard } from "../AthleteCard";
 import { Header } from "../Header";
+import { RenderContainerSection } from "../RenderContainerSection";
+import { RenderContentSection } from "../RenderContentSection";
 
 export const UserDash = () => {
   return (
@@ -54,12 +56,14 @@ export const UserDash = () => {
             />
           </ul>
         </section>
-        <section className="render-buttons"></section>
+        <RenderContainerSection size="780px">
+          <RenderContentSection />
+        </RenderContainerSection>
 
         <section className="sidebar">
           <ul>
             <li>
-              <ButtonsSidebar text={"Profile"} img={perfilIcon} />
+              <ButtonsSidebar text="Perfil" img={perfilIcon} />
             </li>
             <li>
               <ButtonsSidebar text={"Todos atletas"} img={todosAtletasIcon} />

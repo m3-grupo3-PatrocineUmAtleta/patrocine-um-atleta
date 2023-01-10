@@ -27,7 +27,7 @@ export const DepositionsForm = () => {
           className="headline"
         />
         <div className="divNameAndButton">
-          <button>Adicionar</button>
+          <button type="submit">Adicionar</button>
           <button>Cancelar</button>
         </div>
       </form>

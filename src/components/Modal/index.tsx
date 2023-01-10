@@ -2,10 +2,11 @@ import { ModalBackground } from "./style";
 import closeModal from "../../assets/img/closeModal.svg";
 import { useContext } from "react";
 import { UserContext } from "../../providers/User";
-import { UserLogoff } from "./Modais/userLogOff/userLogoff";
-import { AthleteDelete } from "./Modais/athleteDelete";
-import { AthleteEdit } from "./Modais/athleteEdit/athleteEdit";
+import { UserLogoff } from "./Modais/UserLogOff";
+import { AthleteDelete } from "./Modais/AthleteDelete";
+import { AthleteEdit } from "./Modais/AthleteEdit";
 import { DepositionsForm } from "./Modais/DepositionsForm";
+import { UserDataEdit } from "./Modais/UserDataEdit";
 
 interface iModalProps {
   typeModal: string;
@@ -70,8 +71,8 @@ export const ModalWrapper = ({ typeModal, select }: iModalProps) => {
             <button onClick={handleClick}>
               <img src={closeModal} />
             </button>
+            <UserDataEdit />
           </div>
-          //   <ChildrenComponent/>
         );
       case "instituitionDataEdit":
         return (

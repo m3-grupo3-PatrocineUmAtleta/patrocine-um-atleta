@@ -18,7 +18,7 @@ import { Tournaments } from "./components/Tournaments";
 export const RenderContentSection = () => {
   const { buttonValue, user } = useContext(UserContext);
 
-  if (user) {
+  if (user?.isAdmin === false) {
     if (buttonValue === "Perfil") {
       return <Profile />;
     }
