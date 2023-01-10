@@ -54,12 +54,6 @@ export const Header = ({ isHome }: iHeaderProps) => {
           <>
             <div className="showMobile">
               <button
-                className="searchButton"
-                onClick={() => setOpenSearch(!openSearch)}
-              >
-                <img src={lupa} alt="" />
-              </button>
-              <button
                 className="hamburguerButton"
                 onClick={() => setOpenHamburguer(!openHamburguer)}
               >
