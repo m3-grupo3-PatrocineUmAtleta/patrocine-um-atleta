@@ -40,6 +40,14 @@ export const AdmDash = () => {
     getAthletes();
   }, []);
   console.log(athletes);
+  const donationsList = athletes.filter((athlete) => {
+    if (athlete?.donates?.length && athlete) {
+      return athlete;
+    } else {
+      return null;
+    }
+  });
+  console.log(donationsList);
   return (
     <>
       {openModal && (
@@ -71,18 +79,24 @@ export const AdmDash = () => {
               <h3>Histórico de doações</h3>
             </div>
             <ul>
-              {athletes?.map((athlete) => {
-                return athlete.donations ? (
-                  <>
-                    <StyledInfoHistory>
-                      <img src={athlete.imgUrl} alt={athlete.name} />
-                      {athlete.name}
-                    </StyledInfoHistory>
-                  </>
-                ) : (
-                  <StyledInfoHistory>Ainda sem doações</StyledInfoHistory>
-                );
-              })}
+              {donationsList.length > 0 ? (
+                athletes.map((athlete) => {
+                  return athlete.donates?.map((donation) => {
+                    return (
+                      <>
+                        <StyledInfoHistory>
+                          {donation?.athlete.name}
+                        </StyledInfoHistory>
+                        <StyledInfoHistory>
+                          {donation?.amount}
+                        </StyledInfoHistory>
+                      </>
+                    );
+                  });
+                })
+              ) : (
+                <StyledInfoHistory>Ainda não há doações</StyledInfoHistory>
+              )}
             </ul>
           </div>
         </StyledHistory>
