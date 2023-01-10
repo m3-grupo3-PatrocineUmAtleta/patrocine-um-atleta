@@ -8,16 +8,15 @@ import { UserContext } from "../../providers/User";
 import { ModalWrapper } from "../Modal";
 import { useNavigate } from "react-router-dom";
 
-
 interface iCardProps {
-  athlete_id: string;
+  athlete_id: number;
   img: string | undefined;
   name: string;
   age: number;
   city: string;
   bio?: string;
   isAdmin?: boolean;
-  isUserDash?: boolean
+  isUserDash?: boolean;
 }
 
 export const AthleteCard = ({
@@ -29,10 +28,12 @@ export const AthleteCard = ({
   isAdmin,
   isUserDash,
 }: iCardProps) => {
-
-  
-  const { setIsOpenModal, setSelectedAtlhete, setSettingsModal, gotoAthletePage } =
-    useContext(UserContext);
+  const {
+    setIsOpenModal,
+    setSelectedAtlhete,
+    setSettingsModal,
+    gotoAthletePage,
+  } = useContext(UserContext);
   const navigate = useNavigate();
 
   const modalOpen = () => {
@@ -80,12 +81,16 @@ export const AthleteCard = ({
               onClick={() => modalOpenOthers("athleteEdit")}
             />
           </div>
-        ) : (          
+        ) : (
           <div className="div-icons">
             {isUserDash ? (
-              <BiWindowOpen id={athlete_id+""} className="togo-icon icon" onClick={gotoAthletePage} /> 
+              <BiWindowOpen
+                id={athlete_id + ""}
+                className="togo-icon icon"
+                onClick={gotoAthletePage}
+              />
             ) : (
-             <FaEye className="eye-icon icon" onClick={() => modalOpen()} />
+              <FaEye className="eye-icon icon" onClick={() => modalOpen()} />
             )}
           </div>
         )}
