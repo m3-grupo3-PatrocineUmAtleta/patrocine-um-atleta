@@ -2,6 +2,8 @@ import { iAthlete, iTournament } from "../../../providers/User/interfaces";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../../providers/User";
 import { api } from "../../../services/api";
+import { getAllAthletes } from "../../../services/getAllAthletes";
+import { isAxiosError } from "axios";
 
 interface iInfosProps {
   tournamentsInfo?: {
@@ -22,25 +24,17 @@ export const Infos = ({
 
   const { user, buttonValue } = useContext(UserContext);
 
-  const [all, setAll] = useState<iAthlete[]>([] as iAthlete[]);
+  const [athletes, setAthletes] = useState([] as iAthlete[]);
 
-  const getAllathletesInInstitute = () => {
-    async function getApi() {
-      try {
-        const res = await api.get("/athlete");
-        console.log(res.data);
-        const filterAthletes = res.data.filter((athlete: iAthlete) => {
-          console.log(athlete);
-          return String(athlete.userId) === String(user?.id);
-        });
-
-        setAll(filterAthletes);
-      } catch (error) {
-        console.error(error);
-      } finally {
-      }
+  console.log(user);
+  const filterApi = async () => {
+    try {
+      const res = await getAllAthletes();
+      setAthletes(res);
+    } catch (error) {
+      console.error(error);
+    } finally {
     }
-    getApi();
   };
 
   const findMostPopular = () => {
@@ -69,7 +63,7 @@ export const Infos = ({
     findMostPopular();
   }, []);
   useEffect(() => {
-    getAllathletesInInstitute();
+    filterApi();
   }, []);
 
   return (
@@ -78,7 +72,7 @@ export const Infos = ({
       <div>
         <div>
           <h3>Total de atletas:</h3>
-          <p>Sua instituição tem atualmente {all?.length} atletas</p>
+          <p>Sua instituição tem atualmente {athletes?.length} atletas</p>
         </div>
         <div>
           <h3>Total de torneios:</h3>
