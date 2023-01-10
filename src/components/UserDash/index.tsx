@@ -30,7 +30,7 @@ export const UserDash = () => {
         <section className="donations-history">
           <h2 className="title-2 gray-0">Histórico de doações</h2>
           <ul className="ul-mobile">
-            {sponsored.length ? (
+            {sponsored?.length ? (
               sponsored
                 .map((item) => {
                   return (
@@ -50,7 +50,7 @@ export const UserDash = () => {
             )}
           </ul>
           <ul className="ul-desktop">
-            {sponsored.length ? (
+            {sponsored?.length ? (
               sponsored
                 .map((item) => {
                   return (
@@ -72,14 +72,10 @@ export const UserDash = () => {
             )}
           </ul>
         </section>
-
         <section className="render-buttons"></section>
 
         <section className="sidebar">
           <ul>
-            <li>
-              <ButtonsSidebar text={"Perfil"} img={perfilIcon} />
-            </li>
             <li>
               <ButtonsSidebar text={"Todos atletas"} img={todosAtletasIcon} />
             </li>
