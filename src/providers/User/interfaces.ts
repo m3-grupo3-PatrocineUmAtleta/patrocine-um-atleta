@@ -18,6 +18,8 @@ export interface iContext {
   loginUser: (data: iUserLogin) => void;
   selectedAtlhete: number | null;
   setSelectedAtlhete: React.Dispatch<React.SetStateAction<number | null>>;
+  filterAthletes: iAthlete[];
+  setFilterAthletes: React.Dispatch<React.SetStateAction<iAthlete[]>>;
 }
 export interface iProviderProps {
   children: React.ReactNode;
@@ -40,6 +42,7 @@ export interface iUser {
   sponsoredAthletes?: iAthlete[];
   isAdmin?: boolean;
   id?: number;
+  tournaments?: iTournament[];
 }
 
 export interface iTournament {

@@ -9,9 +9,10 @@ export const UserContext = createContext({} as iContext);
 export const UserProvider = ({ children }: iProviderProps) => {
   const [user, setUser] = useState<iUser | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [buttonValue, setButtonValue] = useState("");
+  const [buttonValue, setButtonValue] = useState("Todos atletas");
   const [athletes, setAthletes] = useState([] as iAthlete[]);
   const [openModal, setIsOpenModal] = useState(false);
+  const [filterAthletes, setFilterAthletes] = useState([] as iAthlete[]);
   const [settingsModal, setSettingsModal] = useState("");
   const [selectedAtlhete, setSelectedAtlhete] = useState<number | null>(null);
   const navigate = useNavigate();
@@ -57,6 +58,8 @@ export const UserProvider = ({ children }: iProviderProps) => {
         loginUser,
         selectedAtlhete,
         setSelectedAtlhete,
+        filterAthletes,
+        setFilterAthletes,
       }}
     >
       {children}
