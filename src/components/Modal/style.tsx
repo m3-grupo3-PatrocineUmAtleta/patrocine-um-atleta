@@ -12,7 +12,7 @@ export const ModalBackground = styled.div`
 
   position: fixed;
 
-  z-index: 2;
+  z-index: 3;
 
   & > div {
     background-color: var(--color-gray-0);
@@ -49,7 +49,7 @@ export const ModalBackground = styled.div`
       position: absolute;
       top: 24px;
       right: 24px;
-      background-color: none;
+      background-color: transparent;
 
       & > img {
         width: 24px;
