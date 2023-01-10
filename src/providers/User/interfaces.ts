@@ -99,7 +99,7 @@ export interface iAthlete {
   city: string;
   depositions?: iDeposition[];
   tournaments?: iTournament[];
-  donations: iDonation[];
+  donates?: iDonation[];
   medias?: iMedias;
 }
 
