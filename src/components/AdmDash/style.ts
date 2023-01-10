@@ -60,7 +60,7 @@ export const StyledSectionRender = styled.section`
   position: relative;
   top: -30px;
 
-  background-color: var(--color-gray-0);
+  background-color: #ffffff;
   border-radius: 16px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   div {

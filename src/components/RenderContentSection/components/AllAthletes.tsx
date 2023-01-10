@@ -1,21 +1,33 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../../providers/User";
+import { getAllAthletes } from "../../../services/getAllAthletes";
 import { AthleteCard } from "../../AthleteCard";
 
 export const AllAthletes = () => {
-  const { athletes } = useContext(UserContext);
+  const { athletes, setAthletes } = useContext(UserContext);
+  const getAthletes = async () => {
+    const athletes = await getAllAthletes();
+    setAthletes(athletes);
+  };
+
+  useEffect(() => {
+    getAthletes();
+  }, []);
 
   return (
     <ul>
       {athletes.length > 0 &&
-        athletes.map(({ name, age, id, imgUrl, city }) => {
+        athletes.map((athlete) => {
           return (
             <AthleteCard
-              age={age}
-              athlete_id={id}
-              city={city}
-              img={imgUrl}
-              name={name}
+              athlete_id={athlete.id}
+              img={athlete.imgUrl}
+              name={athlete.name}
+              age={athlete.age}
+              city={athlete.city}
+              bio={athlete.bio}
+              isAdmin={false}
+              key={athlete.id}
             />
           );
         })}
