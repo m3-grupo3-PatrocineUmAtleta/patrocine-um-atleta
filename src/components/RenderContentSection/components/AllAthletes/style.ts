@@ -5,5 +5,5 @@ export const StyledUlAllAthletes = styled.ul`
   flex-wrap: wrap;
   width: 100%;
   justify-content: flex-start;
-  gap: 5px;
+  gap: 20px;
 `;

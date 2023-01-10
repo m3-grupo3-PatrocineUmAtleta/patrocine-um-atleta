@@ -28,7 +28,7 @@ export const AdmDash = () => {
       </StyledAdmDash>
       <StyledContainer>
         <div className="rowReverse">
-          <RenderContainerSection size="780px">
+          <RenderContainerSection size="810px">
             <RenderContentSection />
           </RenderContainerSection>
           <StyledAsideButtons>

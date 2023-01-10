@@ -9,7 +9,7 @@ export const StyledAsideButtons = styled.aside`
   position: sticky;
   bottom: 0;
   width: 100vw;
-  max-width: 760px;
+  max-width: 780px;
   overflow-x: auto;
   display: flex;
   align-items: center;
