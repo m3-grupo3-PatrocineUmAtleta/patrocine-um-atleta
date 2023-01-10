@@ -12,6 +12,7 @@ export const UserProvider = ({ children }: iProviderProps) => {
   const [buttonValue, setButtonValue] = useState("");
   const [athletes, setAthletes] = useState([] as iAthlete[]);
   const [openModal, setIsOpenModal] = useState(false);
+  const [filterAthletes,setFilterAthletes]=useState([]as iAthlete[])
   const [settingsModal, setSettingsModal] = useState("");
   const [selectedAtlhete, setSelectedAtlhete] = useState<number | null>(null);
   const navigate = useNavigate();
@@ -57,6 +58,8 @@ export const UserProvider = ({ children }: iProviderProps) => {
         loginUser,
         selectedAtlhete,
         setSelectedAtlhete,
+        filterAthletes,
+        setFilterAthletes
       }}
     >
       {children}
