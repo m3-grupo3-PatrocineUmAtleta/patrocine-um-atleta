@@ -20,7 +20,7 @@ export const RenderContentSection = () => {
 
   if (user) {
     if (buttonValue === "Perfil") {
-      return <Profile name="" bio="" phoneNumber="" email="" />;
+      return <Profile />;
     }
     if (buttonValue === "Todos atletas") {
       return <AllAthletes />;
@@ -29,22 +29,12 @@ export const RenderContentSection = () => {
       return <Favourites favourites={[]} />;
     }
     if (buttonValue === "Patrocinados") {
-      return (
-        <Sponsored
-          name=""
-          email=""
-          bio=""
-          favourites={[]}
-          sponsoredAthletes={[]}
-        />
-      );
+      return <Sponsored sponsoredAthletes={[]} />;
     }
   }
 
   if (buttonValue === "Perfil") {
-    return (
-      <Profile name="" email="" bio="" favourites={[]} sponsoredAthletes={[]} />
-    );
+    return <Profile />;
   }
   if (buttonValue === "Informações") {
     return <Infos />;
@@ -53,7 +43,7 @@ export const RenderContentSection = () => {
     return <Tournaments tournamentsList={[]} />;
   }
   if (buttonValue === "Atletas") {
-    return <Athletes athleteList={[]} />;
+    return <Athletes />;
   }
   if (buttonValue === "Registrar") {
     return <AthleteRegister />;

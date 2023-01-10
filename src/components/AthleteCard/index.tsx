@@ -12,7 +12,7 @@ interface iCardProps {
   athlete_id: number;
   img: string | undefined;
   name: string;
-  age: string;
+  age: number;
   city: string;
   bio?: string;
   isAdmin?: boolean;
