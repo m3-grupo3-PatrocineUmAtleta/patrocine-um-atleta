@@ -121,7 +121,7 @@ export const Register = () => {
           message={errors.street?.message}
           valid={isValidating}
           placeholder="Sua rua, seu número"
-          value={address ? address?.logradouro : ""}
+          defaultValue={address ? address?.logradouro : ""}
         />
 
         <Input
@@ -133,7 +133,7 @@ export const Register = () => {
           message={errors.city?.message}
           valid={isValidating}
           placeholder="Cidade, Estado - UF"
-          value={
+          defaultValue={
             address
               ? `${address?.bairro}, ${address?.localidade} - ${address?.uf}`
               : ""

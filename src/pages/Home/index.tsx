@@ -31,6 +31,7 @@ export const Home = () => {
   useEffect(() => {
     getAthletes();
   }, []);
+
   return (
     <StyledHome>
       {openModal && (

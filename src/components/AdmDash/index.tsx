@@ -14,13 +14,18 @@ import athletesImg from "../../assets/img/admDash/asideButtonAthlete.png";
 import registerImg from "../../assets/img/admDash/asideButtonEdit.png";
 import { StyledContainer } from "../../styles/Container";
 import { RenderContentSection } from "../RenderContentSection";
+import { ModalWrapper } from "../Modal";
 
 export const AdmDash = () => {
-  const { user, buttonValue } = useContext(UserContext);
+  const { user, buttonValue, openModal, settingsModal, selectedAtlhete } =
+    useContext(UserContext);
 
   useEffect(() => {}, [buttonValue]);
   return (
     <>
+      {openModal && (
+        <ModalWrapper typeModal={settingsModal} select={selectedAtlhete} />
+      )}
       <StyledAdmDash>
         <Header isHome={false}></Header>
       </StyledAdmDash>
