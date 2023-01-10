@@ -49,7 +49,7 @@ export const AthletePage = () => {
         </StyledContainer>
         <div>
           <StyledContainer>
-            <RenderContainerSection>
+            <RenderContainerSection size="780px">
               <RenderContentSection />
             </RenderContainerSection>
             <aside>

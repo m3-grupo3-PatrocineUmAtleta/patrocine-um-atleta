@@ -2,11 +2,7 @@ import { useContext, useEffect } from "react";
 import { UserContext } from "../../providers/User";
 import { ButtonsSidebar } from "../ButtonsSidebar";
 import { Header } from "../Header";
-import {
-  StyledAdmDash,
-  StyledAsideButtons,
-  StyledSectionRender,
-} from "./style";
+import { StyledAdmDash, StyledAsideButtons } from "./style";
 import perfilImg from "../../assets/img/admDash/asideButtonPerfil.png";
 import infoImg from "../../assets/img/admDash/asideButtonInfo.png";
 import tournamentImg from "../../assets/img/admDash/asideButtonTournament.png";
@@ -15,6 +11,7 @@ import registerImg from "../../assets/img/admDash/asideButtonEdit.png";
 import { StyledContainer } from "../../styles/Container";
 import { RenderContentSection } from "../RenderContentSection";
 import { ModalWrapper } from "../Modal";
+import { RenderContainerSection } from "../RenderContainerSection";
 
 export const AdmDash = () => {
   const { user, buttonValue, openModal, settingsModal, selectedAtlhete } =
@@ -31,9 +28,9 @@ export const AdmDash = () => {
       </StyledAdmDash>
       <StyledContainer>
         <div className="rowReverse">
-          <StyledSectionRender>
-            <RenderContentSection></RenderContentSection>
-          </StyledSectionRender>
+          <RenderContainerSection size="780px">
+            <RenderContentSection />
+          </RenderContainerSection>
           <StyledAsideButtons>
             <ButtonsSidebar text="Perfil" img={perfilImg}></ButtonsSidebar>
             <ButtonsSidebar text="Informações" img={infoImg}></ButtonsSidebar>
