@@ -28,12 +28,12 @@ export const AdmDash = () => {
       {openModal && (
         <ModalWrapper typeModal={settingsModal} select={selectedAtlhete} />
       )}
+      <Header isHome={false}></Header>
+
       <StyledAdmDash>
-        <Header isHome={false}></Header>
-        <StyledContainer>
-          <StyledTournamentHistory></StyledTournamentHistory>
-        </StyledContainer>
+        <StyledTournamentHistory></StyledTournamentHistory>
       </StyledAdmDash>
+
       <StyledContainer>
         <div className="rowReverse">
           <RenderContainerSection size="810px">

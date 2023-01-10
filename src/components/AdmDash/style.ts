@@ -6,6 +6,7 @@ export const StyledAdmDash = styled.div`
   height: 450px;
   display: flex;
   align-items: center;
+  justify-content: center;
 `;
 export const StyledAsideButtons = styled.aside`
   position: sticky;
