@@ -103,3 +103,17 @@ export interface iAthleteRegister {
   donations?: iDonation[];
   depositions?: iDeposition[];
 }
+
+export interface iAthleteEdit {
+  name: string;
+  age: string;
+  nickname?: string;
+  imgUrl: string;
+  bio: string;
+  city: string;
+  medias: iMedias;
+  tournaments?: iTournament[];
+  donations?: iDonation[];
+  depositions?: iDeposition[];
+  userId: string;
+}

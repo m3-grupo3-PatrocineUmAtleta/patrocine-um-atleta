@@ -4,11 +4,11 @@ import { AthleteDeleteAPI } from "../../../../services/athleteDelete";
 import { getAllAthletes } from "../../../../services/getAllAthletes";
 import { DivAthleteDelete } from "./style";
 
-interface iUserLogoff {
+interface iAthleteDelete {
   idAthlete: number | null;
 }
 
-export const AthleteDelete = ({ idAthlete }: iUserLogoff) => {
+export const AthleteDelete = ({ idAthlete }: iAthleteDelete) => {
   const { athletes, setIsOpenModal, setAthletes } = useContext(UserContext);
 
   const deleteAthlete = async () => {

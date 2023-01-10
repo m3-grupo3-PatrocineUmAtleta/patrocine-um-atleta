@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { UserContext } from "../../providers/User";
 import { UserLogoff } from "./Modais/userLogOff/userLogoff";
 import { AthleteDelete } from "./Modais/athleteDelete";
+import { AthleteEdit } from "./Modais/athleteEdit/athleteEdit";
 
 interface iModalProps {
   typeModal: string;
@@ -94,8 +95,8 @@ export const ModalWrapper = ({ typeModal, select }: iModalProps) => {
             <button onClick={handleClick}>
               <img src={closeModal} />
             </button>
+            <AthleteEdit idAthlete={selectedAtlhete} />
           </div>
-          //   <ChildrenComponent/>
         );
       case "athleteDelete":
         return (

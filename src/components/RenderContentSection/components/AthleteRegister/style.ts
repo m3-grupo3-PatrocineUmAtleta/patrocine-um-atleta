@@ -7,7 +7,7 @@ export const DivRegisterAthlete = styled.div`
 
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     gap: 10px;
 
     & > fieldset {
@@ -16,7 +16,8 @@ export const DivRegisterAthlete = styled.div`
       & > label {
         color: var(--color-primary-100);
       }
-      & > input {
+      & > input,
+      & > textarea {
         background-color: var(--color-primary-10);
       }
     }

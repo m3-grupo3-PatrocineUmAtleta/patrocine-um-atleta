@@ -1,11 +1,16 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import { UserContext } from "../../../../providers/User";
+import { iAthleteRegister } from "../../../../providers/User/interfaces";
+import { AthleteEditAPI } from "../../../../services/athleteEdit";
 import { AthleteRegisterAPI } from "../../../../services/athleteRegister";
+import { getAllAthletes } from "../../../../services/getAllAthletes";
 import { Input, TextArea } from "../../../Form/Input";
-import { DivRegisterAthlete } from "./style";
+import { DivRegisterAthlete } from "../../../RenderContentSection/components/AthleteRegister/style";
 
-interface iFormDataRegisterAthlete {
+interface iFormDataEditAthlete {
   name: string;
   age: string;
   nickname?: string;
@@ -17,7 +22,15 @@ interface iFormDataRegisterAthlete {
   facebook?: string;
 }
 
-export const AthleteRegister = () => {
+interface iAthleteEdit {
+  idAthlete: number | null;
+}
+
+export const AthleteEdit = ({ idAthlete }: iAthleteEdit) => {
+  const { athletes, setIsOpenModal, setAthletes } = useContext(UserContext);
+
+  const currentAthlete = athletes.find((athlete) => athlete.id === idAthlete);
+
   const addAthleteSchema = yup.object().shape({
     name: yup.string().required("Este campo é obrigatótio!"),
     age: yup.string().required("Este campo é obrigatótio!"),
@@ -35,14 +48,13 @@ export const AthleteRegister = () => {
     handleSubmit,
     reset,
     formState: { errors, isValid },
-  } = useForm<iFormDataRegisterAthlete>({
+  } = useForm<iFormDataEditAthlete>({
     resolver: yupResolver(addAthleteSchema),
   });
 
   const tokenLocal = localStorage.getItem("@Token");
-  const adminId = localStorage.getItem("@UserId");
 
-  const registerAthletes = (data: iFormDataRegisterAthlete) => {
+  const registerAthletes = async (data: iFormDataEditAthlete) => {
     const dataAthlete = {
       name: data.name,
       age: data.age,
@@ -58,18 +70,18 @@ export const AthleteRegister = () => {
       tournaments: [],
       donations: [],
       depositions: [],
+      userId: "1",
     };
-    const dataRegister = { adminId, dataAthlete, tokenLocal };
 
-    AthleteRegisterAPI(dataRegister);
-    reset();
+    AthleteEditAPI({ idAthlete, data: dataAthlete, tokenLocal });
+
+    const athletes = await getAllAthletes();
+    setAthletes(athletes);
+    setIsOpenModal(false);
   };
 
   return (
     <DivRegisterAthlete>
-      <div className="divNameAndButton">
-        <h2>Registra um atleta</h2>
-      </div>
       <form onSubmit={handleSubmit(registerAthletes)}>
         <Input
           id="name"
@@ -79,6 +91,7 @@ export const AthleteRegister = () => {
           message={errors.name?.message}
           placeholder="Nome completo"
           valid={isValid}
+          defaultValue={currentAthlete?.name}
         />
         <Input
           id="age"
@@ -88,6 +101,7 @@ export const AthleteRegister = () => {
           message={errors.age?.message}
           placeholder="Data de nascimento"
           valid={isValid}
+          defaultValue={currentAthlete?.age}
         />
         <Input
           id="nickname"
@@ -97,6 +111,7 @@ export const AthleteRegister = () => {
           message={errors.nickname?.message}
           placeholder="Apelido do atleta"
           valid={isValid}
+          defaultValue={currentAthlete?.nickname}
         />
         <Input
           id="imgUrl"
@@ -106,6 +121,7 @@ export const AthleteRegister = () => {
           message={errors.imgUrl?.message}
           placeholder="linkDaImagem.png"
           valid={isValid}
+          defaultValue={currentAthlete?.imgUrl}
         />
         <TextArea
           id="bio"
@@ -115,6 +131,7 @@ export const AthleteRegister = () => {
           message={errors.bio?.message}
           placeholder="Biografia do atleta"
           valid={isValid}
+          defaultValue={currentAthlete?.bio}
         />
         <Input
           id="city"
@@ -124,6 +141,7 @@ export const AthleteRegister = () => {
           message={errors.city?.message}
           placeholder="Cidade - UF"
           valid={isValid}
+          defaultValue={currentAthlete?.city}
         />
         <Input
           id="instagram"
@@ -133,6 +151,7 @@ export const AthleteRegister = () => {
           message={errors.instagram?.message}
           placeholder="Instagram do atleta"
           valid={isValid}
+          defaultValue={currentAthlete?.medias?.instagram}
         />
         <Input
           id="twitter"
@@ -142,6 +161,7 @@ export const AthleteRegister = () => {
           message={errors.twitter?.message}
           placeholder="twitter do atleta"
           valid={isValid}
+          defaultValue={currentAthlete?.medias?.twitter}
         />
         <Input
           id="facebook"
@@ -151,10 +171,11 @@ export const AthleteRegister = () => {
           message={errors.facebook?.message}
           placeholder="facebook do atleta"
           valid={isValid}
+          defaultValue={currentAthlete?.medias?.facebook}
         />
         <div className="divButtons">
-          <button type="submit">Cadastrar</button>
-          <button type="button" onClick={() => reset()}>
+          <button type="submit">Alterar</button>
+          <button type="button" onClick={() => setIsOpenModal(false)}>
             Cancelar
           </button>
         </div>

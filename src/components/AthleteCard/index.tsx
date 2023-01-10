@@ -48,14 +48,15 @@ export const AthleteCard = ({
 
   const dataAtual = new Date();
   const getYear = dataAtual.getFullYear();
-  const setAge = getYear - Number(age.toString().slice(0, 4));
+  const setAge = getYear - Number(age?.toString().slice(0, 4));
+
   return (
     <StyledAthleteCard id={athlete_id.toString()}>
       <div className="div-img">
         <img src={img} alt="" />
       </div>
       <div className="div-inf">
-        <h3 className="title-3">{name.slice(0, 14)}</h3>
+        <h3 className="title-3">{name?.slice(0, 14)}</h3>
         <h4 className="title-4">{setAge} anos</h4>
         <div className="div-local">
           <GoLocation className="local-icon" />
