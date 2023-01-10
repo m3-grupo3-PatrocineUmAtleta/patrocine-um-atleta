@@ -1,7 +1,7 @@
 import { StyledAthleteCard } from "./style";
 import { GoLocation } from "react-icons/go";
 import { FaEye } from "react-icons/fa";
-import { BiTrash } from "react-icons/bi";
+import { BiTrash, BiWindowOpen } from "react-icons/bi";
 import { FiEdit } from "react-icons/fi";
 import { useContext } from "react";
 import { UserContext } from "../../providers/User";
@@ -9,13 +9,14 @@ import { ModalWrapper } from "../Modal";
 import { useNavigate } from "react-router-dom";
 
 interface iCardProps {
-  athlete_id: number;
+  athlete_id: number | string;
   img: string | undefined;
   name: string;
   age: number;
   city: string;
   bio?: string;
   isAdmin?: boolean;
+  isUserDash?: boolean;
 }
 
 export const AthleteCard = ({
@@ -25,9 +26,14 @@ export const AthleteCard = ({
   age,
   city,
   isAdmin,
+  isUserDash,
 }: iCardProps) => {
-  const { setIsOpenModal, setSelectedAtlhete, setSettingsModal } =
-    useContext(UserContext);
+  const {
+    setIsOpenModal,
+    setSelectedAtlhete,
+    setSettingsModal,
+    gotoAthletePage,
+  } = useContext(UserContext);
   const navigate = useNavigate();
 
   const modalOpen = () => {
@@ -77,7 +83,15 @@ export const AthleteCard = ({
           </div>
         ) : (
           <div className="div-icons">
-            <FaEye className="eye-icon icon" onClick={() => modalOpen()} />
+            {isUserDash ? (
+              <BiWindowOpen
+                id={athlete_id + ""}
+                className="togo-icon icon"
+                onClick={gotoAthletePage}
+              />
+            ) : (
+              <FaEye className="eye-icon icon" onClick={() => modalOpen()} />
+            )}
           </div>
         )}
       </div>

@@ -8,8 +8,20 @@ import favIcon from "./../../assets/img/favIcon.png";
 import patrocinadosIcon from "./../../assets/img/patrocinadosIcon.png";
 import { AthleteCard } from "../AthleteCard";
 import { Header } from "../Header";
+import { getUserLogged } from "../../services/getUserLogged";
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "../../providers/User";
 
 export const UserDash = () => {
+  const { sponsored, setSponsored } = useContext(UserContext);
+
+  useEffect(() => {
+    const getSpon = async () => {
+      return setSponsored(await getUserLogged());
+    };
+    getSpon();
+  }, []);
+
   return (
     <StyledUserDash>
       <Header isHome={false} />
@@ -18,40 +30,46 @@ export const UserDash = () => {
         <section className="donations-history">
           <h2 className="title-2 gray-0">Histórico de doações</h2>
           <ul className="ul-mobile">
-            <HistoryCard name={"Pelé"} value={200} />
-            <HistoryCard name={"Rivelino"} value={150} />
-            <HistoryCard
-              name={"Zico"}
-              value={160}
-              img={
-                "https://www.algosobre.com.br/images/stories/assuntos/biografias/Zico.jpg"
-              }
-            />
+            {sponsored.length ? (
+              sponsored
+                .map((item) => {
+                  return (
+                    <HistoryCard
+                      key={item.athlete.id}
+                      id={item.athlete.id + ""}
+                      name={item.athlete.nickname}
+                      value={item.value}
+                      img={item.athlete.imgUrl}
+                    />
+                  );
+                })
+                .reverse()
+                .slice(0, 3)
+            ) : (
+              <h1>Você ainda não patrocinou nenhum atleta</h1>
+            )}
           </ul>
           <ul className="ul-desktop">
-            <AthleteCard
-              athlete_id={1}
-              img={
-                "https://www.algosobre.com.br/images/stories/assuntos/biografias/Zico.jpg"
-              }
-              name="Zico"
-              age={18}
-              city="Santos"
-            />
-            <AthleteCard
-              athlete_id={1}
-              img="undefined"
-              name="Pelé"
-              age={18}
-              city="Santos"
-            />
-            <AthleteCard
-              athlete_id={1}
-              img="undefined"
-              name="Pelé"
-              age={18}
-              city="Santos"
-            />
+            {sponsored.length ? (
+              sponsored
+                .map((item) => {
+                  return (
+                    <AthleteCard
+                      key={item.athlete.id}
+                      athlete_id={item.athlete.id + ""}
+                      img={item.athlete.imgUrl}
+                      name={item.athlete.nickname}
+                      age={item.athlete.age}
+                      city={item.athlete.city}
+                      isUserDash={true}
+                    />
+                  );
+                })
+                .reverse()
+                .slice(0, 3)
+            ) : (
+              <h1>Você ainda não patrocinou nenhum atleta</h1>
+            )}
           </ul>
         </section>
 
@@ -70,6 +88,9 @@ export const UserDash = () => {
             </li>
             <li>
               <ButtonsSidebar text={"Patrocinados"} img={patrocinadosIcon} />
+            </li>
+            <li>
+              <ButtonsSidebar text={"Profile"} img={perfilIcon} />
             </li>
           </ul>
         </section>
