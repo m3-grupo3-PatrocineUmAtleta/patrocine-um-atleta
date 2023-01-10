@@ -55,9 +55,6 @@ export const UserDash = () => {
         <section className="sidebar">
           <ul>
             <li>
-              <ButtonsSidebar text={"Profile"} img={perfilIcon} />
-            </li>
-            <li>
               <ButtonsSidebar text={"Todos atletas"} img={todosAtletasIcon} />
             </li>
             <li>
@@ -65,6 +62,9 @@ export const UserDash = () => {
             </li>
             <li>
               <ButtonsSidebar text={"Patrocinados"} img={patrocinadosIcon} />
+            </li>
+            <li>
+              <ButtonsSidebar text={"Profile"} img={perfilIcon} />
             </li>
           </ul>
         </section>

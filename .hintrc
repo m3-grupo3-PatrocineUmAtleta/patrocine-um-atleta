@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "development"
-  ],
+  "extends": ["development"],
   "hints": {
     "axe/name-role-value": [
       "default",
@@ -20,6 +18,8 @@
       {
         "image-alt": "off"
       }
-    ]
+    ],
+    "typescript-config/consistent-casing": "on",
+    "typescript-config/strict": "on"
   }
 }
