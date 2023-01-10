@@ -1,5 +1,3 @@
-import React from "react";
-import { StringSchema } from "yup";
 import { iUserLogin } from "../../services/userLogin";
 import { iRegisterData } from "../../services/userRegister";
 
@@ -26,32 +24,28 @@ export interface iProviderProps {
 }
 
 export interface iUser {
-  email: string;
+  site?: string;
   name: string;
   cpf?: number;
-  dateOfBirth?: string;
-  street?: string;
-  city?: string;
-  cep?: string;
-  bio?: string;
-  imgUrl?: string;
-  phoneNumber?: string;
+  age?: string;
+  image?: string;
+  bio: string;
+  address: string;
+  contacts: { phoneNumber?: string; email?: string };
   favourites?: iAthlete[];
   sponsoredAthletes?: iAthlete[];
   isAdmin?: boolean;
   id?: number;
-  site?: string;
-  tournaments: iTournament[];
 }
 
 export interface iTournament {
   name: string;
   location: string;
   date: string;
-  status: "Vitória" | "Participando";
+  status: "Vitória" | "Derrota" | "Empate";
   participants: iAthlete[];
   rewards: string;
-  place: string;
+  image?: string;
 }
 
 export interface iInstitution {
@@ -62,11 +56,8 @@ export interface iInstitution {
   tournamentsInfo?: {
     tournaments: iTournament[];
     totalPlayed: number;
-    wins: number;
   };
-  institutionAthletes?: iAthlete[];
-  setInstitutionAthletes?: (institutionAthletes: iAthlete) => iAthlete[];
-  raisings?: string;
+  institutionAthletes: iAthlete[];
 }
 
 export interface iMedias {
@@ -87,16 +78,42 @@ export interface iDeposition {
 }
 
 export interface iAthlete {
-  name: string;
-  age: number;
   id: number;
+  name: string;
+  nickname: string;
   imgUrl: string;
-  institution: iInstitution;
-  medias?: iMedias;
+  age: string;
   bio: string;
   city: string;
   depositions?: iDeposition[];
   tournaments?: iTournament[];
   donations: iDonation[];
-  userId: string | number;
+  medias?: iMedias;
+}
+
+export interface iAthleteRegister {
+  name: string;
+  age: string;
+  nickname?: string;
+  imgUrl: string;
+  bio: string;
+  city: string;
+  medias: iMedias;
+  tournaments?: iTournament[];
+  donations?: iDonation[];
+  depositions?: iDeposition[];
+}
+
+export interface iAthleteEdit {
+  name: string;
+  age: string;
+  nickname?: string;
+  imgUrl: string;
+  bio: string;
+  city: string;
+  medias: iMedias;
+  tournaments?: iTournament[];
+  donations?: iDonation[];
+  depositions?: iDeposition[];
+  userId: string;
 }

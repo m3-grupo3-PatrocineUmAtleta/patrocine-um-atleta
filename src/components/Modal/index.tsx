@@ -3,6 +3,8 @@ import closeModal from "../../assets/img/closeModal.svg";
 import { useContext } from "react";
 import { UserContext } from "../../providers/User";
 import { UserLogoff } from "./Modais/userLogOff/userLogoff";
+import { AthleteDelete } from "./Modais/athleteDelete";
+import { AthleteEdit } from "./Modais/athleteEdit/athleteEdit";
 
 interface iModalProps {
   typeModal: string;
@@ -83,19 +85,6 @@ export const ModalWrapper = ({ typeModal, select }: iModalProps) => {
           </div>
           //   <ChildrenComponent/>
         );
-      case "athleteRegister":
-        return (
-          <div>
-            <div>
-              <div />
-              <h3 className="title-2">Registrar um atleta</h3>
-            </div>
-            <button onClick={handleClick}>
-              <img src={closeModal} />
-            </button>
-          </div>
-          //   <ChildrenComponent/>
-        );
       case "athleteEdit":
         return (
           <div>
@@ -106,8 +95,8 @@ export const ModalWrapper = ({ typeModal, select }: iModalProps) => {
             <button onClick={handleClick}>
               <img src={closeModal} />
             </button>
+            <AthleteEdit idAthlete={selectedAtlhete} />
           </div>
-          //   <ChildrenComponent/>
         );
       case "athleteDelete":
         return (
@@ -119,8 +108,8 @@ export const ModalWrapper = ({ typeModal, select }: iModalProps) => {
             <button onClick={handleClick}>
               <img src={closeModal} />
             </button>
+            <AthleteDelete idAthlete={selectedAtlhete} />
           </div>
-          //   <ChildrenComponent/>
         );
     }
   };
