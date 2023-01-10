@@ -13,7 +13,7 @@ export const ButtonsSidebar = ({ text, img }: iButtonsSidebarProps) => {
   return (
     <StyledButtonsSidebar onClick={() => setButtonValue(text)}>
       <img src={img} alt="" />
-      <h4 className="title-4">{text}</h4>
+      <h4 className="text-sideButton">{text}</h4>
     </StyledButtonsSidebar>
   );
 };

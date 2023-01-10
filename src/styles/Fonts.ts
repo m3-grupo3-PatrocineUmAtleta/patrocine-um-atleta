@@ -65,6 +65,12 @@ const Fonts = createGlobalStyle`
     line-height: 150%;
   }
 
+  .text-sideButton {
+    font-weight: 700;
+    font-size: 0.75rem;
+    line-height: 170%;
+  }
+
   .gray-100 {
     color: var(--color-gray-100);
   }

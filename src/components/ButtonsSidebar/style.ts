@@ -3,8 +3,8 @@ import { ButtonsSidebar } from ".";
 
 export const StyledButtonsSidebar = styled.button`
   border-radius: 10px;
-  min-width: 100px;
-  height: 100px;
+  min-width: 80px;
+  height: 80px;
   background-color: var(--color-primary-0);
   display: flex;
   flex-direction: column;
