@@ -4,6 +4,8 @@ export const StyledAdmDash = styled.div`
   background-color: var(--color-primary-100);
   position: relative;
   height: 450px;
+  display: flex;
+  align-items: center;
 `;
 export const StyledAsideButtons = styled.aside`
   position: sticky;
@@ -65,4 +67,9 @@ export const StyledSectionRender = styled.section`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   div {
   }
+`;
+export const StyledTournamentHistory = styled.div`
+  width: 200px;
+  height: 300px;
+  background-color: white;
 `;

@@ -2,7 +2,11 @@ import { useContext, useEffect } from "react";
 import { UserContext } from "../../providers/User";
 import { ButtonsSidebar } from "../ButtonsSidebar";
 import { Header } from "../Header";
-import { StyledAdmDash, StyledAsideButtons } from "./style";
+import {
+  StyledAdmDash,
+  StyledAsideButtons,
+  StyledTournamentHistory,
+} from "./style";
 import perfilImg from "../../assets/img/admDash/asideButtonPerfil.png";
 import infoImg from "../../assets/img/admDash/asideButtonInfo.png";
 import tournamentImg from "../../assets/img/admDash/asideButtonTournament.png";
@@ -25,6 +29,9 @@ export const AdmDash = () => {
       )}
       <StyledAdmDash>
         <Header isHome={false}></Header>
+        <StyledContainer>
+          <StyledTournamentHistory></StyledTournamentHistory>
+        </StyledContainer>
       </StyledAdmDash>
       <StyledContainer>
         <div className="rowReverse">
