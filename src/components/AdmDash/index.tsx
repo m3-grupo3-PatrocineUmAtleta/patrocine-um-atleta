@@ -17,13 +17,29 @@ import { StyledContainer } from "../../styles/Container";
 import { RenderContentSection } from "../RenderContentSection";
 import { ModalWrapper } from "../Modal";
 import { RenderContainerSection } from "../RenderContainerSection";
+import { getAllAthletes } from "../../services/getAllAthletes";
 
 export const AdmDash = () => {
-  const { user, buttonValue, openModal, settingsModal, selectedAtlhete } =
-    useContext(UserContext);
+  const {
+    athletes,
+    setAthletes,
+    user,
+    buttonValue,
+    openModal,
+    settingsModal,
+    selectedAtlhete,
+  } = useContext(UserContext);
+
+  const getAthletes = async () => {
+    const getApiAthletes = await getAllAthletes();
+    setAthletes(getApiAthletes);
+  };
 
   useEffect(() => {}, [buttonValue]);
-
+  useEffect(() => {
+    getAthletes();
+  }, []);
+  console.log(athletes);
   return (
     <>
       {openModal && (
@@ -48,13 +64,26 @@ export const AdmDash = () => {
                   </>
                 );
               })}
-              <li></li>
             </ul>
           </div>
           <div className="divDonations">
             <div>
               <h3>Histórico de doações</h3>
             </div>
+            <ul>
+              {athletes?.map((athlete) => {
+                return athlete.donations ? (
+                  <>
+                    <StyledInfoHistory>
+                      <img src={athlete.imgUrl} alt={athlete.name} />
+                      {athlete.name}
+                    </StyledInfoHistory>
+                  </>
+                ) : (
+                  <StyledInfoHistory>Ainda sem doações</StyledInfoHistory>
+                );
+              })}
+            </ul>
           </div>
         </StyledHistory>
       </StyledAdmDash>
