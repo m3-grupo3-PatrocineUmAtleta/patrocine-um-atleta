@@ -1,10 +1,14 @@
 import React from "react";
 import { ContainerRenderStyle } from "./style";
 
-interface iRenderContainerProps {
+export interface iRenderContainerProps {
   children?: React.ReactNode;
+  size: string;
 }
 
-export const RenderContainerSection = ({ children }: iRenderContainerProps) => {
-  return <ContainerRenderStyle>{children}</ContainerRenderStyle>;
+export const RenderContainerSection = ({
+  children,
+  size,
+}: iRenderContainerProps) => {
+  return <ContainerRenderStyle size={size}>{children}</ContainerRenderStyle>;
 };
