@@ -11,7 +11,7 @@ import { Favourites } from "./components/Favourites";
 import { Infos } from "./components/Infos";
 import { Institution } from "./components/Institution";
 import { Medias } from "./components/Medias";
-import { Profile } from "./components/Profile";
+import { Profile } from "./components/Profile/Profile";
 import { Sponsored } from "./components/Sponsored";
 import { Tournaments } from "./components/Tournaments";
 

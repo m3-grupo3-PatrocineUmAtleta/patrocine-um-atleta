@@ -29,11 +29,15 @@ export interface iUser {
   site?: string;
   name: string;
   cpf?: number;
+  cnpj?: string;
   age?: string;
   image?: string;
   bio: string;
-  address: string;
-  contacts: { phoneNumber?: string; email?: string };
+  street: string;
+  city: string;
+  cep: number;
+  phone: string;
+  email: string;
   favourites?: iAthlete[];
   sponsoredAthletes?: iAthlete[];
   isAdmin?: boolean;

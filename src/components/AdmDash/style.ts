@@ -51,14 +51,14 @@ export const StyledAsideButtons = styled.aside`
 `;
 export const StyledSectionRender = styled.section`
   min-height: 320px;
-  max-height: 350px;
+  max-height: 332px;
   overflow-y: scroll;
   padding: 16px;
   width: 95%;
-  max-width: 780px;
+  max-width: 900px;
   margin: 0 auto;
   position: relative;
-  top: -30px;
+  top: -40px;
 
   background-color: #ffffff;
   border-radius: 16px;
