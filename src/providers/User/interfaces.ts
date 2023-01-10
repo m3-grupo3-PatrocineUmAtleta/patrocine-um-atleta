@@ -53,6 +53,7 @@ export interface iTournament {
   participants: iAthlete[];
   rewards: string;
   image?: string;
+  place?: string;
 }
 
 export interface iInstitution {
@@ -90,7 +91,7 @@ export interface iAthlete {
   name: string;
   nickname: string;
   imgUrl: string;
-  age: string;
+  age: number;
   bio: string;
   city: string;
   depositions?: iDeposition[];
