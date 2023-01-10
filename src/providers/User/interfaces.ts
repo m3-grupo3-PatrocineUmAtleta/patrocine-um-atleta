@@ -18,7 +18,7 @@ export interface iContext {
   loginUser: (data: iUserLogin) => void;
   selectedAtlhete: number | null;
   setSelectedAtlhete: React.Dispatch<React.SetStateAction<number | null>>;
-  filterAthletes?: iAthlete[];
+  filterAthletes: iAthlete[];
   setFilterAthletes: React.Dispatch<React.SetStateAction<iAthlete[]>>;
 }
 export interface iProviderProps {

@@ -1,7 +1,8 @@
 import { useContext, useEffect } from "react";
-import { UserContext } from "../../../providers/User";
-import { getAllAthletes } from "../../../services/getAllAthletes";
-import { AthleteCard } from "../../AthleteCard";
+import { UserContext } from "../../../../providers/User";
+import { getAllAthletes } from "../../../../services/getAllAthletes";
+import { AthleteCard } from "../../../AthleteCard";
+import { StyledUlAllAthletes } from "./style";
 
 export const AllAthletes = () => {
   const { athletes, setAthletes, filterAthletes } = useContext(UserContext);
@@ -15,8 +16,8 @@ export const AllAthletes = () => {
   }, []);
 
   return (
-    <ul>
-      {filterAthletes
+    <StyledUlAllAthletes>
+      {filterAthletes.length > 0
         ? filterAthletes.map((athlete) => {
             return (
               <AthleteCard
@@ -45,7 +46,7 @@ export const AllAthletes = () => {
               />
             );
           })}
-    </ul>
+    </StyledUlAllAthletes>
   );
 };
 {
