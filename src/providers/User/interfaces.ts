@@ -18,9 +18,9 @@ export interface iContext {
   loginUser: (data: iUserLogin) => void;
   selectedAtlhete: number | null;
   setSelectedAtlhete: React.Dispatch<React.SetStateAction<number | null>>;
-  sponsored: iSponsored [];
-  setSponsored: React.Dispatch<React.SetStateAction<iSponsored []>>;
-  gotoAthletePage: (event:any) => void;
+  sponsored: iSponsored[];
+  setSponsored: React.Dispatch<React.SetStateAction<iSponsored[]>>;
+  gotoAthletePage: (event: any) => void;
   filterAthletes: iAthlete[];
   setFilterAthletes: React.Dispatch<React.SetStateAction<iAthlete[]>>;
 }
@@ -55,7 +55,7 @@ export interface iTournament {
   status: "Vitória" | "Derrota" | "Empate";
   participants: iAthlete[];
   rewards: string;
-  image?: string;
+  imgUrl?: string;
   place?: string;
 }
 
