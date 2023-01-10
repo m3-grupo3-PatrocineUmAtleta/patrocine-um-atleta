@@ -6,7 +6,6 @@ import { Home } from "./pages/Home";
 import { Register } from "./pages/Register";
 import { AthletePage } from "./pages/AthletePage";
 
-
 function App() {
   return (
     <div className="App">
@@ -17,8 +16,8 @@ function App() {
         <Route path="/" element={<Home />} />
 
         <Route element={<ProtectedRoutes />}>
-          <Route path="dashboard" element={<Dashboard />} />
           <Route path="athletePage" element={<AthletePage />} />
+          <Route path="dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
     </div>

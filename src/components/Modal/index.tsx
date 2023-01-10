@@ -5,6 +5,7 @@ import { UserContext } from "../../providers/User";
 import { UserLogoff } from "./Modais/userLogOff/userLogoff";
 import { AthleteDelete } from "./Modais/athleteDelete";
 import { AthleteEdit } from "./Modais/athleteEdit/athleteEdit";
+import { DepositionsForm } from "./Modais/DepositionsForm";
 
 interface iModalProps {
   typeModal: string;
@@ -33,7 +34,7 @@ export const ModalWrapper = ({ typeModal, select }: iModalProps) => {
             <UserLogoff idAthlete={selectedAtlhete} />
           </div>
         );
-      case "athleteStatement":
+      case "athleteDepositions":
         return (
           <div>
             <div>
@@ -43,8 +44,8 @@ export const ModalWrapper = ({ typeModal, select }: iModalProps) => {
             <button onClick={handleClick}>
               <img src={closeModal} />
             </button>
+            <DepositionsForm />
           </div>
-          //   <ChildrenComponent/>
         );
       case "donateConfirm":
         return (
