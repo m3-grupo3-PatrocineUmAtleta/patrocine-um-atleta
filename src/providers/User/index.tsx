@@ -31,6 +31,7 @@ export const UserProvider = ({ children }: iProviderProps) => {
 
     if (response !== undefined) {
       setUser(response);
+
       setTimeout(() => {
         navigate("/dashboard");
       }, 2000);
