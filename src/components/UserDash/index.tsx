@@ -11,6 +11,8 @@ import { Header } from "../Header";
 import { getUserLogged } from "../../services/getUserLogged";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../providers/User";
+import { RenderContainerSection } from "../RenderContainerSection";
+import { RenderContentSection } from "../RenderContentSection";
 
 export const UserDash = () => {
   const { sponsored, setSponsored } = useContext(UserContext);
@@ -20,7 +22,7 @@ export const UserDash = () => {
       return setSponsored(await getUserLogged());
     };
     getSpon();
-  }, []);
+  }, []); 
 
   return (
     <StyledUserDash>
@@ -49,6 +51,7 @@ export const UserDash = () => {
               <h1>Você ainda não patrocinou nenhum atleta</h1>
             )}
           </ul>
+
           <ul className="ul-desktop">
             {sponsored?.length ? (
               sponsored
@@ -59,8 +62,8 @@ export const UserDash = () => {
                       athlete_id={item.athlete.id + ""}
                       img={item.athlete.imgUrl}
                       name={item.athlete.nickname}
-                      age={item.athlete.age}
-                      city={item.athlete.city}
+                      age={item.athlete.age}                      
+                      value={item.value}
                       isUserDash={true}
                     />
                   );
@@ -72,13 +75,16 @@ export const UserDash = () => {
             )}
           </ul>
         </section>
-        <section className="render-buttons"></section>
+        {/* <section className="render-buttons"></section> */}
+        <RenderContainerSection size="700px">
+          <RenderContentSection />
+        </RenderContainerSection>
 
         <section className="sidebar">
           <ul>
             <li>
-              <ButtonsSidebar text={"Todos atletas"} img={todosAtletasIcon} />
-            </li>
+              <ButtonsSidebar text={"Profile"} img={perfilIcon} />
+            </li>            
             <li>
               <ButtonsSidebar text={"Favoritos"} img={favIcon} />
             </li>
@@ -86,8 +92,8 @@ export const UserDash = () => {
               <ButtonsSidebar text={"Patrocinados"} img={patrocinadosIcon} />
             </li>
             <li>
-              <ButtonsSidebar text={"Profile"} img={perfilIcon} />
-            </li>
+              <ButtonsSidebar text={"Todos atletas"} img={todosAtletasIcon} />
+            </li>            
           </ul>
         </section>
       </StyledContainer>

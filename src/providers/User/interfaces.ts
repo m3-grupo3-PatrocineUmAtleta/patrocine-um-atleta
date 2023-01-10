@@ -23,6 +23,7 @@ export interface iContext {
   gotoAthletePage: (event: any) => void;
   filterAthletes: iAthlete[];
   setFilterAthletes: React.Dispatch<React.SetStateAction<iAthlete[]>>;
+  athlete: iAthleteSponsored | undefined;
 }
 export interface iProviderProps {
   children: React.ReactNode;
@@ -46,6 +47,7 @@ export interface iUser {
   isAdmin?: boolean;
   id?: number;
   tournaments?: iTournament[];
+
 }
 
 export interface iTournament {

@@ -17,9 +17,10 @@ import { RenderContentSection } from "../../components/RenderContentSection";
 import { ModalWrapper } from "../../components/Modal";
 
 export const AthletePage = () => {
-  const { buttonValue, user, openModal, settingsModal } =
-    useContext(UserContext);
-  useEffect(() => {}, [buttonValue]);
+  const { buttonValue, user, openModal, settingsModal, athlete } = useContext(UserContext);
+
+  //Deixei o console Log no botão para o Andrew verificar o objeto athlete
+  useEffect(() => {  console.log(athlete)}, [buttonValue]);
   return (
     <>
       {openModal && <ModalWrapper typeModal={settingsModal} />}
