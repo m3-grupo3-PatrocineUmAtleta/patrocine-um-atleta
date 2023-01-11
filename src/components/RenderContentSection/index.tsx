@@ -8,17 +8,17 @@ import { Bio } from "./components/Bio";
 import { Depositions } from "./components/Depositions";
 import { Donations } from "./components/Donations";
 import { Favourites } from "./components/Favourites";
-import { Infos } from "./components/Infos";
+import { Infos } from "./components/Infos/Infos";
 import { Institution } from "./components/Institution";
 import { Medias } from "./components/Medias";
 import { Profile } from "./components/Profile/Profile";
 import { Sponsored } from "./components/Sponsored";
-import { Tournaments } from "./components/Tournaments";
+import { Tournaments } from "./components/Tournaments/Tournaments";
 
 export const RenderContentSection = () => {
   const { buttonValue, user } = useContext(UserContext);
 
-  if (user) {
+  if (user?.isAdmin === false) {
     if (buttonValue === "Perfil") {
       return <Profile />;
     }

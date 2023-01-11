@@ -26,7 +26,6 @@ export const UserLogin = async (
   } catch (error) {
     const err = error as AxiosError;
     ToastError("Ops, " + err.response?.data);
-    localStorage.clear();
   } finally {
   }
 };

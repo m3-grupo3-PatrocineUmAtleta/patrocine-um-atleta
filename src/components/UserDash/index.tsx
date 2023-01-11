@@ -13,19 +13,24 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../providers/User";
 import { RenderContainerSection } from "../RenderContainerSection";
 import { RenderContentSection } from "../RenderContentSection";
+import { ModalWrapper } from "../Modal";
 
 export const UserDash = () => {
-  const { sponsored, setSponsored } = useContext(UserContext);
+  const { sponsored, setSponsored, openModal, settingsModal, selectedAtlhete } =
+    useContext(UserContext);
 
   useEffect(() => {
     const getSpon = async () => {
       return setSponsored(await getUserLogged());
     };
     getSpon();
-  }, []); 
+  }, []);
 
   return (
     <StyledUserDash>
+      {openModal && (
+        <ModalWrapper typeModal={settingsModal} select={selectedAtlhete} />
+      )}
       <Header isHome={false} />
       <div className="bg-blue"></div>
       <StyledContainer flex={true} className="container">
@@ -62,7 +67,7 @@ export const UserDash = () => {
                       athlete_id={item.athlete.id + ""}
                       img={item.athlete.imgUrl}
                       name={item.athlete.nickname}
-                      age={item.athlete.age}                      
+                      age={item.athlete.age}
                       value={item.value}
                       isUserDash={true}
                     />
@@ -84,7 +89,7 @@ export const UserDash = () => {
           <ul>
             <li>
               <ButtonsSidebar text={"Profile"} img={perfilIcon} />
-            </li>            
+            </li>
             <li>
               <ButtonsSidebar text={"Favoritos"} img={favIcon} />
             </li>
@@ -93,7 +98,7 @@ export const UserDash = () => {
             </li>
             <li>
               <ButtonsSidebar text={"Todos atletas"} img={todosAtletasIcon} />
-            </li>            
+            </li>
           </ul>
         </section>
       </StyledContainer>

@@ -1,9 +1,10 @@
-import { iAthlete, iTournament } from "../../../providers/User/interfaces";
+import { iAthlete, iTournament } from "../../../../providers/User/interfaces";
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../../providers/User";
-import { api } from "../../../services/api";
-import { getAllAthletes } from "../../../services/getAllAthletes";
+import { UserContext } from "../../../../providers/User";
+import { api } from "../../../../services/api";
+import { getAllAthletes } from "../../../../services/getAllAthletes";
 import { isAxiosError } from "axios";
+import { DivInfos } from "./style";
 
 interface iInfosProps {
   tournamentsInfo?: {
@@ -26,7 +27,6 @@ export const Infos = ({
 
   const [athletes, setAthletes] = useState([] as iAthlete[]);
 
-  console.log(user);
   const filterApi = async () => {
     try {
       const res = await getAllAthletes();
@@ -39,18 +39,18 @@ export const Infos = ({
 
   const findMostPopular = () => {
     institutionAthletes?.forEach((athlete) => {
-      const total = athlete.donations.reduce(
+      const total = athlete.donates?.reduce(
         (acc, current) => acc + +current.amount,
         0
       );
 
-      const currentSum = mostPopular?.donations.reduce(
+      const currentSum = mostPopular?.donates?.reduce(
         (acc, current) => acc + +current.amount,
         0
       );
 
       if (currentSum) {
-        if (total > currentSum) {
+        if (total ? total > currentSum : null) {
           setMostPopular(athlete);
         }
       } else {
@@ -67,9 +67,9 @@ export const Infos = ({
   }, []);
 
   return (
-    <>
-      <h2>Informações</h2>
-      <div>
+    <DivInfos>
+      <h2 className="title-3 uppercase">Informações</h2>
+      <div className="divInfo">
         <div>
           <h3>Total de atletas:</h3>
           <p>Sua instituição tem atualmente {athletes?.length} atletas</p>
@@ -93,6 +93,6 @@ export const Infos = ({
           <p>{mostPopular ? mostPopular.name : "Não informado"}</p>
         </div>
       </div>
-    </>
+    </DivInfos>
   );
 };

@@ -39,7 +39,7 @@ export const AdmDash = () => {
   useEffect(() => {
     getAthletes();
   }, []);
-  console.log(athletes);
+
   const donationsList = athletes.filter((athlete) => {
     if (athlete?.donates?.length && athlete) {
       return athlete;
@@ -47,7 +47,7 @@ export const AdmDash = () => {
       return null;
     }
   });
-  console.log(donationsList);
+
   return (
     <>
       {openModal && (
@@ -64,12 +64,10 @@ export const AdmDash = () => {
             <ul>
               {user?.tournaments?.map((tournament) => {
                 return (
-                  <>
-                    <StyledInfoHistory>
-                      <img src={tournament.imgUrl} alt={tournament.name} />
-                      {tournament.name}
-                    </StyledInfoHistory>
-                  </>
+                  <StyledInfoHistory key={tournament.name}>
+                    <img src={tournament.imgUrl} alt={tournament.name} />
+                    {tournament.name}
+                  </StyledInfoHistory>
                 );
               })}
             </ul>
@@ -83,14 +81,14 @@ export const AdmDash = () => {
                 athletes.map((athlete) => {
                   return athlete.donates?.map((donation) => {
                     return (
-                      <>
+                      <li key={athlete.id}>
                         <StyledInfoHistory>
                           {donation?.athlete.name}
                         </StyledInfoHistory>
                         <StyledInfoHistory>
                           {donation?.amount}
                         </StyledInfoHistory>
-                      </>
+                      </li>
                     );
                   });
                 })

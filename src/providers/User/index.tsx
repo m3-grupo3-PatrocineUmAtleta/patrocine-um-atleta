@@ -4,7 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { AthleteCard } from "../../components/AthleteCard";
 import { iUserLogin, UserLogin } from "../../services/userLogin";
 import { iRegisterData, UserRegister } from "../../services/userRegister";
-import { iContext, iProviderProps, iUser, iAthlete, iSponsored, iAthleteSponsored } from "./interfaces";
+import {
+  iContext,
+  iProviderProps,
+  iUser,
+  iAthlete,
+  iSponsored,
+  iAthleteSponsored,
+} from "./interfaces";
 
 export const UserContext = createContext({} as iContext);
 
@@ -18,13 +25,12 @@ export const UserProvider = ({ children }: iProviderProps) => {
   const [settingsModal, setSettingsModal] = useState("");
   const [selectedAtlhete, setSelectedAtlhete] = useState<number | null>(null);
   const [athlete, setAthlete] = useState<iAthleteSponsored>();
-  const [sponsored, setSponsored] = useState<iSponsored []>([]);
+  const [sponsored, setSponsored] = useState<iSponsored[]>([]);
 
   const navigate = useNavigate();
 
   const registerUser = async (data: iRegisterData) => {
     const response = await UserRegister(data);
-    setUser;
     if (response === 201) {
       setTimeout(() => {
         navigate("/login");
@@ -47,11 +53,13 @@ export const UserProvider = ({ children }: iProviderProps) => {
   const gotoAthletePage = (event: any) => {
     navigate("/athletePage");
     const athleteId: string = event.target.id;
-  
-    const clickedAthlete: iSponsored | undefined  = (sponsored.find((item) => item.athlete.id == athleteId))
 
-    setAthlete(clickedAthlete?.athlete)
-  }
+    const clickedAthlete: iSponsored | undefined = sponsored.find(
+      (item) => item.athlete.id == athleteId
+    );
+
+    setAthlete(clickedAthlete?.athlete);
+  };
 
   return (
     <UserContext.Provider
@@ -73,7 +81,7 @@ export const UserProvider = ({ children }: iProviderProps) => {
         selectedAtlhete,
         setSelectedAtlhete,
         gotoAthletePage,
-        sponsored, 
+        sponsored,
         setSponsored,
         filterAthletes,
         setFilterAthletes,
