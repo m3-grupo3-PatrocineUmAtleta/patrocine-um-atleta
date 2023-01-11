@@ -109,7 +109,13 @@ export const Header = ({ isHome }: iHeaderProps) => {
             <div className="dropBoxUserDesktop">
               <h2 className="title-2 gray-0">{user?.name}</h2>
 
-              <BiArrowBack className="backPage" onClick={() => navigate(-1)} />
+              <div className="boxBack">
+                <BiArrowBack
+                  className="backPage"
+                  onClick={() => navigate(-1)}
+                />
+                <p>Voltar</p>
+              </div>
 
               <button onClick={() => logoutHandle()}>
                 <img src={logoutButton}></img>
