@@ -80,6 +80,12 @@ export const StyledHeader = styled.header`
       left: 10px;
     }
   }
+  .backPage {
+    color: var(--color-gray-0);
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+  }
   .showMobile {
     display: flex;
     align-items: center;

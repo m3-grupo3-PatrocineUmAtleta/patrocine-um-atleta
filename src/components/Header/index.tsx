@@ -1,15 +1,16 @@
 import { StyledHeader } from "./style";
 import logo from "../../assets/img/LogoParcial.png";
-import lupa from "../../assets/img/lupa.png";
+
 import hamburguer from "../../assets/img/menu-de-hamburguer.png";
 import hamburguerClose from "../../assets/img/menu-de-hamburguer-close.png";
 import lupaInput from "../../assets/img/lupaInput.png";
 import profileImage from "../../assets/img/ProfileUserImg.png";
 import logoutButton from "../../assets/img/LogoutButton.png";
-import backPage from "../../assets/img/admDash/arrowBack.jpg";
+
+import { BiArrowBack } from "react-icons/bi";
 
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { StyledContainer } from "../../styles/Container";
 import { UserContext } from "../../providers/User";
 
@@ -26,6 +27,7 @@ export const Header = ({ isHome }: iHeaderProps) => {
 
     setFilterAthletes,
   } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const [openHamburguer, setOpenHamburguer] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
@@ -106,9 +108,9 @@ export const Header = ({ isHome }: iHeaderProps) => {
             </button>
             <div className="dropBoxUserDesktop">
               <h2 className="title-2 gray-0">{user?.name}</h2>
-              <button>
-                <img src={backPage} alt="" />
-              </button>
+
+              <BiArrowBack className="backPage" onClick={() => navigate(-1)} />
+
               <button onClick={() => logoutHandle()}>
                 <img src={logoutButton}></img>
               </button>
@@ -126,7 +128,9 @@ export const Header = ({ isHome }: iHeaderProps) => {
         )}
         {openLogout && (
           <div className="dropBoxUser">
+            <BiArrowBack className="backPage" onClick={() => navigate(-1)} />
             <h2 className="title-2 gray-0">{user?.name}</h2>
+
             <button onClick={() => logoutHandle()}>
               <img src={logoutButton}></img>
             </button>
