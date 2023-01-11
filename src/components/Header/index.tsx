@@ -38,7 +38,7 @@ export const Header = ({ isHome }: iHeaderProps) => {
   const logoutHandle = () => {
     window.localStorage.removeItem("@UserId");
     window.localStorage.removeItem("@Token");
-    setUser({} as iUser);
+    setUser(undefined);
   };
   const searchInputAthletes = (value: string) => {
     setButtonValue("Todos atletas");
