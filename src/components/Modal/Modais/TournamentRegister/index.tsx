@@ -11,7 +11,7 @@ interface iTournamentForm {
   name: string;
   location: string;
   date: string;
-  status: "Ongoing" | "Finished";
+  status: "Vitória" | "Participando";
   participants: string;
   rewards: string;
   imgUrl?: string;
@@ -30,27 +30,33 @@ const RegisterTournamentSchema = yup.object().shape({
   place: yup.string(),
 });
 export const TournamentRegister = () => {
-  const { user, setIsOpenModal, openModal, setSettingsModal, athletes } =
-    useContext(UserContext);
+  const { user, athletes } = useContext(UserContext);
+
   const { register, handleSubmit } = useForm<iTournamentForm>({
     resolver: yupResolver(RegisterTournamentSchema),
   });
+
   const [select, setSelect] = useState(Number);
-  const [selectedAthletes, setSelectedAthletes] = useState<
-    iAthlete[] | undefined
-  >([] || undefined);
+  const [selectedAthletes, setSelectedAthletes] = useState<iAthlete[]>([]);
 
   const addAthlete = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    console.log(athletes?.find((athlete) => athlete.id === select));
-    setSelectedAthletes([
-      ...selectedAthletes,
-      athletes?.find((athlete) => athlete.id === select),
-    ]);
+    const selected = athletes.find((athlete) => athlete.id === select);
+
+    //   selectedAthletes.length > 0
+    //     ? setSelectedAthletes([...selectedAthletes, selected])
+    //     : null;
   };
+
+  const handleRegister = (data: iTournamentForm) => {
+    const tournament = user?.tournaments;
+    const formData = {};
+    console.log(tournament, data, selectedAthletes);
+  };
+
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit(handleRegister)}>
         <div className="divControler">
           <div>
             <fieldset className="athleteName">

@@ -12,7 +12,7 @@ interface iTournamentForm {
   name: string;
   location: string;
   date: string;
-  status: "Ongoing" | "Finished";
+  status: "Participando" | "Vitória";
   participants: string;
   rewards: string;
   imgUrl?: string;
@@ -50,9 +50,6 @@ export const Tournaments = () => {
         <>
           <div className="admHeader">
             <h2 className="title-3 uppercase">Torneios</h2>
-            <button onClick={handleClick}>
-              <img src={addImg} alt="Adicionar Torneios" />
-            </button>
           </div>
 
           <form>
@@ -94,21 +91,19 @@ export const Tournaments = () => {
                   id="rewards"
                   defaultValue={tournament?.rewards}
                   register={register("rewards")}
+                  disabled
                 />
               </div>
 
               <div>
-                <fieldset className="fieldStatus">
-                  <legend className="caption">Status</legend>
-                  <select
-                    id="status"
-                    defaultValue={tournament?.status}
-                    {...register("status")}
-                  >
-                    <option value="Ongoing">Em progresso</option>
-                    <option value="Finished">Finalizado</option>
-                  </select>
-                </fieldset>
+                <Input
+                  text="Situação"
+                  type="text"
+                  id="rewards"
+                  defaultValue={tournament?.status}
+                  register={register("status")}
+                  disabled
+                />
 
                 <fieldset className="fieldParticiants ">
                   <legend className="caption">Participantes</legend>
@@ -122,7 +117,6 @@ export const Tournaments = () => {
                 </fieldset>
               </div>
             </div>
-            <button type="submit">Alterar</button>
           </form>
         </>
       ) : (
