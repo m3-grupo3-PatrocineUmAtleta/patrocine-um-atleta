@@ -47,10 +47,6 @@ export const AthleteCard = ({
     setSelectedAtlhete(Number(athlete_id));
   };
 
-  const pgAthlete = () => {
-    navigate(`/athletePage/${athlete_id}`);
-  };
-
   const getAthlete = async () => {
     const atlhetePerfil = await getAthletesById(athlete_id);
     navigate("/athletepage");
@@ -87,7 +83,7 @@ export const AthleteCard = ({
 
         {user?.isAdmin ? (
           <div className="div-icons">
-            <FaEye className="eye-icon icon" onClick={() => pgAthlete()} />
+            <FaEye className="eye-icon icon" onClick={getAthlete} />
             <BiTrash
               className="trash-icon icon"
               onClick={() => modalOpenOthers("athleteDelete")}
