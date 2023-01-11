@@ -16,13 +16,13 @@ export const Medias = ({ image, facebook, instagram, twitter }: iMedias) => (
         oficiais abaixo:
       </h3>
       <div className="divIcons">
-        <a href={facebook}>
+        <a href={`https://${facebook}`} target="_blank">
           <img src={facebookIcon} alt="Ícone Facebook" />
         </a>
-        <a href={instagram}>
+        <a href={`https://${instagram}`} target="_blank">
           <img src={instagramIcon} alt="Ícone Instagram" />
         </a>
-        <a href={twitter}>
+        <a href={`https://${twitter}`} target="_blank">
           <img src={twitterIcon} alt="Ícone Twitter" />
         </a>
       </div>
