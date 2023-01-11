@@ -5,7 +5,7 @@ import { AllAthletes } from "./components/AllAthletes";
 import { AthleteRegister } from "./components/AthleteRegister/AthleteRegister";
 import { Athletes } from "./components/Athletes/Athletes";
 import { Bio } from "./components/Bio";
-import { Depositions } from "./components/Depositions";
+import { Depositions } from "./components/Depositions/Depositions";
 import { Donations } from "./components/Donations";
 import { Favourites } from "./components/Favourites";
 import { Infos } from "./components/Infos";

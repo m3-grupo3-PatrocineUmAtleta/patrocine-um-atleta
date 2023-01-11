@@ -26,6 +26,7 @@ export interface iProviderProps {
 }
 
 export interface iUser {
+  email?: string;
   site?: string;
   name: string;
   cpf?: number;
@@ -33,7 +34,7 @@ export interface iUser {
   image?: string;
   bio: string;
   address: string;
-  contacts: { phoneNumber?: string; email?: string };
+  phoneNumber?: string;
   favourites?: iAthlete[];
   sponsoredAthletes?: iAthlete[];
   isAdmin?: boolean;
@@ -45,10 +46,11 @@ export interface iTournament {
   name: string;
   location: string;
   date: string;
-  status: "Vitória" | "Derrota" | "Empate";
+  status: "Vitória" | "Participando";
   participants: iAthlete[];
   rewards: string;
   image?: string;
+  place: string;
 }
 
 export interface iInstitution {
