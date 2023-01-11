@@ -87,8 +87,8 @@ export const Infos = ({
           <p>Sua instituição arrecadou um total de R$ {raisings}.</p>
         </div>
         <div>
-          <h3>Seu atleta mais popular é:</h3>
-          <p>{mostPopular ? mostPopular.name : "Não informado"}</p>
+          {/* <h3>Seu atleta mais popular é:</h3>
+          <p>{mostPopular ? mostPopular.name : "Não informado"}</p> */}
         </div>
       </div>
     </DivInfos>

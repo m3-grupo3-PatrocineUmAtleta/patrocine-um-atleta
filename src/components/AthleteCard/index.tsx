@@ -31,7 +31,7 @@ export const AthleteCard = ({
   isAdmin,
   isUserDash,
 }: iCardProps) => {
-  const { setIsOpenModal, setSelectedAtlhete, setSettingsModal } =
+  const { setIsOpenModal, setSelectedAtlhete, setSettingsModal, user } =
     useContext(UserContext);
   const navigate = useNavigate();
 
@@ -81,7 +81,7 @@ export const AthleteCard = ({
           </>
         )}
 
-        {isAdmin ? (
+        {user?.isAdmin ? (
           <div className="div-icons">
             <FaEye className="eye-icon icon" onClick={getAthlete} />
             <BiTrash
