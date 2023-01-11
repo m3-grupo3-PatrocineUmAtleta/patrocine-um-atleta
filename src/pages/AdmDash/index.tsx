@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../providers/User";
 import { ButtonsSidebar } from "../../components/ButtonsSidebar";
 import { Header } from "../../components/Header";
@@ -20,8 +20,12 @@ import { getAllAthletes } from "../../services/getAllAthletes";
 import { BottomSectionPage } from "../../components/BottomSectionPage";
 import { SideBarButtons } from "../../components/SideBarButtons";
 import { AthleteCard } from "../../components/AthleteCard";
+import { getDonations, iResponseDonates } from "../../services/getDonates";
 
 export const AdmDash = () => {
+  const [listDonations, setListDonations] = useState<
+    iResponseDonates[] | undefined
+  >([]);
   const {
     athletes,
     setAthletes,
@@ -42,14 +46,14 @@ export const AdmDash = () => {
   useEffect(() => {
     getAthletes();
   }, []);
+  useEffect(() => {
+    donationsList();
+  }, []);
 
-  const donationsList = athletes.filter((athlete) => {
-    if (athlete?.donates?.length && athlete) {
-      return athlete;
-    } else {
-      return null;
-    }
-  });
+  const donationsList = async () => {
+    const list = await getDonations();
+    list && setListDonations(list);
+  };
 
   return (
     <>
@@ -80,7 +84,23 @@ export const AdmDash = () => {
                 <h3>Histórico de doações</h3>
               </div>
               <ul>
-                {donationsList.length > 0 ? (
+                {
+                  listDonations?.map((donate) => {
+                    return (
+                      <li key={donate.id}>
+                        <StyledInfoHistory>
+                          {
+                            athletes?.find(
+                              (athlete) => athlete.id === donate.athleteId
+                            )?.name
+                          }
+                          {"-"}
+                          {donate.amount}
+                        </StyledInfoHistory>
+                      </li>
+                    );
+                  })
+                  /* {donationsList.length > 0 ? (
                   athletes.map((athlete) => {
                     return athlete.donates?.map((donation) => {
                       return (
@@ -97,7 +117,10 @@ export const AdmDash = () => {
                   })
                 ) : (
                   <StyledInfoHistory>Ainda não há doações</StyledInfoHistory>
-                )}
+                )} */
+                }
+
+                {}
               </ul>
             </div>
           </StyledHistory>
