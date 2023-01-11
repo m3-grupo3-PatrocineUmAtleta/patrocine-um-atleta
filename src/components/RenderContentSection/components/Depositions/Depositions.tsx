@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../../../providers/User";
 import { iDeposition } from "../../../../providers/User/interfaces";
 import { StyledDepositionCard } from "./DepositionCard/style";
