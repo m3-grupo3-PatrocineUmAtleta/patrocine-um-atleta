@@ -3,8 +3,7 @@ import { iRenderContainerProps } from ".";
 
 export const ContainerRenderStyle = styled.section<iRenderContainerProps>`
   max-width: ${({ size }) => size};
-  min-height: 323px;
-  max-height: 486px;
+  min-height: 486px;
   overflow-y: auto;
   padding: 16px;
   width: 95%;
@@ -19,6 +18,5 @@ export const ContainerRenderStyle = styled.section<iRenderContainerProps>`
   }
 
   @keyframes identifier {
-    
   }
 `;
