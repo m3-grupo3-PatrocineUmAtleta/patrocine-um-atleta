@@ -8,6 +8,7 @@ import { AthleteEdit } from "./Modais/AthleteEdit/AthleteEdit";
 import { DepositionsForm } from "./Modais/DepositionsForm/DepositionsForm";
 import { UserDataEdit } from "./Modais/UserDataEdit/UserDataEdit";
 import { TournamentRegister } from "./Modais/TournamentRegister";
+import { DonateConfirmation } from "./Modais/Donates";
 
 interface iModalProps {
   typeModal: string;
@@ -59,8 +60,8 @@ export const ModalWrapper = ({ typeModal }: iModalProps) => {
             <button onClick={handleClick}>
               <img src={closeModal} />
             </button>
+            <DonateConfirmation />
           </div>
-          //   <ChildrenComponent/>
         );
       case "userDataEdit":
         return (
