@@ -113,10 +113,7 @@ export const AdmDash = () => {
               text="Torneios"
               img={tournamentImg}
             ></ButtonsSidebar>
-            <ButtonsSidebar
-              text="Todos atletas"
-              img={athletesImg}
-            ></ButtonsSidebar>
+            <ButtonsSidebar text="Atletas" img={athletesImg}></ButtonsSidebar>
             <ButtonsSidebar text="Registrar" img={registerImg}></ButtonsSidebar>
           </SideBarButtons>
         </BottomSectionPage>
