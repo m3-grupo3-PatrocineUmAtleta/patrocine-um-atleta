@@ -41,7 +41,7 @@ export const Header = ({ isHome }: iHeaderProps) => {
     setUser(undefined);
   };
   const searchInputAthletes = (value: string) => {
-    setButtonValue("Todos atletas");
+    setButtonValue("Atletas");
     setValueSearch(value);
     const filter = athletes.filter((athlete) => {
       const valueDefault = value.toLowerCase();
