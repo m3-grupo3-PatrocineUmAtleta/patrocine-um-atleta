@@ -202,7 +202,7 @@ export const Register = () => {
         </button>
         <section className="buttons">
           <Link to={"/home"} className="home" />
-          <Link to={"/"} className="login" />
+          <Link to={"/login"} className="login" />
         </section>
       </Form>
     </MainRegister>

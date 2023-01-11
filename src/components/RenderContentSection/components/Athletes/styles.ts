@@ -7,5 +7,6 @@ export const StyledUlAthlete = styled.ul`
 
   @media (min-width: 750px) {
     flex-wrap: wrap;
+    justify-content: center;
   }
 `;
