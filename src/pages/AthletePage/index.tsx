@@ -15,19 +15,23 @@ import { useContext, useEffect } from "react";
 import { UserContext } from "../../providers/User";
 import { RenderContentSection } from "../../components/RenderContentSection";
 import { ModalWrapper } from "../../components/Modal";
+import { SideBarButtons } from "../../components/RenderContentSection/SideBarButtons";
 
 export const AthletePage = () => {
-  const { buttonValue, user, openModal, settingsModal, athlete } = useContext(UserContext);
+  const { buttonValue, user, openModal, settingsModal, athlete } =
+    useContext(UserContext);
 
   //Deixei o console Log no botão para o Andrew verificar o objeto athlete
-  useEffect(() => {  console.log(athlete)}, [buttonValue]);
+  useEffect(() => {
+    console.log(athlete);
+  }, [buttonValue]);
   return (
     <>
       {openModal && <ModalWrapper typeModal={settingsModal} />}
       <AthletePageStyle>
         <Header isHome={false} />
         <StyledContainer>
-          <section>
+          <section className="sectionTournament">
             <EmblemCard imgUrl="" nickname="Joseph" />
             <ul>
               <TournamentCard
@@ -53,16 +57,14 @@ export const AthletePage = () => {
             <RenderContainerSection size="780px">
               <RenderContentSection />
             </RenderContainerSection>
-            <aside>
-              <StyledContainer>
-                <ButtonsSidebar img={InstituitionVector} text="Instituição" />
-                <ButtonsSidebar img={MediaVector} text="Mídias" />
-                <ButtonsSidebar img={BioVector} text="Bio" />
-                <ButtonsSidebar img={MessageVector} text="Depoimentos" />
-                <ButtonsSidebar img={TournamentVector} text="Torneios" />
-                <ButtonsSidebar img={DonateVector} text="Doação" />
-              </StyledContainer>
-            </aside>
+            <SideBarButtons>
+              <ButtonsSidebar img={InstituitionVector} text="Instituição" />
+              <ButtonsSidebar img={MediaVector} text="Mídias" />
+              <ButtonsSidebar img={BioVector} text="Bio" />
+              <ButtonsSidebar img={MessageVector} text="Depoimentos" />
+              <ButtonsSidebar img={TournamentVector} text="Torneios" />
+              <ButtonsSidebar img={DonateVector} text="Doação" />
+            </SideBarButtons>
           </StyledContainer>
         </div>
       </AthletePageStyle>

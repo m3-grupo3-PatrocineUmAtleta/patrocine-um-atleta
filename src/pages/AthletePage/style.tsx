@@ -7,13 +7,13 @@ export const AthletePageStyle = styled.div`
 
   & > :nth-child(2) {
     padding: 0 16px;
-    & > :nth-child(1) {
+    .sectionTournament {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 15px;
 
-      & > :nth-child(2) {
+      & > ul {
         display: flex;
         gap: 8px;
         overflow-y: scroll;
@@ -25,6 +25,7 @@ export const AthletePageStyle = styled.div`
       }
     }
   }
+
   & > :nth-child(3) {
     background-color: var(--color-primary-10);
     margin-top: 57px;
@@ -38,7 +39,7 @@ export const AthletePageStyle = styled.div`
         align-self: center;
       }
 
-      & > :nth-child(2) {
+      .sideBarButtons {
         background-color: var(--color-primary-10);
         position: sticky;
         z-index: 2;
@@ -52,7 +53,6 @@ export const AthletePageStyle = styled.div`
           gap: 8px;
           overflow-x: scroll;
           max-width: 760px;
-          width: 85%;
 
           ::-webkit-scrollbar {
             appearance: none;
@@ -80,7 +80,7 @@ export const AthletePageStyle = styled.div`
         justify-content: flex-end;
         flex-direction: row-reverse;
 
-        & > :nth-child(2) {
+        & > .sideBarButtons {
           display: flex;
           justify-content: unset;
           align-items: unset;
