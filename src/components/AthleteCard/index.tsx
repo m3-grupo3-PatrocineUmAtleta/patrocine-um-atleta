@@ -15,7 +15,7 @@ interface iCardProps {
   name: string;
   age: number;
   city?: string;
-  value: number;
+  value?: number;
   bio?: string;
   isAdmin?: boolean;
   isUserDash?: boolean;
@@ -31,12 +31,8 @@ export const AthleteCard = ({
   isAdmin,
   isUserDash,
 }: iCardProps) => {
-  const {
-    setIsOpenModal,
-    setSelectedAtlhete,
-    setSettingsModal,
-    gotoAthletePage,
-  } = useContext(UserContext);
+  const { setIsOpenModal, setSelectedAtlhete, setSettingsModal } =
+    useContext(UserContext);
   const navigate = useNavigate();
 
   const modalOpen = () => {
@@ -52,8 +48,12 @@ export const AthleteCard = ({
   };
 
   const pgAthlete = () => {
-    getAthletesById(Number(athlete_id));
-    navigate("/athletePage");
+    navigate(`/athletePage/${athlete_id}`);
+  };
+
+  const getAthlete = async () => {
+    const atlhetePerfil = await getAthletesById(athlete_id);
+    navigate("/athletepage");
   };
 
   const dataAtual = new Date();
@@ -70,7 +70,7 @@ export const AthleteCard = ({
 
         {isUserDash ? (
           <h3 className="title-3 value">
-            {value.toLocaleString("pt-BR", {
+            {value?.toLocaleString("pt-BR", {
               style: "currency",
               currency: "BRL",
             })}
@@ -103,7 +103,7 @@ export const AthleteCard = ({
               <BiWindowOpen
                 id={athlete_id + ""}
                 className="togo-icon icon"
-                onClick={gotoAthletePage}
+                onClick={getAthlete}
               />
             ) : (
               <FaEye className="eye-icon icon" onClick={() => modalOpen()} />

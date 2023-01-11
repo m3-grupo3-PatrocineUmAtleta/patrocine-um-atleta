@@ -41,7 +41,7 @@ export const AllAthletes = () => {
                 age={athlete.age}
                 city={athlete.city}
                 bio={athlete.bio}
-                isAdmin={false}
+                isUserDash={true}
                 key={athlete.id}
               />
             );
