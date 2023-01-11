@@ -2,11 +2,12 @@ import { ModalBackground } from "./style";
 import closeModal from "../../assets/img/closeModal.svg";
 import { useContext } from "react";
 import { UserContext } from "../../providers/User";
-import { UserLogoff } from "./Modais/userLogOff/UserLogOff";
-import { AthleteDelete } from "./Modais/athleteDelete/AthleteDelete";
+import { UserLogoff } from "./Modais/UserLogOff/UserLogOff";
+import { AthleteDelete } from "./Modais/AthleteDelete/AthleteDelete";
 import { AthleteEdit } from "./Modais/AthleteEdit/AthleteEdit";
 import { DepositionsForm } from "./Modais/DepositionsForm/DepositionsForm";
 import { UserDataEdit } from "./Modais/UserDataEdit/UserDataEdit";
+import { TournamentRegister } from "./Modais/TournamentRegister";
 
 interface iModalProps {
   typeModal: string;
