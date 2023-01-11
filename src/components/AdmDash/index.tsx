@@ -5,7 +5,6 @@ import { Header } from "../Header";
 import {
   AdmDashStyle,
   StyledAdmDash,
-  StyledAsideButtons,
   StyledHistory,
   StyledInfoHistory,
 } from "./style";
@@ -14,7 +13,6 @@ import infoImg from "../../assets/img/admDash/asideButtonInfo.png";
 import tournamentImg from "../../assets/img/admDash/asideButtonTournament.png";
 import athletesImg from "../../assets/img/admDash/asideButtonAthlete.png";
 import registerImg from "../../assets/img/admDash/asideButtonEdit.png";
-import { StyledContainer } from "../../styles/Container";
 import { RenderContentSection } from "../RenderContentSection";
 import { ModalWrapper } from "../Modal";
 import { RenderContainerSection } from "../RenderContainerSection";

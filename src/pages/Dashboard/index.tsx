@@ -1,5 +1,4 @@
-import { useScroll } from "framer-motion";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AdmDash } from "../../components/AdmDash";
 import { UserDash } from "../../components/UserDash";
 import { UserContext } from "../../providers/User";

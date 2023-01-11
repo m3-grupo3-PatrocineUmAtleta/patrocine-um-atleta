@@ -1,7 +1,5 @@
-import { ListItem } from "@mui/material";
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AthleteCard } from "../../components/AthleteCard";
 import { iUserLogin, UserLogin } from "../../services/userLogin";
 import { iRegisterData, UserRegister } from "../../services/userRegister";
 import {

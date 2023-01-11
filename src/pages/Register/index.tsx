@@ -4,10 +4,9 @@ import { MainRegister } from "./style";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SchemaRegister } from "./schemaRegister";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../providers/User";
-import LoadingButton from "@mui/lab/LoadingButton";
 import { iRegisterData } from "../../services/userRegister";
 import { getAddress, iResponseAddress } from "../../services/getAddress";
 
@@ -27,7 +26,7 @@ export interface iRegisterFormData {
 }
 
 export const Register = () => {
-  const { isLoading, registerUser } = useContext(UserContext);
+  const { registerUser } = useContext(UserContext);
   const [address, setAddress] = useState<iResponseAddress>();
 
   const {

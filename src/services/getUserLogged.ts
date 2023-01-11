@@ -13,7 +13,8 @@ export const getUserLogged = async (): Promise<iSponsored[]> => {
     });
 
     return response.data.sponsoredAthletes;
-  } finally {
+  } catch (error) {
+    console.log(error);
   }
 };
 
@@ -29,6 +30,7 @@ export const getUserData = async (): Promise<iUser> => {
     });
 
     return data;
-  } finally {
+  } catch (error) {
+    console.log(error);
   }
 };
