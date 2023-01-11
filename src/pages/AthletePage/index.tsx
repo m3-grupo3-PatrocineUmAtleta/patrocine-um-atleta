@@ -31,7 +31,7 @@ export const AthletePage = () => {
         <Header isHome={false} />
         <StyledContainer>
           <section className="sectionTournament">
-            <EmblemCard imgUrl="" nickname={athlete.nickname || "nome"} />
+            <EmblemCard imgUrl="" nickname={athlete.nickname} />
             <ul>
               <TournamentCard
                 date="9 jun 2023"
