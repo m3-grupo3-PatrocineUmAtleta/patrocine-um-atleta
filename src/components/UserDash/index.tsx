@@ -13,6 +13,8 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../providers/User";
 import { RenderContainerSection } from "../RenderContainerSection";
 import { RenderContentSection } from "../RenderContentSection";
+import { RenderContainerSection } from "../RenderContainerSection";
+import { RenderContentSection } from "../RenderContentSection";
 
 export const UserDash = () => {
   const { sponsored, setSponsored } = useContext(UserContext);
@@ -51,6 +53,7 @@ export const UserDash = () => {
               <h1>Você ainda não patrocinou nenhum atleta</h1>
             )}
           </ul>
+
           <ul className="ul-desktop">
             {sponsored?.length ? (
               sponsored
@@ -62,7 +65,7 @@ export const UserDash = () => {
                       img={item.athlete.imgUrl}
                       name={item.athlete.nickname}
                       age={item.athlete.age}
-                      city={item.athlete.city}
+                      value={item.value}
                       isUserDash={true}
                     />
                   );
@@ -74,7 +77,8 @@ export const UserDash = () => {
             )}
           </ul>
         </section>
-        <RenderContainerSection size="780px">
+        {/* <section className="render-buttons"></section> */}
+        <RenderContainerSection size="700px">
           <RenderContentSection />
         </RenderContainerSection>
 
@@ -84,16 +88,13 @@ export const UserDash = () => {
               <ButtonsSidebar text={"Profile"} img={perfilIcon} />
             </li>
             <li>
-              <ButtonsSidebar text={"Todos atletas"} img={todosAtletasIcon} />
-            </li>
-            <li>
               <ButtonsSidebar text={"Favoritos"} img={favIcon} />
             </li>
             <li>
               <ButtonsSidebar text={"Patrocinados"} img={patrocinadosIcon} />
             </li>
             <li>
-              <ButtonsSidebar text={"Profile"} img={perfilIcon} />
+              <ButtonsSidebar text={"Todos atletas"} img={todosAtletasIcon} />
             </li>
           </ul>
         </section>

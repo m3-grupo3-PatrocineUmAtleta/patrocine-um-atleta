@@ -14,7 +14,8 @@ interface iCardProps {
   img: string | undefined;
   name: string;
   age: number;
-  city: string;
+  city?: string;
+  value: number;
   bio?: string;
   isAdmin?: boolean;
   isUserDash?: boolean;
@@ -26,6 +27,7 @@ export const AthleteCard = ({
   name,
   age,
   city,
+  value,
   isAdmin,
   isUserDash,
 }: iCardProps) => {
@@ -64,12 +66,20 @@ export const AthleteCard = ({
       </div>
       <div className="div-inf">
         <h3 className="title-3">{name?.slice(0, 14)}</h3>
-        <h4 className="title-4">{setAge} anos</h4>
-        <div className="div-local">
-          <GoLocation className="local-icon" />
-          <span className="headline">{city}</span>
-        </div>
-
+       
+        {isUserDash ? (
+          <h3 className="title-3 value" >{value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</h3>
+        ):
+        (
+          <>
+            <h4 className="title-4">{setAge} anos</h4><div className="div-local">
+              <GoLocation className="local-icon" />
+              <span className="headline">{city}</span>
+              </div>
+          </>)
+        }
+        
+        
         {isAdmin ? (
           <div className="div-icons">
             <FaEye className="eye-icon icon" onClick={() => pgAthlete()} />
