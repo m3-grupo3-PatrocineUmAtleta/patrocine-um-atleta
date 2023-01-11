@@ -10,6 +10,7 @@ interface iDepositionsProp {
 export const Depositions = ({ depositionList }: iDepositionsProp) => {
   const { user } = useContext(UserContext);
 
+
   return (
     <>
       <div className="divNameAndButton">

@@ -22,6 +22,7 @@ export const AthletePage = () => {
   const { buttonValue, openModal, settingsModal } = useContext(UserContext);
   const storageAthlete: any = localStorage.getItem("@SelectedAthlete");
   const athlete = JSON.parse(storageAthlete);
+  console.log(athlete);
 
   useEffect(() => {}, [buttonValue]);
   return (
@@ -31,7 +32,7 @@ export const AthletePage = () => {
         <Header isHome={false} />
         <StyledContainer>
           <section className="sectionTournament">
-            <EmblemCard imgUrl="" nickname={athlete.nickname} />
+            <EmblemCard imgUrl={athlete.imgUrl} nickname={athlete.nickname} />
             <ul>
               <TournamentCard
                 date="9 jun 2023"

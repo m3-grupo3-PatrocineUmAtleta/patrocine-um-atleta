@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../../../../providers/User";
 import { iTournament } from "../../../../providers/User/interfaces";
 import { DivTournaments } from "./style";
