@@ -1,6 +1,6 @@
 interface iDepositionCardProps {
   id: number | undefined;
-  name: string;
+  name: string | undefined;
   content: string;
   img: string | undefined;
 }

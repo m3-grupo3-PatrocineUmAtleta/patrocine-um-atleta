@@ -24,6 +24,9 @@ export interface iContext {
   filterAthletes: iAthlete[];
   setFilterAthletes: React.Dispatch<React.SetStateAction<iAthlete[]>>;
   athlete: iAthleteSponsored | undefined;
+  depositions: iDepositions[] | undefined;
+  createDepositionsList: () => void;
+  finalyDeps: iDepositionsToEspecifyAthlete[] | undefined;
 }
 export interface iProviderProps {
   children: React.ReactNode;
@@ -156,4 +159,11 @@ export interface iDepositions {
 		content: string;
 		userId: number;
 		id: number;
+}
+
+export interface iDepositionsToEspecifyAthlete {
+  content: string; 
+  name: string | undefined; 
+  userId: number | undefined; 
+  img: string | undefined;
 }

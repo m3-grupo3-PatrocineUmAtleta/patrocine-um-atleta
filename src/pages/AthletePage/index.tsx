@@ -22,7 +22,6 @@ export const AthletePage = () => {
   const { buttonValue, openModal, settingsModal } = useContext(UserContext);
   const storageAthlete: any = localStorage.getItem("@SelectedAthlete");
   const athlete = JSON.parse(storageAthlete);
-  console.log(athlete);
 
   useEffect(() => {}, [buttonValue]);
   return (
