@@ -77,6 +77,7 @@ export const UserProvider = ({ children }: iProviderProps) => {
         setSponsored,
         filterAthletes,
         setFilterAthletes,
+        athlete,
       }}
     >
       {children}

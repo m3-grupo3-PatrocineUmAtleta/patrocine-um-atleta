@@ -8,15 +8,12 @@ export const StyledUserDash = styled.div`
     & > img {
       display: none;
     }
-    header {
-      position: fixed;
-      z-index: 99;
-    }
+   
   }
   .container {
     width: 100%;
     position: absolute;
-    z-index: 1;
+    z-index: 0;
     top: 65px;
     padding: 16px;
     min-height: 85vh;
