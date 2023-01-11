@@ -2,8 +2,8 @@ import { iUserLogin } from "../../services/userLogin";
 import { iRegisterData } from "../../services/userRegister";
 
 export interface iContext {
-  user: iUser | null;
-  setUser: React.Dispatch<React.SetStateAction<iUser | null>>;
+  user: iUser | undefined;
+  setUser: React.Dispatch<React.SetStateAction<iUser | undefined>>;
   isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
   buttonValue: string;
@@ -18,8 +18,8 @@ export interface iContext {
   loginUser: (data: iUserLogin) => void;
   selectedAtlhete: number | null;
   setSelectedAtlhete: React.Dispatch<React.SetStateAction<number | null>>;
-  sponsored: iSponsored[];
-  setSponsored: React.Dispatch<React.SetStateAction<iSponsored[]>>;
+  sponsored: iSponsored[] | undefined;
+  setSponsored: React.Dispatch<React.SetStateAction<iSponsored[] | undefined>>;
   gotoAthletePage: (event: any) => void;
   filterAthletes: iAthlete[];
   setFilterAthletes: React.Dispatch<React.SetStateAction<iAthlete[]>>;
@@ -53,7 +53,7 @@ export interface iTournament {
   name: string;
   location: string;
   date: string;
-  status: "Vitória" | "Derrota" | "Empate";
+  status: "Vitória" | "Participando";
   participants: iAthlete[];
   rewards: string;
   imgUrl?: string;

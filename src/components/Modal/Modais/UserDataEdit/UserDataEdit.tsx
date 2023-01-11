@@ -6,7 +6,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
 import { UserContext } from "../../../../providers/User";
 import { UserEditAPI } from "../../../../services/userEdit";
-import { getUserData } from "../../../../services/getUserLogged";
 
 export interface iFormDataEditUser {
   name: string;
@@ -52,9 +51,7 @@ export const UserDataEdit = () => {
     const token = localStorage.getItem("@Token");
 
     const newUser = await UserEditAPI({ idUser: id, data, tokenLocal: token });
-    console.log(user);
     setUser(newUser);
-    console.log(user);
     setIsOpenModal(false);
   };
 

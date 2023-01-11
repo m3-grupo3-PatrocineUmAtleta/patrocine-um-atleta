@@ -2,18 +2,18 @@ import { ModalBackground } from "./style";
 import closeModal from "../../assets/img/closeModal.svg";
 import { useContext } from "react";
 import { UserContext } from "../../providers/User";
-import { UserLogoff } from "./Modais/UserLogOff";
-import { AthleteDelete } from "./Modais/AthleteDelete";
-import { AthleteEdit } from "./Modais/AthleteEdit";
-import { DepositionsForm } from "./Modais/DepositionsForm";
-import { UserDataEdit } from "./Modais/UserDataEdit";
+import { UserLogoff } from "./Modais/userLogOff/UserLogOff";
+import { AthleteDelete } from "./Modais/athleteDelete/AthleteDelete";
+import { AthleteEdit } from "./Modais/AthleteEdit/AthleteEdit";
+import { DepositionsForm } from "./Modais/DepositionsForm/DepositionsForm";
+import { UserDataEdit } from "./Modais/UserDataEdit/UserDataEdit";
 
 interface iModalProps {
   typeModal: string;
   select?: number | null;
 }
 
-export const ModalWrapper = ({ typeModal, select }: iModalProps) => {
+export const ModalWrapper = ({ typeModal }: iModalProps) => {
   const { setIsOpenModal, selectedAtlhete } = useContext(UserContext);
 
   const handleClick = () => {

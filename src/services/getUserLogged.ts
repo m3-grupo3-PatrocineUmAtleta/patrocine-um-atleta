@@ -1,7 +1,7 @@
 import { iSponsored, iUser } from "../providers/User/interfaces";
 import { api } from "./api";
 
-export const getUserLogged = async (): Promise<iSponsored[]> => {
+export const getUserLogged = async (): Promise<iSponsored[] | undefined> => {
   const token = localStorage.getItem("@Token");
   const userId = localStorage.getItem("@UserId");
 
@@ -13,11 +13,12 @@ export const getUserLogged = async (): Promise<iSponsored[]> => {
     });
 
     return response.data.sponsoredAthletes;
-  } finally {
+  } catch (error) {
+    console.log(error);
   }
 };
 
-export const getUserData = async (): Promise<iUser> => {
+export const getUserData = async (): Promise<iUser | undefined> => {
   const token = localStorage.getItem("@Token");
   const userId = localStorage.getItem("@UserId");
 
@@ -29,6 +30,7 @@ export const getUserData = async (): Promise<iUser> => {
     });
 
     return data;
-  } finally {
+  } catch (error) {
+    console.log(error);
   }
 };

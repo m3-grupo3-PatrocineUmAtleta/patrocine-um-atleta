@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ButtonsSidebar } from ".";
 
 export const StyledButtonsSidebar = styled.button`
   border-radius: 10px;

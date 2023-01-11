@@ -1,6 +1,5 @@
-import { AxiosError } from "axios";
-import { iFormDataEditUser } from "../components/Modal/Modais/UserDataEdit";
-import { ToastError, ToastSucess } from "../components/Toast";
+import { iFormDataEditUser } from "../components/Modal/Modais/UserDataEdit/UserDataEdit";
+import { ToastSucess } from "../components/Toast";
 import { iUser } from "../providers/User/interfaces";
 import { api } from "./api";
 
@@ -14,7 +13,7 @@ export const UserEditAPI = async ({
   data,
   idUser,
   tokenLocal,
-}: iUpdateData): Promise<iUser> => {
+}: iUpdateData): Promise<iUser | undefined> => {
   try {
     const response = await api.patch(`users/${idUser}`, data, {
       headers: {
@@ -25,6 +24,7 @@ export const UserEditAPI = async ({
 
     ToastSucess("Alteração feita com Sucesso!");
     return response.data;
-  } finally {
+  } catch (error) {
+    console.log(error);
   }
 };
