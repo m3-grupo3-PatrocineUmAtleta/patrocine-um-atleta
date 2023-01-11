@@ -25,7 +25,7 @@ export const Header = ({ isHome }: iHeaderProps) => {
     setUser,
     setButtonValue,
     athletes,
-
+    filterAthletes,
     setFilterAthletes,
   } = useContext(UserContext);
   const navigate = useNavigate();
@@ -52,7 +52,9 @@ export const Header = ({ isHome }: iHeaderProps) => {
       );
     });
     setFilterAthletes(filter);
+    console.log(filterAthletes);
     value === "" && setFilterAthletes([]);
+    value === "" && setButtonValue("Perfil");
   };
 
   return !openSearch ? (
