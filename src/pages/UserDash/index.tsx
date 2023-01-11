@@ -14,6 +14,8 @@ import { UserContext } from "../../providers/User";
 import { RenderContainerSection } from "../../components/RenderContainerSection";
 import { RenderContentSection } from "../../components/RenderContentSection";
 import { ModalWrapper } from "../../components/Modal";
+import { BottomSectionPage } from "../../components/BottomSectionPage";
+import { SideBarButtons } from "../../components/SideBarButtons";
 
 export const UserDash = () => {
   const { sponsored, setSponsored, openModal, settingsModal, selectedAtlhete } =
@@ -88,27 +90,18 @@ export const UserDash = () => {
         </section>
 
         {/* <section className="render-buttons"></section> */}
+      </StyledContainer>
+      <BottomSectionPage>
         <RenderContainerSection size="700px">
           <RenderContentSection />
         </RenderContainerSection>
-
-        <section className="sidebar">
-          <ul>
-            <li>
-              <ButtonsSidebar text={"Profile"} img={perfilIcon} />
-            </li>
-            <li>
-              <ButtonsSidebar text={"Favoritos"} img={favIcon} />
-            </li>
-            <li>
-              <ButtonsSidebar text={"Patrocinados"} img={patrocinadosIcon} />
-            </li>
-            <li>
-              <ButtonsSidebar text={"Todos atletas"} img={todosAtletasIcon} />
-            </li>
-          </ul>
-        </section>
-      </StyledContainer>
+        <SideBarButtons>
+          <ButtonsSidebar text={"Profile"} img={perfilIcon} />
+          <ButtonsSidebar text={"Favoritos"} img={favIcon} />
+          <ButtonsSidebar text={"Patrocinados"} img={patrocinadosIcon} />
+          <ButtonsSidebar text={"Todos atletas"} img={todosAtletasIcon} />
+        </SideBarButtons>
+      </BottomSectionPage>
     </StyledUserDash>
   );
 };

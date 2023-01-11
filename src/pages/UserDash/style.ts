@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
 export const StyledUserDash = styled.div`
+  background-color: var(--color-primary-100);
+
   .bg-blue {
     width: 100%;
-    height: 60vh;
-    background-color: var(--color-primary-100);
+    height: 50vh;
+
     & > img {
       display: none;
     }
@@ -15,18 +17,17 @@ export const StyledUserDash = styled.div`
     z-index: 0;
     top: 65px;
     padding: 16px;
-    min-height: 85vh;
-    flex-direction: column;
+    min-height: 50vh;
+    /* flex-direction: column; */
   }
   .donations-history {
-    /* width: 100%; */
-    /* height: fit-content; */
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: flex-start; */
-    /* align-items: center; */
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     border: 1px solid var(--color-gray-0);
-    display: block;
 
     & > h2 {
       border-bottom: 1px solid var(--color-gray-0);
