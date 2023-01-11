@@ -52,7 +52,8 @@ export const AthleteCard = ({
   };
 
   const pgAthlete = () => {
-    getAthletesById(athlete_id);
+    getAthletesById(Number(athlete_id));
+    navigate("/athletePage");
   };
 
   const dataAtual = new Date();
@@ -66,20 +67,24 @@ export const AthleteCard = ({
       </div>
       <div className="div-inf">
         <h3 className="title-3">{name?.slice(0, 14)}</h3>
-       
+
         {isUserDash ? (
-          <h3 className="title-3 value" >{value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</h3>
-        ):
-        (
+          <h3 className="title-3 value">
+            {value.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </h3>
+        ) : (
           <>
-            <h4 className="title-4">{setAge} anos</h4><div className="div-local">
+            <h4 className="title-4">{setAge} anos</h4>
+            <div className="div-local">
               <GoLocation className="local-icon" />
               <span className="headline">{city}</span>
-              </div>
-          </>)
-        }
-        
-        
+            </div>
+          </>
+        )}
+
         {isAdmin ? (
           <div className="div-icons">
             <FaEye className="eye-icon icon" onClick={() => pgAthlete()} />

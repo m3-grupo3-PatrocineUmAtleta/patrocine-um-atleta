@@ -30,7 +30,6 @@ export const AthleteEditAPI = async ({
   } catch (error) {
     const err = error as AxiosError;
     ToastError("Ops, " + err.response?.data);
-    localStorage.clear();
     return err.message;
   }
 };
