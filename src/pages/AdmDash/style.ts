@@ -80,6 +80,15 @@ export const StyledHistory = styled.div`
   justify-content: space-around;
   width: 100%;
   max-width: 1285px;
+  flex-direction: column;
+  gap: 46px;
+  align-items: center;
+
+  @media (min-width: 750px) {
+    flex-direction: row;
+    gap: 0;
+    align-items: normal;
+  }
   div {
     width: 230px;
     height: max-content;

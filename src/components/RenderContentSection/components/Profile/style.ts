@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const DivProfile = styled.div`
+  .uppercase {
+    text-transform: uppercase;
+  }
   padding: 6px;
   & > .divDataAndButton {
     display: flex;

@@ -58,6 +58,7 @@ export interface iTournament {
   rewards: string;
   imgUrl?: string;
   place?: string;
+  id: number;
 }
 
 export interface iInstitution {
