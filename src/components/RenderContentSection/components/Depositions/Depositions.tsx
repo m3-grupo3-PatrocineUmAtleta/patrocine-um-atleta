@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../../../providers/User";
 import { iDeposition } from "../../../../providers/User/interfaces";
 import { StyledDepositionCard } from "./DepositionCard/style";
@@ -9,6 +9,7 @@ interface iDepositionsProp {
 
 export const Depositions = ({ depositionList }: iDepositionsProp) => {
   const { user } = useContext(UserContext);
+
 
   return (
     <>

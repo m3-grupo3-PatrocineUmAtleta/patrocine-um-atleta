@@ -150,3 +150,10 @@ export interface iAthleteEdit {
   depositions?: iDeposition[];
   userId: string;
 }
+
+export interface iDepositions {
+    athleteId: number;
+		content: string;
+		userId: number;
+		id: number;
+}
