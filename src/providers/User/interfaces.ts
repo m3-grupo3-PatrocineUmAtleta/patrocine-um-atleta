@@ -150,3 +150,16 @@ interface iDonation {
   athlete: iAthlete;
   institution: iInstitution;
 }
+
+interface iDonation {
+  amount: number;
+  athlete: iAthlete;
+  institution: iInstitution;
+}
+
+export interface iDepositions {
+  athleteId: number;
+  content: string;
+  userId: number;
+  id: number;
+}
