@@ -90,9 +90,10 @@ export const StyledHome = styled.div`
 
         @media (min-width: 750px) {
           flex-wrap: wrap;
+          justify-content: center;
           height: fit-content;
           min-height: 250px;
-          max-height: 650px;
+          max-height: 660px;
         }
       }
     }

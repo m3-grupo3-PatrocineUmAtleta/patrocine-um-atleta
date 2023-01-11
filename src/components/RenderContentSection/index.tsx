@@ -17,7 +17,7 @@ export const RenderContentSection = () => {
   const { buttonValue, user } = useContext(UserContext);
   const storageAthlete: any = localStorage.getItem("@SelectedAthlete");
   const athlete = JSON.parse(storageAthlete);
-  console.log(athlete.medias);
+  // console.log(athlete.medias);
 
   if (user?.isAdmin === false) {
     if (buttonValue === "Perfil") {
