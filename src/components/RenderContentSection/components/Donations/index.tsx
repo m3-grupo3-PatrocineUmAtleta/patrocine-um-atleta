@@ -1,16 +1,31 @@
 import { DonationsStyle } from "./style";
 import cifrao from "../../../../assets/img/cifrao.svg";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
+import { UserContext } from "../../../../providers/User";
 
 interface iDonationsProps {
   image?: string;
 }
 
 export const Donations = ({ image }: iDonationsProps) => {
+  const { user, setIsOpenModal, setSettingsModal, setDonateData } =
+    useContext(UserContext);
   const [isLoading, setIsLoading] = useState(false);
+  const athleteLocal = localStorage.getItem("@SelectedAthlete") || "";
+  const athlete = JSON.parse(athleteLocal);
 
   const submit = async (data: any) => {
+    const dataForm = {
+      athleteId: athlete.id,
+      amount: data.amount,
+      userId: user?.id,
+    };
+
+    setIsOpenModal(true);
+    setSettingsModal("donateConfirm");
+    setDonateData(dataForm);
+    // RegisterDonate(dataForm);
     setIsLoading(!isLoading);
   };
 
@@ -34,8 +49,8 @@ export const Donations = ({ image }: iDonationsProps) => {
             <img src={cifrao} alt="" />
             <div />
             <input
-              id="donations"
-              {...register("donations")}
+              id="amount"
+              {...register("amount")}
               type="number"
               placeholder="Digite aqui sua doação..."
               className="headline"

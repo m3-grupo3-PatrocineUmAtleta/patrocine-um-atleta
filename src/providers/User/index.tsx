@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { iRegisterDataDonates } from "../../services/registerDonates";
 import { iUserLogin, UserLogin } from "../../services/userLogin";
 import { iRegisterData, UserRegister } from "../../services/userRegister";
 import {
@@ -24,6 +25,7 @@ export const UserProvider = ({ children }: iProviderProps) => {
   const [selectedAtlhete, setSelectedAtlhete] = useState<number | null>(null);
   const [athlete, setAthlete] = useState<iAthleteSponsored>();
   const [sponsored, setSponsored] = useState<iSponsored[] | undefined>([]);
+  const [donateData, setDonateData] = useState<iRegisterDataDonates>();
 
   const navigate = useNavigate();
 
@@ -84,6 +86,8 @@ export const UserProvider = ({ children }: iProviderProps) => {
         filterAthletes,
         setFilterAthletes,
         athlete,
+        setDonateData,
+        donateData,
       }}
     >
       {children}
