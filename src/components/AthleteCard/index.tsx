@@ -14,7 +14,7 @@ interface iCardProps {
   name: string;
   age: number;
   city?: string;
-  value: number;
+  value?: number;
   bio?: string;
   isAdmin?: boolean;
   isUserDash?: boolean;
@@ -67,7 +67,7 @@ export const AthleteCard = ({
         <h3 className="title-3">{name?.slice(0, 14)}</h3>
        
         {isUserDash ? (
-          <h3 className="title-3 value" >{value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</h3>
+          <h3 className="title-3 value" >{value?.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</h3>
         ):
         (
           <>

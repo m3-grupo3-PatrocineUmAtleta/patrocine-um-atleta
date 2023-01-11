@@ -6,6 +6,7 @@ import hamburguerClose from "../../assets/img/menu-de-hamburguer-close.png";
 import lupaInput from "../../assets/img/lupaInput.png";
 import profileImage from "../../assets/img/ProfileUserImg.png";
 import logoutButton from "../../assets/img/LogoutButton.png";
+import backPage from "../../assets/img/admDash/arrowBack.jpg";
 
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
@@ -105,6 +106,9 @@ export const Header = ({ isHome }: iHeaderProps) => {
             </button>
             <div className="dropBoxUserDesktop">
               <h2 className="title-2 gray-0">{user?.name}</h2>
+              <button>
+                <img src={backPage} alt="" />
+              </button>
               <button onClick={() => logoutHandle()}>
                 <img src={logoutButton}></img>
               </button>

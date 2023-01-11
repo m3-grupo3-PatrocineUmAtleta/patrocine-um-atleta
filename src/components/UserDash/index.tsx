@@ -22,7 +22,7 @@ export const UserDash = () => {
       return setSponsored(await getUserLogged());
     };
     getSpon();
-  }, []); 
+  }, []);
 
   return (
     <StyledUserDash>
@@ -62,7 +62,7 @@ export const UserDash = () => {
                       athlete_id={item.athlete.id + ""}
                       img={item.athlete.imgUrl}
                       name={item.athlete.nickname}
-                      age={item.athlete.age}                      
+                      age={item.athlete.age}
                       value={item.value}
                       isUserDash={true}
                     />
@@ -83,8 +83,8 @@ export const UserDash = () => {
         <section className="sidebar">
           <ul>
             <li>
-              <ButtonsSidebar text={"Profile"} img={perfilIcon} />
-            </li>            
+              <ButtonsSidebar text={"Perfil"} img={perfilIcon} />
+            </li>
             <li>
               <ButtonsSidebar text={"Favoritos"} img={favIcon} />
             </li>
@@ -93,7 +93,7 @@ export const UserDash = () => {
             </li>
             <li>
               <ButtonsSidebar text={"Todos atletas"} img={todosAtletasIcon} />
-            </li>            
+            </li>
           </ul>
         </section>
       </StyledContainer>
