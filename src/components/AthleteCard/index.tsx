@@ -31,8 +31,13 @@ export const AthleteCard = ({
   isAdmin,
   isUserDash,
 }: iCardProps) => {
-  const { setIsOpenModal, setSelectedAtlhete, setSettingsModal, user } =
-    useContext(UserContext);
+  const {
+    setIsOpenModal,
+    setSelectedAtlhete,
+    setSettingsModal,
+    user,
+    setButtonValue,
+  } = useContext(UserContext);
   const navigate = useNavigate();
 
   const modalOpen = () => {
@@ -48,7 +53,8 @@ export const AthleteCard = ({
   };
 
   const getAthlete = async () => {
-    const atlhetePerfil = await getAthletesById(athlete_id);
+    await getAthletesById(athlete_id);
+    setButtonValue("Perfil");
     navigate("/athletepage");
   };
 

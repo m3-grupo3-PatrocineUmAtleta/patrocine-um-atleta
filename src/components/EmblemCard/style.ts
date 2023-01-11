@@ -22,8 +22,14 @@ export const EmblemCardStyled = styled.div`
     align-items: center;
     flex-direction: column;
     position: relative;
-    top: -137px;
+    bottom: 210px;
     right: 12px;
-    z-index: 2;
+
+    img {
+      object-fit: cover;
+      height: 80px;
+      width: 80px;
+      border-radius: 50px;
+    }
   }
 `;

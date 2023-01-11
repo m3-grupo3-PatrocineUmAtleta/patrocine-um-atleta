@@ -3,7 +3,7 @@ import { UserContext } from "../../providers/User";
 import { AthleteRegister } from "./components/AthleteRegister/AthleteRegister";
 import { Athletes } from "./components/Athletes/Athletes";
 import { Bio } from "./components/Bio";
-import { Depositions } from "./components/Depositions/Depositions";
+import { Depositions } from "./components/Depositions/index";
 import { Donations } from "./components/Donations";
 import { Favourites } from "./components/Favourites";
 import { Infos } from "./components/Infos/Infos";
@@ -17,7 +17,6 @@ export const RenderContentSection = () => {
   const { buttonValue, user } = useContext(UserContext);
   const storageAthlete: any = localStorage.getItem("@SelectedAthlete");
   const athlete = JSON.parse(storageAthlete);
-  // console.log(athlete.medias);
 
   if (user?.isAdmin === false) {
     if (buttonValue === "Perfil") {
@@ -41,7 +40,7 @@ export const RenderContentSection = () => {
     return <Infos />;
   }
   if (buttonValue === "Torneios") {
-    return <Tournaments tournamentsList={[]} />;
+    return <Tournaments />;
   }
   if (buttonValue === "Atletas") {
     return <Athletes />;
@@ -52,11 +51,11 @@ export const RenderContentSection = () => {
   if (buttonValue === "Instituição") {
     return (
       <Institution
-        aboutUs={user?.bio}
+        aboutUs={user?.isAdmin ? user.bio : undefined}
         image=""
-        tournamentsInfo={user?.tournaments?.length}
-        location={user?.city}
-        name={user?.name}
+        tournamentsInfo={user?.isAdmin ? user.tournaments?.length : undefined}
+        location={user?.isAdmin ? user.city : undefined}
+        name={user?.isAdmin ? user.name : undefined}
       />
     );
   }
@@ -64,9 +63,9 @@ export const RenderContentSection = () => {
     return (
       <Medias
         image=""
-        facebook={athlete.medias.facebook}
-        instagram={athlete.medias.instagram}
-        twitter={athlete.medias.twitter}
+        facebook={athlete.medias?.facebook}
+        instagram={athlete.medias?.instagram}
+        twitter={athlete.medias?.twitter}
       />
     );
   }
