@@ -38,7 +38,7 @@ export const Home = () => {
         <ModalWrapper typeModal="userLogoff" select={selectedAtlhete} />
       )}
       <Header isHome />
-      <main>
+      <main id="topHome">
         <section className="sectionSponsorship">
           <div className="register">
             <StyledContainer>
