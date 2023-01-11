@@ -53,9 +53,9 @@ export const UserDash = () => {
                 .reverse()
                 .slice(0, 3)
             ) : (
-              <h2 className="headline gray-0 text-center">
+              <li className="headline gray-0 text-center">
                 Você ainda não patrocinou nenhum atleta
-              </h2>
+              </li>
             )}
           </ul>
 
@@ -78,9 +78,9 @@ export const UserDash = () => {
                 .reverse()
                 .slice(0, 3)
             ) : (
-              <h2 className="headline gray-0 center">
+              <li className="headline gray-0 center">
                 Você ainda não patrocinou nenhum atleta
-              </h2>
+              </li>
             )}
           </ul>
         </section>
