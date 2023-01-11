@@ -4,7 +4,6 @@ export const BottomSectionStyle = styled.div`
   background-color: var(--color-primary-10);
   margin-top: 57px;
   width: 100vw;
-  position: absolute;
 
   & > :nth-child(1) {
     display: flex;
@@ -16,8 +15,6 @@ export const BottomSectionStyle = styled.div`
   }
 
   @media (min-width: 750px) {
-    bottom: 43px;
-
     & > :nth-child(1) {
       justify-content: flex-end;
       flex-direction: row-reverse;
