@@ -1,26 +1,26 @@
 import { useContext } from "react";
 import { UserContext } from "../../providers/User";
 import { iUser } from "../../providers/User/interfaces";
-import { AllAthletes } from "./components/AllAthletes";
+import { AllAthletes } from "./components/AllAthletes/AllAthletes";
 import { AthleteRegister } from "./components/AthleteRegister/AthleteRegister";
 import { Athletes } from "./components/Athletes/Athletes";
 import { Bio } from "./components/Bio";
 import { Depositions } from "./components/Depositions/Depositions";
 import { Donations } from "./components/Donations";
 import { Favourites } from "./components/Favourites";
-import { Infos } from "./components/Infos";
+import { Infos } from "./components/Infos/Infos";
 import { Institution } from "./components/Institution";
 import { Medias } from "./components/Medias";
-import { Profile } from "./components/Profile";
+import { Profile } from "./components/Profile/Profile";
 import { Sponsored } from "./components/Sponsored";
-import { Tournaments } from "./components/Tournaments";
+import { Tournaments } from "./components/Tournaments/Tournaments";
 
 export const RenderContentSection = () => {
   const { buttonValue, user } = useContext(UserContext);
 
-  if (user) {
+  if (user?.isAdmin === false) {
     if (buttonValue === "Perfil") {
-      return <Profile name="" bio="" phoneNumber="" email="" />;
+      return <Profile />;
     }
     if (buttonValue === "Todos atletas") {
       return <AllAthletes />;
@@ -29,22 +29,12 @@ export const RenderContentSection = () => {
       return <Favourites favourites={[]} />;
     }
     if (buttonValue === "Patrocinados") {
-      return (
-        <Sponsored
-          name=""
-          email=""
-          bio=""
-          favourites={[]}
-          sponsoredAthletes={[]}
-        />
-      );
+      return <Sponsored sponsoredAthletes={[]} />;
     }
   }
 
   if (buttonValue === "Perfil") {
-    return (
-      <Profile name="" email="" bio="" favourites={[]} sponsoredAthletes={[]} />
-    );
+    return <Profile />;
   }
   if (buttonValue === "Informações") {
     return <Infos />;
@@ -53,7 +43,7 @@ export const RenderContentSection = () => {
     return <Tournaments tournamentsList={[]} />;
   }
   if (buttonValue === "Atletas") {
-    return <Athletes athleteList={[]} />;
+    return <Athletes />;
   }
   if (buttonValue === "Registrar") {
     return <AthleteRegister />;

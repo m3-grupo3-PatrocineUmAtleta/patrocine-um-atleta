@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import { ButtonsSidebar } from ".";
 
-export const StyledButtonsSidebar = styled(ButtonsSidebar)`
+export const StyledButtonsSidebar = styled.button`
   border-radius: 10px;
-  width: 100px;
-  height: 100px;
+  min-width: 80px;
+  height: 80px;
   background-color: var(--color-primary-0);
   display: flex;
   flex-direction: column;

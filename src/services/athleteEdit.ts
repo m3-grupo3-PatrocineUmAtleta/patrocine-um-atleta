@@ -1,10 +1,6 @@
 import { AxiosError } from "axios";
 import { ToastError, ToastSucess } from "../components/Toast";
-import {
-  iAthleteEdit,
-  iAthleteRegister,
-  iUser,
-} from "../providers/User/interfaces";
+import { iAthleteEdit } from "../providers/User/interfaces";
 import { api } from "./api";
 
 export interface iRegisterData {
@@ -30,7 +26,6 @@ export const AthleteEditAPI = async ({
   } catch (error) {
     const err = error as AxiosError;
     ToastError("Ops, " + err.response?.data);
-    localStorage.clear();
     return err.message;
   }
 };

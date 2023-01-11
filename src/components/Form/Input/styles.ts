@@ -4,6 +4,7 @@ interface iInputText {
   borderColor?: string;
   validColor?: string;
   type?: string;
+  height?: string;
 }
 
 export const FieldsetInput = styled.fieldset<iInputText>`
@@ -15,11 +16,17 @@ export const FieldsetInput = styled.fieldset<iInputText>`
   border-radius: 4px;
   border: none;
 
-  ${({ type }) => {
+  ${({ type, height }) => {
     if (type === "textarea") {
-      return css`
-        height: 135px;
-      `;
+      if (height) {
+        return css`
+          height: ${height};
+        `;
+      } else {
+        return css`
+          height: 135px;
+        `;
+      }
     } else {
       return css`
         height: 70px;

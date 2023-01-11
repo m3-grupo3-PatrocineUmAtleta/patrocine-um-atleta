@@ -63,7 +63,7 @@ export const StyledHome = styled.div`
   main .sectionSponsorship .athlete {
     max-height: 648px;
     min-height: 320px;
-    background-color: var(--color-gray-0);
+    background-color: var(--color-gray-20);
 
     > div {
       transform: translateY(-90px);

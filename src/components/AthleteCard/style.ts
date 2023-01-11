@@ -68,6 +68,9 @@ export const StyledAthleteCard = styled.li`
     h4 {
       color: var(--color-gray-0);
     }
+    .value{
+      margin-top: 16px;
+    }
 
     .div-local {
       display: flex;
@@ -105,7 +108,7 @@ export const StyledAthleteCard = styled.li`
       :hover {
         transition: 0.2s;
         color: var(--color-primary-100);
-        scale: 1.5;
+        scale: 2;
       }
     }
   }

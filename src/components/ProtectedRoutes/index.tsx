@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import { Navigate, Outlet, useSearchParams } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { UserContext } from "../../providers/User";
-import { iUser } from "../../providers/User/interfaces";
 import { api } from "../../services/api";
 
 export const ProtectedRoutes = () => {
@@ -17,7 +16,6 @@ export const ProtectedRoutes = () => {
           authorization: `Bearer ${token}`,
         },
       });
-      console.log(res);
 
       setUser(res.data);
     } catch (error) {
@@ -31,7 +29,7 @@ export const ProtectedRoutes = () => {
   }, []);
 
   if (loading) {
-    return false;
+    return null;
   } else {
     return !user ? <Navigate to={"/home"} /> : <Outlet />;
   }

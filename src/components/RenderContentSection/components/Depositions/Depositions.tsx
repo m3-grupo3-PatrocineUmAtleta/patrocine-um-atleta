@@ -22,7 +22,7 @@ export const Depositions = ({ depositionList }: iDepositionsProp) => {
             content={deposition.content}
             name={deposition.author.name}
             id={user?.id}
-            img={user?.image}
+            img={user?.imgUrl}
           />
         ))}
       </ul>

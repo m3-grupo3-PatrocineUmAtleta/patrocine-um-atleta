@@ -18,6 +18,7 @@ export const ToastInfo = (msg: string) => {
   });
 };
 
+//comentarios
 // const ToastPromise = (msg: string) => {
 //   return toast.promise(func, {
 //     loading: "Aguarde...",

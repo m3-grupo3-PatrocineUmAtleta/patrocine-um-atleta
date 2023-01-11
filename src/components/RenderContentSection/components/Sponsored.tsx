@@ -1,7 +1,11 @@
-import { iUser } from "../../../providers/User/interfaces";
+import { iAthlete } from "../../../providers/User/interfaces";
 import { AthleteCard } from "../../AthleteCard";
 
-export const Sponsored = ({ sponsoredAthletes }: iUser) => (
+interface iSponsoredProps {
+  sponsoredAthletes: iAthlete[];
+}
+
+export const Sponsored = ({ sponsoredAthletes }: iSponsoredProps) => (
   <ul>
     {sponsoredAthletes?.map(({ age, id, imgUrl, name, city }) => (
       <AthleteCard

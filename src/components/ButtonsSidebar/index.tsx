@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "../../providers/User";
+import { StyledButtonsSidebar } from "./style";
 
 interface iButtonsSidebarProps {
   text: string;
@@ -10,9 +11,9 @@ export const ButtonsSidebar = ({ text, img }: iButtonsSidebarProps) => {
   const { setButtonValue } = useContext(UserContext);
 
   return (
-    <button onClick={() => setButtonValue(text)}>
+    <StyledButtonsSidebar onClick={() => setButtonValue(text)}>
       <img src={img} alt="" />
-      <h4 className="title-4">{text}</h4>
-    </button>
+      <h4 className="text-sideButton">{text}</h4>
+    </StyledButtonsSidebar>
   );
 };

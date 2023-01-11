@@ -21,6 +21,7 @@ interface iInputTextareaProps
   message?: string;
   valid?: boolean;
   placeholder?: string;
+  height?: string;
 }
 
 export const Input = ({
@@ -66,6 +67,8 @@ export const TextArea = ({
   message,
   valid,
   placeholder,
+  rows,
+  height,
   ...rest
 }: iInputTextareaProps) => {
   return (
@@ -79,7 +82,7 @@ export const TextArea = ({
           {text}
         </label>
         <textarea
-          rows={5}
+          rows={rows}
           cols={31}
           id="bio"
           {...register}

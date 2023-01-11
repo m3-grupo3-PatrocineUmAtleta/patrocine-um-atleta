@@ -1,7 +1,6 @@
 import { AxiosError } from "axios";
 import { ToastError, ToastSucess } from "../components/Toast";
 import {
-  iAthlete,
   iAthleteRegister,
   iUser,
 } from "../providers/User/interfaces";
@@ -39,7 +38,6 @@ export const AthleteRegisterAPI = async (
   } catch (error) {
     const err = error as AxiosError;
     ToastError("Ops, " + err.response?.data);
-    localStorage.clear();
     return err.message;
   }
 };
