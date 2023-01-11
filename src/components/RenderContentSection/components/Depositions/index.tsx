@@ -27,17 +27,17 @@ export const Depositions = ({ depositionList, image }: iDepositionsProp) => {
           <h2>Comentários sobre o atleta</h2>
         </div>
         <button onClick={handleCLick}>Comentar</button>
-        <ul>
-          {depositionList.map((deposition) => (
-            <StyledDepositionCard
-              content={deposition.content}
-              name={deposition.author.name}
-              id={user?.id}
-              img={user?.imgUrl}
-            />
-          ))}
-        </ul>
       </div>
+      <ul>
+        {depositionList.map((deposition) => (
+          <StyledDepositionCard
+            content={deposition.content}
+            name={deposition.author.name}
+            id={user?.id}
+            img={user?.imgUrl}
+          />
+        ))}
+      </ul>
     </DepositionsStyle>
   );
 };

@@ -19,12 +19,13 @@ import { SideBarButtons } from "../../components/SideBarButtons";
 import { BottomSectionPage } from "../../components/BottomSectionPage";
 
 export const AthletePage = () => {
-  const { buttonValue, openModal, settingsModal } = useContext(UserContext);
+  const { openModal, settingsModal, setButtonValue } = useContext(UserContext);
   const storageAthlete: any = localStorage.getItem("@SelectedAthlete");
   const athlete = JSON.parse(storageAthlete);
-  console.log(athlete);
 
-  useEffect(() => {}, [buttonValue]);
+  useEffect(() => {
+    setButtonValue("Bio");
+  }, []);
   return (
     <>
       {openModal && <ModalWrapper typeModal={settingsModal} />}

@@ -17,4 +17,8 @@ export const ContainerRenderStyle = styled.section<iRenderContainerProps>`
   ::-webkit-scrollbar {
     appearance: none;
   }
+
+  @keyframes identifier {
+    
+  }
 `;
