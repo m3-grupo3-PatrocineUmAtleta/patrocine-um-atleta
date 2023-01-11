@@ -20,7 +20,7 @@ import { getAllAthletes } from "../../services/getAllAthletes";
 import { AthleteCard } from "../../components/AthleteCard";
 
 export const Home = () => {
-  const { openModal, settingsModal, athletes, setAthletes, selectedAtlhete } =
+  const { openModal, athletes, setAthletes, selectedAtlhete } =
     useContext(UserContext);
 
   const getAthletes = async () => {
@@ -38,7 +38,7 @@ export const Home = () => {
         <ModalWrapper typeModal="userLogoff" select={selectedAtlhete} />
       )}
       <Header isHome />
-      <main>
+      <main id="topHome">
         <section className="sectionSponsorship">
           <div className="register">
             <StyledContainer>

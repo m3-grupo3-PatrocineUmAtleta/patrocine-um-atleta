@@ -83,6 +83,10 @@ const Fonts = createGlobalStyle`
   .gray-0 {
     color: var(--color-gray-0);
   }
+
+  .text-center {
+    text-align: center;
+  }
   
 `;
 

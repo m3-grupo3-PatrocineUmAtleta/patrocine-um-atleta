@@ -17,7 +17,7 @@ export const Profile = () => {
   return (
     <DivProfile>
       <div className="divDataAndButton">
-        <h3>Dados</h3>
+        <h3 className="title-3 uppercase">Dados</h3>
         <button onClick={handleClick}>
           <img src={editProfileImg} alt="Botão de edição" />
         </button>

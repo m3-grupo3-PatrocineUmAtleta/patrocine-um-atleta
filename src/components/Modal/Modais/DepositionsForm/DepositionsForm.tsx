@@ -2,10 +2,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { DepositionsStyle } from "./style";
 
-interface iDepositionFormProps {
-  depositions: string;
-}
-
 export const DepositionsForm = () => {
   const [isLoading, setIsLoading] = useState(false);
 

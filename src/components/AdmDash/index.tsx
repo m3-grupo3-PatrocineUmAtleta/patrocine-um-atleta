@@ -7,7 +7,7 @@ import {
   StyledAsideButtons,
   StyledHistory,
   StyledInfoHistory,
-} from "./style";
+} from "../../pages/AdmDash/style";
 import perfilImg from "../../assets/img/admDash/asideButtonPerfil.png";
 import infoImg from "../../assets/img/admDash/asideButtonInfo.png";
 import tournamentImg from "../../assets/img/admDash/asideButtonTournament.png";
@@ -83,7 +83,7 @@ export const AdmDash = () => {
                     return (
                       <li key={athlete.id}>
                         <StyledInfoHistory>
-                          {donation?.athlete.name}
+                          {donation?.athlete?.name}
                         </StyledInfoHistory>
                         <StyledInfoHistory>
                           {donation?.amount}

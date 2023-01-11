@@ -31,7 +31,7 @@ export const AthleteCard = ({
   isAdmin,
   isUserDash,
 }: iCardProps) => {
-  const { setIsOpenModal, setSelectedAtlhete, setSettingsModal } =
+  const { setIsOpenModal, setSelectedAtlhete, setSettingsModal, user } =
     useContext(UserContext);
   const navigate = useNavigate();
 
@@ -45,10 +45,6 @@ export const AthleteCard = ({
     setIsOpenModal(true);
     setSettingsModal(typeModal);
     setSelectedAtlhete(Number(athlete_id));
-  };
-
-  const pgAthlete = () => {
-    navigate(`/athletePage/${athlete_id}`);
   };
 
   const getAthlete = async () => {
@@ -85,9 +81,9 @@ export const AthleteCard = ({
           </>
         )}
 
-        {isAdmin ? (
+        {user?.isAdmin ? (
           <div className="div-icons">
-            <FaEye className="eye-icon icon" onClick={() => pgAthlete()} />
+            <FaEye className="eye-icon icon" onClick={getAthlete} />
             <BiTrash
               className="trash-icon icon"
               onClick={() => modalOpenOthers("athleteDelete")}

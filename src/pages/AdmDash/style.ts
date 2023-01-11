@@ -1,9 +1,15 @@
 import styled from "styled-components";
 
+export const AdmDashStyle = styled.div`
+  background-color: var(--color-primary-100);
+  width: 100vw;
+  height: 100vh;
+`;
+
 export const StyledAdmDash = styled.div`
   background-color: var(--color-primary-100);
   position: relative;
-  height: 450px;
+  height: 294px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,6 +80,15 @@ export const StyledHistory = styled.div`
   justify-content: space-around;
   width: 100%;
   max-width: 1285px;
+  flex-direction: column;
+  gap: 46px;
+  align-items: center;
+
+  @media (min-width: 750px) {
+    flex-direction: row;
+    gap: 0;
+    align-items: normal;
+  }
   div {
     width: 230px;
     height: max-content;

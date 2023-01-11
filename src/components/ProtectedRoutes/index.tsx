@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import { Navigate, Outlet, useSearchParams } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { UserContext } from "../../providers/User";
-import { iUser } from "../../providers/User/interfaces";
 import { api } from "../../services/api";
 
 export const ProtectedRoutes = () => {

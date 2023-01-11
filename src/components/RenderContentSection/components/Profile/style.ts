@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const DivProfile = styled.div`
+  .uppercase {
+    text-transform: uppercase;
+  }
   padding: 6px;
   & > .divDataAndButton {
     display: flex;
@@ -27,7 +30,7 @@ export const DivProfile = styled.div`
     }
 
     & > div.dados2 {
-      width: 390px;
+      max-width: 390px;
       display: flex;
       flex-direction: column;
       gap: 16px;

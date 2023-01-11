@@ -1,9 +1,7 @@
 import { iAthlete, iTournament } from "../../../../providers/User/interfaces";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../../../providers/User";
-import { api } from "../../../../services/api";
 import { getAllAthletes } from "../../../../services/getAllAthletes";
-import { isAxiosError } from "axios";
 import { DivInfos } from "./style";
 
 interface iInfosProps {
@@ -23,7 +21,7 @@ export const Infos = ({
 }: iInfosProps) => {
   const [mostPopular, setMostPopular] = useState({} as iAthlete);
 
-  const { user, buttonValue } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   const [athletes, setAthletes] = useState([] as iAthlete[]);
 
@@ -89,8 +87,8 @@ export const Infos = ({
           <p>Sua instituição arrecadou um total de R$ {raisings}.</p>
         </div>
         <div>
-          <h3>Seu atleta mais popular é:</h3>
-          <p>{mostPopular ? mostPopular.name : "Não informado"}</p>
+          {/* <h3>Seu atleta mais popular é:</h3>
+          <p>{mostPopular ? mostPopular.name : "Não informado"}</p> */}
         </div>
       </div>
     </DivInfos>

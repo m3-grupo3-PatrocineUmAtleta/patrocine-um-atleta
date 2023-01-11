@@ -1,11 +1,9 @@
 import { useContext } from "react";
 import { UserContext } from "../../providers/User";
-import { iUser } from "../../providers/User/interfaces";
-import { AllAthletes } from "./components/AllAthletes/AllAthletes";
 import { AthleteRegister } from "./components/AthleteRegister/AthleteRegister";
 import { Athletes } from "./components/Athletes/Athletes";
 import { Bio } from "./components/Bio";
-import { Depositions } from "./components/Depositions";
+import { Depositions } from "./components/Depositions/Depositions";
 import { Donations } from "./components/Donations";
 import { Favourites } from "./components/Favourites";
 import { Infos } from "./components/Infos/Infos";
@@ -17,13 +15,16 @@ import { Tournaments } from "./components/Tournaments/Tournaments";
 
 export const RenderContentSection = () => {
   const { buttonValue, user } = useContext(UserContext);
+  const storageAthlete: any = localStorage.getItem("@SelectedAthlete");
+  const athlete = JSON.parse(storageAthlete);
+  console.log(athlete.medias);
 
   if (user?.isAdmin === false) {
     if (buttonValue === "Perfil") {
       return <Profile />;
     }
     if (buttonValue === "Todos atletas") {
-      return <AllAthletes />;
+      return <Athletes />;
     }
     if (buttonValue === "Favoritos") {
       return <Favourites favourites={[]} />;
@@ -51,19 +52,26 @@ export const RenderContentSection = () => {
   if (buttonValue === "Instituição") {
     return (
       <Institution
-        aboutUs=""
+        aboutUs={user?.bio}
         image=""
-        institutionAthletes={[]}
-        location=""
-        name=""
+        tournamentsInfo={user?.tournaments?.length}
+        location={user?.city}
+        name={user?.name}
       />
     );
   }
   if (buttonValue === "Mídias") {
-    return <Medias />;
+    return (
+      <Medias
+        image=""
+        facebook={athlete.medias.facebook}
+        instagram={athlete.medias.instagram}
+        twitter={athlete.medias.twitter}
+      />
+    );
   }
   if (buttonValue === "Bio") {
-    return <Bio bio="" city="" />;
+    return <Bio bio={athlete.bio} city={athlete.city} />;
   }
   if (buttonValue === "Depoimentos") {
     return <Depositions depositionList={[]} />;

@@ -1,23 +1,31 @@
-import { ButtonsSidebar } from "../ButtonsSidebar";
-import { HistoryCard } from "../HistoryCard";
+import { ButtonsSidebar } from "../../components/ButtonsSidebar";
+import { HistoryCard } from "../../components/HistoryCard";
 import { StyledContainer } from "../../styles/Container";
 import { StyledUserDash } from "./style";
 import perfilIcon from "./../../assets/img/perfilIcon.png";
 import todosAtletasIcon from "./../../assets/img/todosAtletasIcon.png";
 import favIcon from "./../../assets/img/favIcon.png";
 import patrocinadosIcon from "./../../assets/img/patrocinadosIcon.png";
-import { AthleteCard } from "../AthleteCard";
-import { Header } from "../Header";
+import { AthleteCard } from "../../components/AthleteCard";
+import { Header } from "../../components/Header";
 import { getUserLogged } from "../../services/getUserLogged";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../providers/User";
-import { RenderContainerSection } from "../RenderContainerSection";
-import { RenderContentSection } from "../RenderContentSection";
-import { ModalWrapper } from "../Modal";
+import { RenderContainerSection } from "../../components/RenderContainerSection";
+import { RenderContentSection } from "../../components/RenderContentSection";
+import { ModalWrapper } from "../../components/Modal";
+import { BottomSectionPage } from "../../components/BottomSectionPage";
+import { SideBarButtons } from "../../components/SideBarButtons";
 
 export const UserDash = () => {
-  const { sponsored, setSponsored, openModal, settingsModal, selectedAtlhete } =
-    useContext(UserContext);
+  const {
+    filterAthletes,
+    sponsored,
+    setSponsored,
+    openModal,
+    settingsModal,
+    selectedAtlhete,
+  } = useContext(UserContext);
 
   useEffect(() => {
     const getSpon = async () => {
@@ -25,6 +33,8 @@ export const UserDash = () => {
     };
     getSpon();
   }, []);
+
+  //comentarios
 
   return (
     <StyledUserDash>
@@ -53,7 +63,9 @@ export const UserDash = () => {
                 .reverse()
                 .slice(0, 3)
             ) : (
-              <h1>Você ainda não patrocinou nenhum atleta</h1>
+              <li className="headline gray-0 text-center">
+                Você ainda não patrocinou nenhum atleta
+              </li>
             )}
           </ul>
 
@@ -76,32 +88,26 @@ export const UserDash = () => {
                 .reverse()
                 .slice(0, 3)
             ) : (
-              <h1>Você ainda não patrocinou nenhum atleta</h1>
+              <li className="headline gray-0 center">
+                Você ainda não patrocinou nenhum atleta
+              </li>
             )}
           </ul>
         </section>
-        {/* <section className="render-buttons"></section> */}
-        <RenderContainerSection size="700px">
-          <RenderContentSection />
-        </RenderContainerSection>
 
-        <section className="sidebar">
-          <ul>
-            <li>
-              <ButtonsSidebar text={"Profile"} img={perfilIcon} />
-            </li>
-            <li>
-              <ButtonsSidebar text={"Favoritos"} img={favIcon} />
-            </li>
-            <li>
-              <ButtonsSidebar text={"Patrocinados"} img={patrocinadosIcon} />
-            </li>
-            <li>
-              <ButtonsSidebar text={"Todos atletas"} img={todosAtletasIcon} />
-            </li>
-          </ul>
-        </section>
+        {/* <section className="render-buttons"></section> */}
       </StyledContainer>
+      <BottomSectionPage>
+        <RenderContainerSection size="700px">
+          <RenderContentSection></RenderContentSection>
+        </RenderContainerSection>
+        <SideBarButtons>
+          <ButtonsSidebar text={"Profile"} img={perfilIcon} />
+          <ButtonsSidebar text={"Favoritos"} img={favIcon} />
+          <ButtonsSidebar text={"Patrocinados"} img={patrocinadosIcon} />
+          <ButtonsSidebar text={"Todos atletas"} img={todosAtletasIcon} />
+        </SideBarButtons>
+      </BottomSectionPage>
     </StyledUserDash>
   );
 };
