@@ -150,15 +150,15 @@ export interface iAthleteEdit {
   userId: string;
 }
 
-export interface iDepositions {
-    athleteId: number;
-		content: string;
-		userId: number;
-		id: number;
-}
-
 interface iDonation {
   amount: number;
   athlete: iAthlete;
   institution: iInstitution;
+}
+
+export interface iDepositions {
+  athleteId: number;
+  content: string;
+  userId: number;
+  id: number;
 }
