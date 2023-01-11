@@ -75,7 +75,7 @@ export const StyledHome = styled.div`
       ul {
         background-color: white;
         height: 344px;
-        max-width: 827px;
+        max-width: 835px;
 
         min-width: 300px;
 
@@ -92,6 +92,7 @@ export const StyledHome = styled.div`
           flex-wrap: wrap;
           height: fit-content;
           min-height: 250px;
+          max-height: 650px;
         }
       }
     }
