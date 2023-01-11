@@ -3,6 +3,7 @@ import { UserContext } from "../../providers/User";
 import { ButtonsSidebar } from "../ButtonsSidebar";
 import { Header } from "../Header";
 import {
+  AdmDashStyle,
   StyledAdmDash,
   StyledAsideButtons,
   StyledHistory,
@@ -18,6 +19,8 @@ import { RenderContentSection } from "../RenderContentSection";
 import { ModalWrapper } from "../Modal";
 import { RenderContainerSection } from "../RenderContainerSection";
 import { getAllAthletes } from "../../services/getAllAthletes";
+import { BottomSectionPage } from "../BottomSectionPage";
+import { SideBarButtons } from "../SideBarButtons";
 
 export const AdmDash = () => {
   const {
@@ -54,58 +57,56 @@ export const AdmDash = () => {
         <ModalWrapper typeModal={settingsModal} select={selectedAtlhete} />
       )}
       <Header isHome={false}></Header>
-
-      <StyledAdmDash>
-        <StyledHistory>
-          <div className="divTournaments">
-            <div>
-              <h3>Torneios</h3>
+      <AdmDashStyle>
+        <StyledAdmDash>
+          <StyledHistory>
+            <div className="divTournaments">
+              <div>
+                <h3>Torneios</h3>
+              </div>
+              <ul>
+                {user?.tournaments?.map((tournament) => {
+                  return (
+                    <StyledInfoHistory key={tournament.name}>
+                      <img src={tournament.imgUrl} alt={tournament.name} />
+                      {tournament.name}
+                    </StyledInfoHistory>
+                  );
+                })}
+              </ul>
             </div>
-            <ul>
-              {user?.tournaments?.map((tournament) => {
-                return (
-                  <StyledInfoHistory key={tournament.name}>
-                    <img src={tournament.imgUrl} alt={tournament.name} />
-                    {tournament.name}
-                  </StyledInfoHistory>
-                );
-              })}
-            </ul>
-          </div>
-          <div className="divDonations">
-            <div>
-              <h3>Histórico de doações</h3>
+            <div className="divDonations">
+              <div>
+                <h3>Histórico de doações</h3>
+              </div>
+              <ul>
+                {donationsList.length > 0 ? (
+                  athletes.map((athlete) => {
+                    return athlete.donates?.map((donation) => {
+                      return (
+                        <li key={athlete.id}>
+                          <StyledInfoHistory>
+                            {donation?.athlete.name}
+                          </StyledInfoHistory>
+                          <StyledInfoHistory>
+                            {donation?.amount}
+                          </StyledInfoHistory>
+                        </li>
+                      );
+                    });
+                  })
+                ) : (
+                  <StyledInfoHistory>Ainda não há doações</StyledInfoHistory>
+                )}
+              </ul>
             </div>
-            <ul>
-              {donationsList.length > 0 ? (
-                athletes.map((athlete) => {
-                  return athlete.donates?.map((donation) => {
-                    return (
-                      <li key={athlete.id}>
-                        <StyledInfoHistory>
-                          {donation?.athlete.name}
-                        </StyledInfoHistory>
-                        <StyledInfoHistory>
-                          {donation?.amount}
-                        </StyledInfoHistory>
-                      </li>
-                    );
-                  });
-                })
-              ) : (
-                <StyledInfoHistory>Ainda não há doações</StyledInfoHistory>
-              )}
-            </ul>
-          </div>
-        </StyledHistory>
-      </StyledAdmDash>
-
-      <StyledContainer>
-        <div className="rowReverse">
+          </StyledHistory>
+        </StyledAdmDash>
+        <BottomSectionPage>
           <RenderContainerSection size="810px">
             <RenderContentSection />
           </RenderContainerSection>
-          <StyledAsideButtons>
+          <SideBarButtons>
             <ButtonsSidebar text="Perfil" img={perfilImg}></ButtonsSidebar>
             <ButtonsSidebar text="Informações" img={infoImg}></ButtonsSidebar>
             <ButtonsSidebar
@@ -114,9 +115,9 @@ export const AdmDash = () => {
             ></ButtonsSidebar>
             <ButtonsSidebar text="Atletas" img={athletesImg}></ButtonsSidebar>
             <ButtonsSidebar text="Registrar" img={registerImg}></ButtonsSidebar>
-          </StyledAsideButtons>
-        </div>
-      </StyledContainer>
+          </SideBarButtons>
+        </BottomSectionPage>
+      </AdmDashStyle>
     </>
   );
 };
