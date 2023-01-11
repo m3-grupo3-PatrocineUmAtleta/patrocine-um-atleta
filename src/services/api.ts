@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const api = axios.create({
   baseURL: "https://json-server-fakeapi-adoteumatleta.onrender.com/",
-  timeout: 5000,
+  timeout: 10000,
 });
 
 export const apiCEP = axios.create({

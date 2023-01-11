@@ -13,6 +13,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { StyledContainer } from "../../styles/Container";
 import { UserContext } from "../../providers/User";
+import { iUser } from "../../providers/User/interfaces";
 
 interface iHeaderProps {
   isHome: boolean;
@@ -37,7 +38,7 @@ export const Header = ({ isHome }: iHeaderProps) => {
   const logoutHandle = () => {
     window.localStorage.removeItem("@UserId");
     window.localStorage.removeItem("@Token");
-    setUser(null);
+    setUser({} as iUser);
   };
   const searchInputAthletes = (value: string) => {
     setButtonValue("Todos atletas");

@@ -14,7 +14,7 @@ import {
 export const UserContext = createContext({} as iContext);
 
 export const UserProvider = ({ children }: iProviderProps) => {
-  const [user, setUser] = useState<iUser | null>(null);
+  const [user, setUser] = useState<iUser | undefined>();
   const [isLoading, setIsLoading] = useState(false);
   const [buttonValue, setButtonValue] = useState("Perfil");
   const [athletes, setAthletes] = useState([] as iAthlete[]);
@@ -23,7 +23,7 @@ export const UserProvider = ({ children }: iProviderProps) => {
   const [settingsModal, setSettingsModal] = useState("");
   const [selectedAtlhete, setSelectedAtlhete] = useState<number | null>(null);
   const [athlete, setAthlete] = useState<iAthleteSponsored>();
-  const [sponsored, setSponsored] = useState<iSponsored[]>([]);
+  const [sponsored, setSponsored] = useState<iSponsored[] | undefined>([]);
 
   const navigate = useNavigate();
 
@@ -52,7 +52,7 @@ export const UserProvider = ({ children }: iProviderProps) => {
     navigate("/athletePage");
     const athleteId: string = event.target.id;
 
-    const clickedAthlete: iSponsored | undefined = sponsored.find(
+    const clickedAthlete = sponsored?.find(
       (item) => item.athlete.id == athleteId
     );
 
