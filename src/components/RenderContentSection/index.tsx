@@ -5,7 +5,7 @@ import { AllAthletes } from "./components/AllAthletes/AllAthletes";
 import { AthleteRegister } from "./components/AthleteRegister/AthleteRegister";
 import { Athletes } from "./components/Athletes/Athletes";
 import { Bio } from "./components/Bio";
-import { Depositions } from "./components/Depositions";
+import { Depositions } from "./components/Depositions/Depositions";
 import { Donations } from "./components/Donations";
 import { Favourites } from "./components/Favourites";
 import { Infos } from "./components/Infos/Infos";
@@ -15,7 +15,11 @@ import { Profile } from "./components/Profile/Profile";
 import { Sponsored } from "./components/Sponsored";
 import { Tournaments } from "./components/Tournaments/Tournaments";
 
-export const RenderContentSection = () => {
+interface iContentSectionProps {
+  children?: React.ReactNode;
+}
+
+export const RenderContentSection = ({ children }: iContentSectionProps) => {
   const { buttonValue, user } = useContext(UserContext);
 
   if (user?.isAdmin === false) {
@@ -72,5 +76,5 @@ export const RenderContentSection = () => {
     return <Donations />;
   }
 
-  return <section></section>;
+  return <section>{children}</section>;
 };

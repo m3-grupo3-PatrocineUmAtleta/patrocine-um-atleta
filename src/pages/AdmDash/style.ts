@@ -1,9 +1,15 @@
 import styled from "styled-components";
 
+export const AdmDashStyle = styled.div`
+  background-color: var(--color-primary-100);
+  width: 100vw;
+  height: 100vh;
+`;
+
 export const StyledAdmDash = styled.div`
   background-color: var(--color-primary-100);
   position: relative;
-  height: 450px;
+  height: 294px;
   display: flex;
   align-items: center;
   justify-content: center;

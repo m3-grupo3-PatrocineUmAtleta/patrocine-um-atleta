@@ -22,7 +22,11 @@ export const StyledHeader = styled.header`
     right: 10px;
     padding: 12px 16px;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    color: var(--color-gray-0);
   }
+
   .dropBoxUserDesktop {
     display: none;
     align-items: center;
@@ -79,6 +83,12 @@ export const StyledHeader = styled.header`
       top: 10px;
       left: 10px;
     }
+  }
+  .backPage {
+    color: var(--color-gray-0);
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
   }
   .showMobile {
     display: flex;
