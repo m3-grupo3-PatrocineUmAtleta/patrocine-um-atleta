@@ -75,12 +75,6 @@ export interface iMedias {
   twitter?: string;
 }
 
-interface iDonation {
-  amount: number;
-  athlete: iAthlete;
-  institution: iInstitution;
-}
-
 export interface iDeposition {
   author: iUser;
   content: string;
@@ -148,4 +142,10 @@ export interface iAthleteEdit {
   donations?: iDonation[];
   depositions?: iDeposition[];
   userId: string;
+}
+
+interface iDonation {
+  amount: number;
+  athlete: iAthlete;
+  institution: iInstitution;
 }
