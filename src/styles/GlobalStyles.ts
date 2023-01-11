@@ -38,6 +38,28 @@ const GlobalStyles = createGlobalStyle`
     cursor: pointer;
     border: none;
   }
+
+  ::-webkit-scrollbar {
+    appearance: none;
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-secundary-50);
+    /* border: 1px solid var(--color-secundary-50); */
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.60);
+
+    &:hover {
+      background-color: #f26546;
+    }
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: var(--color-primary-10);
+    box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.60);
+  }
 `;
 
 export default GlobalStyles;

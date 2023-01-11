@@ -37,7 +37,10 @@ export const FieldsetInput = styled.fieldset<iInputText>`
   & > textarea {
     max-width: 276px;
     width: 100%;
+    height: 100px;
     border-radius: 4px;
+    resize: none;
+    outline: none;
   }
 
   & > input {
