@@ -16,7 +16,7 @@ import {
 export const UserContext = createContext({} as iContext);
 
 export const UserProvider = ({ children }: iProviderProps) => {
-  const [user, setUser] = useState<iUser | null>(null);
+  const [user, setUser] = useState<iUser>();
   const [isLoading, setIsLoading] = useState(false);
   const [buttonValue, setButtonValue] = useState("Perfil");
   const [athletes, setAthletes] = useState([] as iAthlete[]);

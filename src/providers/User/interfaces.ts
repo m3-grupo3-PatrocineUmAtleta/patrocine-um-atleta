@@ -53,11 +53,12 @@ export interface iTournament {
   name: string;
   location: string;
   date: string;
-  status: "Vitória" | "Derrota" | "Empate";
+  status: "Ongoing" | "Finished";
   participants: iAthlete[];
   rewards: string;
   imgUrl?: string;
   place?: string;
+  id: number;
 }
 
 export interface iInstitution {
