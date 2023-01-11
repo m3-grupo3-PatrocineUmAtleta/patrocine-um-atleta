@@ -1,19 +1,19 @@
-import { ButtonsSidebar } from "../ButtonsSidebar";
-import { HistoryCard } from "../HistoryCard";
+import { ButtonsSidebar } from "../../components/ButtonsSidebar";
+import { HistoryCard } from "../../components/HistoryCard";
 import { StyledContainer } from "../../styles/Container";
 import { StyledUserDash } from "./style";
 import perfilIcon from "./../../assets/img/perfilIcon.png";
 import todosAtletasIcon from "./../../assets/img/todosAtletasIcon.png";
 import favIcon from "./../../assets/img/favIcon.png";
 import patrocinadosIcon from "./../../assets/img/patrocinadosIcon.png";
-import { AthleteCard } from "../AthleteCard";
-import { Header } from "../Header";
+import { AthleteCard } from "../../components/AthleteCard";
+import { Header } from "../../components/Header";
 import { getUserLogged } from "../../services/getUserLogged";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../providers/User";
-import { RenderContainerSection } from "../RenderContainerSection";
-import { RenderContentSection } from "../RenderContentSection";
-import { ModalWrapper } from "../Modal";
+import { RenderContainerSection } from "../../components/RenderContainerSection";
+import { RenderContentSection } from "../../components/RenderContentSection";
+import { ModalWrapper } from "../../components/Modal";
 
 export const UserDash = () => {
   const { sponsored, setSponsored, openModal, settingsModal, selectedAtlhete } =

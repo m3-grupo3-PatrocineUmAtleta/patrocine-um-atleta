@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { UserContext } from "../../providers/User";
-import { ButtonsSidebar } from "../ButtonsSidebar";
-import { Header } from "../Header";
+import { ButtonsSidebar } from "../../components/ButtonsSidebar";
+import { Header } from "../../components/Header";
 import {
   AdmDashStyle,
   StyledAdmDash,
@@ -13,12 +13,12 @@ import infoImg from "../../assets/img/admDash/asideButtonInfo.png";
 import tournamentImg from "../../assets/img/admDash/asideButtonTournament.png";
 import athletesImg from "../../assets/img/admDash/asideButtonAthlete.png";
 import registerImg from "../../assets/img/admDash/asideButtonEdit.png";
-import { RenderContentSection } from "../RenderContentSection";
-import { ModalWrapper } from "../Modal";
-import { RenderContainerSection } from "../RenderContainerSection";
+import { RenderContentSection } from "../../components/RenderContentSection";
+import { ModalWrapper } from "../../components/Modal";
+import { RenderContainerSection } from "../../components/RenderContainerSection";
 import { getAllAthletes } from "../../services/getAllAthletes";
-import { BottomSectionPage } from "../BottomSectionPage";
-import { SideBarButtons } from "../SideBarButtons";
+import { BottomSectionPage } from "../../components/BottomSectionPage";
+import { SideBarButtons } from "../../components/SideBarButtons";
 
 export const AdmDash = () => {
   const {
