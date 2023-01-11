@@ -5,7 +5,6 @@ export const BottomSectionStyle = styled.div`
   margin-top: 57px;
   width: 100vw;
   position: absolute;
-  bottom: -96px;
 
   & > :nth-child(1) {
     display: flex;
