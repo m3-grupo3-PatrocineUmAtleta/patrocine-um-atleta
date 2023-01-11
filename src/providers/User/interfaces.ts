@@ -68,10 +68,10 @@ export interface iTournament {
 
 export interface iInstitution {
   name?: string;
-  aboutUs?: string;
-  location?: string;
+  bio?: string;
+  city?: string;
   image?: string;
-  tournamentsInfo?: number;
+  tournaments?: iTournament[];
 }
 
 export interface iMedias {
