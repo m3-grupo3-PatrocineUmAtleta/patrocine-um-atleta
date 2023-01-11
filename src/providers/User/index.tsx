@@ -39,14 +39,21 @@ export const UserProvider = ({ children }: iProviderProps) => {
   };
 
   const loginUser = async (data: iUserLogin) => {
-    const response = await UserLogin(data);
+    try {
+      setIsLoading(true);
+      const response = await UserLogin(data);
 
-    if (response !== undefined) {
-      setUser(response);
+      if (response !== undefined) {
+        setUser(response);
 
-      setTimeout(() => {
-        navigate("/dashboard");
-      }, 2000);
+        setTimeout(() => {
+          navigate("/dashboard");
+        }, 2000);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
