@@ -1,6 +1,5 @@
 import { useContext, useEffect } from "react";
 import { UserContext } from "../../../../providers/User";
-import { iAthlete } from "../../../../providers/User/interfaces";
 import { getAllAthletes } from "../../../../services/getAllAthletes";
 import { AthleteCard } from "../../../AthleteCard";
 import { StyledUlAthlete } from "./styles";

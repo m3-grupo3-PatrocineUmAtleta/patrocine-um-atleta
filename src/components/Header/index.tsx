@@ -50,7 +50,6 @@ export const Header = ({ isHome }: iHeaderProps) => {
         athlete.city.toLowerCase().includes(valueDefault)
       );
     });
-    console.log(filter);
     setFilterAthletes(filter);
     value === "" && setFilterAthletes([]);
   };

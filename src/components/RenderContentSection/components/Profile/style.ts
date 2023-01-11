@@ -27,7 +27,7 @@ export const DivProfile = styled.div`
     }
 
     & > div.dados2 {
-      width: 390px;
+      max-width: 390px;
       display: flex;
       flex-direction: column;
       gap: 16px;

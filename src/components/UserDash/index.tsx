@@ -26,6 +26,8 @@ export const UserDash = () => {
     getSpon();
   }, []);
 
+  //comentarios
+
   return (
     <StyledUserDash>
       {openModal && (
@@ -53,7 +55,9 @@ export const UserDash = () => {
                 .reverse()
                 .slice(0, 3)
             ) : (
-              <h1>Você ainda não patrocinou nenhum atleta</h1>
+              <li className="headline gray-0 text-center">
+                Você ainda não patrocinou nenhum atleta
+              </li>
             )}
           </ul>
 
@@ -76,10 +80,13 @@ export const UserDash = () => {
                 .reverse()
                 .slice(0, 3)
             ) : (
-              <h1>Você ainda não patrocinou nenhum atleta</h1>
+              <li className="headline gray-0 center">
+                Você ainda não patrocinou nenhum atleta
+              </li>
             )}
           </ul>
         </section>
+
         {/* <section className="render-buttons"></section> */}
         <RenderContainerSection size="700px">
           <RenderContentSection />

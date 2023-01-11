@@ -8,7 +8,6 @@ export const StyledUserDash = styled.div`
     & > img {
       display: none;
     }
-   
   }
   .container {
     width: 100%;
@@ -18,17 +17,17 @@ export const StyledUserDash = styled.div`
     padding: 16px;
     min-height: 85vh;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 16px;
   }
   .donations-history {
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    /* width: 100%; */
+    /* height: fit-content; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: flex-start; */
+    /* align-items: center; */
     border: 1px solid var(--color-gray-0);
+    display: block;
+
     & > h2 {
       border-bottom: 1px solid var(--color-gray-0);
       width: 100%;
@@ -67,7 +66,7 @@ export const StyledUserDash = styled.div`
       padding: 10px;
       display: flex;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: center;
       gap: 10px;
       background-color: var(--color-gray-0);
       & > li {
@@ -115,13 +114,14 @@ export const StyledUserDash = styled.div`
       height: 320px;
       border-radius: 8px;
     }
+
     .ul-mobile {
       display: none;
     }
     .ul-desktop {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-around;
       gap: 16px;
       height: 280px;
       & > li {
@@ -136,20 +136,21 @@ export const StyledUserDash = styled.div`
     }
     .sidebar {
       position: absolute;
-      right: 475px;
-      bottom: 50px;
+      left: 475px;
+      bottom: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
       & > ul {
-        width: 100%;
-        overflow-x: scroll;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
+        width: 200px;
+        height: fit-content;
+        overflow-x: hidden;
         gap: 16px;
-        background-color: var(--color-gray-0);
+        background-color: white;
+        display: grid;
+        grid-template-columns: auto auto;
         & > li {
+          min-width: 50px;
           scale: 0.8;
           & > button {
             border-radius: 10px;
@@ -180,55 +181,6 @@ export const StyledUserDash = styled.div`
                 color: rgba(0, 0, 0, 1);
               }
             }
-          }
-        }
-      }
-    }
-    @media (min-width: 750px) {
-      .bg-blue {
-        height: 70vh;
-      }
-      .container {
-        height: fit-content;
-      }
-      .donations-history {
-        width: 700px;
-        height: 320px;
-        border-radius: 8px;
-      }
-      .ul-mobile {
-        display: none;
-      }
-      .ul-desktop {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        height: 280px;
-        & > li {
-          scale: 0.8;
-          width: 180px;
-          border: 1px solid var(--color-gray-0);
-        }
-      }
-      .render-buttons {
-        width: 700px;
-        height: 350px;
-      }
-      .sidebar {
-        position: absolute;
-        right: 475px;
-        bottom: 50px;
-        & > ul {
-          width: 200px;
-          height: fit-content;
-          overflow-x: hidden;
-          /* flex-wrap: wrap;
-              justify-content: center; */
-          background-color: white;
-          display: grid;
-          grid-template-columns: auto auto;
-          & > li {
-            min-width: 50px;
           }
         }
       }

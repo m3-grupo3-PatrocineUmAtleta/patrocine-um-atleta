@@ -13,7 +13,7 @@ interface iModalProps {
   select?: number | null;
 }
 
-export const ModalWrapper = ({ typeModal, select }: iModalProps) => {
+export const ModalWrapper = ({ typeModal }: iModalProps) => {
   const { setIsOpenModal, selectedAtlhete } = useContext(UserContext);
 
   const handleClick = () => {
