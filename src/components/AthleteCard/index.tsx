@@ -96,11 +96,12 @@ export const AthleteCard = ({
         ) : (
           <div className="div-icons">
             {isUserDash ? (
+            
               <BiWindowOpen
-                id={athlete_id + ""}
-                className="togo-icon icon"
-                onClick={getAthlete}
-              />
+                  id={athlete_id + ""}
+                  className="togo-icon icon"
+                  onClick={getAthlete} />
+             
             ) : (
               <FaEye className="eye-icon icon" onClick={() => modalOpen()} />
             )}

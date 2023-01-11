@@ -25,11 +25,20 @@ export const StyledAthleteCard = styled.li`
     & > .div-inf {
       transition: 0.2s;
       background-color: var(--color-secundary-100);
+
+      & > .div-icons > .heart-fill {
+        transition: 0.2s;
+        color: var(--color-primary-100);
+      }
     }
 
-    & > .div-img > img {
-      transition: 5s;
-      transform: scale(1.2);
+    & > .div-img {
+      position: relative;
+
+      & > img {
+        transition: 5s;
+        transform: scale(1.2);
+      }
     }
   }
 
@@ -68,7 +77,7 @@ export const StyledAthleteCard = styled.li`
     h4 {
       color: var(--color-gray-0);
     }
-    .value{
+    .value {
       margin-top: 16px;
     }
 
