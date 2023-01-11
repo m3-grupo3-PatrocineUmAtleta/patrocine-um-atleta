@@ -1,4 +1,4 @@
-import { StyledContainer } from "../../../styles/Container";
+import { StyledContainer } from "../../styles/Container";
 import { SideBarButtonsStyle } from "./style";
 
 interface iSideBarButtonsProps {

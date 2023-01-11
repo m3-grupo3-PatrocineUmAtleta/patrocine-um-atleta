@@ -1,14 +1,13 @@
-import { useContext } from "react";
-import { UserContext } from "../providers/User";
 import { iAthlete } from "../providers/User/interfaces";
 import { api } from "./api";
 
-export const getAthletesById = async (id: number): Promise<any> => {
-  const { setAthletes } = useContext(UserContext);
-
+export const getAthletesById = async (
+  id: number | string
+): Promise<iAthlete | undefined> => {
   try {
-    const reponse: iAthlete[] = await api.get(`/athlete/${id}`);
-    setAthletes(reponse);
+    const { data } = await api.get(`/athlete/${id}`);
+    localStorage.setItem("@SelectedAthlete", JSON.stringify(data));
+    return data;
   } catch (error) {
     console.log(error);
   }

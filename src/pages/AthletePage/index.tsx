@@ -15,16 +15,13 @@ import { useContext, useEffect } from "react";
 import { UserContext } from "../../providers/User";
 import { RenderContentSection } from "../../components/RenderContentSection";
 import { ModalWrapper } from "../../components/Modal";
-import { SideBarButtons } from "../../components/RenderContentSection/SideBarButtons";
+import { SideBarButtons } from "../../components/SideBarButtons";
 
 export const AthletePage = () => {
-  const { buttonValue, user, openModal, settingsModal, athlete } =
-    useContext(UserContext);
-
-  //Deixei o console Log no botão para o Andrew verificar o objeto athlete
-  useEffect(() => {
-    console.log(athlete);
-  }, [buttonValue]);
+  const { buttonValue, openModal, settingsModal } = useContext(UserContext);
+  const storageAthlete: any = localStorage.getItem("@SelectedAthlete");
+  const athlete = JSON.parse(storageAthlete);
+  useEffect(() => {}, [buttonValue]);
   return (
     <>
       {openModal && <ModalWrapper typeModal={settingsModal} />}
@@ -32,7 +29,7 @@ export const AthletePage = () => {
         <Header isHome={false} />
         <StyledContainer>
           <section className="sectionTournament">
-            <EmblemCard imgUrl="" nickname="Joseph" />
+            <EmblemCard imgUrl="" nickname={athlete.nickname} />
             <ul>
               <TournamentCard
                 date="9 jun 2023"
