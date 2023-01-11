@@ -59,4 +59,32 @@ export const ModalBackground = styled.div`
       }
     }
   }
+
+  .divButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 90px;
+
+    @media (min-width: 750px) {
+      flex-direction: row;
+    }
+
+    button {
+      max-width: 240px;
+      width: 100%;
+      height: 44.93px;
+      background: var(--color-secundary-100);
+
+      border: none;
+      border-radius: 8px;
+      color: var(--color-gray-0);
+
+      @media (min-width: 750px) {
+        gap: 63.74px;
+        justify-content: space-evenly;
+      }
+    }
+  }
 `;

@@ -17,7 +17,6 @@ export const RenderContentSection = () => {
   const { buttonValue, user } = useContext(UserContext);
   const storageAthlete: any = localStorage.getItem("@SelectedAthlete");
   const athlete = JSON.parse(storageAthlete);
-  console.log(athlete.medias);
 
   if (user?.isAdmin === false) {
     if (buttonValue === "Perfil") {
@@ -41,7 +40,7 @@ export const RenderContentSection = () => {
     return <Infos />;
   }
   if (buttonValue === "Torneios") {
-    return <Tournaments tournamentsList={[]} />;
+    return <Tournaments />;
   }
   if (buttonValue === "Atletas") {
     return <Athletes />;
