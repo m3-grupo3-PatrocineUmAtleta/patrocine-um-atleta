@@ -109,13 +109,7 @@ export const Header = ({ isHome }: iHeaderProps) => {
             <div className="dropBoxUserDesktop">
               <h2 className="title-2 gray-0">{user?.name}</h2>
 
-              <div className="boxBack">
-                <BiArrowBack
-                  className="backPage"
-                  onClick={() => navigate(-1)}
-                />
-                <p>Voltar</p>
-              </div>
+              <BiArrowBack className="backPage" onClick={() => navigate(-1)} />
 
               <button onClick={() => logoutHandle()}>
                 <img src={logoutButton}></img>
@@ -134,12 +128,17 @@ export const Header = ({ isHome }: iHeaderProps) => {
         )}
         {openLogout && (
           <div className="dropBoxUser">
-            <BiArrowBack className="backPage" onClick={() => navigate(-1)} />
-            <h2 className="title-2 gray-0">{user?.name}</h2>
+            <div>
+              <BiArrowBack className="backPage" onClick={() => navigate(-1)} />
+              <p>Voltar</p>
+            </div>
+            <div>
+              <h2 className="title-2 gray-0">{user?.name}</h2>
 
-            <button onClick={() => logoutHandle()}>
-              <img src={logoutButton}></img>
-            </button>
+              <button onClick={() => logoutHandle()}>
+                <img src={logoutButton}></img>
+              </button>
+            </div>
           </div>
         )}
       </StyledContainer>

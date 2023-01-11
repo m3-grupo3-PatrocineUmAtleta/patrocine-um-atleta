@@ -22,18 +22,11 @@ export const StyledHeader = styled.header`
     right: 10px;
     padding: 12px 16px;
     border-radius: 8px;
-  }
-  .boxBack {
     display: flex;
     flex-direction: column;
     color: var(--color-gray-0);
-    align-items: center;
-    justify-content: center;
-    height: max-content;
-    p {
-      font-size: 10px;
-    }
   }
+
   .dropBoxUserDesktop {
     display: none;
     align-items: center;
