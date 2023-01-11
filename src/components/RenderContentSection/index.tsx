@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { UserContext } from "../../providers/User";
-import { AllAthletes } from "./components/AllAthletes/AllAthletes";
 import { AthleteRegister } from "./components/AthleteRegister/AthleteRegister";
 import { Athletes } from "./components/Athletes/Athletes";
 import { Bio } from "./components/Bio";
@@ -14,11 +13,7 @@ import { Profile } from "./components/Profile/Profile";
 import { Sponsored } from "./components/Sponsored";
 import { Tournaments } from "./components/Tournaments/Tournaments";
 
-interface iContentSectionProps {
-  children?: React.ReactNode;
-}
-
-export const RenderContentSection = ({ children }: iContentSectionProps) => {
+export const RenderContentSection = () => {
   const { buttonValue, user } = useContext(UserContext);
   const storageAthlete: any = localStorage.getItem("@SelectedAthlete");
   const athlete = JSON.parse(storageAthlete);
@@ -29,7 +24,7 @@ export const RenderContentSection = ({ children }: iContentSectionProps) => {
       return <Profile />;
     }
     if (buttonValue === "Todos atletas") {
-      return <AllAthletes />;
+      return <Athletes />;
     }
     if (buttonValue === "Favoritos") {
       return <Favourites favourites={[]} />;
@@ -85,5 +80,5 @@ export const RenderContentSection = ({ children }: iContentSectionProps) => {
     return <Donations />;
   }
 
-  return <section>{children}</section>;
+  return <section></section>;
 };

@@ -104,23 +104,7 @@ export const AdmDash = () => {
         </StyledAdmDash>
         <BottomSectionPage>
           <RenderContainerSection size="810px">
-            <RenderContentSection>
-              {filterAthletes.length > 0 &&
-                filterAthletes.map((athlete) => {
-                  return (
-                    <AthleteCard
-                      athlete_id={athlete.id}
-                      img={athlete.imgUrl}
-                      name={athlete.name}
-                      age={athlete.age}
-                      city={athlete.city}
-                      bio={athlete.bio}
-                      isAdmin={false}
-                      key={athlete.id}
-                    />
-                  );
-                })}
-            </RenderContentSection>
+            <RenderContentSection></RenderContentSection>
           </RenderContainerSection>
           <SideBarButtons>
             <ButtonsSidebar text="Perfil" img={perfilImg}></ButtonsSidebar>

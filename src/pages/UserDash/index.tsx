@@ -18,8 +18,14 @@ import { BottomSectionPage } from "../../components/BottomSectionPage";
 import { SideBarButtons } from "../../components/SideBarButtons";
 
 export const UserDash = () => {
-  const { sponsored, setSponsored, openModal, settingsModal, selectedAtlhete } =
-    useContext(UserContext);
+  const {
+    filterAthletes,
+    sponsored,
+    setSponsored,
+    openModal,
+    settingsModal,
+    selectedAtlhete,
+  } = useContext(UserContext);
 
   useEffect(() => {
     const getSpon = async () => {
@@ -93,7 +99,7 @@ export const UserDash = () => {
       </StyledContainer>
       <BottomSectionPage>
         <RenderContainerSection size="700px">
-          <RenderContentSection />
+          <RenderContentSection></RenderContentSection>
         </RenderContainerSection>
         <SideBarButtons>
           <ButtonsSidebar text={"Profile"} img={perfilIcon} />
