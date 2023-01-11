@@ -53,7 +53,7 @@ export interface iTournament {
   name: string;
   location: string;
   date: string;
-  status: "Vitória" | "Derrota" | "Empate";
+  status: "Vitória" | "Participando";
   participants: iAthlete[];
   rewards: string;
   imgUrl?: string;
