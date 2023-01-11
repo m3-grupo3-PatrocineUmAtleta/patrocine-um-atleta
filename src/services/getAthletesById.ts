@@ -7,8 +7,9 @@ export const getAthletesById = async (id: number): Promise<any> => {
   const { setAthletes } = useContext(UserContext);
 
   try {
-    const reponse: iAthlete[] = await api.get(`/athlete/${id}`);
-    setAthletes(reponse);
+    const response: iAthlete[] = await api.get(`/athlete/${id}`);
+    console.log(response);
+    setAthletes(response);
   } catch (error) {
     console.log(error);
   }

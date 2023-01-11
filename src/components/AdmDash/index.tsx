@@ -83,7 +83,7 @@ export const AdmDash = () => {
                     return (
                       <li key={athlete.id}>
                         <StyledInfoHistory>
-                          {donation?.athlete.name}
+                          {donation?.athlete?.name}
                         </StyledInfoHistory>
                         <StyledInfoHistory>
                           {donation?.amount}

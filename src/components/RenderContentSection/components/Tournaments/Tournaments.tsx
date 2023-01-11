@@ -14,6 +14,10 @@ export const Tournaments = ({ tournamentsList }: iAthleteTournaments) => {
     <DivTournaments>
       {user?.isAdmin ? (
         <>
+          <h2>Torneios</h2>
+        </>
+      ) : (
+        <>
           {" "}
           <h2>Torneios em que o atleta participou:</h2>
           <ul>
@@ -33,8 +37,6 @@ export const Tournaments = ({ tournamentsList }: iAthleteTournaments) => {
             )}
           </ul>
         </>
-      ) : (
-        <h2>Torneios</h2>
       )}
     </DivTournaments>
   );
