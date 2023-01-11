@@ -34,8 +34,8 @@ export interface iUser {
   name: string;
   cpf?: number;
   cnpj?: string;
-  age?: string;
-  image?: string;
+  dateOfBirth?: string;
+  imgUrl?: string;
   bio: string;
   street: string;
   city: string;
@@ -47,7 +47,6 @@ export interface iUser {
   isAdmin?: boolean;
   id?: number;
   tournaments?: iTournament[];
-
 }
 
 export interface iTournament {

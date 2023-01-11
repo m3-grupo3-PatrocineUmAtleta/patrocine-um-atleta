@@ -70,6 +70,9 @@ export const AthletePageStyle = styled.div`
         justify-content: flex-start;
         gap: 75px;
         & > :nth-child(2) {
+          width: 100%;
+          max-width: 750px;
+          justify-content: center;
           gap: 18px;
         }
       }

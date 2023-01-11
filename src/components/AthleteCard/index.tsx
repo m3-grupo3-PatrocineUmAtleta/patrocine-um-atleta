@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { UserContext } from "../../providers/User";
 import { ModalWrapper } from "../Modal";
 import { useNavigate } from "react-router-dom";
+import { getAthletesById } from "../../services/getAthletesById";
 
 interface iCardProps {
   athlete_id: number | string;
@@ -30,12 +31,8 @@ export const AthleteCard = ({
   isAdmin,
   isUserDash,
 }: iCardProps) => {
-  const {
-    setIsOpenModal,
-    setSelectedAtlhete,
-    setSettingsModal,
-    gotoAthletePage,
-  } = useContext(UserContext);
+  const { setIsOpenModal, setSelectedAtlhete, setSettingsModal } =
+    useContext(UserContext);
   const navigate = useNavigate();
 
   const modalOpen = () => {
@@ -54,6 +51,11 @@ export const AthleteCard = ({
     navigate(`/athletePage/${athlete_id}`);
   };
 
+  const getAthlete = async () => {
+    const atlhetePerfil = await getAthletesById(athlete_id);
+    navigate("/athletepage");
+  };
+
   const dataAtual = new Date();
   const getYear = dataAtual.getFullYear();
   const setAge = getYear - Number(age?.toString().slice(0, 4));
@@ -65,20 +67,24 @@ export const AthleteCard = ({
       </div>
       <div className="div-inf">
         <h3 className="title-3">{name?.slice(0, 14)}</h3>
-       
+
         {isUserDash ? (
-          <h3 className="title-3 value" >{value?.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</h3>
-        ):
-        (
+          <h3 className="title-3 value">
+            {value?.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </h3>
+        ) : (
           <>
-            <h4 className="title-4">{setAge} anos</h4><div className="div-local">
+            <h4 className="title-4">{setAge} anos</h4>
+            <div className="div-local">
               <GoLocation className="local-icon" />
               <span className="headline">{city}</span>
-              </div>
-          </>)
-        }
-        
-        
+            </div>
+          </>
+        )}
+
         {isAdmin ? (
           <div className="div-icons">
             <FaEye className="eye-icon icon" onClick={() => pgAthlete()} />
@@ -97,7 +103,7 @@ export const AthleteCard = ({
               <BiWindowOpen
                 id={athlete_id + ""}
                 className="togo-icon icon"
-                onClick={gotoAthletePage}
+                onClick={getAthlete}
               />
             ) : (
               <FaEye className="eye-icon icon" onClick={() => modalOpen()} />

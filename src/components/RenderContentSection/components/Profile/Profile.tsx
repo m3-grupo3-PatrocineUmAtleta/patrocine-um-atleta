@@ -31,9 +31,11 @@ export const Profile = () => {
               </p>
             </div>
             <div className="site">
-              <p className="body">
-                <strong>Site</strong>: {user?.site ? user.site : "sem site"}
-              </p>
+              {user?.isAdmin && (
+                <p className="body">
+                  <strong>Site</strong> : {user?.site}
+                </p>
+              )}
             </div>
             <div className="bio">
               <p className="body">
@@ -49,9 +51,13 @@ export const Profile = () => {
                 <strong>Endereço</strong>:
               </p>
               <p>{user?.street}</p>
-              <p>{user?.city ? user.city : "não inforamdo"}</p>
-              <p>CEP: {user?.cep ? user.cep : "não informado"}</p>
-              <p>CNPJ: {user?.cnpj}</p>
+              <p>{user?.city}</p>
+              <p>CEP: {user?.cep}</p>
+              {user?.isAdmin ? (
+                <p>CNPJ: {user?.cnpj}</p>
+              ) : (
+                <p>CPF: {user?.cpf}</p>
+              )}
             </div>
 
             <div className="divContacts body">

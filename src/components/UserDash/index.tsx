@@ -13,9 +13,11 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../providers/User";
 import { RenderContainerSection } from "../RenderContainerSection";
 import { RenderContentSection } from "../RenderContentSection";
+import { ModalWrapper } from "../Modal";
 
 export const UserDash = () => {
-  const { sponsored, setSponsored } = useContext(UserContext);
+  const { sponsored, setSponsored, openModal, settingsModal, selectedAtlhete } =
+    useContext(UserContext);
 
   useEffect(() => {
     const getSpon = async () => {
@@ -26,6 +28,9 @@ export const UserDash = () => {
 
   return (
     <StyledUserDash>
+      {openModal && (
+        <ModalWrapper typeModal={settingsModal} select={selectedAtlhete} />
+      )}
       <Header isHome={false} />
       <div className="bg-blue"></div>
       <StyledContainer flex={true} className="container">
@@ -83,7 +88,7 @@ export const UserDash = () => {
         <section className="sidebar">
           <ul>
             <li>
-              <ButtonsSidebar text={"Perfil"} img={perfilIcon} />
+              <ButtonsSidebar text={"Profile"} img={perfilIcon} />
             </li>
             <li>
               <ButtonsSidebar text={"Favoritos"} img={favIcon} />

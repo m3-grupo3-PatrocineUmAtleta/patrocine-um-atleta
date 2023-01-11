@@ -28,6 +28,8 @@ export const ModalBackground = styled.div`
 
     position: relative;
     z-index: 3;
+    max-height: 600px;
+    overflow-y: auto;
 
     & > div {
       display: flex;
