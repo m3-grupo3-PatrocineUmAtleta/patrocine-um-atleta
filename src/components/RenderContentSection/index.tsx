@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { UserContext } from "../../providers/User";
-
 import { AthleteRegister } from "./components/AthleteRegister/AthleteRegister";
 import { Athletes } from "./components/Athletes/Athletes";
 import { Bio } from "./components/Bio";
@@ -16,6 +15,9 @@ import { Tournaments } from "./components/Tournaments/Tournaments";
 
 export const RenderContentSection = () => {
   const { buttonValue, user } = useContext(UserContext);
+  const storageAthlete: any = localStorage.getItem("@SelectedAthlete");
+  const athlete = JSON.parse(storageAthlete);
+  console.log(athlete.medias);
 
   if (user?.isAdmin === false) {
     if (buttonValue === "Perfil") {
@@ -50,19 +52,26 @@ export const RenderContentSection = () => {
   if (buttonValue === "Instituição") {
     return (
       <Institution
-        aboutUs=""
+        aboutUs={user?.bio}
         image=""
-        institutionAthletes={[]}
-        location=""
-        name=""
+        tournamentsInfo={user?.tournaments?.length}
+        location={user?.city}
+        name={user?.name}
       />
     );
   }
   if (buttonValue === "Mídias") {
-    return <Medias />;
+    return (
+      <Medias
+        image=""
+        facebook={athlete.medias.facebook}
+        instagram={athlete.medias.instagram}
+        twitter={athlete.medias.twitter}
+      />
+    );
   }
   if (buttonValue === "Bio") {
-    return <Bio bio="" city="" />;
+    return <Bio bio={athlete.bio} city={athlete.city} />;
   }
   if (buttonValue === "Depoimentos") {
     return <Depositions depositionList={[]} />;
