@@ -13,7 +13,7 @@ export const ContainerRenderStyle = styled.section<iRenderContainerProps>`
   border-radius: 17px;
   margin-top: 10px;
   position: relative;
-  top: -30px;
+  bottom: 30px;
   ::-webkit-scrollbar {
     appearance: none;
   }
