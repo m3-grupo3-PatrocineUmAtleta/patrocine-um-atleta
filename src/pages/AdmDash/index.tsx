@@ -19,6 +19,7 @@ import { RenderContainerSection } from "../../components/RenderContainerSection"
 import { getAllAthletes } from "../../services/getAllAthletes";
 import { BottomSectionPage } from "../../components/BottomSectionPage";
 import { SideBarButtons } from "../../components/SideBarButtons";
+import { AthleteCard } from "../../components/AthleteCard";
 
 export const AdmDash = () => {
   const {
@@ -29,6 +30,7 @@ export const AdmDash = () => {
     openModal,
     settingsModal,
     selectedAtlhete,
+    filterAthletes,
   } = useContext(UserContext);
 
   const getAthletes = async () => {
@@ -102,7 +104,23 @@ export const AdmDash = () => {
         </StyledAdmDash>
         <BottomSectionPage>
           <RenderContainerSection size="810px">
-            <RenderContentSection />
+            <RenderContentSection>
+              {filterAthletes.length > 0 &&
+                filterAthletes.map((athlete) => {
+                  return (
+                    <AthleteCard
+                      athlete_id={athlete.id}
+                      img={athlete.imgUrl}
+                      name={athlete.name}
+                      age={athlete.age}
+                      city={athlete.city}
+                      bio={athlete.bio}
+                      isAdmin={false}
+                      key={athlete.id}
+                    />
+                  );
+                })}
+            </RenderContentSection>
           </RenderContainerSection>
           <SideBarButtons>
             <ButtonsSidebar text="Perfil" img={perfilImg}></ButtonsSidebar>

@@ -15,7 +15,11 @@ import { Profile } from "./components/Profile/Profile";
 import { Sponsored } from "./components/Sponsored";
 import { Tournaments } from "./components/Tournaments/Tournaments";
 
-export const RenderContentSection = () => {
+interface iContentSectionProps {
+  children?: React.ReactNode;
+}
+
+export const RenderContentSection = ({ children }: iContentSectionProps) => {
   const { buttonValue, user } = useContext(UserContext);
 
   if (user?.isAdmin === false) {
@@ -72,5 +76,5 @@ export const RenderContentSection = () => {
     return <Donations />;
   }
 
-  return <section></section>;
+  return <section>{children}</section>;
 };
