@@ -74,7 +74,7 @@ export const Header = ({ isHome }: iHeaderProps) => {
             </div>
             <div className="showDesktop">
               <nav>
-                <Link to={"/"}>Home</Link>
+                <a href={"#topHome"}>Home</a>
                 <Link to={"/"}>Sobre</Link>
                 <Link to={"/"}>Instituição</Link>
               </nav>
