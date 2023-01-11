@@ -102,10 +102,10 @@ export const UserDash = () => {
           <RenderContentSection></RenderContentSection>
         </RenderContainerSection>
         <SideBarButtons>
-          <ButtonsSidebar text={"Profile"} img={perfilIcon} />
+          <ButtonsSidebar text={"Perfil"} img={perfilIcon} />
           <ButtonsSidebar text={"Favoritos"} img={favIcon} />
           <ButtonsSidebar text={"Patrocinados"} img={patrocinadosIcon} />
-          <ButtonsSidebar text={"Todos atletas"} img={todosAtletasIcon} />
+          <ButtonsSidebar text={"Atletas"} img={todosAtletasIcon} />
         </SideBarButtons>
       </BottomSectionPage>
     </StyledUserDash>
