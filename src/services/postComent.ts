@@ -1,8 +1,6 @@
 import { AxiosError } from "axios";
 import { ToastSucess, ToastError } from "../components/Toast";
 import { api } from "./api";
-import { useContext } from "react";
-import { UserContext } from "../providers/User";
 
 export interface iDataDeposition {
   athleteId: number;
@@ -20,7 +18,6 @@ export const postDeposition = async ({
   userId,
   localToken,
 }: iPostDepositionProps) => {
-  const { setIsOpenModal } = useContext(UserContext);
   try {
     const response = await api.post(`/users/${userId}/deposition`, data, {
       headers: {
