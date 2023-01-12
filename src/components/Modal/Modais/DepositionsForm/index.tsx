@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 import { useContext, useState } from "react";
+=======
+import { useState, useContext } from "react";
+>>>>>>> Stashed changes
 import { useForm } from "react-hook-form";
 import { UserContext } from "../../../../providers/User";
 import { postDeposition } from "../../../../services/postComent";
@@ -26,9 +30,12 @@ export const DepositionsForm = () => {
     data.content.length
       ? postDeposition({ data, userId, localToken })
       : ToastInfo("Escreva um comentário");
+<<<<<<< Updated upstream
     setTimeout(() => {
       handleCloseModal();
     }, 1500);
+=======
+>>>>>>> Stashed changes
   };
 
   const { register, handleSubmit } = useForm({
@@ -42,7 +49,11 @@ export const DepositionsForm = () => {
         <textarea id="content" {...register("content")} className="headline" />
         <div className="divNameAndButton">
           <button type="submit">Adicionar</button>
+<<<<<<< Updated upstream
           <button onClick={handleCloseModal}>Cancelar</button>
+=======
+          <button onClick={() => setIsOpenModal(false)}>Cancelar</button>
+>>>>>>> Stashed changes
         </div>
       </form>
     </DepositionsStyle>

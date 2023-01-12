@@ -49,7 +49,6 @@ export const Donations = ({ image }: iDonationsProps) => {
   return (
     <DonationsStyle>
       <div className="divTitleDescription">
-        <img src={image} alt="" />
         <h2>Doação para o atleta</h2>
       </div>
       <form onSubmit={handleSubmit(submit)}>
@@ -67,6 +66,7 @@ export const Donations = ({ image }: iDonationsProps) => {
               type="number"
               placeholder="Digite aqui sua doação..."
               className="headline"
+              min={0}
             />
           </div>
         </div>
