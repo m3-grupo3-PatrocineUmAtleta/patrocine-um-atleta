@@ -12,7 +12,7 @@ export const getUserLogged = async (): Promise<iSponsored[] | undefined> => {
       },
     });
 
-    return response.data.sponsoredAthletes;
+    return response.data.sponsored;
   } catch (error) {
     console.log(error);
   }
