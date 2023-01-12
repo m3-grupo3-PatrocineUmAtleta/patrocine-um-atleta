@@ -32,6 +32,16 @@ export const DepositionsStyle = styled.div`
     }
   }
 
+  & > ul {
+    margin-top: 20px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: scroll;
+    padding: 5px 16px;
+  }
+
   @keyframes animShow {
     0% {
       transform: translate(-100px);
