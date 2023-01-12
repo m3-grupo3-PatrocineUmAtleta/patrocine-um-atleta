@@ -35,7 +35,6 @@ export const Depositions = ({ depositionList, image }: iDepositionsProp) => {
         </div>
         <button onClick={handleCLick}>Comentar</button>
       </div>
-<<<<<<< HEAD
         <ul>
           {depositionList?.map((deposition) => (
             <StyledDepositionCard
@@ -46,18 +45,6 @@ export const Depositions = ({ depositionList, image }: iDepositionsProp) => {
             />
           ))}
         </ul>
-=======
-      <ul>
-        {depositionList.map((deposition) => (
-          <StyledDepositionCard
-            content={deposition.content}
-            name={deposition.author.name}
-            id={user?.id}
-            img={user?.imgUrl}
-          />
-        ))}
-      </ul>
->>>>>>> 288063072b043aca1e62af0b1967c14347549d4e
     </DepositionsStyle>
   );
 };
