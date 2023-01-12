@@ -22,6 +22,7 @@ export const AthletePage = () => {
   const {
     openModal,
     settingsModal,
+    buttonValue,
     setButtonValue,
     setContentAllUser,
     contentAllUser,
@@ -75,6 +76,7 @@ export const AthletePage = () => {
             <ButtonsSidebar img={MediaVector} text="Mídias" />
             <ButtonsSidebar img={BioVector} text="Bio" />
             <ButtonsSidebar img={MessageVector} text="Depoimentos" />
+            <ButtonsSidebar img={DonateVector} text={buttonValue} />
             <ButtonsSidebar img={DonateVector} text="Doação" />
           </SideBarButtons>
         </BottomSectionPage>
