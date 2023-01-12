@@ -16,7 +16,7 @@ import { RenderContentSection } from "../../components/RenderContentSection";
 import { ModalWrapper } from "../../components/Modal";
 import { SideBarButtons } from "../../components/SideBarButtons";
 import { BottomSectionPage } from "../../components/BottomSectionPage";
-import { getAllUser } from "../../services/getAllUser";
+import { getAllUser } from "../../services/getUserAdmin";
 
 export const AthletePage = () => {
   const {
