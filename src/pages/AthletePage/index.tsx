@@ -51,6 +51,8 @@ export const AthletePage = () => {
                 {contentAllUser?.tournaments?.map((athleteInfo) => {
                   return (
                     <TournamentCard
+                      key={athleteInfo.id}
+                      tournamentImg={athleteInfo.imgUrl}
                       date={athleteInfo.date}
                       nameTournament={athleteInfo.name}
                       locate={athleteInfo.location}
