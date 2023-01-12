@@ -67,14 +67,17 @@ export const AdmDash = () => {
                 <h3>Torneios</h3>
               </div>
               <ul>
-                {user?.tournaments?.map((tournament) => {
-                  return (
-                    <StyledInfoHistory key={tournament.name}>
-                      <img src={tournament.imgUrl} alt={tournament.name} />
-                      {tournament.name}
-                    </StyledInfoHistory>
-                  );
-                })}
+                {user?.tournaments
+                  ?.map((tournament) => {
+                    return (
+                      <StyledInfoHistory key={tournament.name}>
+                        <img src={tournament.imgUrl} alt={tournament.name} />
+                        {tournament.name}
+                      </StyledInfoHistory>
+                    );
+                  })
+                  .reverse()
+                  .slice(0, 4)}
               </ul>
             </div>
             <div className="divDonations">
@@ -83,21 +86,24 @@ export const AdmDash = () => {
               </div>
               <ul>
                 {listDonations ? (
-                  listDonations.map((donate) => {
-                    return (
-                      <li key={donate.id}>
-                        <StyledInfoHistory>
-                          {
-                            athletes?.find(
-                              (athlete) => athlete.id === donate.athleteId
-                            )?.name
-                          }
-                          {"-"}
-                          {donate.amount}
-                        </StyledInfoHistory>
-                      </li>
-                    );
-                  })
+                  listDonations
+                    .map((donate) => {
+                      return (
+                        <li key={donate.id}>
+                          <StyledInfoHistory>
+                            {
+                              athletes?.find(
+                                (athlete) => athlete.id === donate.athleteId
+                              )?.name
+                            }
+                            {"-"}
+                            {donate.amount}
+                          </StyledInfoHistory>
+                        </li>
+                      );
+                    })
+                    .reverse()
+                    .slice(0, 4)
                 ) : (
                   <StyledInfoHistory>Ainda não há doações</StyledInfoHistory>
                 )}

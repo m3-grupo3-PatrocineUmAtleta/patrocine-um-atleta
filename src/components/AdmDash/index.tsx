@@ -32,7 +32,7 @@ export const AdmDash = () => {
 
   const getAthletes = async () => {
     const getApiAthletes = await getAllAthletes();
-    setAthletes(getApiAthletes);
+    getApiAthletes && setAthletes(getApiAthletes);
   };
 
   useEffect(() => {}, [buttonValue]);
@@ -79,18 +79,14 @@ export const AdmDash = () => {
             <ul>
               {donationsList.length > 0 ? (
                 athletes.map((athlete) => {
-                  return athlete.donates?.map((donation) => {
-                    return (
-                      <li key={athlete.id}>
-                        <StyledInfoHistory>
-                          {donation?.athlete?.name}
-                        </StyledInfoHistory>
-                        <StyledInfoHistory>
-                          {donation?.amount}
-                        </StyledInfoHistory>
-                      </li>
-                    );
-                  });
+                  return athlete.donates?.map((donation) => (
+                    <li key={athlete.id}>
+                      <StyledInfoHistory>
+                        {donation?.athlete?.name}
+                      </StyledInfoHistory>
+                      <StyledInfoHistory>{donation?.amount}</StyledInfoHistory>
+                    </li>
+                  ));
                 })
               ) : (
                 <StyledInfoHistory>Ainda não há doações</StyledInfoHistory>
