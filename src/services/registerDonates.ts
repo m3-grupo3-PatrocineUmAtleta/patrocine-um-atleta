@@ -24,8 +24,7 @@ export const RegisterDonate = async ({
         },
       }
     );
-    console.log(response);
-    ToastSucess("Alteração feita com Sucesso!");
+    ToastSucess("Doação feita com Sucesso!");
   } catch (error) {
     const err = error as AxiosError;
     ToastError("Ops, " + err.response?.data);
