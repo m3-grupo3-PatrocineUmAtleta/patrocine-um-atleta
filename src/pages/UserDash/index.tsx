@@ -6,17 +6,18 @@ import perfilIcon from "./../../assets/img/perfilIcon.png";
 import todosAtletasIcon from "./../../assets/img/todosAtletasIcon.png";
 import favIcon from "./../../assets/img/favIcon.png";
 import patrocinadosIcon from "./../../assets/img/patrocinadosIcon.png";
+import favourite from "./../../assets/img/favourite.svg"
 import { AthleteCard } from "../../components/AthleteCard";
 import { Header } from "../../components/Header";
 import { getUserLogged } from "../../services/getUserLogged";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../providers/User";
 import { RenderContainerSection } from "../../components/RenderContainerSection";
 import { RenderContentSection } from "../../components/RenderContentSection";
 import { ModalWrapper } from "../../components/Modal";
 import { BottomSectionPage } from "../../components/BottomSectionPage";
 import { SideBarButtons } from "../../components/SideBarButtons";
-import { getDonations, iResponseDonates } from "../../services/getDonates";
+
 import { getAllAthletes } from "../../services/getAllAthletes";
 
 export const UserDash = () => {
@@ -24,21 +25,14 @@ export const UserDash = () => {
     athletes,
     setAthletes,
     user,
-    filterAthletes,
     setSponsored,
     openModal,
     settingsModal,
     selectedAtlhete,
+    donationsList,
+    listDonations,
+    setButtonValue,
   } = useContext(UserContext);
-
-  const [listDonations, setListDonations] = useState<
-    iResponseDonates[] | undefined
-  >([]);
-
-  const donationsList = async () => {
-    const list = await getDonations();
-    list && setListDonations(list);
-  };
 
   const getAthle = async () => {
     const allAthletes = await getAllAthletes();
@@ -46,6 +40,8 @@ export const UserDash = () => {
   };
   useEffect(() => {
     getAthle();
+    donationsList()
+    setButtonValue("Perfil")
   }, []);
 
   useEffect(() => {
@@ -147,7 +143,7 @@ export const UserDash = () => {
         </RenderContainerSection>
         <SideBarButtons>
           <ButtonsSidebar text={"Perfil"} img={perfilIcon} />
-          <ButtonsSidebar text={"Favoritos"} img={favIcon} />
+          <ButtonsSidebar text={"Favoritos"} img={favourite} />
           <ButtonsSidebar text={"Patrocinados"} img={patrocinadosIcon} />
           <ButtonsSidebar text={"Atletas"} img={todosAtletasIcon} />
         </SideBarButtons>

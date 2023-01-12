@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAllUsers } from "../../services/getAllUsers";
 import { getDepositions } from "../../services/getDepositions";
+import { getDonations, iResponseDonates } from "../../services/getDonates";
 import { iRegisterDataDonates } from "../../services/registerDonates";
 import { iUserLogin, UserLogin } from "../../services/userLogin";
 import { iRegisterData, UserRegister } from "../../services/userRegister";
@@ -37,6 +38,7 @@ export const UserProvider = ({ children }: iProviderProps) => {
   >([]);
   const [donateData, setDonateData] = useState<iRegisterDataDonates>();
   const [contentAllUser, setContentAllUser] = useState<iUser | undefined>();
+  const [listDonations, setListDonations] = useState<iResponseDonates[] | undefined>([]);
 
   const navigate = useNavigate();
 
@@ -111,6 +113,12 @@ export const UserProvider = ({ children }: iProviderProps) => {
     setFinalyDeps(finalDepositions);
   };
 
+
+  const donationsList = async () => {
+    const list = await getDonations();
+    list && setListDonations(list);
+  };
+
   return (
     <UserContext.Provider
       value={{
@@ -143,6 +151,8 @@ export const UserProvider = ({ children }: iProviderProps) => {
         donateData,
         contentAllUser,
         setContentAllUser,
+        donationsList,
+        listDonations,
       }}
     >
       {children}
