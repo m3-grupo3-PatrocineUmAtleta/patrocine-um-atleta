@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { UserContext } from "../../../../providers/User";
 import { postDeposition } from "../../../../services/postComent";
 import { ToastInfo } from "../../../Toast";
 import { DepositionsStyle } from "./style";
 
-
 export const DepositionsForm = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const { setIsOpenModal } = useContext(UserContext);
 
+  const handleCloseModal = () => {
+    setIsOpenModal(false);
+  };
   const submit = async (data: any) => {
     setIsLoading(!isLoading);
     const storageAthlete: any = localStorage.getItem("@SelectedAthlete");
@@ -15,14 +19,16 @@ export const DepositionsForm = () => {
 
     const athleteId = athlete.id;
     const userId = localStorage.getItem("@UserId");
-    const localToken = localStorage.getItem("@Token")
+    const localToken = localStorage.getItem("@Token");
 
-    data = {...data, athleteId: athleteId}
+    data = { ...data, athleteId: athleteId };
 
-    data.content.length ? 
-    postDeposition({data, userId, localToken})
-    :
-    ToastInfo("Escreva um comentário");
+    data.content.length
+      ? postDeposition({ data, userId, localToken })
+      : ToastInfo("Escreva um comentário");
+    setTimeout(() => {
+      handleCloseModal();
+    }, 1500);
   };
 
   const { register, handleSubmit } = useForm({
@@ -33,14 +39,10 @@ export const DepositionsForm = () => {
     <DepositionsStyle>
       <h3>Insira abaixo seu depoimento: </h3>
       <form onSubmit={handleSubmit(submit)}>
-        <textarea
-          id="content"
-          {...register("content")}
-          className="headline"
-        />
+        <textarea id="content" {...register("content")} className="headline" />
         <div className="divNameAndButton">
           <button type="submit">Adicionar</button>
-          <button>Cancelar</button>
+          <button onClick={handleCloseModal}>Cancelar</button>
         </div>
       </form>
     </DepositionsStyle>
