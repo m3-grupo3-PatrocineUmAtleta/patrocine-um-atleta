@@ -36,7 +36,7 @@ export interface iContext {
   contentAllUser: iUser | undefined;
   setContentAllUser: React.Dispatch<React.SetStateAction<iUser | undefined>>;
   donationsList: () => void;
-  listDonations: iResponseDonates [] | undefined;
+  listDonations: iResponseDonates[] | undefined;
 }
 export interface iProviderProps {
   children: React.ReactNode;
@@ -64,7 +64,7 @@ export interface iTournament {
   name: string;
   location: string;
   date: string;
-  status: "Vitória" | "Participando";
+  status: "Finalizado" | "Participando";
   participants: iparticipants[];
   rewards: string;
   imgUrl?: string;

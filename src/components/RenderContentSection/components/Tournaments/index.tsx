@@ -8,17 +8,18 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { getTournaments } from "../../../../services/getTournaments";
+import { TournamentsEditAPI } from "../../../../services/tournamentsEdit";
 
-interface iTournamentForm {
-  name: string;
-  location: string;
-  date: string;
-  status: "Participando" | "Vitória";
-  participants: string;
-  rewards: string;
+export interface iTournamentForm {
+  name?: string;
+  location?: string;
+  date?: string;
+  status?: "Participando" | "Finalizado";
+  participants?: string;
+  rewards?: string;
   imgUrl?: string;
   place?: string;
-  id: number;
+  id?: number;
 }
 
 const EditTournamentSchema = yup.object().shape({
@@ -52,6 +53,17 @@ export const Tournaments = () => {
     setSettingsModal("tournamentRegister");
   };
 
+  const editTournament = (data: iTournamentForm) => {
+    const id = data.id && data.id;
+    const dataForm = {
+      date: data.date,
+      status: data.status,
+      rewards: data.rewards,
+    };
+
+    TournamentsEditAPI({ idTournament: id, data: dataForm });
+  };
+
   useEffect(() => {
     getTournamentsAPI();
   });
@@ -65,15 +77,15 @@ export const Tournaments = () => {
             <img src={addImg} alt="adicionar" onClick={handleClick} />
           </div>
 
-          <form>
+          <form onSubmit={handleSubmit(editTournament)}>
             <div className="divControler">
               <div>
                 <fieldset className="fieldName">
                   <legend className="caption">Nome do torneio</legend>
                   <select
-                    name="name"
                     id="name"
                     defaultValue="all"
+                    {...register("id")}
                     onChange={(e) =>
                       setTournament(
                         tournaments?.find(
@@ -108,13 +120,26 @@ export const Tournaments = () => {
               </div>
 
               <div>
-                <Input
-                  text="Situação"
-                  type="text"
-                  id="rewards"
-                  defaultValue={tournament?.status}
-                  register={register("status")}
-                />
+                <fieldset className="fieldName">
+                  <legend className="caption">Status</legend>
+                  <select
+                    id="status"
+                    defaultValue={tournament?.status}
+                    {...register("status")}
+                  >
+                    {tournament?.status === "Participando" ? (
+                      <>
+                        <option value="Participando">Participando</option>
+                        <option value="Finalizado">Finalizado</option>
+                      </>
+                    ) : (
+                      <>
+                        <option value="Finalizado">Finalizado</option>
+                        <option value="Participando">Participando</option>
+                      </>
+                    )}
+                  </select>
+                </fieldset>
                 <fieldset className="fieldParticiants ">
                   <legend className="caption">Participantes</legend>
                   <ul>
@@ -133,9 +158,8 @@ export const Tournaments = () => {
                 </fieldset>
               </div>
             </div>
-            <div className="buttons">
-              <button type="submit">Alterar</button>
-            </div>
+
+            <button type="submit">Alterar</button>
           </form>
         </>
       )}
