@@ -8,14 +8,10 @@ import { iUserLogin } from "../../services/userLogin";
 import { Input } from "../../components/Form/Input";
 import { Link } from "react-router-dom";
 import { MainLogin } from "./styles";
+import { ImSpinner9 } from "react-icons/im";
 
 export const Login = () => {
   const { isLoading, setIsLoading, loginUser } = useContext(UserContext);
-
-  //comentarios
-  // const handleClick = () => {
-  //   setIsLoading(!isLoading);
-  // };
 
   const {
     register,
@@ -54,9 +50,15 @@ export const Login = () => {
             valid={isValidating}
             placeholder="Insira a sua senha"
           />
-          <button type="submit" className="headline">
-            Entrar
-          </button>
+          {isLoading ? (
+            <button disabled>
+              <ImSpinner9 size="25px" />
+            </button>
+          ) : (
+            <button type="submit" className="headline">
+              Entrar
+            </button>
+          )}
           <section className="buttons">
             <Link to={"/home"} className="home" />
           </section>

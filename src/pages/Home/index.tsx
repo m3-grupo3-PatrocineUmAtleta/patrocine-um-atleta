@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { ModalWrapper } from "../../components/Modal";
@@ -18,18 +18,26 @@ import phoneIcon from "../../assets/img/phoneIcon.svg";
 import locationIcon from "../../assets/img/locationIcon.svg";
 import { getAllAthletes } from "../../services/getAllAthletes";
 import { AthleteCard } from "../../components/AthleteCard";
+import { getDonations } from "../../services/getDonates";
 
 export const Home = () => {
   const { openModal, athletes, setAthletes, selectedAtlhete } =
     useContext(UserContext);
+  const [donations, setDonations] = useState(Number);
 
   const getAthletes = async () => {
     const athletes = await getAllAthletes();
-    setAthletes(athletes);
+    athletes && setAthletes(athletes);
+  };
+
+  const getNumberDonates = async () => {
+    const list = await getDonations();
+    list && setDonations(list.length);
   };
 
   useEffect(() => {
     getAthletes();
+    getNumberDonates();
   }, []);
 
   return (
@@ -93,11 +101,13 @@ export const Home = () => {
               <div className="reach-info">
                 <div>
                   <img src={peopleIcon} alt="people icon" />
-                  <span className="title-2 gray-0">0 pessoas alcançadas</span>
+                  <span className="title-2 gray-0">
+                    {athletes.length} pessoas alcançadas
+                  </span>
                 </div>
                 <div>
                   <img src={handMoneyIcon} alt="hand with money icon" />
-                  <span className="title-2 gray-0">0 doações </span>
+                  <span className="title-2 gray-0">{donations} doações </span>
                 </div>
                 <div>
                   <img src={handHeartIcon} alt="hand with heart icon" />

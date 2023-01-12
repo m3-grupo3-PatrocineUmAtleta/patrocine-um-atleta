@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const DivProfile = styled.div`
+  animation: animShow 0.5s;
   .uppercase {
     text-transform: uppercase;
   }
@@ -15,10 +16,12 @@ export const DivProfile = styled.div`
   }
 
   & > div.profileControler > div.bodyProfile {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     @media (min-width: 750px) {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
+      flex-direction: row;
+      gap: 81px;
     }
 
     & > div.dados1 {
@@ -43,6 +46,26 @@ export const DivProfile = styled.div`
           align-items: center;
         }
       }
+    }
+  }
+  .bio {
+    max-width: 247px;
+    text-align: justify;
+  }
+
+  @keyframes animShow {
+    0% {
+      transform: translate(-100px);
+      opacity: 0.2;
+    }
+
+    60% {
+      opacity: 0.7;
+    }
+
+    100% {
+      transform: translate(0px);
+      opacity: 1;
     }
   }
 `;

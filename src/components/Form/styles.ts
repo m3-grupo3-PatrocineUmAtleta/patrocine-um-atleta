@@ -46,6 +46,17 @@ export const SectionForm = styled.section`
       font-weight: 600;
     }
 
+    & > .loading {
+      &:disabled {
+        filter: brightness(50%);
+        cursor: wait;
+      }
+
+      > svg {
+        animation: spinnerLoad 1s linear infinite;
+      }
+    }
+
     & > .buttons {
       display: flex;
       justify-content: center;
@@ -80,6 +91,12 @@ export const SectionForm = styled.section`
       & > .buttons {
         margin: 0 auto;
       }
+    }
+  }
+
+  @keyframes spinnerLoad {
+    to {
+      transform: rotate(360deg);
     }
   }
 `;

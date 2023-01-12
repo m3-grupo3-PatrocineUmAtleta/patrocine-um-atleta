@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const DivRegisterAthlete = styled.div`
   margin: 0 auto;
+  animation: animShow 0.5s;
+
   & > form {
     margin: 10px auto;
 
@@ -42,6 +44,22 @@ export const DivRegisterAthlete = styled.div`
           gap: 63.74px;
           justify-content: space-evenly;
         }
+      }
+    }
+
+    @keyframes animShow {
+      0% {
+        transform: translate(-100px);
+        opacity: 0.2;
+      }
+
+      60% {
+        opacity: 0.7;
+      }
+
+      100% {
+        transform: translate(0px);
+        opacity: 1;
       }
     }
   }

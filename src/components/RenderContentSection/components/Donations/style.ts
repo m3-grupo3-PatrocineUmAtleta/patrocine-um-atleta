@@ -4,6 +4,7 @@ export const DonationsStyle = styled.div`
   display: flex;
   flex-direction: column;
   gap: 49px;
+  animation: animShow 0.5s;
 
   .divTitleDescription {
     display: flex;
@@ -74,6 +75,22 @@ export const DonationsStyle = styled.div`
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       border-radius: 5px;
       color: #ffff;
+    }
+  }
+
+  @keyframes animShow {
+    0% {
+      transform: translate(-100px);
+      opacity: 0.2;
+    }
+
+    60% {
+      opacity: 0.7;
+    }
+
+    100% {
+      transform: translate(0px);
+      opacity: 1;
     }
   }
 `;
