@@ -17,7 +17,7 @@ export const StyledUserDash = styled.div`
     z-index: 0;
     top: 65px;
     padding: 16px;
-    min-height: 50vh;
+    /* min-height: 50vh; */
     /* flex-direction: column; */
   }
   .donations-history {

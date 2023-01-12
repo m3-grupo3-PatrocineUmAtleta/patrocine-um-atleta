@@ -115,11 +115,12 @@ export const StyledHistory = styled.div`
     justify-content: space-between;
     flex-direction: column;
     padding: 10px 0;
+    gap: 8px;
   }
 `;
 export const StyledInfoHistory = styled.span`
   height: 40px;
-  width: 180px;
+  width: 200px;
   background-color: var(--color-secundary-100);
   border-radius: 32px;
   padding: 0 5px;
@@ -128,6 +129,7 @@ export const StyledInfoHistory = styled.span`
   justify-content: flex-start;
   gap: 16px;
   object-fit: contain;
+  font-size: 0.85rem;
   border: 2px solid var(--color-gray-0);
   img {
     width: 32px;

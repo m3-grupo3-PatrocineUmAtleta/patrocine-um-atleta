@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getAllAthletes } from "../../services/getAllAthletes";
 import { getAllUsers } from "../../services/getAllUsers";
 import { getDepositions } from "../../services/getDepositions";
+import { iRegisterDataDonates } from "../../services/registerDonates";
 import { iUserLogin, UserLogin } from "../../services/userLogin";
 import { iRegisterData, UserRegister } from "../../services/userRegister";
 import {
@@ -31,6 +32,7 @@ export const UserProvider = ({ children }: iProviderProps) => {
   const [sponsored, setSponsored] = useState<iSponsored[] | undefined>([]);
   const [depositions, setDepositions] = useState<iDepositions[] | undefined>([])
   const [finalyDeps, setFinalyDeps] = useState<iDepositionsToEspecifyAthlete[] | undefined>([])
+  const [donateData, setDonateData] = useState<iRegisterDataDonates>();
 
   const navigate = useNavigate();
 
@@ -119,7 +121,9 @@ export const UserProvider = ({ children }: iProviderProps) => {
         athlete,
         depositions,
         createDepositionsList,
-        finalyDeps
+        finalyDeps,
+        setDonateData,
+        donateData,
       }}
     >
       {children}

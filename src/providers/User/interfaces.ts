@@ -1,3 +1,4 @@
+import { iRegisterDataDonates } from "../../services/registerDonates";
 import { iUserLogin } from "../../services/userLogin";
 import { iRegisterData } from "../../services/userRegister";
 
@@ -27,6 +28,10 @@ export interface iContext {
   depositions: iDepositions[] | undefined;
   createDepositionsList: () => void;
   finalyDeps: iDepositionsToEspecifyAthlete[] | undefined;
+  donateData: iRegisterDataDonates | undefined;
+  setDonateData: React.Dispatch<
+    React.SetStateAction<iRegisterDataDonates | undefined>
+  >;
 }
 export interface iProviderProps {
   children: React.ReactNode;
@@ -66,10 +71,10 @@ export interface iTournament {
 
 export interface iInstitution {
   name?: string;
-  aboutUs?: string;
-  location?: string;
+  bio?: string;
+  city?: string;
   image?: string;
-  tournamentsInfo?: number;
+  tournaments?: iTournament[];
 }
 
 export interface iMedias {
@@ -77,12 +82,6 @@ export interface iMedias {
   facebook?: string;
   instagram?: string;
   twitter?: string;
-}
-
-interface iDonation {
-  amount: number;
-  athlete: iAthlete;
-  institution: iInstitution;
 }
 
 export interface iDeposition {
@@ -154,6 +153,12 @@ export interface iAthleteEdit {
   userId: string;
 }
 
+interface iDonation {
+  amount: number;
+  athlete: iAthlete;
+  institution: iInstitution;
+}
+
 export interface iDepositions {
     athleteId: number;
 		content: string;
@@ -167,3 +172,4 @@ export interface iDepositionsToEspecifyAthlete {
   userId: number | undefined; 
   img: string | undefined;
 }
+

@@ -31,8 +31,13 @@ export const AthleteCard = ({
   isAdmin,
   isUserDash,
 }: iCardProps) => {
-  const { setIsOpenModal, setSelectedAtlhete, setSettingsModal, user } =
-    useContext(UserContext);
+  const {
+    setIsOpenModal,
+    setSelectedAtlhete,
+    setSettingsModal,
+    user,
+    setButtonValue,
+  } = useContext(UserContext);
   const navigate = useNavigate();
 
   const modalOpen = () => {
@@ -49,6 +54,7 @@ export const AthleteCard = ({
 
   const getAthlete = async () => {
     const atlhetePerfil = await getAthletesById(athlete_id);
+    setButtonValue("Bio");
     navigate("/athletepage");
   };
 
@@ -96,12 +102,11 @@ export const AthleteCard = ({
         ) : (
           <div className="div-icons">
             {isUserDash ? (
-            
               <BiWindowOpen
-                  id={athlete_id + ""}
-                  className="togo-icon icon"
-                  onClick={getAthlete} />
-             
+                id={athlete_id + ""}
+                className="togo-icon icon"
+                onClick={getAthlete}
+              />
             ) : (
               <FaEye className="eye-icon icon" onClick={() => modalOpen()} />
             )}
