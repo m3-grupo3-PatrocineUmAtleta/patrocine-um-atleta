@@ -16,10 +16,12 @@ export const DivProfile = styled.div`
   }
 
   & > div.profileControler > div.bodyProfile {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     @media (min-width: 750px) {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
+      flex-direction: row;
+      gap: 81px;
     }
 
     & > div.dados1 {
@@ -45,6 +47,10 @@ export const DivProfile = styled.div`
         }
       }
     }
+  }
+  .bio {
+    max-width: 247px;
+    text-align: justify;
   }
 
   @keyframes animShow {
