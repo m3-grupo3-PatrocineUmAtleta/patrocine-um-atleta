@@ -1,6 +1,6 @@
-import { iAthlete, iTournament } from "../../../../UserContext/interfaces";
+import { iAthlete, iTournament } from "../../../../userContext/interfaces";
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../../../UserContext";
+import { UserContext } from "../../../../userContext";
 import { getAllAthletes } from "../../../../services/getAllAthletes";
 import { DivInfos } from "./style";
 import { getDonations } from "../../../../services/getDonates";
@@ -18,7 +18,6 @@ interface iInfosProps {
 export const Infos = ({
   institutionAthletes,
   tournamentsInfo,
-  raisings,
 }: iInfosProps) => {
   const [mostPopular, setMostPopular] = useState({} as iAthlete);
   const [totalDonations, setTotalDonations] = useState<number | undefined>();
@@ -40,12 +39,12 @@ export const Infos = ({
   const findMostPopular = () => {
     institutionAthletes?.forEach((athlete) => {
       const total = athlete.donates?.reduce(
-        (acc, current) => acc + +current.amount,
+        (acc, current) => acc + current.amount,
         0
       );
 
       const currentSum = mostPopular?.donates?.reduce(
-        (acc, current) => acc + +current.amount,
+        (acc, current) => acc + current.amount,
         0
       );
 
@@ -94,7 +93,7 @@ export const Infos = ({
         </div>
         <div>
           <h3>Total de torneios ganhos:</h3>
-          <p>Sua instituição ganhou {tournamentsInfo?.wins} torneios</p>
+          <p>Sua instituição ganhou {tournamentsInfo?.wins || 0} torneios</p>
         </div>
         <div>
           <h3>Total de arrecadações:</h3>

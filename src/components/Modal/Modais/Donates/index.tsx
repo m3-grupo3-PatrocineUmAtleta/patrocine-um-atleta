@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { UserContext } from "../../../../UserContext";
+import { UserContext } from "../../../../userContext";
 import { RegisterDonate } from "../../../../services/registerDonates";
 
 export const DonateConfirmation = () => {

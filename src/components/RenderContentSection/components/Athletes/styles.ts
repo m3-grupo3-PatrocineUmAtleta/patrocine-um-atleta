@@ -5,10 +5,10 @@ export const StyledUlAthlete = styled.ul`
   overflow-x: auto;
   gap: 16px;
   animation: animShow 0.5s;
+  justify-content: center;
 
   @media (min-width: 750px) {
     flex-wrap: wrap;
-    justify-content: center;
   }
 
   @keyframes animShow {

@@ -2,7 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import { UserContext } from "../../../../UserContext";
+import { UserContext } from "../../../../userContext";
 import { AthleteEditAPI } from "../../../../services/athleteEdit";
 import { getAllAthletes } from "../../../../services/getAllAthletes";
 import { Input } from "../../../Form/Input";

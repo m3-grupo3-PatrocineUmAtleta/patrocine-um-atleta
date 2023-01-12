@@ -1,4 +1,4 @@
-import { iTournament } from "../UserContext/interfaces";
+import { iTournament } from "../userContext/interfaces";
 import { api } from "./api";
 
 export const getTournaments = async (): Promise<iTournament[] | undefined> => {

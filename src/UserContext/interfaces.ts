@@ -58,6 +58,7 @@ export interface iUser {
   favorites?: iAthlete[];
   isAdmin?: boolean;
   id?: number;
+  tournaments?: iTournament[];
 }
 
 export interface iTournament {
@@ -95,6 +96,7 @@ export interface iDeposition {
 }
 
 export interface iAthlete {
+  donates: iDonation[];
   id: number;
   name: string;
   nickname: string;
@@ -115,11 +117,6 @@ export interface iAthleteSponsored {
   bio?: string;
   city: string;
   midias?: iMedias;
-}
-
-interface iDonates {
-  user_id: string;
-  value: number;
 }
 
 export interface iSponsored {
@@ -147,7 +144,7 @@ export interface iAthleteEdit {
   userId: string;
 }
 
-interface iDonation {
+export interface iDonation {
   amount: number;
   athlete: iAthlete;
   institution: iInstitution;

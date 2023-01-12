@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { ModalWrapper } from "../../components/Modal";
-import { UserContext } from "../../UserContext";
+import { UserContext } from "../../userContext";
 import { StyledHome } from "./style";
 import { StyledContainer } from "../../styles/Container";
 import LogoSimplesIcon from "../../assets/img/LogoSimplesIcon.svg";
@@ -20,6 +20,7 @@ import { getAllAthletes } from "../../services/getAllAthletes";
 import { AthleteCard } from "../../components/AthleteCard";
 import { getDonations } from "../../services/getDonates";
 import { getAllUsers } from "../../services/getAllUsers";
+import { iUser } from "../../userContext/interfaces";
 
 export const Home = () => {
   const { openModal, athletes, setAthletes, selectedAtlhete } =
@@ -38,7 +39,7 @@ export const Home = () => {
   };
 
   const getDonors = async () => {
-    const count = await getAllUsers();
+    const count = (await getAllUsers()) || ([] as iUser[]);
     setDonors(count.length - 1);
   };
 

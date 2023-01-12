@@ -1,4 +1,4 @@
-import { iUser } from "../UserContext/interfaces";
+import { iUser } from "../userContext/interfaces";
 import { api } from "./api";
 
 export const getAllUser = async (): Promise<iUser | undefined> => {

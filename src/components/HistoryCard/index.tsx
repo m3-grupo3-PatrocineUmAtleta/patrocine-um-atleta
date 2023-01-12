@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { BiWindowOpen } from "react-icons/bi";
-import { UserContext } from "../../UserContext";
+import { UserContext } from "../../userContext";
 import { StyledHistoryCard } from "./style";
 
 interface iHistoriCardProps {

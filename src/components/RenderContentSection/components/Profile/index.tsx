@@ -2,7 +2,7 @@ import phoneImg from "../../../../assets/img/phone.svg";
 import emailImg from "../../../../assets/img/email.svg";
 import editProfileImg from "../../../../assets/img/EditAthletePerfil.svg";
 import { useContext } from "react";
-import { UserContext } from "../../../../UserContext";
+import { UserContext } from "../../../../userContext";
 import { DivProfile } from "./style";
 
 export const Profile = () => {

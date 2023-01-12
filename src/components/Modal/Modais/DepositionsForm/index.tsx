@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { UserContext } from "../../../../UserContext";
+import { UserContext } from "../../../../userContext";
 import { postDeposition } from "../../../../services/postComent";
 import { ToastInfo } from "../../../Toast";
 import { StyledDepositions } from "./style";

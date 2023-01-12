@@ -1,4 +1,4 @@
-import { iAthlete, iUser } from "../UserContext/interfaces";
+import { iAthlete, iUser } from "../userContext/interfaces";
 import { api } from "./api";
 
 export const setFavorites = async (

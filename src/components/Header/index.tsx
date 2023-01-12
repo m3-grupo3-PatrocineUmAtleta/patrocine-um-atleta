@@ -12,7 +12,7 @@ import { BiArrowBack } from "react-icons/bi";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { StyledContainer } from "../../styles/Container";
-import { UserContext } from "../../UserContext";
+import { UserContext } from "../../userContext";
 
 interface iHeaderProps {
   isHome: boolean;

@@ -5,7 +5,7 @@ import { ToastContainer } from "react-toastify";
 import App from "./App";
 import Fonts from "./styles/Fonts";
 import GlobalStyles from "./styles/GlobalStyles";
-import { UserProvider } from "./UserContext";
+import { UserProvider } from "./userContext";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>

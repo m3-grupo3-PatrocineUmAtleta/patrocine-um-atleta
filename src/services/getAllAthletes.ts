@@ -1,4 +1,4 @@
-import { iAthlete } from "../UserContext/interfaces";
+import { iAthlete } from "../userContext/interfaces";
 import { api } from "./api";
 
 export const getAllAthletes = async (): Promise<iAthlete[] | undefined> => {

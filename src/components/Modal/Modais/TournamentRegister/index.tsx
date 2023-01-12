@@ -1,7 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { UserContext } from "../../../../UserContext";
+import { UserContext } from "../../../../userContext";
 import * as yup from "yup";
 import { Input } from "../../../Form/Input";
 import addImg from "../../../../assets/img/add.svg";
@@ -9,7 +9,7 @@ import {
   iAthlete,
   iparticipants,
   iTournament,
-} from "../../../../UserContext/interfaces";
+} from "../../../../userContext/interfaces";
 import { RegisterTournaments } from "../../../../services/registerTournaments";
 import { DivTournaments } from "../../../RenderContentSection/components/Tournaments/style";
 

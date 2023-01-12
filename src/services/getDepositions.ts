@@ -1,4 +1,4 @@
-import { iDepositions } from "../UserContext/interfaces";
+import { iDepositions } from "../userContext/interfaces";
 import { api } from "./api";
 
 export const getDepositions = async (): Promise<iDepositions[] | undefined> => {
