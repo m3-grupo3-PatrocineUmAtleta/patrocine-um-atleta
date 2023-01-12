@@ -17,6 +17,7 @@ import { ModalWrapper } from "../../components/Modal";
 import { SideBarButtons } from "../../components/SideBarButtons";
 import { BottomSectionPage } from "../../components/BottomSectionPage";
 import { getAllUser } from "../../services/getAllUser";
+import { ButtonSidebarFavorite } from "../../components/ButtonSidebarFavourite";
 
 export const AthletePage = () => {
   const {
@@ -76,7 +77,7 @@ export const AthletePage = () => {
             <ButtonsSidebar img={MediaVector} text="Mídias" />
             <ButtonsSidebar img={BioVector} text="Bio" />
             <ButtonsSidebar img={MessageVector} text="Depoimentos" />
-            <ButtonsSidebar img={DonateVector} text={buttonValue} />
+            <ButtonSidebarFavorite />
             <ButtonsSidebar img={DonateVector} text="Doação" />
           </SideBarButtons>
         </BottomSectionPage>

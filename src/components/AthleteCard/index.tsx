@@ -55,7 +55,7 @@ export const AthleteCard = ({
   const getAthlete = async () => {
     const atlhetePerfil = await getAthletesById(athlete_id);
     setButtonValue("Bio");
-    navigate("/athletepage");
+    navigate("/athlete");
   };
 
   const dataAtual = new Date();
