@@ -3,6 +3,8 @@ import cifrao from "../../../../assets/img/cifrao.svg";
 import { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { UserContext } from "../../../../providers/User";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 interface iDonationsProps {
   image?: string;
@@ -16,8 +18,18 @@ export const Donations = ({ image }: iDonationsProps) => {
   const athleteLocal = localStorage.getItem("@SelectedAthlete") || "";
   const athlete = JSON.parse(athleteLocal);
 
-  const { register, handleSubmit, reset } = useForm({
+  const donationSchema = yup.object().shape({
+    amount: yup.string().required().min(1),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { isValid },
+  } = useForm({
     mode: "onBlur",
+    resolver: yupResolver(donationSchema),
   });
 
   const submit = async (data: any) => {
@@ -58,7 +70,9 @@ export const Donations = ({ image }: iDonationsProps) => {
             />
           </div>
         </div>
-        <button>Inserir doação</button>
+        <button type="submit" disabled={!isValid}>
+          Inserir doação
+        </button>
       </form>
     </DonationsStyle>
   );
