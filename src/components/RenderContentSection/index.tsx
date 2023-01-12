@@ -5,7 +5,7 @@ import { Athletes } from "./components/Athletes";
 import { Bio } from "./components/Bio";
 import { Depositions } from "./components/Depositions/index";
 import { Donations } from "./components/Donations";
-import { Favourites } from "./components/Favourites";
+import { Favorites } from "./components/Favourites";
 import { Infos } from "./components/Infos";
 import { Institution } from "./components/Institution";
 import { Medias } from "./components/Medias";
@@ -26,7 +26,7 @@ export const RenderContentSection = () => {
       return <Athletes />;
     }
     if (buttonValue === "Favoritos") {
-      return <Favourites favourites={[]} />;
+      return <Favorites favorites={[]} />;
     }
     if (buttonValue === "Patrocinados") {
       return <Sponsored sponsoredAthletes={[]} />;

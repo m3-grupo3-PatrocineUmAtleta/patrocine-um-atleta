@@ -4,9 +4,8 @@ import { StyledContainer } from "../../styles/Container";
 import { StyledUserDash } from "./style";
 import perfilIcon from "./../../assets/img/perfilIcon.png";
 import todosAtletasIcon from "./../../assets/img/todosAtletasIcon.png";
-import favIcon from "./../../assets/img/favIcon.png";
 import patrocinadosIcon from "./../../assets/img/patrocinadosIcon.png";
-import favourite from "./../../assets/img/favourite.svg"
+import favorite from "./../../assets/img/favourite.svg";
 import { AthleteCard } from "../../components/AthleteCard";
 import { Header } from "../../components/Header";
 import { getUserLogged } from "../../services/getUserLogged";
@@ -40,8 +39,8 @@ export const UserDash = () => {
   };
   useEffect(() => {
     getAthle();
-    donationsList()
-    setButtonValue("Perfil")
+    donationsList();
+    setButtonValue("Perfil");
   }, []);
 
   useEffect(() => {
@@ -143,7 +142,7 @@ export const UserDash = () => {
         </RenderContainerSection>
         <SideBarButtons>
           <ButtonsSidebar text={"Perfil"} img={perfilIcon} />
-          <ButtonsSidebar text={"Favoritos"} img={favourite} />
+          <ButtonsSidebar text={"Favoritos"} img={favorite} />
           <ButtonsSidebar text={"Patrocinados"} img={patrocinadosIcon} />
           <ButtonsSidebar text={"Atletas"} img={todosAtletasIcon} />
         </SideBarButtons>

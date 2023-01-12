@@ -36,7 +36,7 @@ export interface iContext {
   contentAllUser: iUser | undefined;
   setContentAllUser: React.Dispatch<React.SetStateAction<iUser | undefined>>;
   donationsList: () => void;
-  listDonations: iResponseDonates [] | undefined;
+  listDonations: iResponseDonates[] | undefined;
 }
 export interface iProviderProps {
   children: React.ReactNode;
@@ -55,7 +55,7 @@ export interface iUser {
   cep: number;
   phone: string;
   email: string;
-  favourites?: iAthlete[];
+  favorites?: iAthlete[];
   sponsoredAthletes?: iAthlete[];
   isAdmin?: boolean;
   id?: number;
@@ -165,16 +165,15 @@ interface iDonation {
 }
 
 export interface iDepositions {
-    athleteId: number;
-		content: string;
-		userId: number;
-		id: number;
+  athleteId: number;
+  content: string;
+  userId: number;
+  id: number;
 }
 
 export interface iDepositionsToEspecifyAthlete {
-  content: string; 
-  name: string | undefined; 
-  userId: number | undefined; 
+  content: string;
+  name: string | undefined;
+  userId: number | undefined;
   img: string | undefined;
 }
-

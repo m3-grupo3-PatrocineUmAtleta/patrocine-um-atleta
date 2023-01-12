@@ -15,7 +15,7 @@ export interface iRegisterData {
   phone: string;
   email: string;
   password: string;
-  favourites?: iAthlete[];
+  favorites?: iAthlete[];
   sponsoredAthletes?: iAthlete[];
   isAdmin: boolean;
 }

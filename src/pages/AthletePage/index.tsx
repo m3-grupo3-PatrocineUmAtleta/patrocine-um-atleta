@@ -17,28 +17,41 @@ import { ModalWrapper } from "../../components/Modal";
 import { SideBarButtons } from "../../components/SideBarButtons";
 import { BottomSectionPage } from "../../components/BottomSectionPage";
 import { getAllUser } from "../../services/getAllUser";
-import { ButtonSidebarFavorite } from "../../components/ButtonSidebarFavourite";
+import { ButtonSidebarFavorite } from "../../components/ButtonSidebarFavorite";
 
 export const AthletePage = () => {
   const {
     openModal,
     settingsModal,
-    buttonValue,
     setButtonValue,
     setContentAllUser,
     contentAllUser,
+    user,
+    setUser,
   } = useContext(UserContext);
   const storageAthlete: any = localStorage.getItem("@SelectedAthlete");
   const athlete = JSON.parse(storageAthlete);
+
   const allUser = async () => {
     const getUsers = await getAllUser();
 
     setContentAllUser(getUsers);
   };
+
   useEffect(() => {
     setButtonValue("Bio");
     allUser();
   }, []);
+
+  const handleClick = () => {
+    // comentarios
+    //favoritar
+    console.log("foi", athlete, user);
+
+    const favoriteList = [...user?.favorites, athlete];
+
+    console.log(favoriteList);
+  };
 
   console.log(contentAllUser);
   console.log(athlete);
@@ -77,7 +90,7 @@ export const AthletePage = () => {
             <ButtonsSidebar img={MediaVector} text="Mídias" />
             <ButtonsSidebar img={BioVector} text="Bio" />
             <ButtonsSidebar img={MessageVector} text="Depoimentos" />
-            <ButtonSidebarFavorite />
+            <ButtonSidebarFavorite onClick={handleClick} />
             <ButtonsSidebar img={DonateVector} text="Doação" />
           </SideBarButtons>
         </BottomSectionPage>
