@@ -20,6 +20,17 @@ export const MainLogin = styled.main`
     padding: 0 10px;
   }
 
+  & > div > .first button {
+    &:disabled {
+      filter: brightness(50%);
+      cursor: wait;
+    }
+
+    > svg {
+      animation: spinnerLoad 1s linear infinite;
+    }
+  }
+
   & > div > section.second {
     background: var(--color-primary-100);
     mix-blend-mode: normal;
@@ -109,6 +120,12 @@ export const MainLogin = styled.main`
       height: 390px;
 
       gap: 20px;
+    }
+  }
+
+  @keyframes spinnerLoad {
+    to {
+      transform: rotate(360deg);
     }
   }
 `;
