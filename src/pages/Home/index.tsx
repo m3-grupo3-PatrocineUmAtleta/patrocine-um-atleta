@@ -21,6 +21,7 @@ import { AthleteCard } from "../../components/AthleteCard";
 import { getDonations } from "../../services/getDonates";
 import { getAllUsers } from "../../services/getAllUsers";
 import { iUser } from "../../userContext/interfaces";
+import { GrLinkedin } from "react-icons/gr"
 
 export const Home = () => {
   const { openModal, athletes, setAthletes, selectedAtlhete } =
@@ -149,10 +150,35 @@ export const Home = () => {
               <h3 className="title-3 gray-0">Redes</h3>
               <h3 className="title-3 gray-0">Acompanhe nossas redes:</h3>
               <div>
-                <img src={linkedinIcon} alt="logo" />
                 <img src={instagramIcon} alt="logo" />
                 <img src={facebookIcon} alt="logo" />
               </div>
+              <section className="linkedin">
+                  <div>
+                    <img src={linkedinIcon} alt="logo" />
+                    <a className="linkedin-link headline-600" href="https://www.linkedin.com/in/anderson-keller-87962ab3" target={"blank"}>Anderson Keller</a>
+                  </div>
+                  <div>
+                    <img src={linkedinIcon} alt="logo" />
+                    <a className="linkedin-link headline-600" href="https://www.linkedin.com/in/andrew-da-silva-569101246/" target={"blank"}>Andrew da Silva</a>
+                  </div>
+                  <div>
+                    <img src={linkedinIcon} alt="logo" />
+                    <a className="linkedin-link headline-600" href="https://www.linkedin.com/in/julia-pereira-teixeira/" target={"blank"}>Julia Pereira</a>
+                  </div>
+                  <div>
+                    <img src={linkedinIcon} alt="logo" />
+                    <a className="linkedin-link headline-600" href="https://www.linkedin.com/in/miguel-felipe-napolitano-70407776/" target={"blank"}>Miguel F. Napolitano</a>
+                  </div>
+                  <div>
+                    <img src={linkedinIcon} alt="logo" />
+                    <a className="linkedin-link headline-600" href="https://www.linkedin.com/in/murilo-mendes-83350b184/" target={"blank"}>Murilo Mendes</a>
+                  </div>
+                  <div>
+                    <img src={linkedinIcon} alt="logo" />
+                    <a className="linkedin-link headline-600" href="https://www.linkedin.com/in/viniciuspinheirodasilva/" target={"blank"}>Vinicius Pinheiro da Silva</a>
+                  </div>
+              </section>
             </div>
             <div>
               <h3 className="title-3 gray-0">Contatos</h3>

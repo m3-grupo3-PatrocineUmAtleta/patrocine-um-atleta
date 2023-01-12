@@ -182,6 +182,7 @@ export const StyledHome = styled.div`
     padding-bottom: 10px;
 
     > div {
+
       > div:first-of-type {
         display: flex;
         justify-content: space-between;
@@ -265,4 +266,30 @@ export const StyledHome = styled.div`
       }
     }
   }
+
+  .linkedin{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 8px;
+        width: 100%;
+        margin-top: 16px;
+
+        & > div {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 16px;
+        }
+      }
+
+      .linkedin-link{
+        text-decoration: none;
+        color: var(--color-primary-10);
+
+        :hover{
+          color: var(--color-secundary-100);
+        }
+      }
 `;
