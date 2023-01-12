@@ -19,6 +19,7 @@ export const TournamentCard = ({
     <TournamentCardStyle>
       <div>
         <img src={tournamentImg} alt="" />
+        <div />
         <div>
           <h3 className="title-3 gray-0">{date.substring(0, 5)}</h3>
           <span className="body gray-0">{date.substring(5)}</span>

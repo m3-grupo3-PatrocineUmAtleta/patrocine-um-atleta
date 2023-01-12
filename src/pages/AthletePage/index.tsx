@@ -37,7 +37,7 @@ export const AthletePage = () => {
     setButtonValue("Bio");
     allUser();
   }, []);
-  console.log(contentAllUser);
+
   return (
     <>
       {openModal && <ModalWrapper typeModal={settingsModal} />}
