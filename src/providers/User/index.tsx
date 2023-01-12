@@ -13,8 +13,12 @@ import {
   iAthlete,
   iSponsored,
   iAthleteSponsored,
+<<<<<<< Updated upstream
   iDepositions,
   iDepositionsToEspecifyAthlete,
+=======
+  iInstitution,
+>>>>>>> Stashed changes
 } from "./interfaces";
 
 export const UserContext = createContext({} as iContext);
@@ -33,6 +37,7 @@ export const UserProvider = ({ children }: iProviderProps) => {
   const [depositions, setDepositions] = useState<iDepositions[] | undefined>([])
   const [finalyDeps, setFinalyDeps] = useState<iDepositionsToEspecifyAthlete[] | undefined>([])
   const [donateData, setDonateData] = useState<iRegisterDataDonates>();
+  const [contentAllUser, setContentAllUser] = useState<iUser | undefined>();
 
   const navigate = useNavigate();
 
@@ -138,6 +143,8 @@ export const UserProvider = ({ children }: iProviderProps) => {
         finalyDeps,
         setDonateData,
         donateData,
+        contentAllUser,
+        setContentAllUser,
       }}
     >
       {children}

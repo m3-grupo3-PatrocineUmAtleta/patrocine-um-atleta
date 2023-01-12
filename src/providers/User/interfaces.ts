@@ -32,6 +32,8 @@ export interface iContext {
   setDonateData: React.Dispatch<
     React.SetStateAction<iRegisterDataDonates | undefined>
   >;
+  contentAllUser: iUser | undefined;
+  setContentAllUser: React.Dispatch<React.SetStateAction<iUser | undefined>>;
 }
 export interface iProviderProps {
   children: React.ReactNode;
