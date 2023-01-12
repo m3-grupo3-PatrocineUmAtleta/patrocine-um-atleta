@@ -26,10 +26,9 @@ export const postDeposition = async ({
       },
     });
 
-    ToastSucess("comentário feito! Obrigado!");
+    ToastSucess("Comentário feito! Obrigado!");
   } catch (error) {
     const err = error as AxiosError;
     ToastError("Ops, " + err.response?.data);
-  } finally {
   }
 };

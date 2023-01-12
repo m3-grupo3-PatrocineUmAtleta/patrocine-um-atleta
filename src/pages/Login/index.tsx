@@ -11,7 +11,7 @@ import { MainLogin } from "./styles";
 import { ImSpinner9 } from "react-icons/im";
 
 export const Login = () => {
-  const { isLoading, setIsLoading, loginUser } = useContext(UserContext);
+  const { isLoading, loginUser } = useContext(UserContext);
 
   const {
     register,

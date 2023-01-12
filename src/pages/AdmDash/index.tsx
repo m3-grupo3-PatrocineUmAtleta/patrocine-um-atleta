@@ -20,15 +20,17 @@ import { getAllAthletes } from "../../services/getAllAthletes";
 import { BottomSectionPage } from "../../components/BottomSectionPage";
 import { SideBarButtons } from "../../components/SideBarButtons";
 import { getDonations, iResponseDonates } from "../../services/getDonates";
+import { getTournaments } from "../../services/getTournaments";
+import { iTournament } from "../../providers/User/interfaces";
 
 export const AdmDash = () => {
   const [listDonations, setListDonations] = useState<
     iResponseDonates[] | undefined
   >([]);
+  const [tournaments, setTournaments] = useState<iTournament[]>([]);
   const {
     athletes,
     setAthletes,
-    user,
     buttonValue,
     openModal,
     settingsModal,
@@ -40,12 +42,17 @@ export const AdmDash = () => {
     getApiAthletes && setAthletes(getApiAthletes);
   };
 
+  const getTournamentsAPI = async () => {
+    const tournaments = await getTournaments();
+    tournaments && setTournaments(tournaments);
+  };
+
   useEffect(() => {}, [buttonValue]);
+
   useEffect(() => {
     getAthletes();
-  }, []);
-  useEffect(() => {
     donationsList();
+    getTournamentsAPI();
   }, []);
 
   const donationsList = async () => {
@@ -67,7 +74,7 @@ export const AdmDash = () => {
                 <h3>Torneios</h3>
               </div>
               <ul>
-                {user?.tournaments
+                {tournaments
                   ?.map((tournament) => {
                     return (
                       <StyledInfoHistory key={tournament.name}>

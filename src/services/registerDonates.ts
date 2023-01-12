@@ -4,7 +4,7 @@ import { api } from "./api";
 
 export interface iRegisterDataDonates {
   athleteId: number;
-  amount: number;
+  amount: string;
   userId: number | undefined;
 }
 
@@ -14,7 +14,7 @@ export const RegisterDonate = async ({
   userId,
 }: iRegisterDataDonates): Promise<void | string> => {
   try {
-    const response = await api.post(
+    await api.post(
       `users/${userId}/donates`,
       { athleteId, amount },
       {
@@ -24,8 +24,7 @@ export const RegisterDonate = async ({
         },
       }
     );
-    console.log(response);
-    ToastSucess("Alteração feita com Sucesso!");
+    ToastSucess("Doação feita com Sucesso!");
   } catch (error) {
     const err = error as AxiosError;
     ToastError("Ops, " + err.response?.data);

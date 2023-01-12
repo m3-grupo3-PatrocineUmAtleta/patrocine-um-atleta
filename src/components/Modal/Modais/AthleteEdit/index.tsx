@@ -5,7 +5,8 @@ import * as yup from "yup";
 import { UserContext } from "../../../../providers/User";
 import { AthleteEditAPI } from "../../../../services/athleteEdit";
 import { getAllAthletes } from "../../../../services/getAllAthletes";
-import { Input, TextArea } from "../../../Form/Input";
+import { Input } from "../../../Form/Input";
+import { TextArea } from "../../../Form/Textarea";
 import { DivRegisterAthlete } from "../../../RenderContentSection/components/AthleteRegister/style";
 
 interface iFormDataEditAthlete {

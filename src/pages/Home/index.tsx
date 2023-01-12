@@ -19,11 +19,13 @@ import locationIcon from "../../assets/img/locationIcon.svg";
 import { getAllAthletes } from "../../services/getAllAthletes";
 import { AthleteCard } from "../../components/AthleteCard";
 import { getDonations } from "../../services/getDonates";
+import { getAllUsers } from "../../services/getAllUsers";
 
 export const Home = () => {
   const { openModal, athletes, setAthletes, selectedAtlhete } =
     useContext(UserContext);
   const [donations, setDonations] = useState(Number);
+  const [donors, setDonors] = useState(Number);
 
   const getAthletes = async () => {
     const athletes = await getAllAthletes();
@@ -35,9 +37,15 @@ export const Home = () => {
     list && setDonations(list.length);
   };
 
+  const getDonors = async () => {
+    const count = await getAllUsers();
+    setDonors(count.length - 1);
+  };
+
   useEffect(() => {
     getAthletes();
     getNumberDonates();
+    getDonors();
   }, []);
 
   return (
@@ -111,7 +119,7 @@ export const Home = () => {
                 </div>
                 <div>
                   <img src={handHeartIcon} alt="hand with heart icon" />
-                  <span className="title-2 gray-0">0 doadores</span>
+                  <span className="title-2 gray-0">{donors} doadores</span>
                 </div>
               </div>
             </StyledContainer>

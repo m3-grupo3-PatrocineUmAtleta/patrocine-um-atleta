@@ -17,12 +17,3 @@ export const ToastInfo = (msg: string) => {
     position: toast.POSITION.TOP_RIGHT,
   });
 };
-
-//comentarios
-// const ToastPromise = (msg: string) => {
-//   return toast.promise(func, {
-//     loading: "Aguarde...",
-//     success: <b>Settings saved!</b>,
-//     error: <b>Could not save.</b>,
-//   });
-// };

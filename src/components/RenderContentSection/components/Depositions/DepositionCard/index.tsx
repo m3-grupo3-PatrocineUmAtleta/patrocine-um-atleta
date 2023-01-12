@@ -1,4 +1,3 @@
-import { FaUserCircle } from "react-icons/fa";
 import { StyledDepositionCard } from "./style";
 
 interface iDepositionCardProps {
