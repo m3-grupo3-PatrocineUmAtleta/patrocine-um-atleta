@@ -1,23 +1,22 @@
 import { useContext, useEffect } from "react";
 import { UserContext } from "../../providers/User";
-import { AthleteRegister } from "./components/AthleteRegister/AthleteRegister";
-import { Athletes } from "./components/Athletes/Athletes";
+import { AthleteRegister } from "./components/AthleteRegister";
+import { Athletes } from "./components/Athletes";
 import { Bio } from "./components/Bio";
 import { Depositions } from "./components/Depositions/index";
 import { Donations } from "./components/Donations";
 import { Favourites } from "./components/Favourites";
-import { Infos } from "./components/Infos/Infos";
+import { Infos } from "./components/Infos";
 import { Institution } from "./components/Institution";
 import { Medias } from "./components/Medias";
-import { Profile } from "./components/Profile/Profile";
+import { Profile } from "./components/Profile";
 import { Sponsored } from "./components/Sponsored";
-import { Tournaments } from "./components/Tournaments/Tournaments";
+import { Tournaments } from "./components/Tournaments";
 
 export const RenderContentSection = () => {
   const { buttonValue, user, finalyDeps } = useContext(UserContext);
   const storageAthlete: any = localStorage.getItem("@SelectedAthlete");
   const athlete = JSON.parse(storageAthlete);
-
 
   if (user?.isAdmin === false) {
     if (buttonValue === "Perfil") {

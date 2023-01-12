@@ -16,7 +16,7 @@ export const AthleteDelete = ({ idAthlete }: iAthleteDelete) => {
     await AthleteDeleteAPI({ idAthlete, tokenLocal });
 
     const athletes = await getAllAthletes();
-    setAthletes(athletes);
+    athletes && setAthletes(athletes);
     setIsOpenModal(false);
   };
 

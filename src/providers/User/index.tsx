@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getAllAthletes } from "../../services/getAllAthletes";
 import { getAllUsers } from "../../services/getAllUsers";
 import { getDepositions } from "../../services/getDepositions";
 import { iRegisterDataDonates } from "../../services/registerDonates";
@@ -13,12 +12,8 @@ import {
   iAthlete,
   iSponsored,
   iAthleteSponsored,
-<<<<<<< Updated upstream
   iDepositions,
   iDepositionsToEspecifyAthlete,
-=======
-  iInstitution,
->>>>>>> Stashed changes
 } from "./interfaces";
 
 export const UserContext = createContext({} as iContext);
@@ -34,8 +29,12 @@ export const UserProvider = ({ children }: iProviderProps) => {
   const [selectedAtlhete, setSelectedAtlhete] = useState<number | null>(null);
   const [athlete, setAthlete] = useState<iAthleteSponsored>();
   const [sponsored, setSponsored] = useState<iSponsored[] | undefined>([]);
-  const [depositions, setDepositions] = useState<iDepositions[] | undefined>([])
-  const [finalyDeps, setFinalyDeps] = useState<iDepositionsToEspecifyAthlete[] | undefined>([])
+  const [depositions, setDepositions] = useState<iDepositions[] | undefined>(
+    []
+  );
+  const [finalyDeps, setFinalyDeps] = useState<
+    iDepositionsToEspecifyAthlete[] | undefined
+  >([]);
   const [donateData, setDonateData] = useState<iRegisterDataDonates>();
   const [contentAllUser, setContentAllUser] = useState<iUser | undefined>();
 
@@ -88,30 +87,29 @@ export const UserProvider = ({ children }: iProviderProps) => {
   };
 
   const createDepositionsList = async () => {
-    const depList = await getDepositions()
-    const usersList = await getAllUsers()
+    const depList = await getDepositions();
+    const usersList = await getAllUsers();
     const finalDepositions: iDepositionsToEspecifyAthlete[] = [];
     const storageAthlete: any = localStorage.getItem("@SelectedAthlete");
     const athlete = JSON.parse(storageAthlete);
-    
-    const athleteDepList= depList?.filter((dep) =>{
-      return dep.athleteId == athlete.id
-    })
+
+    const athleteDepList = depList?.filter((dep) => {
+      return dep.athleteId == athlete.id;
+    });
 
     athleteDepList?.forEach((athlete) => {
-      const user = usersList.find((user) => user.id == athlete.userId)
-      const obj = {content: athlete.content,
-                   name:user?.name,
-                   userId:user?.id,
-                   img: user?.imgUrl 
-                  }
-      finalDepositions.push(obj)
-    })
+      const user = usersList.find((user) => user.id == athlete.userId);
+      const obj = {
+        content: athlete.content,
+        name: user?.name,
+        userId: user?.id,
+        img: user?.imgUrl,
+      };
+      finalDepositions.push(obj);
+    });
 
-    setFinalyDeps(finalDepositions)
-    
-  }
-  
+    setFinalyDeps(finalDepositions);
+  };
 
   return (
     <UserContext.Provider
