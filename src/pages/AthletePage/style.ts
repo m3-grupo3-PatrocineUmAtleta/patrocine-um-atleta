@@ -12,6 +12,7 @@ export const AthletePageStyle = styled.div`
       justify-content: center;
       align-items: center;
       gap: 15px;
+      margin-top: 10px;
 
       & > ul {
         display: flex;
@@ -51,6 +52,7 @@ export const AthletePageStyle = styled.div`
           max-width: 750px;
           justify-content: center;
           gap: 18px;
+          height: 300px;
         }
       }
     }
