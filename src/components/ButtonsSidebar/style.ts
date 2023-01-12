@@ -32,4 +32,14 @@ export const StyledButtonsSidebar = styled.button`
       color: rgba(0, 0, 0, 1);
     }
   }
+
+  .yellow {
+    color: #ccb51f;
+    transition: color 1s;
+  }
+
+  .gray {
+    color: #757575;
+    transition: color 1s;
+  }
 `;

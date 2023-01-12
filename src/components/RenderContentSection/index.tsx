@@ -5,7 +5,7 @@ import { Athletes } from "./components/Athletes";
 import { Bio } from "./components/Bio";
 import { Depositions } from "./components/Depositions/index";
 import { Donations } from "./components/Donations";
-import { Favourites } from "./components/Favourites";
+import { Favorites } from "./components/Favorites";
 import { Infos } from "./components/Infos";
 import { Institution } from "./components/Institution";
 import { Medias } from "./components/Medias";
@@ -19,17 +19,22 @@ export const RenderContentSection = () => {
   const storageAthlete: any = localStorage.getItem("@SelectedAthlete");
   const athlete = JSON.parse(storageAthlete);
 
-  if (buttonValue === "Perfil") {
-    return <Profile />;
-  }
-  if (buttonValue === "Todos atletas") {
-    return <Athletes />;
-  }
-  if (buttonValue === "Favoritos") {
-    return <Favourites favourites={[]} />;
-  }
-  if (buttonValue === "Patrocinados") {
-    return <Sponsored donatesList={listDonations} />;
+  console.log(user);
+  console.log(buttonValue);
+
+  if (user?.isAdmin === false || user?.isAdmin === undefined) {
+    if (buttonValue === "Perfil") {
+      return <Profile />;
+    }
+    if (buttonValue === "Todos atletas") {
+      return <Athletes />;
+    }
+    if (buttonValue === "Favoritos") {
+      return <Favorites favorites={[...(user?.favorites || [])]} />;
+    }
+    if (buttonValue === "Patrocinados") {
+      return <Sponsored donatesList={listDonations} />;
+    }
   }
 
   if (buttonValue === "Perfil") {
