@@ -1,6 +1,6 @@
-import { iAthlete, iTournament } from "../../../../UserContext/interfaces";
+import { iAthlete, iTournament } from "../../../../userContext/interfaces";
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../../../UserContext";
+import { UserContext } from "../../../../userContext";
 import { getAllAthletes } from "../../../../services/getAllAthletes";
 import { DivInfos } from "./style";
 import { getDonations } from "../../../../services/getDonates";

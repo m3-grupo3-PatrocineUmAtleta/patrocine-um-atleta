@@ -11,17 +11,17 @@ import BioVector from "../../assets/img/BioVector.svg";
 import MessageVector from "../../assets/img/MessageVector.svg";
 import DonateVector from "../../assets/img/DonateVector.svg";
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../UserContext";
+import { UserContext } from "../../userContext";
 import { RenderContentSection } from "../../components/RenderContentSection";
 import { ModalWrapper } from "../../components/Modal";
 import { SideBarButtons } from "../../components/SideBarButtons";
 import { BottomSectionPage } from "../../components/BottomSectionPage";
 import { getAllUser } from "../../services/getUserAdmin";
-import { iTournament } from "../../UserContext/interfaces";
+import { iTournament } from "../../userContext/interfaces";
 import { getTournaments } from "../../services/getTournaments";
 import { ButtonSidebarFavorite } from "../../components/ButtonSidebarFavorite";
 import { setFavorites } from "../../services/setFavorites";
-import { iAthlete } from "../../UserContext/interfaces";
+import { iAthlete } from "../../userContext/interfaces";
 import { ToastSucess } from "../../components/Toast";
 
 export const AthletePage = () => {

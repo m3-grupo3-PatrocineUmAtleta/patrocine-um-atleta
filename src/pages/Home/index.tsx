@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { ModalWrapper } from "../../components/Modal";
-import { UserContext } from "../../UserContext";
+import { UserContext } from "../../userContext";
 import { StyledHome } from "./style";
 import { StyledContainer } from "../../styles/Container";
 import LogoSimplesIcon from "../../assets/img/LogoSimplesIcon.svg";

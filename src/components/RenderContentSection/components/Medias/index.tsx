@@ -1,4 +1,4 @@
-import { iMedias } from "../../../../UserContext/interfaces";
+import { iMedias } from "../../../../userContext/interfaces";
 import facebookIconBlue from "../../../../assets/img/facebookIconBlue.svg";
 import instagramIconBlue from "../../../../assets/img/instagramIconBlue.svg";
 import twitterIcon from "../../../../assets/img/twitterIcon.svg";

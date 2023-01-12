@@ -1,4 +1,4 @@
-import { iInstitution, iTournament } from "../../../../UserContext/interfaces";
+import { iInstitution, iTournament } from "../../../../userContext/interfaces";
 import { StyledIntitution } from "./style";
 import LocacateVector from "../../../../assets/img/LocateVector.svg";
 import { getAllUser } from "../../../../services/getUserAdmin";

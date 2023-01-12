@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../UserContext";
+import { UserContext } from "../../userContext";
 import { ButtonsSidebar } from "../../components/ButtonsSidebar";
 import { Header } from "../../components/Header";
 import {
@@ -21,7 +21,7 @@ import { BottomSectionPage } from "../../components/BottomSectionPage";
 import { SideBarButtons } from "../../components/SideBarButtons";
 import { getDonations, iResponseDonates } from "../../services/getDonates";
 import { getTournaments } from "../../services/getTournaments";
-import { iTournament } from "../../UserContext/interfaces";
+import { iTournament } from "../../userContext/interfaces";
 
 export const AdmDash = () => {
   const [listDonations, setListDonations] = useState<

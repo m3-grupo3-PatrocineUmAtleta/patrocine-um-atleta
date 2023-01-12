@@ -2,7 +2,7 @@ import { StyledDonations } from "./style";
 import cifrao from "../../../../assets/img/cifrao.svg";
 import { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
-import { UserContext } from "../../../../UserContext";
+import { UserContext } from "../../../../userContext";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 

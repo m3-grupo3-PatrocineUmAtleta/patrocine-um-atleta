@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
-import { UserContext } from "../../../../UserContext";
-import { iDepositionsToEspecifyAthlete } from "../../../../UserContext/interfaces";
+import { UserContext } from "../../../../userContext";
+import { iDepositionsToEspecifyAthlete } from "../../../../userContext/interfaces";
 import { DepositionCard } from "./DepositionCard";
 import { StyledDepositions } from "./style";
 

@@ -1,6 +1,6 @@
 import { AxiosError } from "axios";
 import { ToastError, ToastSucess } from "../components/Toast";
-import { iAthlete, iUser } from "../UserContext/interfaces";
+import { iAthlete, iUser } from "../userContext/interfaces";
 import { api } from "./api";
 
 export interface iRegisterData {

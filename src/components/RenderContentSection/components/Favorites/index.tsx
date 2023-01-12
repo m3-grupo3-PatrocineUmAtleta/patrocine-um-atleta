@@ -1,4 +1,4 @@
-import { iAthlete } from "../../../../UserContext/interfaces";
+import { iAthlete } from "../../../../userContext/interfaces";
 import { AthleteCard } from "../../../AthleteCard";
 import { StyledUlAthlete } from "../Athletes/styles";
 

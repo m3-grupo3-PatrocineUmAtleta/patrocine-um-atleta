@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { UserContext } from "../../../../UserContext";
+import { UserContext } from "../../../../userContext";
 import { AthleteDeleteAPI } from "../../../../services/athleteDelete";
 import { getAllAthletes } from "../../../../services/getAllAthletes";
 import { DivAthleteDelete } from "./style";
