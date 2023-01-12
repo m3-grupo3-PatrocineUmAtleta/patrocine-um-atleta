@@ -4,6 +4,7 @@ export const IntitutionStyle = styled.div`
   display: flex;
   flex-direction: column;
   gap: 67px;
+  animation: animShow 0.5s;
 
   & > :nth-child(2) {
     display: flex;
@@ -34,5 +35,21 @@ export const IntitutionStyle = styled.div`
     display: flex;
     align-items: center;
     gap: 12px;
+  }
+
+  @keyframes animShow {
+    0% {
+      transform: translate(-100px);
+      opacity: 0.2;
+    }
+
+    60% {
+      opacity: 0.7;
+    }
+
+    100% {
+      transform: translate(0px);
+      opacity: 1;
+    }
   }
 `;

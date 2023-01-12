@@ -12,6 +12,7 @@ export const TournamentCardStyle = styled.li`
   flex-direction: column;
   gap: 86px;
   cursor: pointer;
+  transition: all 0.8s;
 
   &:hover,
   :focus {
