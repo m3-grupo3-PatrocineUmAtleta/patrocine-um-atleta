@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const DepositionsStyle = styled.div`
+export const StyledDepositions = styled.div`
   flex-direction: column;
   padding: 20px;
   & > :nth-child(1) {

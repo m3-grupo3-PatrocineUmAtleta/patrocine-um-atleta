@@ -1,4 +1,4 @@
-import { BioStyle } from "./style";
+import { StyledBio } from "./style";
 import LocateVector from "../../../../assets/img/LocateVector.svg";
 
 interface iBioProps {
@@ -7,7 +7,7 @@ interface iBioProps {
 }
 
 export const Bio = ({ city, bio }: iBioProps) => (
-  <BioStyle>
+  <StyledBio>
     <div className="divTitleDescription">
       <h2>Biografia do atleta</h2>
     </div>
@@ -19,5 +19,5 @@ export const Bio = ({ city, bio }: iBioProps) => (
       <h2>Sobre:</h2>
       <p>{bio} </p>
     </div>
-  </BioStyle>
+  </StyledBio>
 );

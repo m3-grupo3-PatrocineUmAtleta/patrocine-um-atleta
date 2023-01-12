@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const DonationsStyle = styled.div`
+export const StyledDonations = styled.div`
   display: flex;
   flex-direction: column;
   gap: 49px;

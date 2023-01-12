@@ -1,7 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { UserContext } from "../../../../providers/User";
+import { UserContext } from "../../../../UserContext";
 import * as yup from "yup";
 import { Input } from "../../../Form/Input";
 import addImg from "../../../../assets/img/add.svg";
@@ -9,9 +9,8 @@ import {
   iAthlete,
   iparticipants,
   iTournament,
-} from "../../../../providers/User/interfaces";
+} from "../../../../UserContext/interfaces";
 import { RegisterTournaments } from "../../../../services/registerTournaments";
-import { DivEditTournaments } from "../TournamentRegister/style";
 import { DivTournaments } from "../../../RenderContentSection/components/Tournaments/style";
 
 const RegisterTournamentSchema = yup.object().shape({

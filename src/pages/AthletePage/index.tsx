@@ -4,24 +4,24 @@ import { Header } from "../../components/Header";
 import { RenderContainerSection } from "../../components/RenderContainerSection";
 import { TournamentCard } from "../../components/TournamentsCard";
 import { StyledContainer } from "../../styles/Container";
-import { AthletePageStyle } from "./style";
+import { StyledAthletePage } from "./style";
 import InstituitionVector from "../../assets/img/InstituitionVector.svg";
 import MediaVector from "../../assets/img/MediaVector.svg";
 import BioVector from "../../assets/img/BioVector.svg";
 import MessageVector from "../../assets/img/MessageVector.svg";
 import DonateVector from "../../assets/img/DonateVector.svg";
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../providers/User";
+import { UserContext } from "../../UserContext";
 import { RenderContentSection } from "../../components/RenderContentSection";
 import { ModalWrapper } from "../../components/Modal";
 import { SideBarButtons } from "../../components/SideBarButtons";
 import { BottomSectionPage } from "../../components/BottomSectionPage";
 import { getAllUser } from "../../services/getUserAdmin";
-import { iTournament } from "../../providers/User/interfaces";
+import { iTournament } from "../../UserContext/interfaces";
 import { getTournaments } from "../../services/getTournaments";
 import { ButtonSidebarFavorite } from "../../components/ButtonSidebarFavorite";
 import { setFavorites } from "../../services/setFavorites";
-import { iAthlete } from "../../providers/User/interfaces";
+import { iAthlete } from "../../UserContext/interfaces";
 import { ToastSucess } from "../../components/Toast";
 
 export const AthletePage = () => {
@@ -94,7 +94,7 @@ export const AthletePage = () => {
   return (
     <>
       {openModal && <ModalWrapper typeModal={settingsModal} />}
-      <AthletePageStyle>
+      <StyledAthletePage>
         <Header isHome={false} />
         <StyledContainer>
           <section className="sectionTournament">
@@ -137,7 +137,7 @@ export const AthletePage = () => {
             <ButtonsSidebar img={DonateVector} text="Doação" />
           </SideBarButtons>
         </BottomSectionPage>
-      </AthletePageStyle>
+      </StyledAthletePage>
     </>
   );
 };

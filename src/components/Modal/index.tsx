@@ -1,7 +1,7 @@
 import { ModalBackground } from "./style";
 import closeModal from "../../assets/img/closeModal.svg";
 import { useContext } from "react";
-import { UserContext } from "../../providers/User";
+import { UserContext } from "../../UserContext";
 import { UserLogoff } from "./Modais/UserLogOff";
 import { AthleteDelete } from "./Modais/AthleteDelete";
 import { AthleteEdit } from "./Modais/AthleteEdit";

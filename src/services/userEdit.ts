@@ -1,6 +1,6 @@
 import { iFormDataEditUser } from "../components/Modal/Modais/UserDataEdit";
 import { ToastSucess } from "../components/Toast";
-import { iUser } from "../providers/User/interfaces";
+import { iUser } from "../UserContext/interfaces";
 import { api } from "./api";
 
 export interface iUpdateData {

@@ -1,5 +1,5 @@
 import { StyledContainer } from "../../styles/Container";
-import { SideBarButtonsStyle } from "./style";
+import { StyledSideBarButtons } from "./style";
 
 interface iSideBarButtonsProps {
   children: React.ReactNode;
@@ -7,8 +7,8 @@ interface iSideBarButtonsProps {
 
 export const SideBarButtons = ({ children }: iSideBarButtonsProps) => {
   return (
-    <SideBarButtonsStyle>
+    <StyledSideBarButtons>
       <StyledContainer>{children}</StyledContainer>
-    </SideBarButtonsStyle>
+    </StyledSideBarButtons>
   );
 };

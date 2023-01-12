@@ -1,11 +1,11 @@
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getAllUsers } from "../../services/getAllUsers";
-import { getDepositions } from "../../services/getDepositions";
-import { getDonations, iResponseDonates } from "../../services/getDonates";
-import { iRegisterDataDonates } from "../../services/registerDonates";
-import { iUserLogin, UserLogin } from "../../services/userLogin";
-import { iRegisterData, UserRegister } from "../../services/userRegister";
+import { getAllUsers } from "../services/getAllUsers";
+import { getDepositions } from "../services/getDepositions";
+import { getDonations, iResponseDonates } from "../services/getDonates";
+import { iRegisterDataDonates } from "../services/registerDonates";
+import { iUserLogin, UserLogin } from "../services/userLogin";
+import { iRegisterData, UserRegister } from "../services/userRegister";
 import {
   iContext,
   iProviderProps,
@@ -102,7 +102,7 @@ export const UserProvider = ({ children }: iProviderProps) => {
     });
 
     athleteDepList?.forEach((athlete) => {
-      const user = usersList.find((user) => user.id == athlete.userId);
+      const user = usersList?.find((user) => user.id == athlete.userId);
       const obj = {
         content: athlete.content,
         name: user?.name,

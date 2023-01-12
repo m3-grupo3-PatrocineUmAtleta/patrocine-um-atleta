@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { iRenderContainerProps } from ".";
 
-export const ContainerRenderStyle = styled.section<iRenderContainerProps>`
+export const StyledContainerRender = styled.section<iRenderContainerProps>`
   max-width: ${({ size }) => size};
   min-height: 486px;
   overflow-y: auto;

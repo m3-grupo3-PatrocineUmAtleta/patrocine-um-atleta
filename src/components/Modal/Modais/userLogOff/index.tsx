@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { GoLocation } from "react-icons/go";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../../../providers/User";
+import { UserContext } from "../../../../UserContext";
 import { DivUserLogOff } from "./style";
 
 interface iUserLogoff {

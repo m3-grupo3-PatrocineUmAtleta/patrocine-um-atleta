@@ -6,7 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { SchemaRegister } from "./schemaRegister";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../providers/User";
+import { UserContext } from "../../UserContext";
 import { iRegisterData } from "../../services/userRegister";
 import { getAddress, iResponseAddress } from "../../services/getAddress";
 import { ImSpinner9 } from "react-icons/im";

@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../providers/User";
+import { UserContext } from "../../UserContext";
 import { ButtonsSidebar } from "../../components/ButtonsSidebar";
 import { Header } from "../../components/Header";
 import {
-  AdmDashStyle,
+  StyledAdmDashWrapper,
   StyledAdmDash,
   StyledHistory,
   StyledInfoHistory,
@@ -21,7 +21,7 @@ import { BottomSectionPage } from "../../components/BottomSectionPage";
 import { SideBarButtons } from "../../components/SideBarButtons";
 import { getDonations, iResponseDonates } from "../../services/getDonates";
 import { getTournaments } from "../../services/getTournaments";
-import { iTournament } from "../../providers/User/interfaces";
+import { iTournament } from "../../UserContext/interfaces";
 
 export const AdmDash = () => {
   const [listDonations, setListDonations] = useState<
@@ -66,7 +66,7 @@ export const AdmDash = () => {
         <ModalWrapper typeModal={settingsModal} select={selectedAtlhete} />
       )}
       <Header isHome={false}></Header>
-      <AdmDashStyle>
+      <StyledAdmDashWrapper>
         <StyledAdmDash>
           <StyledHistory>
             <div className="divTournaments">
@@ -133,7 +133,7 @@ export const AdmDash = () => {
             <ButtonsSidebar text="Registrar" img={registerImg}></ButtonsSidebar>
           </SideBarButtons>
         </BottomSectionPage>
-      </AdmDashStyle>
+      </StyledAdmDashWrapper>
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { EmblemCardStyled } from "./style";
+import { StyledEmblemCard } from "./style";
 import Shield from "../../assets/img/PerfilCard.svg";
 
 interface iEmbelmCardProps {
@@ -8,12 +8,12 @@ interface iEmbelmCardProps {
 
 export const EmblemCard = ({ imgUrl, nickname }: iEmbelmCardProps) => {
   return (
-    <EmblemCardStyled>
+    <StyledEmblemCard>
       <img src={Shield} alt="" />
       <div>
         <img src={imgUrl} alt="" />
         <h4>{nickname}</h4>
       </div>
-    </EmblemCardStyled>
+    </StyledEmblemCard>
   );
 };

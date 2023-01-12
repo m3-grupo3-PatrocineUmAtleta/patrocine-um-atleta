@@ -1,7 +1,7 @@
-import { iResponseDonates } from "../../services/getDonates";
-import { iRegisterDataDonates } from "../../services/registerDonates";
-import { iUserLogin } from "../../services/userLogin";
-import { iRegisterData } from "../../services/userRegister";
+import { iResponseDonates } from "../services/getDonates";
+import { iRegisterDataDonates } from "../services/registerDonates";
+import { iUserLogin } from "../services/userLogin";
+import { iRegisterData } from "../services/userRegister";
 
 export interface iContext {
   user: iUser | undefined;

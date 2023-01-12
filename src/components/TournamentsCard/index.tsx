@@ -1,4 +1,4 @@
-import { TournamentCardStyle } from "./style";
+import { StyledTournamentCard } from "./style";
 import LocateVector from "../../assets/img/LocateVector.svg";
 
 interface iTournamentCardProps {
@@ -15,7 +15,7 @@ export const TournamentCard = ({
   locate,
 }: iTournamentCardProps) => {
   return (
-    <TournamentCardStyle>
+    <StyledTournamentCard>
       <div>
         <img src={tournamentImg} alt="" />
         <div />
@@ -31,6 +31,6 @@ export const TournamentCard = ({
           <span>{locate}</span>
         </div>
       </div>
-    </TournamentCardStyle>
+    </StyledTournamentCard>
   );
 };

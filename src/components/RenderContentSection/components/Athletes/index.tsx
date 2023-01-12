@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { UserContext } from "../../../../providers/User";
+import { UserContext } from "../../../../UserContext";
 import { getAllAthletes } from "../../../../services/getAllAthletes";
 import { AthleteCard } from "../../../AthleteCard";
 

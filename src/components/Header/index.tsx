@@ -12,21 +12,15 @@ import { BiArrowBack } from "react-icons/bi";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { StyledContainer } from "../../styles/Container";
-import { UserContext } from "../../providers/User";
+import { UserContext } from "../../UserContext";
 
 interface iHeaderProps {
   isHome: boolean;
 }
 
 export const Header = ({ isHome }: iHeaderProps) => {
-  const {
-    user,
-    setUser,
-    setButtonValue,
-    athletes,
-    filterAthletes,
-    setFilterAthletes,
-  } = useContext(UserContext);
+  const { user, setUser, setButtonValue, athletes, setFilterAthletes } =
+    useContext(UserContext);
   const navigate = useNavigate();
 
   const [openHamburguer, setOpenHamburguer] = useState(false);

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TournamentCardStyle = styled.li`
+export const StyledTournamentCard = styled.li`
   margin-top: 19px;
   min-width: 200px;
   height: 260px;

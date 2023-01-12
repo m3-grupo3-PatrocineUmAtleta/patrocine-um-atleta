@@ -1,11 +1,11 @@
-import { iMedias } from "../../../../providers/User/interfaces";
+import { iMedias } from "../../../../UserContext/interfaces";
 import facebookIconBlue from "../../../../assets/img/facebookIconBlue.svg";
 import instagramIconBlue from "../../../../assets/img/instagramIconBlue.svg";
 import twitterIcon from "../../../../assets/img/twitterIcon.svg";
-import { MediaStyle } from "./style";
+import { StyledMedia } from "./style";
 
 export const Medias = ({ facebook, instagram, twitter }: iMedias) => (
-  <MediaStyle>
+  <StyledMedia>
     <div className="divTitleDescription">
       <h2>Redes sociais</h2>
     </div>
@@ -26,5 +26,5 @@ export const Medias = ({ facebook, instagram, twitter }: iMedias) => (
         </a>
       </div>
     </div>
-  </MediaStyle>
+  </StyledMedia>
 );

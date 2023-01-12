@@ -1,11 +1,12 @@
-import { iUser } from "../providers/User/interfaces";
+import { iUser } from "../UserContext/interfaces";
 import { api } from "./api";
 
-export const getAllUsers = async (): Promise<iUser[]> => {
+export const getAllUsers = async (): Promise<iUser[] | undefined> => {
   try {
     const { data } = await api.get("/users");
- 
+
     return data;
-  } finally {
+  } catch (err) {
+    console.log(err);
   }
 };

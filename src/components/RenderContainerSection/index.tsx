@@ -1,5 +1,5 @@
 import React from "react";
-import { ContainerRenderStyle } from "./style";
+import { StyledContainerRender } from "./style";
 
 export interface iRenderContainerProps {
   children?: React.ReactNode;
@@ -10,5 +10,5 @@ export const RenderContainerSection = ({
   children,
   size,
 }: iRenderContainerProps) => {
-  return <ContainerRenderStyle size={size}>{children}</ContainerRenderStyle>;
+  return <StyledContainerRender size={size}>{children}</StyledContainerRender>;
 };

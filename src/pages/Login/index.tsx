@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { UserContext } from "../../providers/User";
+import { UserContext } from "../../UserContext";
 import { Form } from "../../components/Form";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -80,39 +80,3 @@ export const Login = () => {
     </MainLogin>
   );
 };
-{
-  /* {!isLoading ? (
-        <Button onClick={handleClick} variant="contained">
-          add
-        </Button>
-      ) : (
-        <>
-          {" "}
-          <LoadingButton onClick={handleClick} loading variant="contained">
-            Submit
-          </LoadingButton>
-        </>
-      )} */
-}
-
-{
-  /* <Button variant="outlined">add</Button>
-      <Button variant="text">add</Button>
-
-      <Stack direction="row" spacing={4}>
-        <LoadingButton loading variant="contained">
-          Submit
-        </LoadingButton>
-        <LoadingButton loading loadingIndicator="Loading…" variant="outlined">
-          Fetch data
-        </LoadingButton>
-        <LoadingButton
-          loading
-          loadingPosition="start"
-          startIcon={<SaveIcon />}
-          variant="outlined"
-        >
-          Save
-        </LoadingButton>
-      </Stack> */
-}

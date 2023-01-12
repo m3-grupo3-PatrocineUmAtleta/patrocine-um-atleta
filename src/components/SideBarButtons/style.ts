@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SideBarButtonsStyle = styled.aside`
+export const StyledSideBarButtons = styled.aside`
   background-color: var(--color-primary-10);
   position: sticky;
   z-index: 2;

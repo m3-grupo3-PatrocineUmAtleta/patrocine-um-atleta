@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { UserContext } from "../../../../providers/User";
+import { UserContext } from "../../../../UserContext";
 import { postDeposition } from "../../../../services/postComent";
 import { ToastInfo } from "../../../Toast";
-import { DepositionsStyle } from "./style";
+import { StyledDepositions } from "./style";
 
 export const DepositionsForm = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -30,7 +30,6 @@ export const DepositionsForm = () => {
     setTimeout(() => {
       handleCloseModal();
     }, 1500);
-
   };
 
   const { register, handleSubmit } = useForm({
@@ -38,7 +37,7 @@ export const DepositionsForm = () => {
   });
 
   return (
-    <DepositionsStyle>
+    <StyledDepositions>
       <h3>Insira abaixo seu depoimento: </h3>
       <form onSubmit={handleSubmit(submit)}>
         <textarea id="content" {...register("content")} className="headline" />
@@ -47,6 +46,6 @@ export const DepositionsForm = () => {
           <button onClick={handleCloseModal}>Cancelar</button>
         </div>
       </form>
-    </DepositionsStyle>
+    </StyledDepositions>
   );
 };

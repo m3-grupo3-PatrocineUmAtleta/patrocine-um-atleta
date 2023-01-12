@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 export const ToastSucess = (msg: string) => {
   return toast.success(msg, {
     position: toast.POSITION.TOP_RIGHT,
+    autoClose: 2000,
   });
 };
 export const ToastError = (msg: string) => {
@@ -15,5 +16,6 @@ export const ToastError = (msg: string) => {
 export const ToastInfo = (msg: string) => {
   return toast.info(msg, {
     position: toast.POSITION.TOP_RIGHT,
+    autoClose: 2000,
   });
 };

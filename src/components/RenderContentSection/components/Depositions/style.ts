@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const DepositionsStyle = styled.div`
+export const StyledDepositions = styled.div`
   display: flex;
   flex-direction: column;
   animation: animShow 0.5s;

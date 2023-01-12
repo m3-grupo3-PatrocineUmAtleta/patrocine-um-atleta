@@ -1,7 +1,6 @@
-import React from "react";
-import { iAthlete } from "../../../providers/User/interfaces";
-import { AthleteCard } from "../../AthleteCard";
-import { StyledUlAthlete } from "./Athletes/styles";
+import { iAthlete } from "../../../../UserContext/interfaces";
+import { AthleteCard } from "../../../AthleteCard";
+import { StyledUlAthlete } from "../Athletes/styles";
 
 interface iFavoritesProps {
   favorites: iAthlete[];

@@ -4,7 +4,7 @@ import { FaEye } from "react-icons/fa";
 import { BiTrash, BiWindowOpen } from "react-icons/bi";
 import { FiEdit } from "react-icons/fi";
 import { useContext } from "react";
-import { UserContext } from "../../providers/User";
+import { UserContext } from "../../UserContext";
 import { ModalWrapper } from "../Modal";
 import { useNavigate } from "react-router-dom";
 import { getAthletesById } from "../../services/getAthletesById";
@@ -28,7 +28,6 @@ export const AthleteCard = ({
   age,
   city,
   value,
-  isAdmin,
   isUserDash,
 }: iCardProps) => {
   const {
