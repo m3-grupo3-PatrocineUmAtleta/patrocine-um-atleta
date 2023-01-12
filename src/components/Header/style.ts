@@ -76,7 +76,9 @@ export const StyledHeader = styled.header`
       border-radius: 8px;
       padding-left: 40px;
       color: var(--color-gray-0);
+      transition: width 1s;
     }
+
     button {
       position: absolute;
       z-index: 1;
@@ -141,6 +143,12 @@ export const StyledHeader = styled.header`
     }
     .divAdminOptions .searchInput input {
       width: 200px;
+    }
+  }
+
+  @media (min-width: 940px) {
+    .searchInput > input:focus {
+      width: 340px;
     }
   }
 `;
