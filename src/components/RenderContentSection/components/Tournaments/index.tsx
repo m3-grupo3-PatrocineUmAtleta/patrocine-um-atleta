@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../../../../providers/User";
 import { iTournament } from "../../../../providers/User/interfaces";
 import { DivTournaments } from "./style";
@@ -7,6 +7,7 @@ import { Input } from "../../../Form/Input";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import { getTournaments } from "../../../../services/getTournaments";
 
 interface iTournamentForm {
   name: string;
@@ -35,21 +36,33 @@ export const Tournaments = () => {
   const { register, handleSubmit } = useForm<iTournamentForm>({
     resolver: yupResolver(EditTournamentSchema),
   });
-  const { user, setIsOpenModal, openModal, setSettingsModal } =
+  const { user, setIsOpenModal, openModal, setSettingsModal, athletes } =
     useContext(UserContext);
   const [tournament, setTournament] = useState<iTournament | undefined>();
+
+  const [tournaments, setTournaments] = useState<iTournament[]>([]);
+
+  const getTournamentsAPI = async () => {
+    const tournaments = await getTournaments();
+    tournaments && setTournaments(tournaments);
+  };
 
   const handleClick = () => {
     setIsOpenModal(!openModal);
     setSettingsModal("tournamentRegister");
   };
 
+  useEffect(() => {
+    getTournamentsAPI();
+  });
+
   return (
     <DivTournaments>
-      {user?.isAdmin ? (
+      {user?.isAdmin && (
         <>
           <div className="admHeader">
             <h2 className="title-3 uppercase">Torneios</h2>
+            <img src={addImg} alt="adicionar" onClick={handleClick} />
           </div>
 
           <form>
@@ -63,7 +76,7 @@ export const Tournaments = () => {
                     defaultValue="all"
                     onChange={(e) =>
                       setTournament(
-                        user?.tournaments?.find(
+                        tournaments?.find(
                           (tournament) =>
                             tournament.id === Number(e.target.value)
                         )
@@ -71,7 +84,7 @@ export const Tournaments = () => {
                     }
                   >
                     <option value="all">Selecioane um torneio</option>
-                    {user?.tournaments?.map((tournament) => (
+                    {tournaments?.map((tournament) => (
                       <option value={tournament.id} key={tournament.id}>
                         {tournament.name}
                       </option>
@@ -91,7 +104,6 @@ export const Tournaments = () => {
                   id="rewards"
                   defaultValue={tournament?.rewards}
                   register={register("rewards")}
-                  disabled
                 />
               </div>
 
@@ -102,25 +114,30 @@ export const Tournaments = () => {
                   id="rewards"
                   defaultValue={tournament?.status}
                   register={register("status")}
-                  disabled
                 />
-
                 <fieldset className="fieldParticiants ">
                   <legend className="caption">Participantes</legend>
                   <ul>
                     {tournament?.participants.map((participant) => (
-                      <li key={participant.id}>
-                        <p>{participant.name}</p>
+                      <li key={participant.athleteId}>
+                        <p>
+                          {
+                            athletes.find(
+                              (athlete) => athlete.id === participant.athleteId
+                            )?.name
+                          }
+                        </p>
                       </li>
                     ))}
                   </ul>
                 </fieldset>
               </div>
             </div>
+            <div className="buttons">
+              <button type="submit">Alterar</button>
+            </div>
           </form>
         </>
-      ) : (
-        <>{<h2>Torneios em que o atleta participou:</h2>}</>
       )}
     </DivTournaments>
   );
