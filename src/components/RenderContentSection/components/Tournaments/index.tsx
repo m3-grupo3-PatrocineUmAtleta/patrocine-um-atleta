@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
-import { UserContext } from "../../../../providers/User";
-import { iTournament } from "../../../../providers/User/interfaces";
+import { UserContext } from "../../../../UserContext";
+import { iTournament } from "../../../../UserContext/interfaces";
 import { DivTournaments } from "./style";
 import addImg from "../../../../assets/img/add.svg";
 import { Input } from "../../../Form/Input";

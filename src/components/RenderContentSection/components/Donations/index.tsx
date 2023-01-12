@@ -1,8 +1,8 @@
-import { DonationsStyle } from "./style";
+import { StyledDonations } from "./style";
 import cifrao from "../../../../assets/img/cifrao.svg";
 import { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
-import { UserContext } from "../../../../providers/User";
+import { UserContext } from "../../../../UserContext";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -50,7 +50,7 @@ export const Donations = ({ image }: iDonationsProps) => {
   };
 
   return (
-    <DonationsStyle>
+    <StyledDonations>
       <div className="divTitleDescription">
         <h2>Doação para o atleta</h2>
       </div>
@@ -77,6 +77,6 @@ export const Donations = ({ image }: iDonationsProps) => {
           Inserir doação
         </button>
       </form>
-    </DonationsStyle>
+    </StyledDonations>
   );
 };

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { UserContext } from "../../providers/User";
+import { UserContext } from "../../UserContext";
 import { AthleteRegister } from "./components/AthleteRegister";
 import { Athletes } from "./components/Athletes";
 import { Bio } from "./components/Bio";

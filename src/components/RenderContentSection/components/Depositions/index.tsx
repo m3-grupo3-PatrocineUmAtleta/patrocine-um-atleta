@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react";
-import { UserContext } from "../../../../providers/User";
-import { iDepositionsToEspecifyAthlete } from "../../../../providers/User/interfaces";
+import { UserContext } from "../../../../UserContext";
+import { iDepositionsToEspecifyAthlete } from "../../../../UserContext/interfaces";
 import { DepositionCard } from "./DepositionCard";
-import { DepositionsStyle } from "./style";
+import { StyledDepositions } from "./style";
 
 interface iDepositionsProp {
   depositionList: iDepositionsToEspecifyAthlete[] | undefined;
@@ -30,7 +30,7 @@ export const Depositions = ({ depositionList }: iDepositionsProp) => {
     get();
   }, [finalyDeps]);
   return (
-    <DepositionsStyle>
+    <StyledDepositions>
       <div className="divNameAndButton">
         <div className="divTitleDescription">
           <h2>Comentários sobre o atleta</h2>
@@ -48,6 +48,6 @@ export const Depositions = ({ depositionList }: iDepositionsProp) => {
           />
         ))}
       </ul>
-    </DepositionsStyle>
+    </StyledDepositions>
   );
 };

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MediaStyle = styled.div`
+export const StyledMedia = styled.div`
   display: flex;
   flex-direction: column;
   gap: 60px;

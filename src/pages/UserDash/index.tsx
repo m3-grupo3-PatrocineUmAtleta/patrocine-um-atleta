@@ -10,7 +10,7 @@ import { AthleteCard } from "../../components/AthleteCard";
 import { Header } from "../../components/Header";
 import { getUserLogged } from "../../services/getUserLogged";
 import { useContext, useEffect } from "react";
-import { UserContext } from "../../providers/User";
+import { UserContext } from "../../UserContext";
 import { RenderContainerSection } from "../../components/RenderContainerSection";
 import { RenderContentSection } from "../../components/RenderContentSection";
 import { ModalWrapper } from "../../components/Modal";

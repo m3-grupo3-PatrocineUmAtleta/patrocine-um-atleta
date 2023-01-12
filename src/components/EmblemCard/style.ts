@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const EmblemCardStyled = styled.div`
+export const StyledEmblemCard = styled.div`
   max-width: 200px;
   width: 100%;
   height: 273px;

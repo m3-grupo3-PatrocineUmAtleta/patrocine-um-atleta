@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AdmDashStyle = styled.div`
+export const StyledAdmDashWrapper = styled.div`
   background-color: var(--color-primary-100);
   width: 100vw;
   height: 100vh;

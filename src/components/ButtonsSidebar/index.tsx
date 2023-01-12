@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { UserContext } from "../../providers/User";
+import { UserContext } from "../../UserContext";
 import { StyledButtonsSidebar } from "./style";
 
 interface iButtonsSidebarProps {

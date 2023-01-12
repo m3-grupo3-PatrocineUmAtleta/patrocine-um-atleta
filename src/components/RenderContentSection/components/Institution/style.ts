@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const IntitutionStyle = styled.div`
+export const StyledIntitution = styled.div`
   display: flex;
   flex-direction: column;
   gap: 67px;

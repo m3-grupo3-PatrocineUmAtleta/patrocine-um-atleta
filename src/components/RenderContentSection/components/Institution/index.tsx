@@ -1,9 +1,5 @@
-import {
-  iInstitution,
-  iTournament,
-  iUser,
-} from "../../../../providers/User/interfaces";
-import { IntitutionStyle } from "./style";
+import { iInstitution, iTournament } from "../../../../UserContext/interfaces";
+import { StyledIntitution } from "./style";
 import LocacateVector from "../../../../assets/img/LocateVector.svg";
 import { getAllUser } from "../../../../services/getUserAdmin";
 import { useEffect, useState } from "react";
@@ -35,7 +31,7 @@ export const Institution = () => {
       {isLoading ? (
         <div className="headline-600 text-center">Loading...</div>
       ) : (
-        <IntitutionStyle>
+        <StyledIntitution>
           <div className="divNameAndParticipations">
             <div className="descriptionInstitution">
               <h2>Instituição: {contentAllUser?.name}</h2>
@@ -50,7 +46,7 @@ export const Institution = () => {
             <h2>Sobre nós:</h2>
             <p className="caption">{contentAllUser?.bio}</p>
           </div>
-        </IntitutionStyle>
+        </StyledIntitution>
       )}
     </>
   );

@@ -1,5 +1,4 @@
 import { AxiosError } from "axios";
-import { iTournamentForm } from "../components/RenderContentSection/components/Tournaments";
 import { ToastError, ToastSucess } from "../components/Toast";
 import { api } from "./api";
 

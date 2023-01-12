@@ -1,13 +1,13 @@
 import { StyledContainer } from "../../styles/Container";
-import { BottomSectionStyle } from "./style";
+import { StyledBottomSection } from "./style";
 
 interface iBottomSectionPageProps {
   children: React.ReactNode;
 }
 export const BottomSectionPage = ({ children }: iBottomSectionPageProps) => {
   return (
-    <BottomSectionStyle>
+    <StyledBottomSection>
       <StyledContainer>{children}</StyledContainer>
-    </BottomSectionStyle>
+    </StyledBottomSection>
   );
 };

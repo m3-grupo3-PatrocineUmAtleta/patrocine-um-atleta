@@ -1,6 +1,6 @@
 import { AxiosError } from "axios";
 import { ToastError, ToastSucess } from "../components/Toast";
-import { iTournament } from "../providers/User/interfaces";
+import { iTournament } from "../UserContext/interfaces";
 import { api } from "./api";
 
 interface idataRegisterTournaments {

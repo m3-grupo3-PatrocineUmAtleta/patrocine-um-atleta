@@ -1,4 +1,4 @@
-import { iAthlete } from "../providers/User/interfaces";
+import { iAthlete } from "../UserContext/interfaces";
 import { api } from "./api";
 
 export const getAthletesById = async (

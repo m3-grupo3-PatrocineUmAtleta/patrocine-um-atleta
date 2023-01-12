@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AthletePageStyle = styled.div`
+export const StyledAthletePage = styled.div`
   background-color: var(--color-primary-100);
   width: 100vw;
   height: 100vh;

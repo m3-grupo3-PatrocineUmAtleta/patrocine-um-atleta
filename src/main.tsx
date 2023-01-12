@@ -3,19 +3,19 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import App from "./App";
-import { Providers } from "./providers";
 import Fonts from "./styles/Fonts";
 import GlobalStyles from "./styles/GlobalStyles";
+import { UserProvider } from "./UserContext";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
       <GlobalStyles />
       <Fonts />
-      <Providers>
+      <UserProvider>
         <ToastContainer autoClose={2000} />
         <App />
-      </Providers>
+      </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

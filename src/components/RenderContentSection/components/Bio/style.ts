@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const BioStyle = styled.div`
+export const StyledBio = styled.div`
   display: flex;
   flex-direction: column;
   gap: 67px;

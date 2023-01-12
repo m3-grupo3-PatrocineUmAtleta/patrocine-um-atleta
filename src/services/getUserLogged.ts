@@ -1,4 +1,4 @@
-import { iSponsored, iUser } from "../providers/User/interfaces";
+import { iSponsored, iUser } from "../UserContext/interfaces";
 import { api } from "./api";
 
 export const getUserLogged = async (): Promise<iSponsored[] | undefined> => {
