@@ -74,7 +74,7 @@ export const AthleteEdit = ({ idAthlete }: iAthleteEdit) => {
     AthleteEditAPI({ idAthlete, data: dataAthlete, tokenLocal });
 
     const athletes = await getAllAthletes();
-    setAthletes(athletes);
+    athletes && setAthletes(athletes);
     setIsOpenModal(false);
   };
 

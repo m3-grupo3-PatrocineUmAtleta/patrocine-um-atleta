@@ -28,8 +28,8 @@ export const Athletes = () => {
                 name={athlete.name}
                 age={athlete.age}
                 city={athlete.city}
+                isUserDash={true}
                 bio={athlete.bio}
-                isAdmin={false}
                 key={athlete.id}
               />
             );

@@ -6,7 +6,7 @@ import perfilIcon from "./../../assets/img/perfilIcon.png";
 import todosAtletasIcon from "./../../assets/img/todosAtletasIcon.png";
 import favIcon from "./../../assets/img/favIcon.png";
 import patrocinadosIcon from "./../../assets/img/patrocinadosIcon.png";
-import favourite from "./../../assets/img/favourite.svg"
+import favourite from "./../../assets/img/favourite.svg";
 import { AthleteCard } from "../../components/AthleteCard";
 import { Header } from "../../components/Header";
 import { getUserLogged } from "../../services/getUserLogged";
@@ -40,8 +40,8 @@ export const UserDash = () => {
   };
   useEffect(() => {
     getAthle();
-    donationsList()
-    setButtonValue("Perfil")
+    donationsList();
+    setButtonValue("Perfil");
   }, []);
 
   useEffect(() => {
@@ -61,7 +61,7 @@ export const UserDash = () => {
         <ModalWrapper typeModal={settingsModal} select={selectedAtlhete} />
       )}
       <Header isHome={false} />
-      <div className="bg-blue"></div>
+
       <StyledContainer flex={true} className="container">
         <section className="donations-history">
           <h2 className="title-2 gray-0">Histórico de doações</h2>
