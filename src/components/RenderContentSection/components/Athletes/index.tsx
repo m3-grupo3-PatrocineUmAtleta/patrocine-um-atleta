@@ -10,7 +10,7 @@ export const Athletes = () => {
 
   const getAthletes = async () => {
     const athletes = await getAllAthletes();
-    setAthletes(athletes);
+    athletes && setAthletes(athletes);
   };
 
   useEffect(() => {

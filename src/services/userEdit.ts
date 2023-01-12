@@ -1,4 +1,4 @@
-import { iFormDataEditUser } from "../components/Modal/Modais/UserDataEdit/UserDataEdit";
+import { iFormDataEditUser } from "../components/Modal/Modais/UserDataEdit";
 import { ToastSucess } from "../components/Toast";
 import { iUser } from "../providers/User/interfaces";
 import { api } from "./api";
