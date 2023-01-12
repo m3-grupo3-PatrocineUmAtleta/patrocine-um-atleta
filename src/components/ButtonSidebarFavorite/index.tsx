@@ -1,15 +1,22 @@
 import { StyledButtonsSidebar } from "../ButtonsSidebar/style";
 import { AiFillStar } from "react-icons/ai";
+import { Favorite } from "@mui/icons-material";
 
 interface iButtonSidebarFavorite {
   onClick: () => void;
+  isFavorite?: boolean;
 }
 
-export const ButtonSidebarFavorite = ({ onClick }: iButtonSidebarFavorite) => {
+export const ButtonSidebarFavorite = ({
+  onClick,
+  isFavorite,
+}: iButtonSidebarFavorite) => {
   return (
     <StyledButtonsSidebar onClick={onClick}>
-      <AiFillStar className="gray" size="50px" />
-      <h4 className="text-sideButton">Favoritar</h4>
+      <AiFillStar className={isFavorite ? "yellow" : "gray"} size="50px" />
+      <h4 className="text-sideButton">
+        {isFavorite ? "Favoritado" : "Favoritar"}
+      </h4>
     </StyledButtonsSidebar>
   );
 };
