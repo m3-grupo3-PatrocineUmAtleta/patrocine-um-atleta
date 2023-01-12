@@ -52,7 +52,6 @@ export const TournamentRegister = () => {
       imgUrl: data.imgUrl,
       place: "none",
     };
-    console.log(formData);
     RegisterTournaments({ data: formData });
   };
 

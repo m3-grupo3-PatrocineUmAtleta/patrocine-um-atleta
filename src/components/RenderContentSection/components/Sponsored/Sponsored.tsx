@@ -1,9 +1,9 @@
+import React from "react";
 import { useContext } from "react";
 import { UserContext } from "../../../../providers/User";
 import { iResponseDonates } from "../../../../services/getDonates";
 import { AthleteCard } from "../../../AthleteCard";
 import { StyledSponsored } from "./style";
-
 
 interface iSponsoredProps {
   donatesList: iResponseDonates[] | undefined;

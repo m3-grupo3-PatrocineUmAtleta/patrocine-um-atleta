@@ -38,7 +38,7 @@ export const AddTournament = () => {
   const submit: SubmitHandler<iFormData> = async (formData) => {
     onRegisterApi(formData);
   };
-  console.log("comentarios")
+  //comentarios
 
   return (
     // pegar o id da instituicao pelo useParams ?

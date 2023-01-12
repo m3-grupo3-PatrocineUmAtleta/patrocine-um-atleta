@@ -1,6 +1,6 @@
+import React from "react";
 import { StyledButtonsSidebar } from "../ButtonsSidebar/style";
 import { AiFillStar } from "react-icons/ai";
-import { Favorite } from "@mui/icons-material";
 
 interface iButtonSidebarFavorite {
   onClick: () => void;

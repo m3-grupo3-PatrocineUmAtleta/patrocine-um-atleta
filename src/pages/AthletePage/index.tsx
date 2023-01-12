@@ -19,8 +19,7 @@ import { BottomSectionPage } from "../../components/BottomSectionPage";
 import { getAllUser } from "../../services/getUserAdmin";
 import { iTournament } from "../../providers/User/interfaces";
 import { getTournaments } from "../../services/getTournaments";
-import { getAllUser } from "../../services/getAllUser";
-import { ButtonSidebarFavorite } from "../../components/ButtonSidebarFavorite";
+import { ButtonSidebarFavorite } from "../../components/ButtonSideBarFavorite";
 import { setFavorites } from "../../services/setFavorites";
 import { iAthlete } from "../../providers/User/interfaces";
 import { ToastSucess } from "../../components/Toast";
@@ -71,8 +70,6 @@ export const AthletePage = () => {
 
   const handleClick = async () => {
     if (isFavorite) {
-      console.log("foi", athlete, user);
-
       const personIndex: number =
         user?.favorites?.findIndex((person) => person.id === athlete.id) || -1;
 
@@ -80,40 +77,20 @@ export const AthletePage = () => {
 
       favoriteList.splice(personIndex, 1);
 
-      console.log(personIndex);
-      console.log(favoriteList);
-
       const token = localStorage.getItem("@Token");
-
       const userResponse = await setFavorites(favoriteList, user?.id, token);
 
       setUser(userResponse);
-
-      console.log(userResponse);
-
       ToastSucess("Atleta removido dos favoritos com sucesso!");
     } else {
-      console.log("foi", athlete, user);
-
-      const favoriteList: iAthlete[] = [...user?.favorites, athlete];
-
-      console.log(favoriteList);
-
+      const favoriteList: iAthlete[] = [...(user?.favorites || []), athlete];
       const token = localStorage.getItem("@Token");
-
       const userResponse = await setFavorites(favoriteList, user?.id, token);
 
       setUser(userResponse);
-
-      console.log(userResponse);
-
       ToastSucess("Atleta adicionado aos favoritos com sucesso!");
     }
   };
-
-  console.log(contentAllUser);
-  console.log(athlete);
-  console.log(user);
 
   return (
     <>

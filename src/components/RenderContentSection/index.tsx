@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../providers/User";
 import { AthleteRegister } from "./components/AthleteRegister";
 import { Athletes } from "./components/Athletes";
@@ -18,9 +18,6 @@ export const RenderContentSection = () => {
     useContext(UserContext);
   const storageAthlete: any = localStorage.getItem("@SelectedAthlete");
   const athlete = JSON.parse(storageAthlete);
-
-  console.log(user);
-  console.log(buttonValue);
 
   if (user?.isAdmin === false || user?.isAdmin === undefined) {
     if (buttonValue === "Perfil") {
