@@ -84,23 +84,25 @@ export const AdmDash = () => {
                 <h3>Histórico de doações</h3>
               </div>
               <ul>
-                {listDonations?.map((donate) => {
-                  return (
-                    <li key={donate.id}>
-                      <StyledInfoHistory>
-                        {
-                          athletes?.find(
-                            (athlete) => athlete.id === donate.athleteId
-                          )?.name
-                        }
-                        {"-"}
-                        {donate.amount}
-                      </StyledInfoHistory>
-                    </li>
-                  );
-                })}
-
-                {}
+                {listDonations ? (
+                  listDonations.map((donate) => {
+                    return (
+                      <li key={donate.id}>
+                        <StyledInfoHistory>
+                          {
+                            athletes?.find(
+                              (athlete) => athlete.id === donate.athleteId
+                            )?.name
+                          }
+                          {"-"}
+                          {donate.amount}
+                        </StyledInfoHistory>
+                      </li>
+                    );
+                  })
+                ) : (
+                  <StyledInfoHistory>Ainda não há doações</StyledInfoHistory>
+                )}
               </ul>
             </div>
           </StyledHistory>

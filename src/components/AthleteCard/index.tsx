@@ -11,9 +11,9 @@ import { getAthletesById } from "../../services/getAthletesById";
 
 interface iCardProps {
   athlete_id: number | string;
-  img: string | undefined;
-  name: string;
-  age: number;
+  img?: string;
+  name?: string;
+  age?: number;
   city?: string;
   value?: number;
   bio?: string;

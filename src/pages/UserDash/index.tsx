@@ -16,16 +16,37 @@ import { RenderContentSection } from "../../components/RenderContentSection";
 import { ModalWrapper } from "../../components/Modal";
 import { BottomSectionPage } from "../../components/BottomSectionPage";
 import { SideBarButtons } from "../../components/SideBarButtons";
+import { getDonations, iResponseDonates } from "../../services/getDonates";
+import { getAllAthletes } from "../../services/getAllAthletes";
 
 export const UserDash = () => {
   const {
+    athletes,
+    setAthletes,
+    user,
     filterAthletes,
-    sponsored,
     setSponsored,
     openModal,
     settingsModal,
     selectedAtlhete,
   } = useContext(UserContext);
+
+  const [listDonations, setListDonations] = useState<
+    iResponseDonates[] | undefined
+  >([]);
+
+  const donationsList = async () => {
+    const list = await getDonations();
+    list && setListDonations(list);
+  };
+
+  const getAthle = async () => {
+    const allAthletes = await getAllAthletes();
+    allAthletes && setAthletes(allAthletes);
+  };
+  useEffect(() => {
+    getAthle();
+  }, []);
 
   useEffect(() => {
     const getSpon = async () => {
@@ -34,7 +55,9 @@ export const UserDash = () => {
     getSpon();
   }, []);
 
-  //comentarios
+  useEffect(() => {
+    donationsList();
+  }, []);
 
   return (
     <StyledUserDash>
@@ -47,21 +70,28 @@ export const UserDash = () => {
         <section className="donations-history">
           <h2 className="title-2 gray-0">Histórico de doações</h2>
           <ul className="ul-mobile">
-            {sponsored?.length ? (
-              sponsored
-                .map((item) => {
-                  return (
-                    <HistoryCard
-                      key={item.athlete.id}
-                      id={item.athlete.id + ""}
-                      name={item.athlete.nickname}
-                      value={item.value}
-                      img={item.athlete.imgUrl}
-                    />
-                  );
-                })
-                .reverse()
-                .slice(0, 3)
+            {listDonations ? (
+              listDonations
+                .filter((donates) => Number(donates.userId) === user?.id)
+                .map((donate) => (
+                  <HistoryCard
+                    key={donate.id}
+                    id={donate.id + ""}
+                    name={
+                      athletes &&
+                      athletes.find(
+                        (athlete) => athlete.id === donate.athleteId
+                      )?.nickname
+                    }
+                    value={Number(donate.amount)}
+                    img={
+                      athletes &&
+                      athletes.find(
+                        (athlete) => athlete.id === donate.athleteId
+                      )?.imgUrl
+                    }
+                  />
+                ))
             ) : (
               <li className="headline gray-0 text-center">
                 Você ainda não patrocinou nenhum atleta
@@ -70,21 +100,35 @@ export const UserDash = () => {
           </ul>
 
           <ul className="ul-desktop">
-            {sponsored?.length ? (
-              sponsored
-                .map((item) => {
-                  return (
-                    <AthleteCard
-                      key={item.athlete.id}
-                      athlete_id={item.athlete.id + ""}
-                      img={item.athlete.imgUrl}
-                      name={item.athlete.nickname}
-                      age={item.athlete.age}
-                      value={item.value}
-                      isUserDash={true}
-                    />
-                  );
-                })
+            {listDonations ? (
+              listDonations
+                .filter((donates) => Number(donates.userId) === user?.id)
+                .map((donate) => (
+                  <AthleteCard
+                    key={donate.id}
+                    athlete_id={donate.athleteId}
+                    name={
+                      athletes &&
+                      athletes.find(
+                        (athlete) => athlete.id === donate.athleteId
+                      )?.nickname
+                    }
+                    value={Number(donate.amount)}
+                    img={
+                      athletes &&
+                      athletes.find(
+                        (athlete) => athlete.id === donate.athleteId
+                      )?.imgUrl
+                    }
+                    isUserDash={true}
+                    age={
+                      athletes &&
+                      athletes.find(
+                        (athlete) => athlete.id === donate.athleteId
+                      )?.age
+                    }
+                  />
+                ))
                 .reverse()
                 .slice(0, 3)
             ) : (

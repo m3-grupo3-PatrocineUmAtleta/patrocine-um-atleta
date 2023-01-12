@@ -11,9 +11,14 @@ interface iDonationsProps {
 export const Donations = ({ image }: iDonationsProps) => {
   const { user, setIsOpenModal, setSettingsModal, setDonateData } =
     useContext(UserContext);
+
   const [isLoading, setIsLoading] = useState(false);
   const athleteLocal = localStorage.getItem("@SelectedAthlete") || "";
   const athlete = JSON.parse(athleteLocal);
+
+  const { register, handleSubmit, reset } = useForm({
+    mode: "onBlur",
+  });
 
   const submit = async (data: any) => {
     const dataForm = {
@@ -25,13 +30,9 @@ export const Donations = ({ image }: iDonationsProps) => {
     setIsOpenModal(true);
     setSettingsModal("donateConfirm");
     setDonateData(dataForm);
-    // RegisterDonate(dataForm);
     setIsLoading(!isLoading);
+    reset();
   };
-
-  const { register, handleSubmit } = useForm({
-    mode: "onBlur",
-  });
 
   return (
     <DonationsStyle>
