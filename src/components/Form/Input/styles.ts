@@ -44,7 +44,7 @@ export const FieldsetInput = styled.fieldset<iInputText>`
   }
 
   & > input {
-    max-width: 276px;
+    max-width: 265px;
     width: 100%;
     height: 43.86px;
     padding: 1.125rem;

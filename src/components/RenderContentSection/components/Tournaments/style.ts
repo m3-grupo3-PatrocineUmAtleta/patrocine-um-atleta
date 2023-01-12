@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const DivTournaments = styled.div`
+  justify-content: center;
   animation: animShow 0.5s;
 
   .admHeader {
@@ -47,13 +48,14 @@ export const DivTournaments = styled.div`
   }
   .fieldName,
   .fieldStatus,
-  .fieldParticiants {
+  .fieldParticiants,
+  .athleteName {
     border: none;
 
     > select {
       background-color: var(--color-gray-20);
       max-width: 276px;
-      width: 100%;
+      /* width: 100%; */
       height: 43.86px;
       padding-left: 12px;
       border-radius: 4px;
@@ -78,10 +80,11 @@ export const DivTournaments = styled.div`
   .fieldParticiants {
     > ul {
       height: 100px;
-      min-width: 276px;
+      min-width: 238px;
       background-color: var(--color-gray-20);
       padding: 12px;
       overflow-y: auto;
+      margin-bottom: 16px;
     }
   }
 
@@ -99,5 +102,18 @@ export const DivTournaments = styled.div`
       transform: translate(0px);
       opacity: 1;
     }
+  }
+  .athleteName {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .addbutton {
+    width: 32px;
+  }
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 `;
