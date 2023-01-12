@@ -66,7 +66,7 @@ export const AthletePage = () => {
                 {tournaments
                   .filter(
                     (tournament) =>
-                      tournament.participants.find(
+                      tournament.participants?.find(
                         (idAthle) => idAthle.athleteId === athlete.id
                       )?.athleteId === athlete.id
                   )

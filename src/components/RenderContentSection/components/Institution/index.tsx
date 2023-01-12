@@ -1,22 +1,34 @@
-import { iInstitution, iUser } from "../../../../providers/User/interfaces";
+import {
+  iInstitution,
+  iTournament,
+  iUser,
+} from "../../../../providers/User/interfaces";
 import { IntitutionStyle } from "./style";
 import LocacateVector from "../../../../assets/img/LocateVector.svg";
-import { getAllUser } from "../../../../services/getAllUser";
+import { getAllUser } from "../../../../services/getUserAdmin";
 import { useEffect, useState } from "react";
+import { getTournaments } from "../../../../services/getTournaments";
 
 export const Institution = () => {
   const [contentAllUser, setContentAllUser] = useState<
     iInstitution | undefined
   >();
   const [isLoading, setLoading] = useState(true);
+  const [tournaments, setTournaments] = useState<iTournament[]>([]);
   const allUser = async () => {
     const getUsers = await getAllUser();
     setLoading(false);
     setContentAllUser(getUsers);
   };
 
+  const getTournamentsAPI = async () => {
+    const tournaments = await getTournaments();
+    tournaments && setTournaments(tournaments);
+  };
+
   useEffect(() => {
     allUser();
+    getTournamentsAPI();
   }, []);
   return (
     <>
@@ -28,7 +40,7 @@ export const Institution = () => {
             <div className="descriptionInstitution">
               <h2>Instituição: {contentAllUser?.name}</h2>
             </div>
-            <h2 className="title-2">{`Participações: ${contentAllUser?.tournaments?.length} torneios`}</h2>
+            <h2 className="title-2">{`Participações: ${tournaments?.length} torneios`}</h2>
           </div>
           <div>
             <div className="divLocation">
