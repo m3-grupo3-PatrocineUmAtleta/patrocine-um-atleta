@@ -16,7 +16,7 @@ function App() {
         <Route path="*" element={<Home />} />
 
         <Route element={<ProtectedRoutes />}>
-          <Route path="athletePage" element={<AthletePage />} />
+          <Route path="athlete" element={<AthletePage />} />
           <Route path="dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
