@@ -12,9 +12,12 @@ export const DonateConfirmation = () => {
     setIsOpenModal(false);
   };
   return (
-    <div className="divButtons">
-      <button onClick={(e) => registerDonate(e)}>SIM</button>
-      <button onClick={() => setIsOpenModal(false)}>NÃO</button>
+    <div className="divConfirm">
+      <h3>Deseja realmente concluir a doação ?</h3>
+      <div className="divButtons">
+        <button onClick={(e) => registerDonate(e)}>SIM</button>
+        <button onClick={() => setIsOpenModal(false)}>NÃO</button>
+      </div>
     </div>
   );
 };

@@ -59,13 +59,20 @@ export const ModalBackground = styled.div`
       }
     }
   }
-
+  .divConfirm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
   .divButtons {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 90px;
+    width: 100%;
+    gap: 20px;
 
     @media (min-width: 750px) {
       flex-direction: row;
