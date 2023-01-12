@@ -20,6 +20,7 @@ import { getAllAthletes } from "../../services/getAllAthletes";
 import { AthleteCard } from "../../components/AthleteCard";
 import { getDonations } from "../../services/getDonates";
 import { getAllUsers } from "../../services/getAllUsers";
+import { iUser } from "../../userContext/interfaces";
 
 export const Home = () => {
   const { openModal, athletes, setAthletes, selectedAtlhete } =
@@ -38,7 +39,7 @@ export const Home = () => {
   };
 
   const getDonors = async () => {
-    const count = await getAllUsers();
+    const count = (await getAllUsers()) || ([] as iUser[]);
     setDonors(count.length - 1);
   };
 

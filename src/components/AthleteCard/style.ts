@@ -20,7 +20,7 @@ export const StyledAthleteCard = styled.li`
     box-shadow: rgba(242, 68, 5, 0.25) 0px 54px 55px,
       rgba(242, 68, 5, 0.12) 0px -12px 30px, rgba(242, 68, 5, 0.12) 0px 4px 6px,
       rgba(242, 68, 5, 0.17) 0px 12px 13px, rgba(242, 68, 5, 0.09) 0px -3px 5px;
-    transform: scale(1.075) translateY(5px);
+    transform: scale(1.03) translateY(5px);
 
     & > .div-inf {
       transition: 0.2s;

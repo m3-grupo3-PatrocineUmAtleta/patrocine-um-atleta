@@ -38,7 +38,7 @@ export const StyledDepositions = styled.div`
     display: flex;
     flex-direction: column;
     gap: 16px;
-    overflow-y: scroll;
+    overflow-y: auto;
     padding: 5px 16px;
   }
 
