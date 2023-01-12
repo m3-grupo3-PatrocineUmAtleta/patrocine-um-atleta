@@ -3,6 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../../../providers/User";
 import { getAllAthletes } from "../../../../services/getAllAthletes";
 import { DivInfos } from "./style";
+import { number } from "yup";
+import { getDonations } from "../../../../services/getDonates";
 
 interface iInfosProps {
   tournamentsInfo?: {
@@ -20,6 +22,7 @@ export const Infos = ({
   raisings,
 }: iInfosProps) => {
   const [mostPopular, setMostPopular] = useState({} as iAthlete);
+  const [totalDonations, setTotalDonations] = useState<number | undefined>();
 
   const { user } = useContext(UserContext);
 
@@ -28,7 +31,7 @@ export const Infos = ({
   const filterApi = async () => {
     try {
       const res = await getAllAthletes();
-      setAthletes(res);
+      res && setAthletes(res);
     } catch (error) {
       console.error(error);
     } finally {
@@ -57,11 +60,23 @@ export const Infos = ({
     });
   };
 
+  const getTotalDonation = async () => {
+    const donations = await getDonations();
+    const total =
+      donations &&
+      donations.reduce(
+        (accumulator, { amount }) => accumulator + Number(amount),
+        0
+      );
+    return setTotalDonations(total);
+  };
+
   useEffect(() => {
     findMostPopular();
   }, []);
   useEffect(() => {
     filterApi();
+    getTotalDonation();
   }, []);
 
   return (
@@ -84,7 +99,7 @@ export const Infos = ({
         </div>
         <div>
           <h3>Total de arrecadações:</h3>
-          <p>Sua instituição arrecadou um total de R$ {raisings}.</p>
+          <p>Sua instituição arrecadou um total de R$ {totalDonations},00.</p>
         </div>
         <div>
           {/* <h3>Seu atleta mais popular é:</h3>
