@@ -14,6 +14,11 @@ export const TournamentCardStyle = styled.li`
   cursor: pointer;
   transition: all 0.8s;
 
+  & > img {
+    height: 44px;
+    width: 44px;
+  }
+
   &:hover,
   :focus {
     background-color: var(--color-secundary-100);
