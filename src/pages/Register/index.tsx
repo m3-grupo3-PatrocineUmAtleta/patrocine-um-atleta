@@ -89,7 +89,7 @@ export const Register = () => {
           type="number"
           id="cpf"
           text="CPF"
-          message={errors.cpf?.message}
+          message={errors.cpf ? "CPF inválido" : ""}
           register={register("cpf")}
           required
           placeholder="Insira seu CPF, somente os números"
@@ -108,7 +108,7 @@ export const Register = () => {
           type="number"
           id="cep"
           text="CEP"
-          message={errors.cep?.message}
+          message={errors.cep ? "CEP obrigatório" : ""}
           register={register("cep")}
           required
           placeholder="Insira seu CEP, somente os números"
