@@ -29,6 +29,7 @@ export const DonationsStyle = styled.div`
     justify-content: center;
     align-items: center;
     gap: 36px;
+    padding: 0 16px;
 
     & > div {
       display: flex;
@@ -37,7 +38,8 @@ export const DonationsStyle = styled.div`
       & > div {
         display: flex;
         align-items: center;
-        width: 300px;
+        max-width: 300px;
+        width: 100%;
         height: 48px;
         background-color: var(--color-gray-0);
         border-radius: 3px;
@@ -62,6 +64,11 @@ export const DonationsStyle = styled.div`
           background-color: transparent;
           outline: none;
           height: 30px;
+          width: 100%;
+
+          ::-webkit-inner-spin-button {
+            appearance: none;
+          }
           ::placeholder {
             color: rgba(0, 0, 0, 0.35);
           }
@@ -69,7 +76,8 @@ export const DonationsStyle = styled.div`
       }
     }
     button {
-      width: 300px;
+      width: 100%;
+      max-width: 300px;
       height: 37px;
       background-color: var(--color-secundary-100);
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

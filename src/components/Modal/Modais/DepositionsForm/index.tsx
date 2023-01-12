@@ -26,9 +26,11 @@ export const DepositionsForm = () => {
     data.content.length
       ? postDeposition({ data, userId, localToken })
       : ToastInfo("Escreva um comentário");
+
     setTimeout(() => {
       handleCloseModal();
     }, 1500);
+
   };
 
   const { register, handleSubmit } = useForm({
