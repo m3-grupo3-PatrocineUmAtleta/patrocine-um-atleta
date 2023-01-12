@@ -11,7 +11,8 @@ import {
   iTournament,
 } from "../../../../providers/User/interfaces";
 import { RegisterTournaments } from "../../../../services/registerTournaments";
-import { ResetTv } from "@mui/icons-material";
+import { DivEditTournaments } from "../TournamentRegister/style";
+import { DivTournaments } from "../../../RenderContentSection/components/Tournaments/style";
 
 const RegisterTournamentSchema = yup.object().shape({
   name: yup.string(),
@@ -34,8 +35,7 @@ export const TournamentRegister = () => {
   const [selectedAthletes, setSelectedAthletes] = useState<iAthlete[]>([]);
   const [idAthlete, setIdAthlete] = useState<iparticipants[]>([]);
 
-  const addAthlete = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.preventDefault();
+  const addAthlete = () => {
     const selected = athletes.find((athlete) => athlete.id === select);
     selected && setIdAthlete([...idAthlete, { athleteId: selected.id }]);
     selected && setSelectedAthletes([...selectedAthletes, selected]);
@@ -63,8 +63,8 @@ export const TournamentRegister = () => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit(handleRegister)}>
+    <DivTournaments>
+      <form onSubmit={handleSubmit(handleRegister)} className="divRegister">
         <div className="divControler">
           <div>
             <fieldset className="athleteName">
@@ -82,9 +82,13 @@ export const TournamentRegister = () => {
                   </option>
                 ))}
               </select>
-              <button onClick={(e) => addAthlete(e)}>
-                <img src={addImg} alt="Adicionar Torneios" />
-              </button>
+
+              <img
+                src={addImg}
+                alt="Adicionar Torneios"
+                onClick={() => addAthlete()}
+                className="addbutton"
+              />
             </fieldset>
             <Input
               text="Nome do torneio"
@@ -106,6 +110,9 @@ export const TournamentRegister = () => {
               register={register("location")}
               placeholder="Insira o lugar o do torneio"
             />
+          </div>
+
+          <div>
             <Input
               text="Imagem"
               type="text"
@@ -120,9 +127,6 @@ export const TournamentRegister = () => {
               placeholder="Dinheiro? Quanto?"
               register={register("rewards")}
             />
-          </div>
-
-          <div>
             <fieldset className="fieldParticiants ">
               <legend className="caption">Participantes</legend>
               <ul>
@@ -135,13 +139,13 @@ export const TournamentRegister = () => {
             </fieldset>
           </div>
         </div>
-        <div>
+        <div className="buttons">
           <button type="submit">Registrar</button>
           <button type="button" onChange={(e) => cancelRegister(e)}>
             Cancelar
           </button>
         </div>
       </form>
-    </>
+    </DivTournaments>
   );
 };
