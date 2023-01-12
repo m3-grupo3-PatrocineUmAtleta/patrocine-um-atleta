@@ -9,7 +9,6 @@ import InstituitionVector from "../../assets/img/InstituitionVector.svg";
 import MediaVector from "../../assets/img/MediaVector.svg";
 import BioVector from "../../assets/img/BioVector.svg";
 import MessageVector from "../../assets/img/MessageVector.svg";
-import TournamentVector from "../../assets/img/TournamentVector.svg";
 import DonateVector from "../../assets/img/DonateVector.svg";
 import { useContext, useEffect } from "react";
 import { UserContext } from "../../providers/User";
@@ -17,15 +16,28 @@ import { RenderContentSection } from "../../components/RenderContentSection";
 import { ModalWrapper } from "../../components/Modal";
 import { SideBarButtons } from "../../components/SideBarButtons";
 import { BottomSectionPage } from "../../components/BottomSectionPage";
+import { getAllUser } from "../../services/getAllUser";
 
 export const AthletePage = () => {
-  const { openModal, settingsModal, setButtonValue } = useContext(UserContext);
+  const {
+    openModal,
+    settingsModal,
+    setButtonValue,
+    setContentAllUser,
+    contentAllUser,
+  } = useContext(UserContext);
   const storageAthlete: any = localStorage.getItem("@SelectedAthlete");
   const athlete = JSON.parse(storageAthlete);
+  const allUser = async () => {
+    const getUsers = await getAllUser();
 
+    setContentAllUser(getUsers);
+  };
   useEffect(() => {
     setButtonValue("Bio");
+    allUser();
   }, []);
+  console.log(contentAllUser);
   return (
     <>
       {openModal && <ModalWrapper typeModal={settingsModal} />}
@@ -35,21 +47,17 @@ export const AthletePage = () => {
           <section className="sectionTournament">
             <EmblemCard imgUrl={athlete.imgUrl} nickname={athlete.nickname} />
             <ul>
-              <TournamentCard
-                date="9 jun 2023"
-                nameTournament="Torneio estadual"
-                locate="São Paulo - BR"
-              />
-              <TournamentCard
-                date="9 jun 2023"
-                nameTournament="Torneio estadual"
-                locate="São Paulo - BR"
-              />
-              <TournamentCard
-                date="9 jun 2023"
-                nameTournament="Torneio estadual"
-                locate="São Paulo - BR"
-              />
+              <>
+                {contentAllUser?.tournaments?.map((athleteInfo) => {
+                  return (
+                    <TournamentCard
+                      date={athleteInfo.date}
+                      nameTournament={athleteInfo.name}
+                      locate={athleteInfo.location}
+                    />
+                  );
+                })}
+              </>
             </ul>
           </section>
         </StyledContainer>
@@ -62,7 +70,6 @@ export const AthletePage = () => {
             <ButtonsSidebar img={MediaVector} text="Mídias" />
             <ButtonsSidebar img={BioVector} text="Bio" />
             <ButtonsSidebar img={MessageVector} text="Depoimentos" />
-            <ButtonsSidebar img={TournamentVector} text="Torneios" />
             <ButtonsSidebar img={DonateVector} text="Doação" />
           </SideBarButtons>
         </BottomSectionPage>
