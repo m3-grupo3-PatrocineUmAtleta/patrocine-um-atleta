@@ -4,6 +4,8 @@ export const MediaStyle = styled.div`
   display: flex;
   flex-direction: column;
   gap: 60px;
+  animation: animShow 0.5s;
+
   .divTitleDescription {
     display: flex;
     align-items: center;
@@ -34,6 +36,22 @@ export const MediaStyle = styled.div`
     a > img {
       width: 80px;
       height: 80px;
+    }
+  }
+
+  @keyframes animShow {
+    0% {
+      transform: translate(-100px);
+      opacity: 0.2;
+    }
+
+    60% {
+      opacity: 0.7;
+    }
+
+    100% {
+      transform: translate(0px);
+      opacity: 1;
     }
   }
 `;
