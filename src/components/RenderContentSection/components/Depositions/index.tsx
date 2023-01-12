@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { UserContext } from "../../../../providers/User";
-import { iDeposition, iDepositionsToEspecifyAthlete } from "../../../../providers/User/interfaces";
-import { StyledDepositionCard } from "./DepositionCard/style";
+import { iDepositionsToEspecifyAthlete } from "../../../../providers/User/interfaces";
+import { DepositionCard } from "./DepositionCard";
 import { DepositionsStyle } from "./style";
 
 interface iDepositionsProp {
@@ -10,9 +10,8 @@ interface iDepositionsProp {
 }
 
 export const Depositions = ({ depositionList, image }: iDepositionsProp) => {
-  const { user } = useContext(UserContext);
 
-  const { setSettingsModal, setIsOpenModal, depositions, createDepositionsList } = useContext(UserContext);
+  const { user, setSettingsModal, setIsOpenModal, finalyDeps, createDepositionsList } = useContext(UserContext);
 
   const handleCLick = () => {
     setIsOpenModal(true);
@@ -25,7 +24,7 @@ export const Depositions = ({ depositionList, image }: iDepositionsProp) => {
       }
       get()
       
-  }, [])
+  }, [finalyDeps])
   return (
     <DepositionsStyle>
       <div className="divNameAndButton">
@@ -37,10 +36,10 @@ export const Depositions = ({ depositionList, image }: iDepositionsProp) => {
       </div>
         <ul>
           {depositionList?.map((deposition) => (
-            <StyledDepositionCard
+            <DepositionCard            
               content={deposition.content}
               name={deposition.name}
-              id={user?.id}
+              id={user?.id+""}
               img={user?.imgUrl}
             />
           ))}
