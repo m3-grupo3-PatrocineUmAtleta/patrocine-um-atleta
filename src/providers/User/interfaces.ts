@@ -1,3 +1,4 @@
+import { iResponseDonates } from "../../services/getDonates";
 import { iRegisterDataDonates } from "../../services/registerDonates";
 import { iUserLogin } from "../../services/userLogin";
 import { iRegisterData } from "../../services/userRegister";
@@ -34,6 +35,8 @@ export interface iContext {
   >;
   contentAllUser: iUser | undefined;
   setContentAllUser: React.Dispatch<React.SetStateAction<iUser | undefined>>;
+  donationsList: () => void;
+  listDonations: iResponseDonates [] | undefined;
 }
 export interface iProviderProps {
   children: React.ReactNode;

@@ -1,11 +1,13 @@
-import { iAthlete } from "../../../providers/User/interfaces";
+import { useEffect } from "react";
+import { iAthlete, iAthleteSponsored } from "../../../providers/User/interfaces";
 import { AthleteCard } from "../../AthleteCard";
 
 interface iSponsoredProps {
-  sponsoredAthletes: iAthlete[];
+  sponsoredAthletes: iAthleteSponsored[];
 }
 
-export const Sponsored = ({ sponsoredAthletes }: iSponsoredProps) => (
+export const Sponsored = ({ sponsoredAthletes }: iSponsoredProps) => {
+  return (
   <ul>
     {sponsoredAthletes?.map(({ age, id, imgUrl, name, city }) => (
       <AthleteCard
@@ -17,4 +19,6 @@ export const Sponsored = ({ sponsoredAthletes }: iSponsoredProps) => (
       />
     ))}
   </ul>
-);
+
+  )
+};
