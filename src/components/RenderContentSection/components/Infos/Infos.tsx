@@ -28,7 +28,7 @@ export const Infos = ({
   const filterApi = async () => {
     try {
       const res = await getAllAthletes();
-      setAthletes(res);
+      res && setAthletes(res);
     } catch (error) {
       console.error(error);
     } finally {
