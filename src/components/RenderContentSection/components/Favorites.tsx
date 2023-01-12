@@ -1,3 +1,4 @@
+import React from "react";
 import { iAthlete } from "../../../providers/User/interfaces";
 import { AthleteCard } from "../../AthleteCard";
 import { StyledUlAthlete } from "./Athletes/styles";
@@ -7,7 +8,6 @@ interface iFavoritesProps {
 }
 
 export const Favorites = ({ favorites }: iFavoritesProps) => {
-  console.log(favorites);
   return (
     <StyledUlAthlete>
       {favorites.length > 0 &&
