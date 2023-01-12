@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const DivProfile = styled.div`
+  animation: animShow 0.5s;
   .uppercase {
     text-transform: uppercase;
   }
@@ -43,6 +44,22 @@ export const DivProfile = styled.div`
           align-items: center;
         }
       }
+    }
+  }
+
+  @keyframes animShow {
+    0% {
+      transform: translate(-100px);
+      opacity: 0.2;
+    }
+
+    60% {
+      opacity: 0.7;
+    }
+
+    100% {
+      transform: translate(0px);
+      opacity: 1;
     }
   }
 `;

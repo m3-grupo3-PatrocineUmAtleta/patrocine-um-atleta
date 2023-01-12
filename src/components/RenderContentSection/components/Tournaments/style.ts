@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const DivTournaments = styled.div`
+  animation: animShow 0.5s;
+
   .admHeader {
     display: flex;
     justify-content: space-between;
@@ -8,7 +10,6 @@ export const DivTournaments = styled.div`
   form {
     display: flex;
     flex-direction: column;
-    
 
     .divControler {
       display: flex;
@@ -18,27 +19,28 @@ export const DivTournaments = styled.div`
       @media (min-width: 750px) {
         flex-direction: row;
         justify-content: center;
-       gap: 30px;
-        }
+        gap: 30px;
+      }
     }
-    
-    button{
+
+    button {
       max-width: 240px;
-        width: 100%;
-        height: 44.93px;
+      width: 100%;
+      height: 44.93px;
 
-        margin: 0 auto;
-        background: var(--color-secundary-100);
+      margin: 0 auto;
+      background: var(--color-secundary-100);
 
-        border: none;
-        border-radius: 8px;
-        color: var(--color-gray-0);
+      border: none;
+      border-radius: 8px;
+      color: var(--color-gray-0);
 
-        @media (min-width: 750px) {
-          gap: 63.74px;
-          justify-content: space-evenly;
-        }
+      @media (min-width: 750px) {
+        gap: 63.74px;
+        justify-content: space-evenly;
+      }
     }
+  }
 
   .uppercase {
     text-transform: uppercase;
@@ -60,7 +62,8 @@ export const DivTournaments = styled.div`
     }
   }
 
-  label, legend {
+  label,
+  legend {
     color: var(--color-primary-100);
   }
   input {
@@ -69,7 +72,7 @@ export const DivTournaments = styled.div`
     @media (min-width: 750px) {
       min-width: 277px;
       max-width: 277px;
-   }
+    }
   }
 
   .fieldParticiants {
@@ -82,6 +85,19 @@ export const DivTournaments = styled.div`
     }
   }
 
+  @keyframes animShow {
+    0% {
+      transform: translate(-100px);
+      opacity: 0.2;
+    }
 
+    60% {
+      opacity: 0.7;
+    }
 
+    100% {
+      transform: translate(0px);
+      opacity: 1;
+    }
+  }
 `;

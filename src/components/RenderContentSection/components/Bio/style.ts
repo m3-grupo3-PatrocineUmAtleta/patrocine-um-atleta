@@ -4,6 +4,7 @@ export const BioStyle = styled.div`
   display: flex;
   flex-direction: column;
   gap: 67px;
+  animation: animShow 0.5s;
 
   .divTitleDescription {
     display: flex;
@@ -27,5 +28,21 @@ export const BioStyle = styled.div`
     flex-direction: column;
     gap: 22px;
     width: 505px;
+  }
+
+  @keyframes animShow {
+    0% {
+      transform: translate(-100px);
+      opacity: 0.2;
+    }
+
+    60% {
+      opacity: 0.7;
+    }
+
+    100% {
+      transform: translate(0px);
+      opacity: 1;
+    }
   }
 `;
