@@ -38,7 +38,9 @@ export const UserProvider = ({ children }: iProviderProps) => {
   >([]);
   const [donateData, setDonateData] = useState<iRegisterDataDonates>();
   const [contentAllUser, setContentAllUser] = useState<iUser | undefined>();
-  const [listDonations, setListDonations] = useState<iResponseDonates[] | undefined>([]);
+  const [listDonations, setListDonations] = useState<
+    iResponseDonates[] | undefined
+  >([]);
 
   const navigate = useNavigate();
 
@@ -78,7 +80,7 @@ export const UserProvider = ({ children }: iProviderProps) => {
   };
 
   const gotoAthletePage = (event: any) => {
-    navigate("/athletePage");
+    navigate("/athlete");
     const athleteId: string = event.target.id;
 
     const clickedAthlete = sponsored?.find(
@@ -112,7 +114,6 @@ export const UserProvider = ({ children }: iProviderProps) => {
 
     setFinalyDeps(finalDepositions);
   };
-
 
   const donationsList = async () => {
     const list = await getDonations();

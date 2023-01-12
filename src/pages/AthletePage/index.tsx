@@ -19,6 +19,11 @@ import { BottomSectionPage } from "../../components/BottomSectionPage";
 import { getAllUser } from "../../services/getUserAdmin";
 import { iTournament } from "../../providers/User/interfaces";
 import { getTournaments } from "../../services/getTournaments";
+import { getAllUser } from "../../services/getAllUser";
+import { ButtonSidebarFavorite } from "../../components/ButtonSidebarFavorite";
+import { setFavorites } from "../../services/setFavorites";
+import { iAthlete } from "../../providers/User/interfaces";
+import { ToastSucess } from "../../components/Toast";
 
 export const AthletePage = () => {
   const {
@@ -27,12 +32,15 @@ export const AthletePage = () => {
     setButtonValue,
     setContentAllUser,
     contentAllUser,
+    user,
+    setUser,
   } = useContext(UserContext);
 
   const storageAthlete: string | null =
     localStorage.getItem("@SelectedAthlete");
 
   const athlete = storageAthlete && JSON.parse(storageAthlete);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   const allUser = async () => {
     const getUsers = await getAllUser();
@@ -52,6 +60,60 @@ export const AthletePage = () => {
     getTournamentsAPI();
     allUser();
   }, []);
+
+  useEffect(() => {
+    const fav: boolean | undefined = user?.favorites?.some(
+      (person) => person.id === athlete.id
+    );
+
+    setIsFavorite(fav || false);
+  }, [user]);
+
+  const handleClick = async () => {
+    if (isFavorite) {
+      console.log("foi", athlete, user);
+
+      const personIndex: number =
+        user?.favorites?.findIndex((person) => person.id === athlete.id) || -1;
+
+      const favoriteList: iAthlete[] = [...(user?.favorites || [])];
+
+      favoriteList.splice(personIndex, 1);
+
+      console.log(personIndex);
+      console.log(favoriteList);
+
+      const token = localStorage.getItem("@Token");
+
+      const userResponse = await setFavorites(favoriteList, user?.id, token);
+
+      setUser(userResponse);
+
+      console.log(userResponse);
+
+      ToastSucess("Atleta removido dos favoritos com sucesso!");
+    } else {
+      console.log("foi", athlete, user);
+
+      const favoriteList: iAthlete[] = [...user?.favorites, athlete];
+
+      console.log(favoriteList);
+
+      const token = localStorage.getItem("@Token");
+
+      const userResponse = await setFavorites(favoriteList, user?.id, token);
+
+      setUser(userResponse);
+
+      console.log(userResponse);
+
+      ToastSucess("Atleta adicionado aos favoritos com sucesso!");
+    }
+  };
+
+  console.log(contentAllUser);
+  console.log(athlete);
+  console.log(user);
 
   return (
     <>
@@ -92,6 +154,10 @@ export const AthletePage = () => {
             <ButtonsSidebar img={MediaVector} text="Mídias" />
             <ButtonsSidebar img={BioVector} text="Bio" />
             <ButtonsSidebar img={MessageVector} text="Depoimentos" />
+            <ButtonSidebarFavorite
+              onClick={handleClick}
+              isFavorite={isFavorite}
+            />
             <ButtonsSidebar img={DonateVector} text="Doação" />
           </SideBarButtons>
         </BottomSectionPage>
