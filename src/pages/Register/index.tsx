@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../../providers/User";
 import { iRegisterData } from "../../services/userRegister";
 import { getAddress, iResponseAddress } from "../../services/getAddress";
+import { ImSpinner9 } from "react-icons/im";
 
 export interface iRegisterFormData {
   name: string;
@@ -26,7 +27,7 @@ export interface iRegisterFormData {
 }
 
 export const Register = () => {
-  const { registerUser } = useContext(UserContext);
+  const { isLoading, registerUser } = useContext(UserContext);
   const [address, setAddress] = useState<iResponseAddress>();
 
   const {
@@ -197,9 +198,15 @@ export const Register = () => {
           valid={isValidating}
           placeholder="Repita sua senha.."
         />
-        <button type="submit" className="headline">
-          Cadastrar
-        </button>
+        {isLoading ? (
+          <button className="loading" disabled>
+            <ImSpinner9 size="25px" />
+          </button>
+        ) : (
+          <button type="submit" className="headline">
+            Cadastrar
+          </button>
+        )}
         <section className="buttons">
           <Link to={"/home"} className="home" />
           <Link to={"/login"} className="login" />
