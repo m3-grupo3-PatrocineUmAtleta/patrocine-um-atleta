@@ -1,5 +1,8 @@
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getAllAthletes } from "../../services/getAllAthletes";
+import { getAllUsers } from "../../services/getAllUsers";
+import { getDepositions } from "../../services/getDepositions";
 import { iRegisterDataDonates } from "../../services/registerDonates";
 import { iUserLogin, UserLogin } from "../../services/userLogin";
 import { iRegisterData, UserRegister } from "../../services/userRegister";
@@ -10,6 +13,8 @@ import {
   iAthlete,
   iSponsored,
   iAthleteSponsored,
+  iDepositions,
+  iDepositionsToEspecifyAthlete,
 } from "./interfaces";
 
 export const UserContext = createContext({} as iContext);
@@ -25,6 +30,8 @@ export const UserProvider = ({ children }: iProviderProps) => {
   const [selectedAtlhete, setSelectedAtlhete] = useState<number | null>(null);
   const [athlete, setAthlete] = useState<iAthleteSponsored>();
   const [sponsored, setSponsored] = useState<iSponsored[] | undefined>([]);
+  const [depositions, setDepositions] = useState<iDepositions[] | undefined>([])
+  const [finalyDeps, setFinalyDeps] = useState<iDepositionsToEspecifyAthlete[] | undefined>([])
   const [donateData, setDonateData] = useState<iRegisterDataDonates>();
 
   const navigate = useNavigate();
@@ -61,6 +68,32 @@ export const UserProvider = ({ children }: iProviderProps) => {
     setAthlete(clickedAthlete?.athlete);
   };
 
+  const createDepositionsList = async () => {
+    const depList = await getDepositions()
+    const usersList = await getAllUsers()
+    const finalDepositions: iDepositionsToEspecifyAthlete[] = [];
+    const storageAthlete: any = localStorage.getItem("@SelectedAthlete");
+    const athlete = JSON.parse(storageAthlete);
+    
+    const athleteDepList= depList?.filter((dep) =>{
+      return dep.athleteId == athlete.id
+    })
+
+    athleteDepList?.forEach((athlete) => {
+      const user = usersList.find((user) => user.id == athlete.userId)
+      const obj = {content: athlete.content,
+                   name:user?.name,
+                   userId:user?.id,
+                   img: user?.imgUrl 
+                  }
+      finalDepositions.push(obj)
+    })
+
+    setFinalyDeps(finalDepositions)
+    
+  }
+  
+
   return (
     <UserContext.Provider
       value={{
@@ -86,6 +119,9 @@ export const UserProvider = ({ children }: iProviderProps) => {
         filterAthletes,
         setFilterAthletes,
         athlete,
+        depositions,
+        createDepositionsList,
+        finalyDeps,
         setDonateData,
         donateData,
       }}

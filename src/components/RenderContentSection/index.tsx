@@ -14,7 +14,7 @@ import { Sponsored } from "./components/Sponsored";
 import { Tournaments } from "./components/Tournaments/Tournaments";
 
 export const RenderContentSection = () => {
-  const { buttonValue, user } = useContext(UserContext);
+  const { buttonValue, user, finalyDeps } = useContext(UserContext);
   const storageAthlete: any = localStorage.getItem("@SelectedAthlete");
   const athlete = JSON.parse(storageAthlete);
 
@@ -65,7 +65,7 @@ export const RenderContentSection = () => {
     return <Bio bio={athlete.bio} city={athlete.city} />;
   }
   if (buttonValue === "Depoimentos") {
-    return <Depositions depositionList={[]} />;
+    return <Depositions depositionList={finalyDeps} />;
   }
   if (buttonValue === "Doação") {
     return <Donations />;

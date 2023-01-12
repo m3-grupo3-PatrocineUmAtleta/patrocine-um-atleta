@@ -6,9 +6,11 @@ export const getDepositions = async (): Promise<iDepositions[] | undefined> => {
   try {
     const response = await api.get("/deposition");
 
-    return response.data
+    if (response.status === 200){
+      return response.data
+    }
 
   } catch (error) {
     console.log(error);
-  }
+  }finally{}
 };

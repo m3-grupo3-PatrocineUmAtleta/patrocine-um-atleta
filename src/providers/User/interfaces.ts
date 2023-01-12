@@ -25,6 +25,9 @@ export interface iContext {
   filterAthletes: iAthlete[];
   setFilterAthletes: React.Dispatch<React.SetStateAction<iAthlete[]>>;
   athlete: iAthleteSponsored | undefined;
+  depositions: iDepositions[] | undefined;
+  createDepositionsList: () => void;
+  finalyDeps: iDepositionsToEspecifyAthlete[] | undefined;
   donateData: iRegisterDataDonates | undefined;
   setDonateData: React.Dispatch<
     React.SetStateAction<iRegisterDataDonates | undefined>
@@ -157,8 +160,16 @@ interface iDonation {
 }
 
 export interface iDepositions {
-  athleteId: number;
-  content: string;
-  userId: number;
-  id: number;
+    athleteId: number;
+		content: string;
+		userId: number;
+		id: number;
 }
+
+export interface iDepositionsToEspecifyAthlete {
+  content: string; 
+  name: string | undefined; 
+  userId: number | undefined; 
+  img: string | undefined;
+}
+
