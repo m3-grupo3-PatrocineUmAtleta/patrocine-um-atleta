@@ -60,7 +60,7 @@ export const UserDash = () => {
         <ModalWrapper typeModal={settingsModal} select={selectedAtlhete} />
       )}
       <Header isHome={false} />
-      <div className="bg-blue"></div>
+
       <StyledContainer flex={true} className="container">
         <section className="donations-history">
           <h2 className="title-2 gray-0">Histórico de doações</h2>
@@ -133,8 +133,6 @@ export const UserDash = () => {
             )}
           </ul>
         </section>
-
-        {/* <section className="render-buttons"></section> */}
       </StyledContainer>
       <BottomSectionPage>
         <RenderContainerSection size="810px">

@@ -13,7 +13,6 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { StyledContainer } from "../../styles/Container";
 import { UserContext } from "../../providers/User";
-import { iUser } from "../../providers/User/interfaces";
 
 interface iHeaderProps {
   isHome: boolean;
@@ -52,7 +51,7 @@ export const Header = ({ isHome }: iHeaderProps) => {
       );
     });
     setFilterAthletes(filter);
-    console.log(filterAthletes);
+
     value === "" && setFilterAthletes([]);
     value === "" && setButtonValue("Perfil");
   };
@@ -77,8 +76,8 @@ export const Header = ({ isHome }: iHeaderProps) => {
             <div className="showDesktop">
               <nav>
                 <a href={"#topHome"}>Home</a>
-                <Link to={"/"}>Sobre</Link>
-                <Link to={"/"}>Instituição</Link>
+                <a href={"#aboutUs"}>Sobre</a>
+                <a href={"#reach"}>Instituição</a>
               </nav>
             </div>
             <div className="showDesktop">

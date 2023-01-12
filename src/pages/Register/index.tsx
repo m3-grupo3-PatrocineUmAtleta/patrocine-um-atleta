@@ -1,5 +1,5 @@
 import { Form } from "../../components/Form";
-import { Input, TextArea } from "../../components/Form/Input";
+import { Input } from "../../components/Form/Input";
 import { MainRegister } from "./style";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -10,6 +10,7 @@ import { UserContext } from "../../providers/User";
 import { iRegisterData } from "../../services/userRegister";
 import { getAddress, iResponseAddress } from "../../services/getAddress";
 import { ImSpinner9 } from "react-icons/im";
+import { TextArea } from "../../components/Form/Textarea";
 
 export interface iRegisterFormData {
   name: string;
@@ -60,8 +61,6 @@ export const Register = () => {
       phone: data.phone,
       email: data.email,
       password: data.password,
-      favorites: [],
-      sponsoredAthletes: [],
       isAdmin: false,
     };
 
@@ -89,7 +88,7 @@ export const Register = () => {
           type="number"
           id="cpf"
           text="CPF"
-          message={errors.cpf?.message}
+          message={errors.cpf ? "CPF inválido" : ""}
           register={register("cpf")}
           required
           placeholder="Insira seu CPF, somente os números"
@@ -108,7 +107,7 @@ export const Register = () => {
           type="number"
           id="cep"
           text="CEP"
-          message={errors.cep?.message}
+          message={errors.cep ? "CEP obrigatório" : ""}
           register={register("cep")}
           required
           placeholder="Insira seu CEP, somente os números"

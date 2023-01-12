@@ -13,8 +13,4 @@ export const MainRegister = styled.main`
 
   display: flex;
   align-items: center;
-
-  @media (min-width: 750px) {
-    height: 100vh;
-  }
 `;

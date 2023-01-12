@@ -56,22 +56,23 @@ export interface iUser {
   phone: string;
   email: string;
   favorites?: iAthlete[];
-  sponsoredAthletes?: iAthlete[];
   isAdmin?: boolean;
   id?: number;
-  tournaments?: iTournament[];
 }
 
 export interface iTournament {
   name: string;
   location: string;
   date: string;
-  status: "Vitória" | "Participando";
-  participants: iAthlete[];
+  status: "Finalizado" | "Participando";
+  participants: iparticipants[];
   rewards: string;
   imgUrl?: string;
   place?: string;
-  id: number;
+  id?: number;
+}
+export interface iparticipants {
+  athleteId: number;
 }
 
 export interface iInstitution {
@@ -79,7 +80,6 @@ export interface iInstitution {
   bio?: string;
   city?: string;
   image?: string;
-  tournaments?: iTournament[];
 }
 
 export interface iMedias {
@@ -102,9 +102,6 @@ export interface iAthlete {
   age: number;
   bio: string;
   city: string;
-  depositions?: iDeposition[];
-  tournaments?: iTournament[];
-  donates?: iDonation[];
   medias?: iMedias;
 }
 
@@ -117,8 +114,6 @@ export interface iAthleteSponsored {
   age: number;
   bio?: string;
   city: string;
-  tournaments?: iTournament[];
-  donates?: iDonates[];
   midias?: iMedias;
 }
 
@@ -139,9 +134,6 @@ export interface iAthleteRegister {
   bio: string;
   city: string;
   medias: iMedias;
-  tournaments?: iTournament[];
-  donations?: iDonation[];
-  depositions?: iDeposition[];
 }
 
 export interface iAthleteEdit {
@@ -152,9 +144,6 @@ export interface iAthleteEdit {
   bio: string;
   city: string;
   medias: iMedias;
-  tournaments?: iTournament[];
-  donations?: iDonation[];
-  depositions?: iDeposition[];
   userId: string;
 }
 

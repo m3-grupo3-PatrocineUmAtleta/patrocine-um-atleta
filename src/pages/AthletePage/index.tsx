@@ -16,6 +16,9 @@ import { RenderContentSection } from "../../components/RenderContentSection";
 import { ModalWrapper } from "../../components/Modal";
 import { SideBarButtons } from "../../components/SideBarButtons";
 import { BottomSectionPage } from "../../components/BottomSectionPage";
+import { getAllUser } from "../../services/getUserAdmin";
+import { iTournament } from "../../providers/User/interfaces";
+import { getTournaments } from "../../services/getTournaments";
 import { getAllUser } from "../../services/getAllUser";
 import { ButtonSidebarFavorite } from "../../components/ButtonSidebarFavorite";
 import { setFavorites } from "../../services/setFavorites";
@@ -32,8 +35,11 @@ export const AthletePage = () => {
     user,
     setUser,
   } = useContext(UserContext);
-  const storageAthlete: any = localStorage.getItem("@SelectedAthlete");
-  const athlete = JSON.parse(storageAthlete);
+
+  const storageAthlete: string | null =
+    localStorage.getItem("@SelectedAthlete");
+
+  const athlete = storageAthlete && JSON.parse(storageAthlete);
   const [isFavorite, setIsFavorite] = useState(false);
 
   const allUser = async () => {
@@ -42,8 +48,16 @@ export const AthletePage = () => {
     setContentAllUser(getUsers);
   };
 
+  const [tournaments, setTournaments] = useState<iTournament[]>([]);
+
+  const getTournamentsAPI = async () => {
+    const tournaments = await getTournaments();
+    tournaments && setTournaments(tournaments);
+  };
+
   useEffect(() => {
     setButtonValue("Bio");
+    getTournamentsAPI();
     allUser();
   }, []);
 
@@ -111,17 +125,22 @@ export const AthletePage = () => {
             <EmblemCard imgUrl={athlete.imgUrl} nickname={athlete.nickname} />
             <ul>
               <>
-                {contentAllUser?.tournaments?.map((athleteInfo) => {
-                  return (
+                {tournaments
+                  .filter(
+                    (tournament) =>
+                      tournament.participants?.find(
+                        (idAthle) => idAthle.athleteId === athlete.id
+                      )?.athleteId === athlete.id
+                  )
+                  .map((tournament) => (
                     <TournamentCard
-                      key={athleteInfo.id}
-                      tournamentImg={athleteInfo.imgUrl}
-                      date={athleteInfo.date}
-                      nameTournament={athleteInfo.name}
-                      locate={athleteInfo.location}
+                      key={tournament.id}
+                      tournamentImg={tournament.imgUrl}
+                      date={tournament.date}
+                      nameTournament={tournament.name}
+                      locate={tournament.location}
                     />
-                  );
-                })}
+                  ))}
               </>
             </ul>
           </section>

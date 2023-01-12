@@ -9,7 +9,7 @@ interface iDepositionsProp {
   image?: string;
 }
 
-export const Depositions = ({ depositionList, image }: iDepositionsProp) => {
+export const Depositions = ({ depositionList }: iDepositionsProp) => {
   const {
     user,
     setSettingsModal,
@@ -33,7 +33,6 @@ export const Depositions = ({ depositionList, image }: iDepositionsProp) => {
     <DepositionsStyle>
       <div className="divNameAndButton">
         <div className="divTitleDescription">
-          <img src={image} alt="" />
           <h2>Comentários sobre o atleta</h2>
         </div>
         <button onClick={handleCLick}>Comentar</button>

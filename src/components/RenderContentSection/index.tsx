@@ -10,11 +10,12 @@ import { Infos } from "./components/Infos";
 import { Institution } from "./components/Institution";
 import { Medias } from "./components/Medias";
 import { Profile } from "./components/Profile";
-import { Sponsored } from "./components/Sponsored";
+import { Sponsored } from "./components/Sponsored/Sponsored";
 import { Tournaments } from "./components/Tournaments";
 
 export const RenderContentSection = () => {
-  const { buttonValue, user, finalyDeps } = useContext(UserContext);
+  const { buttonValue, user, finalyDeps, listDonations } =
+    useContext(UserContext);
   const storageAthlete: any = localStorage.getItem("@SelectedAthlete");
   const athlete = JSON.parse(storageAthlete);
 
@@ -32,7 +33,7 @@ export const RenderContentSection = () => {
       return <Favorites favorites={[...(user?.favorites || [])]} />;
     }
     if (buttonValue === "Patrocinados") {
-      return <Sponsored sponsoredAthletes={[]} />;
+      return <Sponsored donatesList={listDonations} />;
     }
   }
 
