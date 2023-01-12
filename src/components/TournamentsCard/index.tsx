@@ -2,7 +2,7 @@ import { TournamentCardStyle } from "./style";
 import LocateVector from "../../assets/img/LocateVector.svg";
 
 interface iTournamentCardProps {
-  instituitionLogo?: string;
+  tournamentImg?: string;
   date: string;
   nameTournament: string;
   locate: string;
@@ -10,7 +10,7 @@ interface iTournamentCardProps {
 //comentarios
 //props não utilizada
 export const TournamentCard = ({
-  instituitionLogo,
+  tournamentImg,
   date,
   nameTournament,
   locate,
@@ -18,7 +18,7 @@ export const TournamentCard = ({
   return (
     <TournamentCardStyle>
       <div>
-        <div />
+        <img src={tournamentImg} alt="" />
         <div>
           <h3 className="title-3 gray-0">{date.substring(0, 5)}</h3>
           <span className="body gray-0">{date.substring(5)}</span>
