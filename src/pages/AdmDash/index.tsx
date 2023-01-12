@@ -19,7 +19,6 @@ import { RenderContainerSection } from "../../components/RenderContainerSection"
 import { getAllAthletes } from "../../services/getAllAthletes";
 import { BottomSectionPage } from "../../components/BottomSectionPage";
 import { SideBarButtons } from "../../components/SideBarButtons";
-import { AthleteCard } from "../../components/AthleteCard";
 import { getDonations, iResponseDonates } from "../../services/getDonates";
 
 export const AdmDash = () => {
@@ -34,7 +33,6 @@ export const AdmDash = () => {
     openModal,
     settingsModal,
     selectedAtlhete,
-    filterAthletes,
   } = useContext(UserContext);
 
   const getAthletes = async () => {

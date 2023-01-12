@@ -142,7 +142,7 @@ export const UserDash = () => {
         {/* <section className="render-buttons"></section> */}
       </StyledContainer>
       <BottomSectionPage>
-        <RenderContainerSection size="700px">
+        <RenderContainerSection size="810px">
           <RenderContentSection></RenderContentSection>
         </RenderContainerSection>
         <SideBarButtons>

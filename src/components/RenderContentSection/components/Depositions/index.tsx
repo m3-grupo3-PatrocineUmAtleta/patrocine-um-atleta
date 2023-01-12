@@ -10,21 +10,25 @@ interface iDepositionsProp {
 }
 
 export const Depositions = ({ depositionList, image }: iDepositionsProp) => {
-
-  const { user, setSettingsModal, setIsOpenModal, finalyDeps, createDepositionsList } = useContext(UserContext);
+  const {
+    user,
+    setSettingsModal,
+    setIsOpenModal,
+    finalyDeps,
+    createDepositionsList,
+  } = useContext(UserContext);
 
   const handleCLick = () => {
     setIsOpenModal(true);
     setSettingsModal("athleteDepositions");
   };
 
-  useEffect( () => {
-      const get = () => {
-        createDepositionsList()
-      }
-      get()
-      
-  }, [finalyDeps])
+  useEffect(() => {
+    const get = () => {
+      createDepositionsList();
+    };
+    get();
+  }, [finalyDeps]);
   return (
     <DepositionsStyle>
       <div className="divNameAndButton">
@@ -34,16 +38,17 @@ export const Depositions = ({ depositionList, image }: iDepositionsProp) => {
         </div>
         <button onClick={handleCLick}>Comentar</button>
       </div>
-        <ul>
-          {depositionList?.map((deposition) => (
-            <DepositionCard            
-              content={deposition.content}
-              name={deposition.name}
-              id={user?.id+""}
-              img={user?.imgUrl}
-            />
-          ))}
-        </ul>
+      <ul>
+        {depositionList?.map((deposition, index) => (
+          <DepositionCard
+            content={deposition.content}
+            name={deposition.name}
+            id={user?.id + ""}
+            img={user?.imgUrl}
+            key={index}
+          />
+        ))}
+      </ul>
     </DepositionsStyle>
   );
 };
