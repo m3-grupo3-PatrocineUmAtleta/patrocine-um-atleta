@@ -5,19 +5,13 @@ import { UserContext } from "../../../../providers/User";
 import * as yup from "yup";
 import { Input } from "../../../Form/Input";
 import addImg from "../../../../assets/img/add.svg";
-import { iAthlete } from "../../../../providers/User/interfaces";
-
-interface iTournamentForm {
-  name: string;
-  location: string;
-  date: string;
-  status: "Vitória" | "Participando";
-  participants: string;
-  rewards: string;
-  imgUrl?: string;
-  place?: string;
-  id: number;
-}
+import {
+  iAthlete,
+  iparticipants,
+  iTournament,
+} from "../../../../providers/User/interfaces";
+import { RegisterTournaments } from "../../../../services/registerTournaments";
+import { ResetTv } from "@mui/icons-material";
 
 const RegisterTournamentSchema = yup.object().shape({
   name: yup.string(),
@@ -30,28 +24,42 @@ const RegisterTournamentSchema = yup.object().shape({
   place: yup.string(),
 });
 export const TournamentRegister = () => {
-  const { user, athletes } = useContext(UserContext);
+  const { athletes, setIsOpenModal } = useContext(UserContext);
 
-  const { register, handleSubmit } = useForm<iTournamentForm>({
+  const { register, handleSubmit, reset } = useForm<iTournament>({
     resolver: yupResolver(RegisterTournamentSchema),
   });
 
   const [select, setSelect] = useState(Number);
   const [selectedAthletes, setSelectedAthletes] = useState<iAthlete[]>([]);
+  const [idAthlete, setIdAthlete] = useState<iparticipants[]>([]);
 
   const addAthlete = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     const selected = athletes.find((athlete) => athlete.id === select);
-
-    //   selectedAthletes.length > 0
-    //     ? setSelectedAthletes([...selectedAthletes, selected])
-    //     : null;
+    selected && setIdAthlete([...idAthlete, { athleteId: selected.id }]);
+    selected && setSelectedAthletes([...selectedAthletes, selected]);
   };
 
-  const handleRegister = (data: iTournamentForm) => {
-    const tournament = user?.tournaments;
-    const formData = {};
-    console.log(tournament, data, selectedAthletes);
+  const handleRegister = (data: iTournament) => {
+    const formData: iTournament = {
+      name: data.name,
+      location: data.location,
+      date: data.date,
+      status: "Participando",
+      participants: idAthlete,
+      rewards: data.rewards,
+      imgUrl: data.imgUrl,
+      place: "none",
+    };
+    console.log(formData);
+    RegisterTournaments({ data: formData });
+  };
+
+  const cancelRegister = (e: React.FormEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    reset();
+    setIsOpenModal(false);
   };
 
   return (
@@ -86,6 +94,19 @@ export const TournamentRegister = () => {
               placeholder="Insira o nome do torneio"
             />
             <Input
+              text="Data"
+              type="date"
+              id="data"
+              register={register("date")}
+            />
+            <Input
+              text="Lugar"
+              type="text"
+              id="location"
+              register={register("location")}
+              placeholder="Insira o lugar o do torneio"
+            />
+            <Input
               text="Imagem"
               type="text"
               id="imgUrl"
@@ -114,7 +135,12 @@ export const TournamentRegister = () => {
             </fieldset>
           </div>
         </div>
-        <button type="submit">Alterar</button>
+        <div>
+          <button type="submit">Registrar</button>
+          <button type="button" onChange={(e) => cancelRegister(e)}>
+            Cancelar
+          </button>
+        </div>
       </form>
     </>
   );

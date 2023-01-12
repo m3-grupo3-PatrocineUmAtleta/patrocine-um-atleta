@@ -14,7 +14,7 @@ export const RegisterDonate = async ({
   userId,
 }: iRegisterDataDonates): Promise<void | string> => {
   try {
-    const response = await api.post(
+    await api.post(
       `users/${userId}/donates`,
       { athleteId, amount },
       {

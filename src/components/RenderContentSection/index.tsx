@@ -29,7 +29,8 @@ export const RenderContentSection = () => {
       return <Favourites favourites={[]} />;
     }
     if (buttonValue === "Patrocinados") {
-      return <Sponsored sponsoredAthletes={[]} />;
+      // return <Sponsored sponsoredAthletes={[]} />;
+      console.log("olá");
     }
   }
 

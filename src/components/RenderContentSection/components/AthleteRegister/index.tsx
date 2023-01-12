@@ -56,9 +56,6 @@ export const AthleteRegister = () => {
         instagram: data.instagram,
         facebook: data.facebook,
       },
-      tournaments: [],
-      donations: [],
-      depositions: [],
     };
     const dataRegister = { adminId, dataAthlete, tokenLocal };
 

@@ -61,8 +61,6 @@ export const Register = () => {
       phone: data.phone,
       email: data.email,
       password: data.password,
-      favourites: [],
-      sponsoredAthletes: [],
       isAdmin: false,
     };
 
