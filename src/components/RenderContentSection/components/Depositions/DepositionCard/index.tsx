@@ -26,7 +26,7 @@ export const DepositionCard = ({
         />
         <h3 className="title-3">{name}</h3>
       </div>
-      <p>{content}</p>
+      <p className="headline">{content}</p>
     </StyledDepositionCard>
   );
 };

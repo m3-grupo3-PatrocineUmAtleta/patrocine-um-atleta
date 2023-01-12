@@ -93,7 +93,7 @@ export const Home = () => {
           </div>
         </section>
         <section className="sectionDonation">
-          <div className="reach">
+          <div className="reach" id="reach">
             <StyledContainer>
               <h2 className="title-home-2 gray-0">O ALCANCE DA SUA AÇÃO</h2>
               <p className="text-body gray-0">
@@ -140,7 +140,7 @@ export const Home = () => {
           </div>
         </section>
       </main>
-      <footer>
+      <footer id="aboutUs">
         <StyledContainer>
           <div>
             <img src={bgPatrocineUmAtletaLogo} alt="logo" />

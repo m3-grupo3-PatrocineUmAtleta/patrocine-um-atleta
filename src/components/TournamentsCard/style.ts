@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const TournamentCardStyle = styled.li`
   margin-top: 19px;
-  min-width: 165px;
-  height: 276px;
+  min-width: 200px;
+  height: 260px;
   display: flex;
   background-color: var(--color-secundary-50);
   border-radius: 10px;
@@ -11,8 +11,10 @@ export const TournamentCardStyle = styled.li`
   display: flex;
   flex-direction: column;
   gap: 86px;
-  cursor: pointer;
   transition: all 0.8s;
+  border: 1px solid var(--color-primary-100);
+
+  cursor: pointer;
 
   & > img {
     height: 44px;
@@ -21,7 +23,10 @@ export const TournamentCardStyle = styled.li`
 
   &:hover,
   :focus {
+    transform: scale(1.01, 1.07);
+    border: 1px solid white;
     background-color: var(--color-secundary-100);
+    box-shadow: 0px 0px 10px 2px white;
   }
 
   & > :nth-child(1) {
