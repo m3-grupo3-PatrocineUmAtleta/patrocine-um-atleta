@@ -77,7 +77,7 @@ export const AdmDash = () => {
                 {tournaments
                   ?.map((tournament) => {
                     return (
-                      <StyledInfoHistory key={tournament.name}>
+                      <StyledInfoHistory key={tournament.id}>
                         <img src={tournament.imgUrl} alt={tournament.name} />
                         {tournament.name}
                       </StyledInfoHistory>

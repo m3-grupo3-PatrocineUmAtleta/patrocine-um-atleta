@@ -19,7 +19,7 @@ import { BottomSectionPage } from "../../components/BottomSectionPage";
 import { getAllUser } from "../../services/getUserAdmin";
 import { iTournament } from "../../providers/User/interfaces";
 import { getTournaments } from "../../services/getTournaments";
-import { ButtonSidebarFavorite } from "../../components/ButtonSideBarFavorite";
+import { ButtonSidebarFavorite } from "../../components/ButtonSidebarFavorite";
 import { setFavorites } from "../../services/setFavorites";
 import { iAthlete } from "../../providers/User/interfaces";
 import { ToastSucess } from "../../components/Toast";
@@ -30,7 +30,6 @@ export const AthletePage = () => {
     settingsModal,
     setButtonValue,
     setContentAllUser,
-    contentAllUser,
     user,
     setUser,
   } = useContext(UserContext);
