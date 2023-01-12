@@ -30,11 +30,18 @@ export const UserProvider = ({ children }: iProviderProps) => {
   const navigate = useNavigate();
 
   const registerUser = async (data: iRegisterData) => {
-    const response = await UserRegister(data);
-    if (response === 201) {
-      setTimeout(() => {
-        navigate("/login");
-      }, 2000);
+    try {
+      setIsLoading(true);
+      const response = await UserRegister(data);
+      if (response === 201) {
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
