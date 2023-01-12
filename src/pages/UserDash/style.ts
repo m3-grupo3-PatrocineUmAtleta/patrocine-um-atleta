@@ -13,10 +13,9 @@ export const StyledUserDash = styled.div`
   }
   .container {
     width: 100%;
-    position: absolute;
-    z-index: 0;
-    top: 65px;
+
     padding: 16px;
+    margin: 0 auto;
     /* min-height: 50vh; */
     /* flex-direction: column; */
   }
@@ -111,7 +110,7 @@ export const StyledUserDash = styled.div`
       height: fit-content;
     }
     .donations-history {
-      width: 700px;
+      width: 905px;
       height: 320px;
       border-radius: 8px;
     }
