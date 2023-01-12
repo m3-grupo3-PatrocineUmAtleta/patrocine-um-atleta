@@ -4,7 +4,7 @@ import { api } from "./api";
 
 export interface iRegisterDataDonates {
   athleteId: number;
-  amount: number;
+  amount: string;
   userId: number | undefined;
 }
 

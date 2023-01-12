@@ -1,5 +1,5 @@
 import { Form } from "../../components/Form";
-import { Input, TextArea } from "../../components/Form/Input";
+import { Input } from "../../components/Form/Input";
 import { MainRegister } from "./style";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -10,6 +10,7 @@ import { UserContext } from "../../providers/User";
 import { iRegisterData } from "../../services/userRegister";
 import { getAddress, iResponseAddress } from "../../services/getAddress";
 import { ImSpinner9 } from "react-icons/im";
+import { TextArea } from "../../components/Form/Textarea";
 
 export interface iRegisterFormData {
   name: string;

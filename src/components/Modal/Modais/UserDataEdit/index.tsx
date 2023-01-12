@@ -1,4 +1,4 @@
-import { Input, TextArea } from "../../../Form/Input";
+import { Input } from "../../../Form/Input";
 import { DivEditUser } from "./style";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
 import { UserContext } from "../../../../providers/User";
 import { UserEditAPI } from "../../../../services/userEdit";
+import { TextArea } from "../../../Form/Textarea";
 
 export interface iFormDataEditUser {
   name: string;

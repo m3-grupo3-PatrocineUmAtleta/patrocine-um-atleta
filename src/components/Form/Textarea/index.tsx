@@ -1,27 +1,29 @@
-import { InputHTMLAttributes } from "react";
+import { TextareaHTMLAttributes } from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
-import { FieldsetInput } from "./styles";
+import { FieldsetInput } from "../Input/styles";
 
-interface iInputTextProps extends InputHTMLAttributes<HTMLInputElement> {
-  id: string;
+interface iInputTextareaProps
+  extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   text: string;
   type: string;
   register: UseFormRegisterReturn;
   message?: string;
   valid?: boolean;
   placeholder?: string;
+  height?: string;
 }
 
-export const Input = ({
-  id,
+export const TextArea = ({
   text,
   type,
   register,
   message,
   valid,
   placeholder,
+  rows,
+  height,
   ...rest
-}: iInputTextProps) => {
+}: iInputTextareaProps) => {
   return (
     <>
       <FieldsetInput
@@ -29,20 +31,18 @@ export const Input = ({
         validColor={!message ? "--color-sucess" : "--color-negative"}
         type={type}
       >
-        <label htmlFor={id} className="caption">
+        <label htmlFor="bio" className="caption">
           {text}
         </label>
-        <input
-          id={id}
-          type={type}
+        <textarea
+          rows={rows}
+          cols={31}
+          id="bio"
           {...register}
           {...rest}
           className="headline"
-          autoComplete="off"
           placeholder={placeholder}
         />
-
-        {message ? <p className="body-600">{message}</p> : null}
       </FieldsetInput>
     </>
   );

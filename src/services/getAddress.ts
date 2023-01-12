@@ -16,7 +16,9 @@ export interface iResponseAddress {
   ddd: string;
   siafi: string;
 }
-export const getAddress = async (cep: number): Promise<iResponseAddress> => {
+export const getAddress = async (
+  cep: number
+): Promise<iResponseAddress | undefined> => {
   try {
     const { data } = await apiCEP.get(cep + "/json", {
       headers: {
@@ -24,6 +26,7 @@ export const getAddress = async (cep: number): Promise<iResponseAddress> => {
       },
     });
     return data;
-  } finally {
+  } catch (err) {
+    console.log(err);
   }
 };

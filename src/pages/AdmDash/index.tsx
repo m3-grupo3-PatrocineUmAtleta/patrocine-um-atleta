@@ -41,10 +41,9 @@ export const AdmDash = () => {
   };
 
   useEffect(() => {}, [buttonValue]);
+
   useEffect(() => {
     getAthletes();
-  }, []);
-  useEffect(() => {
     donationsList();
   }, []);
 

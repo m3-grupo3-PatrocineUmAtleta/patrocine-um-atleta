@@ -9,6 +9,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 interface iDonationsProps {
   image?: string;
 }
+interface iDonationFormData {
+  amount: string;
+}
 
 export const Donations = ({ image }: iDonationsProps) => {
   const { user, setIsOpenModal, setSettingsModal, setDonateData } =
@@ -27,12 +30,12 @@ export const Donations = ({ image }: iDonationsProps) => {
     handleSubmit,
     reset,
     formState: { isValid },
-  } = useForm({
+  } = useForm<iDonationFormData>({
     mode: "onBlur",
     resolver: yupResolver(donationSchema),
   });
 
-  const submit = async (data: any) => {
+  const submit = async (data: iDonationFormData) => {
     const dataForm = {
       athleteId: athlete.id,
       amount: data.amount,

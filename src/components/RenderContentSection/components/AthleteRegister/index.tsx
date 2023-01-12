@@ -2,7 +2,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { AthleteRegisterAPI } from "../../../../services/athleteRegister";
-import { Input, TextArea } from "../../../Form/Input";
+import { Input } from "../../../Form/Input";
+import { TextArea } from "../../../Form/Textarea";
 import { DivRegisterAthlete } from "./style";
 
 interface iFormDataRegisterAthlete {

@@ -26,8 +26,9 @@ export const AthletePage = () => {
     setContentAllUser,
     contentAllUser,
   } = useContext(UserContext);
-  const storageAthlete: any = localStorage.getItem("@SelectedAthlete");
-  const athlete = JSON.parse(storageAthlete);
+  const storageAthlete: string | null =
+    localStorage.getItem("@SelectedAthlete");
+  const athlete = storageAthlete && JSON.parse(storageAthlete);
   const allUser = async () => {
     const getUsers = await getAllUser();
 

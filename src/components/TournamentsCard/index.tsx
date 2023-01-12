@@ -7,8 +7,7 @@ interface iTournamentCardProps {
   nameTournament: string;
   locate: string;
 }
-//comentarios
-//props não utilizada
+
 export const TournamentCard = ({
   tournamentImg,
   date,
